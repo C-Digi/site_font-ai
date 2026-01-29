@@ -19,6 +19,8 @@ const model = genAI.getGenerativeModel({
 interface RawFont {
   name: string;
   category: string;
+  source: string;
+  files: Record<string, string>;
 }
 
 interface EnrichedFont extends RawFont {
@@ -26,9 +28,18 @@ interface EnrichedFont extends RawFont {
   tags: string[];
 }
 
+async function validateUrl(url: string): Promise<boolean> {
+  try {
+    const res = await fetch(url, { method: 'HEAD' });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 async function enrichFontsWithAI(fonts: RawFont[]): Promise<EnrichedFont[]> {
   const prompt = `
-    You are a typography expert. I will provide a list of Google Fonts. 
+    You are a typography expert. I will provide a list of fonts from various sources. 
     For EACH font, provide:
     1. A rich description (2 sentences) describing its visual characteristics, history, and best use cases.
     2. A list of 5-8 semantic tags (e.g., "geometric", "friendly", "high-contrast", "display", "coding").
@@ -36,19 +47,20 @@ async function enrichFontsWithAI(fonts: RawFont[]): Promise<EnrichedFont[]> {
     Return a JSON object with a "fonts" array matching the input order.
     
     Input Fonts:
-    ${JSON.stringify(fonts)}
+    ${JSON.stringify(fonts.map(({ name, category, source }) => ({ name, category, source })))}
   `;
 
   try {
     const result = await model.generateContent(prompt);
-    const response = JSON.parse(result.response.text());
+    const text = result.response.text();
+    const cleanJson = text.replace(/^```json\n?|\n?```$/g, '');
+    const response = JSON.parse(cleanJson);
     
-    // Merge AI result with original data
     return fonts.map(f => {
       const aiData = response.fonts.find((aiF: any) => aiF.name === f.name);
       return {
         ...f,
-        description: aiData?.description || `A popular ${f.category} font.`, 
+        description: aiData?.description || `A popular ${f.category} font from ${f.source}.`,
         tags: aiData?.tags || [f.category]
       };
     });
@@ -56,7 +68,7 @@ async function enrichFontsWithAI(fonts: RawFont[]): Promise<EnrichedFont[]> {
     console.error("AI Enrichment failed for batch, using fallbacks:", error);
     return fonts.map(f => ({
       ...f,
-      description: `A popular ${f.category} font family.`, 
+      description: `A popular ${f.category} font family from ${f.source}.`,
       tags: [f.category]
     }));
   }
@@ -66,56 +78,87 @@ async function seed() {
   const GOOGLE_FONTS_API_KEY = process.env.GOOGLE_FONTS_API_KEY;
   let rawFonts: RawFont[] = [];
 
-  // 1. Fetch Basic Data
+  // 1. Fetch Google Fonts
   if (GOOGLE_FONTS_API_KEY) {
     console.log('Fetching fonts from Google Fonts API...');
     try {
       const response = await fetch(`https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=${GOOGLE_FONTS_API_KEY}`);
       const data = await response.json();
       if (data.items) {
-        rawFonts = data.items.slice(0, 100).map((f: any) => ({ // Start with top 100 for safety/speed testing
+        const googleFonts = data.items.map((f: any) => ({
           name: f.family,
           category: f.category,
+          source: 'Google Fonts',
+          files: f.files || {}
         }));
+        rawFonts = [...rawFonts, ...googleFonts];
+        console.log(`Added ${googleFonts.length} fonts from Google Fonts.`);
       }
     } catch (err) {
-      console.error('Error fetching API:', err);
+      console.error('Error fetching Google Fonts:', err);
     }
   }
 
+  // 2. Fetch Fontsource (Open Source aggregator)
+  console.log('Fetching fonts from Fontsource API...');
+  try {
+    const response = await fetch('https://api.fontsource.org/v1/fonts');
+    const data = await response.json();
+    if (Array.isArray(data)) {
+      // Fontsource list API doesn't include files by default, we'd need to fetch individual font data
+      // For speed in this seed, we'll construct the common Fontsource URL pattern if files are missing
+      const fontsourceFonts = data.slice(0, 500).map((f: any) => ({
+        name: f.family,
+        category: f.category || 'sans-serif',
+        source: 'Fontsource',
+        // Fontsource usually has a standard structure: https://cdn.jsdelivr.net/npm/@fontsource/[id]/files/[id]-latin-400-normal.woff2
+        files: f.files || {
+          "400": `https://api.fontsource.org/v1/fonts/${f.id}` // Placeholder link to their info page
+        }
+      }));
+      const uniqueFontsource = fontsourceFonts.filter(f => !rawFonts.find(rf => rf.name === f.name));
+      rawFonts = [...rawFonts, ...uniqueFontsource];
+      console.log(`Added ${uniqueFontsource.length} unique fonts from Fontsource.`);
+    }
+  } catch (err) {
+    console.error('Error fetching Fontsource:', err);
+  }
+
+  // 3. Manual Fontshare List
+  const fontshareFonts: RawFont[] = [
+    { name: 'Satoshi', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/satoshi" } },
+    { name: 'Clash Display', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/clash-display" } },
+    { name: 'General Sans', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/general-sans" } },
+    { name: 'Ranade', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/ranade" } },
+    { name: 'Zodiak', category: 'serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/zodiak" } },
+    { name: 'Cabinet Grotesk', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/cabinet-grotesk" } },
+    { name: 'Telma', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/telma" } },
+    { name: 'Synne', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/synne" } },
+    { name: 'Chillax', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/chillax" } },
+    { name: 'Expose', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/expose" } },
+    { name: 'Melodrama', category: 'serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/melodrama" } },
+    { name: 'Papiere', category: 'handwriting', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/papiere" } },
+    { name: 'Britney', category: 'handwriting', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/britney" } }
+  ];
+  const uniqueFontshare = fontshareFonts.filter(f => !rawFonts.find(rf => rf.name === f.name));
+  rawFonts = [...rawFonts, ...uniqueFontshare];
+  console.log(`Added ${uniqueFontshare.length} unique fonts from Fontshare.`);
+
   if (rawFonts.length === 0) {
-    console.log('Using mock fonts list...');
+    console.log('No fonts fetched, using minimal mock list...');
     rawFonts = [
-      { name: 'Roboto', category: 'sans-serif' },
-      { name: 'Playfair Display', category: 'serif' },
-      { name: 'Montserrat', category: 'sans-serif' },
-      { name: 'Open Sans', category: 'sans-serif' },
-      { name: 'Lato', category: 'sans-serif' },
-      { name: 'Poppins', category: 'sans-serif' },
-      { name: 'Inter', category: 'sans-serif' },
-      { name: 'Oswald', category: 'sans-serif' },
-      { name: 'Raleway', category: 'sans-serif' },
-      { name: 'Ubuntu', category: 'sans-serif' },
-      { name: 'Merriweather', category: 'serif' },
-      { name: 'Lora', category: 'serif' },
-      { name: 'PT Serif', category: 'serif' },
-      { name: 'Crimson Text', category: 'serif' },
-      { name: 'Abril Fatface', category: 'display' },
-      { name: 'Bebas Neue', category: 'display' },
-      { name: 'Roboto Mono', category: 'monospace' },
-      { name: 'Fira Code', category: 'monospace' },
-      { name: 'Caveat', category: 'handwriting' },
-      { name: 'Pacifico', category: 'handwriting' }
+      { name: 'Roboto', category: 'sans-serif', source: 'Google Fonts' },
+      { name: 'Playfair Display', category: 'serif', source: 'Google Fonts' }
     ];
   }
 
-  console.log(`Starting enrichment for ${rawFonts.length} fonts...`);
+  console.log(`Starting enrichment for ${rawFonts.length} total fonts...`);
 
-  // 2. Process in Batches
+  // 4. Process in Batches
   const BATCH_SIZE = 10;
   for (let i = 0; i < rawFonts.length; i += BATCH_SIZE) {
     const batch = rawFonts.slice(i, i + BATCH_SIZE);
-    console.log(`Processing batch ${i / BATCH_SIZE + 1}...`);
+    console.log(`Processing batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(rawFonts.length / BATCH_SIZE)}...`);
 
     // A. Enrich with AI
     const enrichedBatch = await enrichFontsWithAI(batch);
@@ -123,8 +166,7 @@ async function seed() {
     // B. Generate Embeddings & Upsert
     for (const font of enrichedBatch) {
       try {
-        // Create a rich context string for the embedding
-        const contextString = `Name: ${font.name}. Category: ${font.category}. Tags: ${font.tags.join(", ")}. Description: ${font.description}`;
+        const contextString = `Name: ${font.name}. Source: ${font.source}. Category: ${font.category}. Tags: ${font.tags.join(", ")}. Description: ${font.description}`;
         
         const embedding = await generateEmbedding(contextString);
 
@@ -135,21 +177,21 @@ async function seed() {
             category: font.category,
             description: font.description,
             tags: font.tags,
+            source: font.source,
+            files: font.files,
             embedding: embedding
           }, { onConflict: 'name' });
 
         if (error) throw error;
-        process.stdout.write('.'); // Progress dot
+        process.stdout.write('.');
       } catch (err) {
         console.error(`\n❌ Failed to seed ${font.name}:`, err);
       }
     }
     console.log('\nBatch complete.');
-    // Small delay to avoid rate limits
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
   }
 
   console.log('Seeding complete!');
 }
-
 seed();

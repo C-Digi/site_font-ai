@@ -3,6 +3,8 @@ export interface Font {
   desc: string;
   category: string;
   tags?: string[];
+  source?: string;
+  files?: Record<string, string>;
 }
 
 export interface ChatMessage {

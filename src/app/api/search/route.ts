@@ -9,7 +9,7 @@ dotenv.config({ path: ".env.local", override: true });
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 const model = genAI.getGenerativeModel({
-  model: "gemini-3-pro-preview",
+  model: "gemini-2.0-flash-lite",
 });
 
 
@@ -22,15 +22,16 @@ Strictly return JSON in the following format:
   "reply": "string (a concise, helpful reply, max 15 words)",
   "fonts": [
     {
-      "name": "Exact Google Font Name",
+      "name": "Exact Font Name",
       "desc": "Short description of why this font fits the request (max 10 words)",
       "category": "serif | sans-serif | display | handwriting | monospace",
-      "tags": ["tag1", "tag2", "tag3"]
+      "tags": ["tag1", "tag2", "tag3"],
+      "source": "Google Fonts | Fontsource | Fontshare"
     }
   ]
 }
 Provide at least 16-24 fonts to allow for pagination. 
-Only suggest real fonts available on Google Fonts.
+Only suggest real fonts available on Google Fonts, Fontsource, or Fontshare.
 Do not include any markdown formatting (like code blocks) in your response, just the raw JSON string.`;
 
 export async function POST(req: Request) {
@@ -71,7 +72,7 @@ export async function POST(req: Request) {
     let context = "";
     if (fontsData && fontsData.length > 0) {
       context = "Relevant fonts from our database:\n" + 
-        fontsData.map((f: any) => `- ${f.name} (${f.category}): ${f.description} [Tags: ${f.tags?.join(", ")}]`).join("\n");
+        fontsData.map((f: any) => `- ${f.name} (${f.category}) [Source: ${f.source}]: ${f.description} [Tags: ${f.tags?.join(", ")}]`).join("\n");
     }
 
     const chatSession = model.startChat({
@@ -92,6 +93,22 @@ export async function POST(req: Request) {
     try {
       const data = JSON.parse(responseText);
 
+      // Enrich AI results with database metadata (files, tags, actual source)
+      if (data.fonts && fontsData) {
+        data.fonts = data.fonts.map((aiFont: any) => {
+          const dbFont = fontsData.find((df: any) => df.name.toLowerCase() === aiFont.name.toLowerCase());
+          if (dbFont) {
+            return {
+              ...aiFont,
+              tags: dbFont.tags || aiFont.tags,
+              source: dbFont.source || aiFont.source,
+              files: dbFont.files || {}
+            };
+          }
+          return aiFont;
+        });
+      }
+
       // 4. Progressive Seeding (JIT)
       // Check if suggested fonts exist in our DB, if not, seed them in the background
       if (data.fonts && data.fonts.length > 0) {
@@ -109,12 +126,14 @@ export async function POST(req: Request) {
                 if (!existing) {
                   console.log(`Lazy seeding missing font: ${font.name}`);
                   const tags = font.tags || [font.category];
-                  const fontEmbedding = await generateEmbedding(`${font.name} ${font.category} ${tags.join(" ")} ${font.desc}`);
+                  const source = font.source || 'Google Fonts';
+                  const fontEmbedding = await generateEmbedding(`${font.name} ${font.category} ${source} ${tags.join(" ")} ${font.desc}`);
                   const { error: insertError } = await supabase.from("fonts").insert({
                     name: font.name,
                     category: font.category,
                     description: font.desc,
                     tags: tags,
+                    source: source,
                     embedding: fontEmbedding
                   });
                   if (insertError) throw insertError;
