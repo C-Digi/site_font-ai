@@ -2,6 +2,7 @@ export interface Font {
   name: string;
   desc: string;
   category: string;
+  tags?: string[];
 }
 
 export interface ChatMessage {
