@@ -58,7 +58,10 @@ export default function FontExplorer() {
         body: JSON.stringify({ message, history }),
       });
 
-      if (!response.ok) throw new Error("Search failed");
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Search failed with status ${response.status}`);
+      }
 
       const data: SearchResponse = await response.json();
       
