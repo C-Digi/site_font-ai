@@ -12,7 +12,9 @@ Now, every time Gemini suggests a font that
    2. Add GOOGLE_FONTS_API_KEY=your_key to your .env.local.
    3. Run the command below (I've updated the script to handle 1,000+ fonts with the API). 
 
+why stop at 1k - do all google fonts available (1,911 families according to UI)
 
+are there other free APIs for font sources that would be good for this other than google fonts, which would have additional fonts google doesnt have? only free fonts.
 
 
 

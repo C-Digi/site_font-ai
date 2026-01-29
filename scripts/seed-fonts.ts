@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { generateEmbedding } from '../src/lib/ai/embeddings';
 import * as dotenv from 'dotenv';
 
 dotenv.config({ path: '.env.local', override: true });
@@ -10,12 +11,10 @@ const supabase = createClient(
 );
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-// Use the faster model for batch processing
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash-lite-preview-02-05",
+  model: "gemini-3-pro-preview",
   generationConfig: { responseMimeType: "application/json" }
 });
-const embedModel = genAI.getGenerativeModel({ model: "embedding-001" });
 
 interface RawFont {
   name: string;
@@ -127,8 +126,7 @@ async function seed() {
         // Create a rich context string for the embedding
         const contextString = `Name: ${font.name}. Category: ${font.category}. Tags: ${font.tags.join(", ")}. Description: ${font.description}`;
         
-        const result = await embedModel.embedContent(contextString);
-        const embedding = result.embedding.values;
+        const embedding = await generateEmbedding(contextString);
 
         const { error } = await supabase
           .from('fonts')
