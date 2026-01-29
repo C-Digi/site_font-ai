@@ -21,8 +21,7 @@ Strictly return JSON in the following format:
 }
 Provide at least 16-24 fonts to allow for pagination. 
 Only suggest real fonts available on Google Fonts.
-Do not include any markdown formatting (like 
-```json) in your response, just the raw JSON string.`;
+Do not include any markdown formatting (like code blocks) in your response, just the raw JSON string.`;
 
 export async function POST(req: Request) {
   try {

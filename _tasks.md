@@ -1,3 +1,14 @@
+
+
+type-hype.com
+find-a-font.com
+tip-tap-type.com
+font-fetcher.com
+font-fetch.com
+
+
+
+
 use the below html as a starting point. i want to build it into a website for profit, but with a generous free tier for growth.
 - hook it up to RAG to cache and reuse results when over a semantic threshold, then use AI as a fallback (saving the results)
 - give 5-per-day and 15-per-week limit

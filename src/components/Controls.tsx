@@ -27,8 +27,8 @@ export function Controls({
   ];
 
   const setRandomPangram = () => {
-    const random = pangrams[Math.floor(Math.random() * pangrams.length)];
-    setPreviewText(random);
+    const random = pangrams[Math.floor(Math.random() * pangrams.length)] ?? pangrams[0];
+    setPreviewText(random!);
   };
 
   return (
