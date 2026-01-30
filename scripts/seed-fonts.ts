@@ -147,8 +147,8 @@ async function seed() {
   if (rawFonts.length === 0) {
     console.log('No fonts fetched, using minimal mock list...');
     rawFonts = [
-      { name: 'Roboto', category: 'sans-serif', source: 'Google Fonts' },
-      { name: 'Playfair Display', category: 'serif', source: 'Google Fonts' }
+      { name: 'Roboto', category: 'sans-serif', source: 'Google Fonts', files: {} },
+      { name: 'Playfair Display', category: 'serif', source: 'Google Fonts', files: {} }
     ];
   }
 
@@ -160,13 +160,37 @@ async function seed() {
     const batch = rawFonts.slice(i, i + BATCH_SIZE);
     console.log(`Processing batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(rawFonts.length / BATCH_SIZE)}...`);
 
-    // A. Enrich with AI
-    const enrichedBatch = await enrichFontsWithAI(batch);
+    // A. Filter out fonts already in DB to save on AI costs
+    const { data: existingFonts } = await supabase
+      .from('fonts')
+      .select('name')
+      .in('name', batch.map(f => f.name));
+    
+    const existingNames = new Set(existingFonts?.map(f => f.name) || []);
+    const newFonts = batch.filter(f => !existingNames.has(f.name));
 
-    // B. Generate Embeddings & Upsert
+    if (newFonts.length === 0) {
+      console.log(`Skipping batch ${Math.floor(i / BATCH_SIZE) + 1} (all fonts exist).`);
+      continue;
+    }
+
+    // B. Enrich with AI
+    const enrichedBatch = await enrichFontsWithAI(newFonts);
+
+    // C. Generate Embeddings & Upsert
     for (const font of enrichedBatch) {
       try {
-        const contextString = `Name: ${font.name}. Source: ${font.source}. Category: ${font.category}. Tags: ${font.tags.join(", ")}. Description: ${font.description}`;
+        // Only seed fonts with valid file URLs if they exist
+        if (font.files && Object.values(font.files).length > 0) {
+          const firstUrl = Object.values(font.files)[0];
+          const isValid = await validateUrl(firstUrl);
+          if (!isValid) {
+            console.log(`\n⚠️ Skipping ${font.name} due to invalid file URL: ${firstUrl}`);
+            continue;
+          }
+        }
+
+        const contextString = `Name: ${font.name}. Category: ${font.category}. Tags: ${font.tags.join(", ")}. Description: ${font.description}`;
         
         const embedding = await generateEmbedding(contextString);
 

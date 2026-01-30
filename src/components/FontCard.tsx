@@ -1,6 +1,7 @@
 "use client";
 
-import { ExternalLink, Download, Tag } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ExternalLink, Download, Tag, AlertTriangle } from "lucide-react";
 import { Font } from "@/lib/types";
 
 interface FontCardProps {
@@ -11,6 +12,25 @@ interface FontCardProps {
 }
 
 export function FontCard({ font, previewText, fontSize, fontWeight }: FontCardProps) {
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    // Check if font is loaded/valid
+    if (typeof document !== "undefined") {
+      // Small delay to allow stylesheet to load
+      const timeout = setTimeout(() => {
+        const isLoaded = document.fonts.check(`${fontWeight} 16px "${font.name}"`);
+        if (!isLoaded) {
+          // Attempt to load it explicitly to be sure
+          document.fonts.load(`${fontWeight} 16px "${font.name}"`).then(fonts => {
+            if (fonts.length === 0) setHasError(true);
+          }).catch(() => setHasError(true));
+        }
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [font.name, fontWeight]);
+
   // Construct links based on source
   const googleFontsUrl = `https://fonts.google.com/specimen/${font.name.replace(/\s+/g, "+")}`;
   const fontshareUrl = `https://www.fontshare.com/fonts/${font.name.toLowerCase().replace(/\s+/g, "-")}`;
@@ -51,8 +71,9 @@ export function FontCard({ font, previewText, fontSize, fontWeight }: FontCardPr
             <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold bg-gray-50 dark:bg-gray-800 px-1.5 py-0.5 rounded">
               {font.category}
             </span>
-            <span className="text-[10px] text-gray-400 font-medium">
+            <span className="text-[10px] text-gray-400 font-medium flex items-center gap-1">
               via {font.source || "Google Fonts"}
+              {hasError && <AlertTriangle className="w-3 h-3 text-amber-500" title="Font failed to load" />}
             </span>
           </div>
         </div>
@@ -86,6 +107,7 @@ export function FontCard({ font, previewText, fontSize, fontWeight }: FontCardPr
           fontFamily: `'${font.name}', sans-serif`,
           fontSize: `${fontSize}px`,
           fontWeight: fontWeight,
+          opacity: hasError ? 0.5 : 1
         }}
       >
         {previewText}

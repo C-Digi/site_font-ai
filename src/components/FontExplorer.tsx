@@ -10,11 +10,14 @@ import { Font, ChatMessage, SearchResponse } from "@/lib/types";
 export default function FontExplorer() {
   const [history, setHistory] = useState<ChatMessage[]>([]);
   const [fonts, setFonts] = useState<Font[]>([]);
+  const [fontStatuses, setFontStatuses] = useState<Record<string, { renderable: boolean; downloadable: boolean }>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState("Ready to explore typography.");
   const [previewText, setPreviewText] = useState("The quick brown fox jumps over the lazy dog.");
   const [fontSize, setFontSize] = useState(32);
   const [fontWeight, setFontWeight] = useState(400);
+  const [showUnrenderable, setShowUnrenderable] = useState(false);
+  const [showDownloadless, setShowDownloadless] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
@@ -23,10 +26,12 @@ export default function FontExplorer() {
     handleSend("Show me diverse, modern trending fonts for UI design.");
   }, []);
 
-  // Update dynamic font link
+  // Update dynamic font link & check renderability
   useEffect(() => {
     if (fonts.length > 0) {
       const uniqueNames = Array.from(new Set(fonts.map(f => f.name)));
+      
+      // 1. Update Stylesheet
       const families = uniqueNames
         .map(name => `family=${name.trim().replace(/\s+/g, "+")}:wght@100;200;300;400;500;600;700;800;900`)
         .join("&");
@@ -40,8 +45,52 @@ export default function FontExplorer() {
         document.head.appendChild(link);
       }
       link.href = `https://fonts.googleapis.com/css2?${families}&display=swap`;
+
+      // 2. Check Renderability and Downloadability
+      uniqueNames.forEach((name) => {
+        const font = fonts.find(f => f.name === name);
+        if (!font) return;
+
+        const hasFiles = font.files && Object.keys(font.files).length > 0;
+        
+        // Check renderable (after a short delay for stylesheet to parse)
+        setTimeout(async () => {
+          let isRenderable = false;
+          try {
+            // Test at multiple weights to be sure
+            const loaded = await document.fonts.load(`${fontWeight} 16px "${name}"`);
+            isRenderable = loaded.length > 0;
+          } catch (e) {
+            console.error(`Render check failed for ${name}:`, e);
+          }
+
+          if (!isRenderable && !hasFiles) {
+             console.log(`%c🚫 Font Hidden: ${name} (No download + No render)`, "color: #ff4444; font-weight: bold;");
+          }
+
+          setFontStatuses(prev => ({
+            ...prev,
+            [name]: { renderable: isRenderable, downloadable: !!hasFiles }
+          }));
+        }, 1500);
+      });
     }
-  }, [fonts]);
+  }, [fonts, fontWeight]);
+
+  // Filtered fonts logic
+  const filteredFonts = fonts.filter(font => {
+    const s = fontStatuses[font.name];
+    if (!s) return true; // Show while checking
+
+    // If both fail, NEVER show
+    if (!s.renderable && !s.downloadable) return false;
+
+    // Apply user toggles
+    if (!showUnrenderable && !s.renderable) return false;
+    if (!showDownloadless && !s.downloadable) return false;
+
+    return true;
+  });
 
   const handleSend = async (message: string) => {
     setIsLoading(true);
@@ -96,9 +145,13 @@ export default function FontExplorer() {
           setFontSize={setFontSize}
           fontWeight={fontWeight}
           setFontWeight={setFontWeight}
+          showUnrenderable={showUnrenderable}
+          setShowUnrenderable={setShowUnrenderable}
+          showDownloadless={showDownloadless}
+          setShowDownloadless={setShowDownloadless}
         />
         <FontGrid
-          fonts={fonts}
+          fonts={filteredFonts}
           isLoading={isLoading}
           previewText={previewText}
           fontSize={fontSize}

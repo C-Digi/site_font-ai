@@ -3,6 +3,7 @@
 ## 1. Project Overview
 
 - **Project Name:** `site_font-ai` (AI Font Explorer)
+- **Domain:** `type-hype.com`
 - **Description:** An AI-powered font discovery tool that uses semantic search and RAG to recommend fonts based on user descriptions.
 - **Primary Goal:** Provide a seamless, intelligent interface for finding fonts that match specific moods, use cases, or styles.
 
@@ -13,9 +14,11 @@
 - **UI Library:** `React 19`, `Tailwind CSS 4`, `Lucide React`
 - **State Management:** React state, `next-themes` for theme management.
 - **Database/Vector:** `Supabase` (with `pgvector`)
-- **AI/LLM:** `Gemini 2.0 Flash Lite` (via `@google/generative-ai`)
+- **AI/LLM:** `gemini-2.0-flash-lite` (Search), `gemini-3-pro-preview` (Seeding)
 - **Embeddings:** `OpenRouter` (`qwen/qwen3-embedding-8b`, 4096 dimensions)
+- **Embedding Context:** `Name`, `Category`, `Tags`, `Description` 
 - **Package Manager:** `npm`
+- **Seeding:** `scripts/seed-fonts.ts` (Idempotent, URL validation, AI enrichment)
 
 ## 3. Coding Style & Conventions
 
@@ -51,9 +54,18 @@
 
 - **Vector Dimension:** Must use 4096 dimensions for embeddings (matching `qwen/qwen3-embedding-8b`).
 - **AI Response Format:** Always return a raw JSON string from the LLM, following the schema defined in `SYSTEM_PROMPT`.
+- **Seeding Idempotency:** Always check for existing fonts by name before running AI enrichment or embedding generation to save API costs.
+- **Font Availability:** Never display a font card if it both fails to render AND lacks a download link.
+- **Link Validation:** Use `HEAD` requests to validate font file URLs during seeding.
 - **API Keys:** Requires `GEMINI_API_KEY`, `OPENROUTER_API_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY`.
 
-## 7. Development Environment
+## 7. Frontend Error Handling
+
+- **Rendering Check:** Use `document.fonts.load()` to verify font renderability.
+- **Toggles:** Provide subtle UI toggles (disabled by default) to "Include rendering issues" and "Include missing downloads."
+- **Logging:** Console log hidden fonts (double-failure) with `%c` styling for visibility during debugging.
+
+## 8. Development Environment
 
 - **Start Command:** `npm run dev`
 - **Build Command:** `npm run build`

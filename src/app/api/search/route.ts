@@ -126,8 +126,7 @@ export async function POST(req: Request) {
                 if (!existing) {
                   console.log(`Lazy seeding missing font: ${font.name}`);
                   const tags = font.tags || [font.category];
-                  const source = font.source || 'Google Fonts';
-                  const fontEmbedding = await generateEmbedding(`${font.name} ${font.category} ${source} ${tags.join(" ")} ${font.desc}`);
+                  const fontEmbedding = await generateEmbedding(`${font.name} ${font.category} ${tags.join(" ")} ${font.desc}`);
                   const { error: insertError } = await supabase.from("fonts").insert({
                     name: font.name,
                     category: font.category,
