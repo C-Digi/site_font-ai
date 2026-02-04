@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:qwen.ai)",
+      "Bash(python \"C:\\\\Users\\\\Casey\\\\.claude\\\\skills\\\\tavily\\\\scripts\\\\tavily_tools.py\" search \"Qwen3-VL-Embedding-8B modality support embedding dimension benchmarks license\" --search_depth advanced)"
+    ]
+  }
+}

@@ -1,2 +1,2 @@
-@../../.agent/rules/rules_site-ai-font.md
+@../../.agent/rules/rules-project_ai-font.md
 

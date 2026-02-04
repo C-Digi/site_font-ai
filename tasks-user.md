@@ -51,18 +51,121 @@ when similarity > 0.95
 - for continued messages in the chat after this, are the cache-responses included in the chat session history for the LLM to reference later in the conversation?
 
 
+---
 
+- hybrid web-scrape:
+  - https://gemini.google.com/app/f08332b6047a2dd1
+
+include in rag factors
+- visual attributes, e.g., `fonts with a large x-height and open counters for low-legibility environments`
+
+
+---
+
+https://qwen.ai/blog?id=qwen3-vl-embedding
+https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B
+investigate if implementing this over our current rag embedding method would be an improvement, e.g. instead of using the only the ai-generated description to feed embedding model, use also a rendered image of full alphanumeric set plus a pangram.
+also - can this embedding be done locally on 2x rtx 3090's with nvlink? 
+
+
+
+
+
+
+
+
+## Visual Identity
+- https://gemini.google.com/app/2ad7e25f4747f6db
+- 
 
 Logo - type-hype.com
-
-UI revamp
+"C:\Users\Casey\CloudStorage\TypeHype\Logos\logo_01\logo-typehype_01-darkmode.png"
+"C:\Users\Casey\CloudStorage\TypeHype\Logos\logo_01\logo-typehype_01-lightmode.png"
 
 light/dark mode
 
+---
+
+## add features
+
+
+if preview text empty, have AI insert a relevant string
+
+add a dismissable banner: `Leaving this page or closing the tab will clear the chat history.`
+
+Favorites
+- add favorites buttons on font cards 
+- add a RH sidebar with Favs list
+
+
+add a slow-scrolling looping list of suggested prompts below the chat input box, clickable to input to the chat
+- subtly elegant wedding invitation
+- modern minimalist tech blog
+- kids halloween party flyer 
+- playful children's book
+- boho-chic wall art
+- retro 1980s arcade game
+- prohibition-era speak-easy
+- vintage circus poster
+- sleek corporate powerpoint
+
+
+example/competition:
+https://www.myfonts.com/pages/ai-search
+- no free fonts, no free filter
+- 
 
 
 
+--text: #071313;
+--background: #effbfb;
+--primary: #30dfdc;
+--secondary: #7bf4f2;
+--accent: #4ffcf7;
 
+--text: #09130e;
+--background: #f1faf6;
+--primary: #47cd92;
+--secondary: #8be8bf;
+--accent: #62eaae;
+
+
+--text: #eaf6f2;
+--background: #020303;
+--primary: #33c1a0;
+--secondary: #187c63;
+--accent: #14a380;
+
+
+--text: #0c1518;
+--background: #f0f8fa;
+--primary: #49adc5;
+--secondary: #98d7e6;
+--accent: #64cbe3;
+
+--text: #0c151d;
+--background: #f4f8fb;
+--primary: #568ac2;
+--secondary: #9abcdf;
+--accent: #72a2d5;
+
+--text: #0d0f16;
+--background: #f3f4f9;
+--primary: #5468b3;
+--secondary: #a0acdb;
+--accent: #7185d2;
+
+--text: #050708;
+--background: #f5f9fb;
+--primary: #33a2d2;
+--secondary: #80d0f2;
+--accent: #48c7fe;
+
+--text: #050505;
+--background: #f6f9f7;
+--primary: #54ab64;
+--secondary: #98dda4;
+--accent: #6be180;
 
 
 ## Address Options 
@@ -73,7 +176,6 @@ find-a-font.com
 tip-tap-type.com
 font-fetcher.com
 font-fetch.com
-
 
 
 
