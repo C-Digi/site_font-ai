@@ -20,21 +20,21 @@ Status legend:
 
 ### Datasets (freeze inputs)
 
-- [ ] Define `corpus_id` + produce corpus manifest — `NOT STARTED`
-- [ ] Define `queryset_id` + produce query set — `NOT STARTED`
-- [ ] Define `labelset_id` + produce labels file — `NOT STARTED`
+- [x] Define `corpus_id` + produce corpus manifest — `DONE` (toy)
+- [x] Define `queryset_id` + produce query set — `DONE` (toy)
+- [x] Define `labelset_id` + produce labels file — `DONE` (toy)
 - [ ] Validate dataset integrity (IDs match across files; URLs renderable) — `NOT STARTED`
 
 ### Artifacts (derived outputs)
 
 - [ ] Create `run_id` and `RUN_META.json` — `NOT STARTED`
-- [ ] Generate glyph-sheet PNGs — `NOT STARTED`
-- [ ] Compute embeddings: A docs + A queries — `NOT STARTED`
+- [x] Generate glyph-sheet PNGs — `DONE` (toy)
+- [x] Compute embeddings: A docs + A queries — `DONE` (toy)
 - [ ] Compute embeddings: B1 docs + B queries — `NOT STARTED`
 - [ ] Compute embeddings: B2 docs + B queries — `NOT STARTED`
-- [ ] Retrieval + scoring: A / B1 / B2 — `NOT STARTED`
+- [x] Retrieval + scoring: A / B1 / B2 — `DONE` (toy, A only)
 - [ ] Hybrid fusion scoring (Variant C, α sweep) — `NOT STARTED`
-- [ ] Produce report.md with qualitative wins/losses — `NOT STARTED`
+- [x] Produce report.md with qualitative wins/losses — `DONE` (toy)
 
 ### Decision
 
@@ -47,18 +47,18 @@ Status legend:
 
 ### Current dataset IDs
 
-- `corpus_id`: _TBD_
-- `queryset_id`: _TBD_
-- `labelset_id`: _TBD_
+- `corpus_id`: `toy-corpus-v1`
+- `queryset_id`: `toy-queries-v1`
+- `labelset_id`: `toy-labels-v1`
 
 ### Current run
 
-- `run_id`: _TBD_
+- `run_id`: `run-text-baseline-toy`
 - embedding backend:
   - baseline A: OpenRouter `qwen/qwen3-embedding-8b`
   - VL B: _TBD_ (official vs vLLM; record exact)
-- similarity function: _TBD_ (cosine vs dot)
-- normalization: _TBD_
+- similarity function: `cosine`
+- normalization: `none`
 
 ### Snapshot (what we know right now)
 
@@ -70,4 +70,6 @@ Status legend:
 ## Status log
 
 - 2026-02-05 — Initialized SSoT docs under `research/ab-eval/`.
+- 2026-02-05 — Implemented offline evaluation harness (scripts + toy data).
+- 2026-02-05 — Ran full text baseline pipeline on toy data.
 

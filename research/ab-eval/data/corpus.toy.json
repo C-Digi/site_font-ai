@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Roboto",
+    "category": "sans-serif",
+    "tags": ["modern", "clean", "geometric"],
+    "description": "A versatile and readable sans-serif font used widely in digital interfaces.",
+    "files": {
+      "400": "https://github.com/google/fonts/raw/main/apache/roboto/Roboto-Regular.ttf"
+    }
+  },
+  {
+    "name": "Playfair Display",
+    "category": "serif",
+    "tags": ["elegant", "luxury", "high-contrast"],
+    "description": "A sophisticated serif font perfect for headlines and fashion branding.",
+    "files": {
+      "400": "https://github.com/google/fonts/raw/main/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf"
+    }
+  }
+]
