@@ -1,0 +1,282 @@
+# RUNBOOK — Offline A/B eval (text vs Qwen3-VL embeddings)
+
+This runbook defines the **offline** evaluation procedures, dataset definitions, artifact naming, and “done”/decision criteria.
+
+Authoritative plan references:
+
+- [`_05_guides/2026-02-05_offline-ab-eval-plan_qwen3-vl.md`](_05_guides/2026-02-05_offline-ab-eval-plan_qwen3-vl.md)
+- [`_05_guides/2026-02-04_qwen3-vl-embedding_assessment.md`](_05_guides/2026-02-04_qwen3-vl-embedding_assessment.md)
+
+---
+
+## 0) Goal and variants
+
+Goal: determine whether Qwen3-VL embeddings improve **font retrieval quality** vs the current text-only baseline.
+
+Variants (compute on identical corpora/queries/labels):
+
+- **A (baseline / text):** current production-style embeddings via [`generateEmbedding()`](src/lib/ai/embeddings.ts:4)
+  - docs: `Name/Category/Tags/Description` (seed-time proxy)
+  - queries: raw user `message`
+- **B (VL):** Qwen3-VL embedding
+  - queries: embed query as text (VL text encoder)
+  - docs:
+    - **B1:** glyph sheet image only
+    - **B2:** glyph sheet image + short structured text (Name/Category/Tags)
+- **C (hybrid):** fuse scores from A + B
+  - weighted sum `score = α * sim_text + (1-α) * sim_vl` (sweep α)
+  - or RRF if weighted sum is unstable (record which you use)
+
+Primary metrics:
+
+- Recall@10, Recall@20
+- MRR@10
+
+---
+
+## 1) Dataset definitions (frozen inputs)
+
+All datasets should be **frozen** under [`research/ab-eval/datasets/`](research/ab-eval/README.md) before computing artifacts.
+
+### 1.1 Corpus manifest (fonts)
+
+Purpose: reproducible font set aligned to production docs, constrained to **renderable fonts** (valid downloadable files).
+
+Target size:
+
+- 200–500 fonts (start with 200 if rendering is the bottleneck)
+
+Manifest format (choose one, but keep it stable across runs):
+
+- `corpus.<corpus_id>.jsonl` (preferred)
+  - One JSON object per font.
+- `corpus.<corpus_id>.csv`
+
+Required fields (minimum):
+
+- `font_id` (stable identifier; can be name-based if needed, but must be unique)
+- `name`
+- `category`
+- `tags` (array or delimited string)
+- `description`
+- `source`
+- `file_url` (single canonical file; prefer Regular 400)
+
+Required constraints:
+
+- `file_url` must be validated (HEAD/GET) and must download a real font binary (WOFF2/TTF/OTF)
+- Only include fonts we can render deterministically from the downloaded file
+
+### 1.2 Query set
+
+Purpose: represent real user intent with an explicit mix of query types.
+
+Target size:
+
+- 30–60 queries
+
+Query format:
+
+- `queries.<queryset_id>.jsonl`
+
+Required fields:
+
+- `query_id` (stable identifier)
+- `query_text`
+- `query_class` (categorical label; recommended values below)
+
+Recommended `query_class` taxonomy:
+
+- `visual_shape` (x-height, counters, terminals, width, contrast)
+- `semantic_history` (era, inspiration, “in the style of…”, genre)
+- `use_case` (UI, editorial, branding, coding/mono)
+- `language_script` (if you include script/locale queries)
+
+### 1.3 Relevance labels
+
+Purpose: ground truth for offline scoring.
+
+Labeling rules (keep simple):
+
+- Binary relevance is acceptable
+- 5–20 relevant fonts per query is enough
+
+Labels format:
+
+- `labels.<labelset_id>.json`
+
+Required structure:
+
+- `version` (string)
+- `queryset_id`
+- `corpus_id`
+- `labels: Array<{ query_id, relevant_font_ids, notes? }>`
+
+Optional:
+
+- graded relevance (0/1/2) if you’re willing to be consistent; otherwise stick to binary
+
+---
+
+## 2) Artifact paths and naming
+
+All derived outputs go under:
+
+- `research/ab-eval/artifacts/<run_id>/...`
+
+`run_id` naming (recommended):
+
+```
+YYYY-MM-DD__corpus-<corpus_id>__queries-<queryset_id>__labels-<labelset_id>
+```
+
+Each run folder should contain (at minimum):
+
+- `RUN_META.json`
+  - `run_id`, timestamps, git commit hash, machine info, embedding backend info
+  - dataset IDs: `corpus_id`, `queryset_id`, `labelset_id`
+- `glyph_sheets/`
+  - one PNG per `font_id`
+- `embeddings/`
+  - `docs.variant-<A|B1|B2>.npy|parquet|jsonl` (pick one format)
+  - `queries.variant-<A|B>.npy|...`
+- `rankings/`
+  - top-K results per query per variant
+- `metrics/`
+  - summary table (CSV/JSON)
+  - per-query breakdown (CSV/JSON)
+- `report.md`
+  - human-readable summary + qualitative notes
+
+Recordable invariants (should not change within a run):
+
+- glyph sheet image spec (size, text content, colors)
+- similarity function (cosine vs dot) and normalization behavior
+- variant definitions (especially B2 text template and α sweep range)
+
+---
+
+## 3) Procedures (high-level)
+
+### Step 1 — Freeze datasets
+
+Output:
+
+- Corpus manifest file under `datasets/`
+- Query set file under `datasets/`
+- Labels file under `datasets/`
+
+Verification:
+
+- Every `font_id` in labels exists in corpus
+- Every `query_id` in labels exists in query set
+- Manifest URLs validated and renderable
+
+### Step 2 — Generate deterministic glyph sheets
+
+Output:
+
+- `artifacts/<run_id>/glyph_sheets/*.png`
+
+Image spec (recommended; keep stable):
+
+- 1024×1024 PNG
+- black text on white background (or the inverse; choose one)
+- content:
+  - `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
+  - `abcdefghijklmnopqrstuvwxyz`
+  - `0123456789`
+  - `Sphinx of black quartz, judge my vow.`
+
+Verification:
+
+- Spot-check at least 10 random fonts for correct rendering (no fallback font)
+- Confirm file count equals corpus size
+
+### Step 3 — Compute embeddings
+
+Compute embeddings for:
+
+- A docs (text) + A queries (text)
+- B docs (B1 image-only and B2 image+text) + B queries (text)
+
+Record (for later cost/perf comparisons):
+
+- embedding backend (official vs vLLM, etc.)
+- throughput (docs/sec; queries/sec)
+- peak VRAM
+
+Verification:
+
+- embedding dimension is consistent (expected 4096 for the 8B variants)
+- end-to-end similarity computation runs on a small subset
+
+### Step 4 — Retrieve + score
+
+For each variant (A, B1, B2, C):
+
+- compute top-K per query (K=20 is sufficient to score Recall@20)
+- compute Recall@10/20 and MRR@10
+- produce per-query tables and a summary table
+
+Verification:
+
+- metrics are produced for all queries
+- sanity-check: random query should not return identical rankings across all variants
+
+### Step 5 — Qualitative review
+
+For each query class (`visual_shape`, `semantic_history`, etc.):
+
+- list “wins” where VL/hybrid improves ranking meaningfully
+- list “losses” where baseline is better
+- annotate failure modes (script mismatch, category confusion, “style drift”, etc.)
+
+Output:
+
+- `artifacts/<run_id>/report.md`
+
+---
+
+## 4) Definition of DONE (offline evaluation)
+
+The offline evaluation is **done** when all of the following exist for at least one run:
+
+- Frozen dataset files (corpus, queries, labels) committed to the repo under `research/ab-eval/datasets/` (or, if too large, committed as stubs + stored elsewhere with a pointer recorded in `RUN_META.json`)
+- A complete `artifacts/<run_id>/` folder with:
+  - glyph sheets (for the corpus)
+  - embeddings for A, B1, B2 (and C if used)
+  - rankings + metrics (summary + per-query)
+  - a human-readable report with qualitative notes
+- A recorded decision in [`DECISIONS.md`](research/ab-eval/DECISIONS.md)
+
+---
+
+## 5) Decision criteria (go/no-go)
+
+This is a **retrieval-quality** decision with a cost/perf sanity check.
+
+### 5.1 Proposed success criteria
+
+Treat these as defaults; adjust only if you write down the rationale in the run report.
+
+- On `visual_shape` queries:
+  - **B1/B2 or C** improves Recall@10 by **≥ 10% absolute** vs A
+- On `semantic_history` + `use_case` queries:
+  - no “strong regression”
+  - suggested guardrail: Recall@10 drop ≤ 5% absolute, and MRR@10 drop ≤ 0.03
+
+### 5.2 Cost / feasibility guardrails
+
+- Embedding throughput is acceptable for the intended serving plan (local GPUs vs API)
+- If using a high-throughput backend (e.g., vLLM), parity concerns are addressed via a small parity check run (recorded in `RUN_META.json`)
+
+### 5.3 Outcomes
+
+- **GO (replace):** VL (B2) beats baseline broadly and doesn’t regress semantic queries meaningfully.
+  - Next: plan schema/search changes for full rollout OR overwrite single embedding if doing replacement.
+- **GO (hybrid):** VL wins on visual queries but baseline wins on semantic.
+  - Next: implement hybrid retrieval (two vectors + fusion) per assessment recommendation.
+- **NO-GO:** No meaningful improvement, or large regressions / operational infeasibility.
+  - Next: keep baseline; consider alternative improvements (better text proxy, structured metrics, reranker).
+
