@@ -110,6 +110,10 @@ add a slow-scrolling looping list of suggested prompts below the chat input box,
 - sleek corporate powerpoint
 
 
+add a button to open a modal which shows the entire alphanumeric set (upper, lower, numbers, symbols, etc)
+
+
+
 example/competition:
 https://www.myfonts.com/pages/ai-search
 - no free fonts, no free filter
