@@ -5,7 +5,7 @@
     "tags": ["modern", "clean", "geometric"],
     "description": "A versatile and readable sans-serif font used widely in digital interfaces.",
     "files": {
-      "400": "https://github.com/google/fonts/raw/main/apache/roboto/Roboto-Regular.ttf"
+      "400": "https://github.com/google/fonts/raw/main/apache/roboto/static/Roboto-Regular.ttf"
     }
   },
   {

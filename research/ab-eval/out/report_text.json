@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "Recall@10": 1.0,
+    "Recall@20": 1.0,
+    "MRR@10": 1.0
+  },
+  "config": {
+    "doc_embeddings": "research/ab-eval/out/embeddings_text_docs.jsonl",
+    "query_embeddings": "research/ab-eval/out/embeddings_text_queries.jsonl",
+    "labels": "research/ab-eval/data/labels.toy.json"
+  }
+}

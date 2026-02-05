@@ -27,13 +27,13 @@ Status legend:
 
 ### Artifacts (derived outputs)
 
-- [ ] Create `run_id` and `RUN_META.json` — `NOT STARTED`
+- [x] Create `run_id` and `RUN_META.json` — `DONE` (toy)
 - [x] Generate glyph-sheet PNGs — `DONE` (toy)
 - [x] Compute embeddings: A docs + A queries — `DONE` (toy)
-- [x] Compute embeddings: B1 docs + B queries — `DONE` (scripts implemented)
-- [x] Compute embeddings: B2 docs + B queries — `DONE` (scripts implemented)
-- [x] Retrieval + scoring: A / B1 / B2 — `DONE` (scripts implemented)
-- [x] Hybrid fusion scoring (Variant C, α sweep) — `DONE` (scripts implemented)
+- [x] Compute embeddings: B1 docs + B queries — `DONE` (toy)
+- [x] Compute embeddings: B2 docs + B queries — `DONE` (toy)
+- [x] Retrieval + scoring: A / B1 / B2 — `DONE` (toy)
+- [x] Hybrid fusion scoring (Variant C, α sweep) — `DONE` (toy)
 - [x] Produce report.md with qualitative wins/losses — `DONE` (toy)
 
 ### Decision
@@ -76,4 +76,5 @@ Status legend:
 - 2026-02-05 — Integrated Variant B and C into the evaluation harness.
 - 2026-02-05 — Added `embed_qwen3_vl_batch.py` for VL embeddings and `score_all_variants.py` for multi-variant reports and hybrid fusion.
 - 2026-02-05 — Added `run_all.py` as a unified entrypoint for A/B/all variants.
+- 2026-02-05 — Executed full ABC eval on toy dataset. Results recorded in `research/ab-eval/out/LATEST_RESULTS.md`. Pipeline confirmed working end-to-end.
 

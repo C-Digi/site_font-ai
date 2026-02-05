@@ -1,0 +1,204 @@
+{
+  "variants": {
+    "A": {
+      "Recall@10": 1.0,
+      "Recall@20": 1.0,
+      "MRR@10": 1.0
+    },
+    "B1": {
+      "Recall@10": 1.0,
+      "Recall@20": 1.0,
+      "MRR@10": 0.75
+    },
+    "B2": {
+      "Recall@10": 1.0,
+      "Recall@20": 1.0,
+      "MRR@10": 1.0
+    },
+    "C (alpha=0.5)": {
+      "Recall@10": 1.0,
+      "Recall@20": 1.0,
+      "MRR@10": 1.0
+    }
+  },
+  "hybrid_sweep": [
+    {
+      "alpha": 0.0,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.1,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.2,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.3,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.4,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.5,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.6,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.7,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.8,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 0.9,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    },
+    {
+      "alpha": 1.0,
+      "metrics": {
+        "Recall@10": 1.0,
+        "Recall@20": 1.0,
+        "MRR@10": 1.0
+      }
+    }
+  ],
+  "per_query_top10": {
+    "A": {
+      "q1": [
+        [
+          "Roboto",
+          0.7110634419580338
+        ],
+        [
+          "Playfair Display",
+          0.5598426464032611
+        ]
+      ],
+      "q2": [
+        [
+          "Playfair Display",
+          0.806843874417899
+        ],
+        [
+          "Roboto",
+          0.5535785521458858
+        ]
+      ]
+    },
+    "B1": {
+      "q1": [
+        [
+          "Roboto",
+          0.402901291847229
+        ],
+        [
+          "Playfair Display",
+          0.3920212686061859
+        ]
+      ],
+      "q2": [
+        [
+          "Roboto",
+          0.40899473428726196
+        ],
+        [
+          "Playfair Display",
+          0.366965651512146
+        ]
+      ]
+    },
+    "B2": {
+      "q1": [
+        [
+          "Roboto",
+          0.6924836039543152
+        ],
+        [
+          "Playfair Display",
+          0.43532657623291016
+        ]
+      ],
+      "q2": [
+        [
+          "Playfair Display",
+          0.6125883460044861
+        ],
+        [
+          "Roboto",
+          0.5750871896743774
+        ]
+      ]
+    },
+    "C (alpha=0.5)": {
+      "q1": [
+        [
+          "Roboto",
+          0.7017735229561746
+        ],
+        [
+          "Playfair Display",
+          0.4975846113180856
+        ]
+      ],
+      "q2": [
+        [
+          "Playfair Display",
+          0.7097161102111925
+        ],
+        [
+          "Roboto",
+          0.5643328709101316
+        ]
+      ]
+    }
+  }
+}

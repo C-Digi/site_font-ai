@@ -203,8 +203,11 @@ def main():
                 row = [str(rank+1)]
                 for var in ["A", "B2", "C (alpha=0.5)"]:
                     if var in per_variant_top10 and q_id in per_variant_top10[var]:
-                        doc, score = per_variant_top10[var][q_id][rank]
-                        row.append(f"{doc} ({score:.3f})")
+                        if rank < len(per_variant_top10[var][q_id]):
+                            doc, score = per_variant_top10[var][q_id][rank]
+                            row.append(f"{doc} ({score:.3f})")
+                        else:
+                            row.append("-")
                     else:
                         row.append("-")
                 rows.append("| " + " | ".join(row) + " |")
