@@ -30,10 +30,10 @@ Status legend:
 - [ ] Create `run_id` and `RUN_META.json` — `NOT STARTED`
 - [x] Generate glyph-sheet PNGs — `DONE` (toy)
 - [x] Compute embeddings: A docs + A queries — `DONE` (toy)
-- [ ] Compute embeddings: B1 docs + B queries — `NOT STARTED`
-- [ ] Compute embeddings: B2 docs + B queries — `NOT STARTED`
-- [x] Retrieval + scoring: A / B1 / B2 — `DONE` (toy, A only)
-- [ ] Hybrid fusion scoring (Variant C, α sweep) — `NOT STARTED`
+- [x] Compute embeddings: B1 docs + B queries — `DONE` (scripts implemented)
+- [x] Compute embeddings: B2 docs + B queries — `DONE` (scripts implemented)
+- [x] Retrieval + scoring: A / B1 / B2 — `DONE` (scripts implemented)
+- [x] Hybrid fusion scoring (Variant C, α sweep) — `DONE` (scripts implemented)
 - [x] Produce report.md with qualitative wins/losses — `DONE` (toy)
 
 ### Decision
@@ -73,4 +73,7 @@ Status legend:
 - 2026-02-05 — Implemented offline evaluation harness (scripts + toy data).
 - 2026-02-05 — Ran full text baseline pipeline on toy data.
 - 2026-02-05 — Established local GPU inference approach for Variant B using `transformers` + `qwen-vl-utils`.
+- 2026-02-05 — Integrated Variant B and C into the evaluation harness.
+- 2026-02-05 — Added `embed_qwen3_vl_batch.py` for VL embeddings and `score_all_variants.py` for multi-variant reports and hybrid fusion.
+- 2026-02-05 — Added `run_all.py` as a unified entrypoint for A/B/all variants.
 
