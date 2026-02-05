@@ -2,3 +2,13 @@ Pillow
 requests
 numpy
 python-dotenv
+transformers>=4.48.0
+torch
+torchvision
+accelerate
+qwen-vl-utils
+sentencepiece
+einops
+flash-attn --no-build-isolation
+# Optional for faster inference on Linux:
+# vllm

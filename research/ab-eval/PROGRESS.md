@@ -56,7 +56,7 @@ Status legend:
 - `run_id`: `run-text-baseline-toy`
 - embedding backend:
   - baseline A: OpenRouter `qwen/qwen3-embedding-8b`
-  - VL B: _TBD_ (official vs vLLM; record exact)
+  - VL B: `transformers` + `qwen-vl-utils` (Option 1)
 - similarity function: `cosine`
 - normalization: `none`
 
@@ -72,4 +72,5 @@ Status legend:
 - 2026-02-05 — Initialized SSoT docs under `research/ab-eval/`.
 - 2026-02-05 — Implemented offline evaluation harness (scripts + toy data).
 - 2026-02-05 — Ran full text baseline pipeline on toy data.
+- 2026-02-05 — Established local GPU inference approach for Variant B using `transformers` + `qwen-vl-utils`.
 

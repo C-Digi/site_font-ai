@@ -46,5 +46,16 @@ next_steps:
 
 ## Log
 
-- _No decisions recorded yet._
+### 2026-02-05: Local Embedding Backend for Qwen3-VL
+
+**Decision**: Use `transformers` + `qwen-vl-utils` (Option 1) instead of vLLM (Option 2) for generating Variant B embeddings.
+
+**Rationale**:
+- **Correctness First**: Official reports and internal assessment suggest vLLM's pooling/preprocessing for embeddings might diverge from the official implementation.
+- **Reproducibility**: The official path is the reference for the model's performance on benchmarks.
+- **Latency/Throughput**: While vLLM is faster, the offline evaluation of ~200 fonts is small enough that correctness outweighs the need for high-throughput serving.
+
+**Hardware Mapping**:
+- 2× RTX 3090 will use `device_map="auto"` via `transformers`/`accelerate` for the official path.
+- NVLink will benefit inter-GPU communication if sharding occurs, though the 8B model fits in a single 24GB VRAM in FP16.
 
