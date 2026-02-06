@@ -21,12 +21,24 @@ def run_script(script_name, args=[]):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--variant", choices=["A", "B", "all"], default="all", 
+    parser.add_argument("--variant", choices=["A", "B", "all"], default="all",
                         help="Which variant to run. A: Text, B: VL, all: A+B+C")
-    parser.add_argument("--corpus", default="research/ab-eval/data/corpus.toy.json")
-    parser.add_argument("--queries", default="research/ab-eval/data/queries.toy.json")
-    parser.add_argument("--labels", default="research/ab-eval/data/labels.toy.json")
+    parser.add_argument("--dataset", choices=["toy", "200"], default=None,
+                        help="Preset dataset to use (toy or 200). Overrides file paths if set.")
+    parser.add_argument("--corpus", help="Path to corpus file")
+    parser.add_argument("--queries", help="Path to queries file")
+    parser.add_argument("--labels", help="Path to labels file")
     args = parser.parse_args()
+
+    # Set defaults based on dataset preset if provided
+    if args.dataset == "200":
+        if not args.corpus: args.corpus = "research/ab-eval/data/corpus.200.json"
+        if not args.queries: args.queries = "research/ab-eval/data/queries.200.json"
+        if not args.labels: args.labels = "research/ab-eval/data/labels.200.json"
+    elif args.dataset == "toy" or (not args.dataset and not args.corpus):
+        if not args.corpus: args.corpus = "research/ab-eval/data/corpus.toy.json"
+        if not args.queries: args.queries = "research/ab-eval/data/queries.toy.json"
+        if not args.labels: args.labels = "research/ab-eval/data/labels.toy.json"
 
     # Ensure we are in the project root
     if not os.path.exists("research/ab-eval"):

@@ -36,7 +36,22 @@ Primary metrics:
 
 ## 1) Dataset definitions (frozen inputs)
 
-All datasets should be **frozen** under [`research/ab-eval/datasets/`](research/ab-eval/README.md) before computing artifacts.
+All datasets should be **frozen** under [`research/ab-eval/data/`](research/ab-eval/data/) before computing artifacts.
+
+### 1.0 Generating the 200-font dataset
+
+To generate the reproducible 200-font corpus and its corresponding queries/labels:
+
+1. **Build Corpus:** Fetch 200 fonts from Google Fonts (via Fontsource API).
+   ```powershell
+   python research/ab-eval/py/build_corpus_google_fonts.py --limit 200 --out research/ab-eval/data/corpus.200.json
+   ```
+2. **Generate Queries & Labels:** Derive ground truth from metadata.
+   ```powershell
+   python research/ab-eval/py/build_queries_labels_metadata.py --corpus research/ab-eval/data/corpus.200.json
+   ```
+
+Note: These labels are **proxy labels** derived from objective metadata (e.g., Google Fonts category). This evaluation tests whether retrieval respects known categorical constraints. It does NOT measure nuanced style matching (x-height, etc.) without human labels.
 
 ### 1.1 Corpus manifest (fonts)
 
@@ -233,6 +248,26 @@ For each query class (`visual_shape`, `semantic_history`, etc.):
 - annotate failure modes (script mismatch, category confusion, “style drift”, etc.)
 
 Output:
+
+---
+
+## 4) Execution (The Runner)
+
+The main entry point for running the evaluation is [`research/ab-eval/py/run_all.py`](research/ab-eval/py/run_all.py).
+
+### 4.1 Running the 200-font pipeline
+
+To run the full evaluation on the 200-font dataset:
+```powershell
+python research/ab-eval/py/run_all.py --dataset 200 --variant all
+```
+
+### 4.2 Running the toy pipeline (A/B/C)
+
+To run the full evaluation on the toy dataset:
+```powershell
+python research/ab-eval/py/run_all.py --dataset toy --variant all
+```
 
 - `artifacts/<run_id>/report.md`
 

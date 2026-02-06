@@ -23,7 +23,8 @@ Status legend:
 - [x] Define `corpus_id` + produce corpus manifest — `DONE` (toy)
 - [x] Define `queryset_id` + produce query set — `DONE` (toy)
 - [x] Define `labelset_id` + produce labels file — `DONE` (toy)
-- [ ] Validate dataset integrity (IDs match across files; URLs renderable) — `NOT STARTED`
+- [x] Validate dataset integrity (IDs match across files; URLs renderable) — `DONE`
+- [x] Generate real 200-font dataset and metadata-driven labels — `DONE`
 
 ### Artifacts (derived outputs)
 
@@ -77,4 +78,6 @@ Status legend:
 - 2026-02-05 — Added `embed_qwen3_vl_batch.py` for VL embeddings and `score_all_variants.py` for multi-variant reports and hybrid fusion.
 - 2026-02-05 — Added `run_all.py` as a unified entrypoint for A/B/all variants.
 - 2026-02-05 — Executed full ABC eval on toy dataset. Results recorded in `research/ab-eval/out/LATEST_RESULTS.md`. Pipeline confirmed working end-to-end.
+- 2026-02-05 — Added 200-font corpus generator (`build_corpus_google_fonts.py`) and metadata-driven query/label generator (`build_queries_labels_metadata.py`).
+- 2026-02-05 — Updated `run_all.py` to support `--dataset 200` preset.
 
