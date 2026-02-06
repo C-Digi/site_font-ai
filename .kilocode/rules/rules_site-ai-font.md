@@ -1,1 +1,0 @@
-C:/git/Sites/site_font-ai/.agent/rules/rules_site-ai-font.md

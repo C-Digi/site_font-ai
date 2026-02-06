@@ -5,8 +5,8 @@ This runbook outlines the operational steps for transitioning the production env
 ## Week 1: Infrastructure & Pipeline Implementation
 
 ### 1. Database Preparation
-- [ ] Verify Supabase schema supports 4096-dimensional vectors (already implemented).
-- [ ] Create `background_tasks` table (or similar) to track JIT re-embedding status.
+- [x] Verify Supabase schema supports 4096-dimensional vectors (already implemented).
+- [x] Create `seed_jobs` table and helper functions for JIT re-embedding queue.
 
 ### 2. Backend Integration
 - [ ] Implement `B2` embedding generation in `src/lib/ai/embeddings.ts`.

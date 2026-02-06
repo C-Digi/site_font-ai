@@ -6,8 +6,8 @@
 | :--- | :---: | :--- | :--- |
 | Initialize SSoT Documentation | 🟢 Done | Assistant | M1: Prep |
 | Update `tasks-user.md` with Roadmap | 🟢 Done | Assistant | M1: Prep |
+| Design/Setup Background Queue for JIT | 🟢 Done | Assistant | M2: Code |
 | Implement B2 Embedding Utility | ⚪ Todo | Assistant | M2: Code |
-| Design/Setup Background Queue for JIT | ⚪ Todo | Assistant | M2: Code |
 | Update Search API for B2 Queries | ⚪ Todo | Assistant | M2: Code |
 | Local E2E Validation (Toy Set) | ⚪ Todo | Assistant | M3: Valid |
 
