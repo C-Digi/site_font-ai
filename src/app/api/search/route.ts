@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { ChatMessage } from "@/lib/types";
 import { supabase } from "@/lib/supabase";
 import { generateEmbedding } from "@/lib/ai/embeddings";
+import { enqueueSeedJob } from "@/lib/jobs";
 import * as dotenv from "dotenv";
 
 dotenv.config({ path: ".env.local", override: true });
@@ -109,40 +110,39 @@ export async function POST(req: Request) {
         });
       }
 
-      // 4. Progressive Seeding (JIT)
-      // Check if suggested fonts exist in our DB, if not, seed them in the background
+      // 4. Progressive Seeding (JIT) - Enqueue for background processing
       if (data.fonts && data.fonts.length > 0) {
         // We don't await this to keep the response fast
         (async () => {
           try {
-            await Promise.all(data.fonts.map(async (font: any) => {
-              try {
-                const { data: existing } = await supabase
-                  .from("fonts")
-                  .select("name")
-                  .eq("name", font.name)
-                  .maybeSingle();
-
-                if (!existing) {
-                  console.log(`Lazy seeding missing font: ${font.name}`);
-                  const tags = font.tags || [font.category];
-                  const fontEmbedding = await generateEmbedding(`${font.name} ${font.category} ${tags.join(" ")} ${font.desc}`);
-                  const { error: insertError } = await supabase.from("fonts").insert({
-                    name: font.name,
+            // Get list of unique font names suggested by AI
+            const uniqueFontNames = Array.from(new Set(data.fonts.map((f: any) => f.name)));
+            
+            // Bulk check existence to minimize DB roundtrips
+            const { data: existingFonts } = await supabase
+              .from("fonts")
+              .select("name")
+              .in("name", uniqueFontNames);
+            
+            const existingNames = new Set(existingFonts?.map(f => f.name.toLowerCase()) || []);
+            
+            for (const font of data.fonts) {
+              if (!existingNames.has(font.name.toLowerCase())) {
+                console.log(`Enqueuing JIT seed job for: ${font.name}`);
+                await enqueueSeedJob({
+                  font_name: font.name,
+                  source: font.source || "Google Fonts",
+                  source_payload: {
                     category: font.category,
+                    tags: font.tags,
                     description: font.desc,
-                    tags: tags,
-                    source: source,
-                    embedding: fontEmbedding
-                  });
-                  if (insertError) throw insertError;
-                }
-              } catch (err) {
-                console.error(`Failed to lazy seed ${font.name}:`, err);
+                  },
+                  priority: 1, // Higher priority for JIT jobs
+                });
               }
-            }));
+            }
           } catch (err) {
-            console.error("Progressive Seeding Error:", err);
+            console.error("Progressive Seeding Enqueue Error:", err);
           }
         })();
       }
