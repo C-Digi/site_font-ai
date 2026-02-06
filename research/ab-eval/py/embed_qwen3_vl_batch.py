@@ -66,6 +66,22 @@ def main():
     b2_embs = embedder.embed_items(b2_items)
     np.save(os.path.join(args.out_dir, "embeddings_vl_docs_b2.npy"), b2_embs)
 
+    # 5b. Generate B2-plus Doc Embeddings (Image + expanded text)
+    print("\nGenerating B2-plus Doc Embeddings (Image + expanded text)...")
+    b2plus_items = []
+    for font in corpus:
+        safe_name = font['name'].replace(' ', '_').replace('/', '_')
+        glyph_path = os.path.join(args.glyph_dir, f"{safe_name}.png")
+        # Expanded structured text: Name, Category, Tags, Description
+        text_desc = f"Font: {font['name']}. Category: {font['category']}. Tags: {', '.join(font.get('tags', []))}. Description: {font.get('description', '')}"
+        item = {"text": text_desc}
+        if os.path.exists(glyph_path):
+            item["image"] = glyph_path
+        b2plus_items.append(item)
+    
+    b2plus_embs = embedder.embed_items(b2plus_items)
+    np.save(os.path.join(args.out_dir, "embeddings_vl_docs_b2plus.npy"), b2plus_embs)
+
     # 6. Generate Query Embeddings (Text only)
     print("\nGenerating VL Query Embeddings (Text only)...")
     query_items = [{"text": q["text"]} for q in queries]

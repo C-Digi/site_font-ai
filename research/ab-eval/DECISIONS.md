@@ -81,3 +81,20 @@ next_steps:
 - Implement `Qwen/Qwen3-VL-Embedding-8B` in the main application's search/seeding pipeline.
 - Consider dropping the `searches` table text-only cache or updating it to the 8B VL vectors.
 
+### 2026-02-06: B2 vs B2-plus Ablation
+
+**Decision**: NO_GO (B2-plus). Do not expand the B2 text payload to include full descriptions.
+
+**Rationale**:
+- **Regression at Top-K**: B2-plus showed a slight regression in Recall@10 (0.351 vs 0.360) despite having more textual context.
+- **Efficiency**: B2 uses fewer tokens and provides better or equal performance in all key metrics except a marginal gain in Recall@20.
+- **Payload Balance**: The vision-language model seems optimized for short, structured prompts. Longer descriptions may be introducing semantic noise or diluting the impact of the visual features in the joint embedding space.
+
+**Metrics**:
+- **recall_at_10**: { B2: 0.3604, B2-plus: 0.3509 }
+- **recall_at_20**: { B2: 0.5549, B2-plus: 0.5579 }
+- **mrr_at_10**:    { B2: 1.000, B2-plus: 1.000 }
+
+**Next Steps**:
+- Stick with the B2 payload (Name + Category + Tags + Image) for the production Qwen3-VL-8B embedding pipeline.
+

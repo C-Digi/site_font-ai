@@ -73,6 +73,7 @@ def main():
     # B
     parser.add_argument("--b1_docs_npy", default="research/ab-eval/out/embeddings_vl_docs_b1.npy")
     parser.add_argument("--b2_docs_npy", default="research/ab-eval/out/embeddings_vl_docs_b2.npy")
+    parser.add_argument("--b2plus_docs_npy", default="research/ab-eval/out/embeddings_vl_docs_b2plus.npy")
     parser.add_argument("--vl_queries_npy", default="research/ab-eval/out/embeddings_vl_queries.npy")
     parser.add_argument("--docs_meta", default="research/ab-eval/out/metadata_docs.json")
     parser.add_argument("--queries_meta", default="research/ab-eval/out/metadata_queries.json")
@@ -114,6 +115,7 @@ def main():
 
     b1_docs = np.load(args.b1_docs_npy) if os.path.exists(args.b1_docs_npy) else None
     b2_docs = np.load(args.b2_docs_npy) if os.path.exists(args.b2_docs_npy) else None
+    b2plus_docs = np.load(args.b2plus_docs_npy) if os.path.exists(args.b2plus_docs_npy) else None
     vl_queries = np.load(args.vl_queries_npy) if os.path.exists(args.vl_queries_npy) else None
 
     # Re-align A to metadata order if needed (assuming A was generated from the same corpus)
@@ -135,6 +137,9 @@ def main():
     
     if b2_docs is not None and vl_queries is not None:
         all_scores["B2"] = cosine_similarity_matrix(vl_queries, b2_docs)
+    
+    if b2plus_docs is not None and vl_queries is not None:
+        all_scores["B2-plus"] = cosine_similarity_matrix(vl_queries, b2plus_docs)
 
     # 4. Hybrid Fusion (Variant C) - Sweep Alpha for A + B2
     hybrid_results = []
@@ -195,13 +200,13 @@ def main():
         for q_idx, q_id in enumerate(query_ids[:3]): # Show first 3 queries
             q_text = next((q['text'] for q in queries_meta if q['id'] == q_id), q_id)
             f.write(f"### Query: {q_text} (`{q_id}`)\n\n")
-            f.write("| Rank | Variant A | Variant B2 | Variant C (0.5) |\n")
-            f.write("| :--- | :--- | :--- | :--- |\n")
+            f.write("| Rank | Variant A | Variant B2 | Variant B2-plus | Variant C (0.5) |\n")
+            f.write("| :--- | :--- | :--- | :--- | :--- |\n")
             
             rows = []
             for rank in range(10):
                 row = [str(rank+1)]
-                for var in ["A", "B2", "C (alpha=0.5)"]:
+                for var in ["A", "B2", "B2-plus", "C (alpha=0.5)"]:
                     if var in per_variant_top10 and q_id in per_variant_top10[var]:
                         if rank < len(per_variant_top10[var][q_id]):
                             doc, score = per_variant_top10[var][q_id][rank]

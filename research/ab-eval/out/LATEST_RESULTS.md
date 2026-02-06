@@ -82,3 +82,16 @@
 - **Vision Strength**: B2 jumped from 0.2893 (2B) to 0.3604 (8B), a ~25% relative improvement.
 - **Hybrid Necessity**: With the 2B model, the hybrid (C) was strictly better than B2. With 8B, B2 alone (Alpha=0) or very low Alpha is optimal, suggesting the vision model has become the primary source of truth.
 - **MRR**: MRR@10 reached 1.0000 for the sample queries, indicating perfect top-rank retrieval for these categories.
+
+## B2 vs B2-plus Ablation (200 Fonts)
+
+- **Ablation Goal**: Test if adding full descriptions (A-equivalent) to the VL doc embedding improves retrieval over the lighter B2 payload.
+- **B2 Payload**: Name + Category + Tags + Image.
+- **B2-plus Payload**: Name + Category + Tags + Description + Image.
+
+| Variant | Recall@10 | Recall@20 | MRR@10 |
+| :--- | :--- | :--- | :--- |
+| **B2** | **0.3604** | 0.5549 | 1.0000 |
+| **B2-plus** | 0.3509 | **0.5579** | 1.0000 |
+
+**Outcome**: Adding descriptions (B2-plus) resulted in a slight regression in Recall@10 (-2.6% relative) and a negligible gain in Recall@20 (+0.5%). The vision model appears to derive most of its semantic signal from the visual features and short-form metadata; longer descriptions may be introducing noise or diluting the visual signal in the shared embedding space.
