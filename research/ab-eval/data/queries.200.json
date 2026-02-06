@@ -1,0 +1,77 @@
+[
+  {
+    "id": "q_001",
+    "text": "serif fonts",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_002",
+    "text": "sans-serif fonts",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_003",
+    "text": "display fonts",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_004",
+    "text": "handwriting fonts",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_005",
+    "text": "monospace fonts",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_006",
+    "text": "elegant serif",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_007",
+    "text": "modern sans-serif",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_008",
+    "text": "decorative display",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_009",
+    "text": "cursive style",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_010",
+    "text": "fixed-width coding font",
+    "class": "category_proxy"
+  },
+  {
+    "id": "q_011",
+    "text": "fonts with cyrillic support",
+    "class": "subset_proxy"
+  },
+  {
+    "id": "q_012",
+    "text": "fonts with greek support",
+    "class": "subset_proxy"
+  },
+  {
+    "id": "q_013",
+    "text": "vietnamese language support",
+    "class": "subset_proxy"
+  },
+  {
+    "id": "q_014",
+    "text": "korean fonts",
+    "class": "subset_proxy"
+  },
+  {
+    "id": "q_015",
+    "text": "japanese fonts",
+    "class": "subset_proxy"
+  }
+]

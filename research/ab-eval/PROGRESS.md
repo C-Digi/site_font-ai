@@ -46,6 +46,19 @@ Status legend:
 
 ## Status blocks (fill as you go)
 
+### Real 200-Font Run (End-to-End)
+- **Status:** `DONE`
+- **Runtime:** ~50 mins
+- **Dataset:** 200 fonts
+- **VL Model:** Qwen/Qwen3-VL-Embedding-2B
+- **Key Findings:** 
+  - Hybrid C (alpha=0.4) achieves Recall@10 0.33 vs 0.17 for Variant A.
+  - Variant B2 (VL + Text) significantly outperforms A on metadata-proxy labels.
+  - CPU inference is viable for batch runs but slow.
+- **Issues:**
+  - `flash-attn` installation failed due to missing CUDA; proceeded without it.
+  - Used 2B model instead of 8B for CPU performance/memory.
+
 ### Current dataset IDs
 
 - `corpus_id`: `toy-corpus-v1`

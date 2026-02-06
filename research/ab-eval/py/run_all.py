@@ -25,6 +25,8 @@ def main():
                         help="Which variant to run. A: Text, B: VL, all: A+B+C")
     parser.add_argument("--dataset", choices=["toy", "200"], default=None,
                         help="Preset dataset to use (toy or 200). Overrides file paths if set.")
+    parser.add_argument("--model", default="Qwen/Qwen3-VL-Embedding-8B",
+                        help="VL model to use for variant B")
     parser.add_argument("--corpus", help="Path to corpus file")
     parser.add_argument("--queries", help="Path to queries file")
     parser.add_argument("--labels", help="Path to labels file")
@@ -62,7 +64,8 @@ def main():
         # embed_qwen3_vl_batch.py already calls render_glyph_sheet.py internally
         success_b = run_script("embed_qwen3_vl_batch.py", [
             "--corpus", args.corpus,
-            "--queries", args.queries
+            "--queries", args.queries,
+            "--model", args.model
         ])
 
     # 3. Final Scoring (Variant C / All)
