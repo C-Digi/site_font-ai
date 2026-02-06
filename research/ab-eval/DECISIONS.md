@@ -59,3 +59,25 @@ next_steps:
 - 2× RTX 3090 will use `device_map="auto"` via `transformers`/`accelerate` for the official path.
 - NVLink will benefit inter-GPU communication if sharding occurs, though the 8B model fits in a single 24GB VRAM in FP16.
 
+### 2026-02-06: 8B GPU Evaluation and Model Selection
+
+**Decision**: GO_REPLACE (A -> B2). Use `Qwen/Qwen3-VL-Embedding-8B` as the primary embedding backend, potentially replacing text-only embeddings entirely or using a very low hybrid alpha.
+
+**Rationale**:
+- **Performance Jump**: Moving from 2B (CPU) to 8B (GPU) increased B2 Recall@10 from 0.289 to 0.360.
+- **Vision Dominance**: The 8B vision-augmented variant (B2) now outperforms the hybrid (C) optimized for the 2B model. This indicates the 8B model captures enough semantic text info via its vision-language training that the external text-only embedding (A) adds marginal or even negative value in some configurations.
+- **Latency**: GPU inference on 2× RTX 3090 Ti handles the 8B model comfortably (FP16), making it viable for production or near-real-time JIT seeding.
+
+**Metrics**:
+- **recall_at_10**: { A: 0.178, B1: 0.111, B2: 0.360, C_best: 0.360 }
+- **mrr_at_10**:    { A: 0.700, B1: 0.519, B2: 1.000, C_best: 1.000 }
+
+**Hardware Mapping**:
+- 2× RTX 3090 Ti utilized.
+- `device_map="auto"` successfully shards/loads the 8B model.
+- Throughput: ~200 fonts embedded in approx 10 minutes (including glyph rendering).
+
+**Next Steps**:
+- Implement `Qwen/Qwen3-VL-Embedding-8B` in the main application's search/seeding pipeline.
+- Consider dropping the `searches` table text-only cache or updating it to the 8B VL vectors.
+

@@ -5,6 +5,6 @@ accelerate
 qwen-vl-utils
 sentencepiece
 einops
-flash-attn --no-build-isolation
+# flash-attn --no-build-isolation
 # Optional for faster inference on Linux:
 # vllm

@@ -49,3 +49,36 @@
 | 2 | MonteCarlo | Major Mono Display | Micro 5 |
 | 3 | Playwrite CA | Libertinus Serif Display | Major Mono Display |
 | 10 | Comforter Brush | Ga Maamli | Libre Barcode 128 |
+
+---
+
+# GPU 8B Run (Qwen/Qwen3-VL-Embedding-8B)
+
+- **Timestamp:** 2026-02-06
+- **Machine:** Local Workstation (2× RTX 3090 Ti)
+- **Model:** Qwen/Qwen3-VL-Embedding-8B (FP16)
+- **Dataset:** 200 fonts (corpus.200.json)
+
+## Headline Metrics
+
+| Variant | Recall@10 | Recall@20 | MRR@10 | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **A** | 0.1783 | 0.3437 | 0.7000 | Text-only (OpenRouter Qwen3-8B) |
+| **B1** | 0.1112 | 0.2016 | 0.5194 | Vision-only (Image) |
+| **B2** | 0.3604 | 0.5549 | 1.0000 | Vision-augmented (Image + Text) |
+| **C (α=0.0)** | **0.3604** | **0.5549** | **1.0000** | Best variant (B2 only) |
+| **C (α=0.5)** | 0.3587 | 0.5693 | 1.0000 | Hybrid (A + B2) |
+
+## Alpha Sweep (Hybrid A + B2)
+
+| Alpha | Recall@10 | MRR@10 |
+| :--- | :--- | :--- |
+| 0.0 (Best) | 0.3604 | 1.0000 |
+| 0.1 - 0.5 | 0.3587 | 1.0000 |
+| 1.0 (A only) | 0.1783 | 0.7000 |
+
+## Qualitative Observations (8B vs 2B)
+
+- **Vision Strength**: B2 jumped from 0.2893 (2B) to 0.3604 (8B), a ~25% relative improvement.
+- **Hybrid Necessity**: With the 2B model, the hybrid (C) was strictly better than B2. With 8B, B2 alone (Alpha=0) or very low Alpha is optimal, suggesting the vision model has become the primary source of truth.
+- **MRR**: MRR@10 reached 1.0000 for the sample queries, indicating perfect top-rank retrieval for these categories.
