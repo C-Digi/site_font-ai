@@ -16,7 +16,7 @@
 | Task | Status | Owner | Milestone |
 | :--- | :---: | :--- | :--- |
 | Production Database Backup | ⚪ Todo | Operator | M4: Prod |
-| Batch Re-embedding (Full Corpus) | ⚪ Todo | Assistant | M4: Prod |
+| Batch Re-embedding (Full Corpus) | 🟢 Done | Assistant | M4: Prod |
 | Deployment to Production | ⚪ Todo | Operator | M5: Launch |
 | Human Visual-Intent Validation | ⚪ Todo | Operator | M6: Audit |
 
@@ -33,9 +33,12 @@
 - [x] `generateB2Embedding` function exists and handles both image + text.
 - [x] Search API uses B2 embeddings by default.
 - [x] JIT seeding is non-blocking (request finishes before job is processed).
+- [x] Background worker `scripts/worker-seed-jobs.ts` implemented and tested.
 
 ### Milestone 3: Valid
 - [x] Local smoke test script `scripts/smoke-test-b2.ts` added.
+- [x] Bulk backfill script `scripts/backfill-b2-embeddings.ts` implemented.
+- [x] Queue health check script `scripts/queue-health.ts` added.
 - [ ] Recall@10 on benchmark set meets or exceeds prior research (>= 0.36).
 - [ ] No regressions in font card rendering.
 

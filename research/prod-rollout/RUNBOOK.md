@@ -22,11 +22,15 @@ This runbook outlines the operational steps for transitioning the production env
 ## Week 2: Data Migration & Cutover
 
 ### 4. Batch Re-embedding
-- [ ] Trigger batch re-embedding script for all existing fonts in the production database.
-- [ ] Monitor background queue for failures (e.g., rendering issues, network timeouts).
+- [x] Implement worker runtime: `scripts/worker-seed-jobs.ts`.
+- [x] Implement backfill script: `scripts/backfill-b2-embeddings.ts`.
+- [ ] Run backfill dry-run: `npx tsx scripts/backfill-b2-embeddings.ts --dry-run`.
+- [ ] Trigger batch re-embedding: `npx tsx scripts/backfill-b2-embeddings.ts`.
+- [ ] Start worker(s): `npx tsx scripts/worker-seed-jobs.ts`.
+- [ ] Monitor health: `npx tsx scripts/queue-health.ts`.
 
 ### 5. Cutover
-- [ ] Switch production search default to B2.
+- [ ] Switch production search default to B2 (Search API already uses B2 with fallback).
 - [ ] Keep Hybrid C / Variant A as a fallback toggle (internal/debug only).
 
 ### 6. Post-Migration Cleanup

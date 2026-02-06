@@ -27,3 +27,20 @@
 - **Context:** Current Supabase setup uses 4096 dimensions for Qwen3 embeddings.
 - **Decision:** Maintain 4096 dimensions.
 - **Justification:** Direct compatibility with `Qwen/Qwen3-VL-Embedding-8B` without dimensionality reduction which could lose information.
+
+## DECISION-005: Retry Policy for Seed Jobs
+- **Date:** 2026-02-06
+- **Status:** Approved
+- **Context:** Embedding generation and AI enrichment are subject to transient network failures or rate limits.
+- **Decision:** Implement a 3-attempt retry policy with atomic claim/fail/complete operations.
+- **Justification:** Exponential backoff is handled by the polling interval and the `attempts < max_attempts` check in `claim_seed_job`.
+
+## DECISION-006: Cutover Criteria for Week 2
+- **Date:** 2026-02-06
+- **Status:** Approved
+- **Context:** Transitioning to B2-only retrieval requires confidence in the new embedding corpus.
+- **Decision:** Cutover happens when:
+  1. 100% of the production corpus has been processed by the B2 worker.
+  2. Queue health shows < 1% failure rate for the last 500 jobs.
+  3. Recall@10 on benchmark set meets or exceeds 0.36.
+- **Justification:** Ensures retrieval quality doesn't regress before removing the text-only fallback.
