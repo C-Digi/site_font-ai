@@ -9,16 +9,14 @@ This runbook outlines the operational steps for transitioning the production env
 - [x] Create `seed_jobs` table and helper functions for JIT re-embedding queue.
 
 ### 2. Backend Integration
-- [ ] Implement `B2` embedding generation in `src/lib/ai/embeddings.ts`.
-  - Input: Font Glyph Image + Short Text (Name, Category, Tags).
-- [ ] Update `src/app/api/search/route.ts` to use B2 for query embedding.
-- [ ] Implement the background queue mechanism for JIT seeding.
-  - Search request triggers a queue entry if font needs B2 embedding.
-  - Background worker processes queue periodically.
+- [x] Implement `B2` embedding generation in `src/lib/ai/embeddings.ts`.
+- [x] Update `src/app/api/search/route.ts` to use B2 for query embedding.
+- [x] Implement the background queue mechanism for JIT seeding.
+  - [x] Search request enqueues a `seed_jobs` entry if font missing.
 
 ### 3. Pipeline Validation
-- [ ] Run end-to-end local smoke test:
-  - Input query -> B2 Embedding -> Vector Search -> Results.
+- [x] Run end-to-end local smoke test:
+  - [x] `npx tsx scripts/smoke-test-b2.ts`
 - [ ] Validate glyph rendering consistency in the production pipeline.
 
 ## Week 2: Data Migration & Cutover
