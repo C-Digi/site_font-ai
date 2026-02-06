@@ -1,13 +1,12 @@
+# Production Rollout: B2 (Qwen3-VL)
+- SSoT Location: [`research/prod-rollout/`](research/prod-rollout/)
+- Status: Initialized (Week 1 Prep)
+- Next: Implement B2 embedding logic & JIT queue.
+
+---
 
 
 
-
-   1. Get a Google Fonts API Key from the Google Cloud Console
-      (https://console.cloud.google.com/).
-   2. Add GOOGLE_FONTS_API_KEY=your_key to your .env.local.
-
-   3. Run the SQL migration in supabase/migrations/004_add_source_column.sql.
-   4. Run npx tsx scripts/seed-fonts.ts to build your massive, multi-source font library.
 
 ---
 
@@ -67,6 +66,9 @@ https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B
 investigate if implementing this over our current rag embedding method would be an improvement, e.g. instead of using the only the ai-generated description to feed embedding model, use also a rendered image of full alphanumeric set plus a pangram.
 also - can this embedding be done locally on 2x rtx 3090's with nvlink? 
 
+---
+
+now, fully implement B2 in our production codebase. 
 
 
 
@@ -92,6 +94,7 @@ light/dark mode
 if preview text empty, have AI insert a relevant string
 
 add a dismissable banner: `Leaving this page or closing the tab will clear the chat history.`
+
 
 Favorites
 - add favorites buttons on font cards 
