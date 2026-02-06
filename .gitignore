@@ -5,3 +5,16 @@ node_modules
 .kilocode/skills
 .kilocode/workflows
 .gemini/skills
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+research/ab-eval/py/__pycache__/
+
+# Research Data Artifacts
+research/ab-eval/out/*.jsonl
+research/ab-eval/out/*.npy
+research/ab-eval/out/metadata_*.json
+research/ab-eval/out/glyphs/
+research/ab-eval/out/fonts/
