@@ -11,45 +11,7 @@
 - ai assist
 
 
-
-
-
-## IN PROGRESS CHAT 
-
-Show 1–2 premium preview recommendations, then lock the rest. 
-- wouldnt this require querying AI for every request in order to get those 1-2? 
-- wouldnt we typically already be getting most of the same/overapping font results with AI as we would with style-match (since that is its grounding), so how would we determine which 1-2 to display? 
-
-One prominent search bar with placeholder that rotates examples
-- i would like to give users inspiration/showcase beyond a single placeholder at a time
-  - was thinking slow-scrolling looping list of suggested prompts below the chat input box, but it will look very 'busy' which i dont like. any ideas for alternatives?
-
-AI assist opens as a lightweight inline panel/drawer on demand
-
-
-Rollout plan
-- we also still need to implement:
-  - payment system
-  - user auth
-  - other core features?
-show an updated rollout plan
-
-
-
-
-
-### AI 
-- what does a current AI request contain which the LLM receives as input for its response? does it simply use the RAG results (generated via user-query) to then generate an AI response based on those results?
-- consider how to add value to the AI-Assist
-  - AI can include in each response some suggestions for potential 'style-match' queries for improved results - IMO this would add more value to user than the AI currently has (more than doubling current value of AI-assist)... thoughts? 
-  - or, we can have the AI initiate it's own multiple-parallel RAG searches with various queries, to get more variety in each response
-  - what other ideas do you have for value-add for the AI? 
-
-
-
-
-## Next
-
+## A/B testing
 
 
 the test queries used in previous testing were quite simple - 
@@ -61,6 +23,42 @@ the test queries used in previous testing were quite simple -
     - cyrillic support, greek support, vietnamese language support, korean fonts, and japanese fonts.
   - we should do another round of testing with more complex queries to validate the results hold for more complex queries as well
   - consider if we should still bother testing A variant, or if we should also try additional variants / methods
+
+
+
+## IN PROGRESS CHAT 
+
+### 
+
+Show 1–2 premium preview recommendations, then lock the rest. 
+- wouldnt this require querying AI for every request in order to get those 1-2? 
+- wouldnt we typically already be getting most of the same/overapping font results with AI as we would with style-match (since that is its grounding), so how would we determine which 1-2 to display? 
+
+One prominent search bar with placeholder that rotates examples
+- i would like to give users inspiration/showcase beyond a single placeholder at a time
+  - was thinking slow-scrolling looping list of suggested prompts below the chat input box, but it will look very 'busy' which i dont like. any ideas for alternatives?
+
+AI assist opens as a lightweight inline panel/drawer on demand
+- yes
+
+
+
+
+
+
+
+## Next
+
+
+- we also still need to implement:
+  - payment system
+  - user auth
+  - other core features?
+
+
+
+### AI value-add
+- research\prod-rollout\PHASE-A-query-suggestion-chips-plan.md
 
 
 

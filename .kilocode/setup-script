@@ -1,0 +1,101 @@
+#!/bin/bash
+# Kilo Code Worktree Setup Script
+# This script runs before the agent starts in a worktree (new sessions only).
+#
+# Available environment variables:
+#   WORKTREE_PATH  - Absolute path to the worktree directory
+#   REPO_PATH      - Absolute path to the main repository
+
+# Configuration for summary
+COPIED_ENVS=0
+INSTALL_STATUS=""
+ERRORS=""
+WARNINGS=""
+
+echo "--- Starting Worktree Setup ---"
+echo "WORKTREE_PATH: $WORKTREE_PATH"
+echo "REPO_PATH:     $REPO_PATH"
+
+# 1. Copy environment files (recursive, common variations)
+echo "Searching for environment files in $REPO_PATH..."
+# Find all .env files, avoiding worktrees and node_modules
+while IFS= read -r src_file; do
+    [[ -z "$src_file" ]] && continue
+    
+    # Get path relative to REPO_PATH
+    # Ensure we handle potential slash differences
+    rel_path="${src_file#$REPO_PATH}"
+    rel_path="${rel_path#/}"
+    rel_path="${rel_path#\\}"
+    
+    dest_file="$WORKTREE_PATH/$rel_path"
+    dest_dir=$(dirname "$dest_file")
+    
+    mkdir -p "$dest_dir" 2>/dev/null
+    if cp "$src_file" "$dest_file" 2>/dev/null; then
+        echo "  [OK] Copied: $rel_path"
+        ((COPIED_ENVS++))
+    else
+        echo "  [WARN] Could not copy: $rel_path"
+        WARNINGS+="\n  - Failed to copy $rel_path"
+    fi
+done < <(find "$REPO_PATH" -type f -name ".env*" -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/.kilocode/*" 2>/dev/null)
+
+# 2. Install dependencies
+echo "Installing dependencies..."
+
+# Node.js
+if [ -f "$WORKTREE_PATH/package.json" ]; then
+    echo "  Found package.json, running npm install..."
+    # Run in subshell to isolate directory change
+    if (cd "$WORKTREE_PATH" && npm install --no-audit --no-fund); then
+        echo "  [OK] npm install successful"
+        INSTALL_STATUS+="Node: Success. "
+    else
+        echo "  [ERROR] npm install failed"
+        ERRORS+="\n  - npm install failed"
+        INSTALL_STATUS+="Node: Failed. "
+    fi
+fi
+
+# Python
+# Look for requirements.txt in root and subdirectories
+PY_REQS=$(find "$WORKTREE_PATH" -name "requirements.txt" -not -path "*/node_modules/*" 2>/dev/null)
+if [[ -n "$PY_REQS" ]]; then
+    while IFS= read -r req_file; do
+        [[ -z "$req_file" ]] && continue
+        
+        # Relative path for display
+        rel_req="${req_file#$WORKTREE_PATH}"
+        rel_req="${rel_req#/}"
+        rel_req="${rel_req#\\}"
+        
+        echo "  Found Python requirements: $rel_req, installing..."
+        if (pip install -r "$req_file" --quiet); then
+             echo "  [OK] pip install successful ($rel_req)"
+             INSTALL_STATUS+="Python ($rel_req): Success. "
+        else
+             echo "  [ERROR] pip install failed ($rel_req)"
+             ERRORS+="\n  - pip install failed for $rel_req"
+             INSTALL_STATUS+="Python ($rel_req): Failed. "
+        fi
+    done <<< "$PY_REQS"
+fi
+
+# 3. Output Summary
+echo ""
+echo "--- Setup Summary ---"
+echo "Environment Files Copied: $COPIED_ENVS"
+echo "Dependency Installation:  ${INSTALL_STATUS:-None}"
+
+if [[ -n "$WARNINGS" ]]; then
+    echo -e "\nWarnings:$WARNINGS"
+fi
+
+if [[ -n "$ERRORS" ]]; then
+    echo -e "\nErrors:$ERRORS"
+    echo -e "\nSetup failed with errors."
+    exit 1
+fi
+
+echo -e "\nSetup completed successfully!"
