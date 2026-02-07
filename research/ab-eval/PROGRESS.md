@@ -39,8 +39,8 @@ Status legend:
 
 ### Decision
 
-- [ ] Record go/no-go decision + rationale — `NOT STARTED`
-- [ ] Record next-step plan (replace vs hybrid vs no-go) — `NOT STARTED`
+- [x] Record go/no-go decision + rationale — `DONE`
+- [x] Record next-step plan (replace vs hybrid vs no-go) — `DONE`
 
 ---
 
@@ -58,6 +58,19 @@ Status legend:
 - **Issues:**
   - `flash-attn` installation failed due to missing CUDA; proceeded without it.
   - Used 2B model instead of 8B for CPU performance/memory.
+
+### Complex Evaluation Round (v1) — GPU/env-ready rerun
+- **Status:** `DONE`
+- **Date (UTC):** 2026-02-07
+- **Interpreter:** `.venv-ab-eval\\Scripts\\python` (CUDA verified)
+- **Command:** `.\\.venv-ab-eval\\Scripts\\python research/ab-eval/py/run_all.py --dataset complex --variant all`
+- **Canonical outputs:**
+  - `research/ab-eval/out/report_all.json`
+  - `research/ab-eval/out/report_all.md`
+- **Completeness checks:**
+  - Global metrics present and numeric for A, B2, C (alpha=0.5), D (RRF).
+  - Per-query-class breakdown present for `functional_pair`, `historical_context`, `semantic_mood`, `visual_shape`.
+  - Prior interrupted artifact `research/ab-eval/out/report_complex.md` remains non-canonical (A-only partial output).
 
 ### Current dataset IDs
 
@@ -97,4 +110,8 @@ Status legend:
   - Created `queries.complex.v1.json` and `labels.complex.v1.json`.
   - Added Variant D (RRF) and per-class breakdown to `score_all_variants.py`.
   - Updated `run_all.py` with `complex` dataset preset.
+- 2026-02-07 — Completed complex rerun with eval interpreter after GPU/env readiness confirmation.
+  - Runtime checks passed (`torch.cuda.is_available() == True`; `.env.local` load path confirmed in eval scripts).
+  - Ran end-to-end pipeline for `--dataset complex --variant all`.
+  - Confirmed canonical report set is `report_all.json/.md` for this run; `report_complex.*` is stale/interrupted.
 

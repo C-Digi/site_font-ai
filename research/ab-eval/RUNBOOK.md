@@ -266,8 +266,13 @@ python research/ab-eval/py/run_all.py --dataset 200 --variant all
 
 To run the evaluation on the complex query dataset (v1):
 ```powershell
-python research/ab-eval/py/run_all.py --dataset complex --variant all
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_all.py --dataset complex --variant all
 ```
+
+Run note (2026-02-07 GPU/env-ready rerun):
+
+- Treat [`research/ab-eval/out/report_all.md`](research/ab-eval/out/report_all.md) and [`research/ab-eval/out/report_all.json`](research/ab-eval/out/report_all.json) as the canonical outputs for complex v1.
+- Treat [`research/ab-eval/out/report_complex.md`](research/ab-eval/out/report_complex.md) and [`research/ab-eval/out/report_complex.json`](research/ab-eval/out/report_complex.json) as stale/interrupted artifacts from prior attempts.
 
 - **Variant A**: Text baseline
 - **Variant B2**: VL + Short Metadata

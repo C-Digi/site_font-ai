@@ -100,17 +100,37 @@ next_steps:
 
 ### 2026-02-07: Complex Query Evaluation Round (v1)
 
-**Decision**: PENDING (Awaiting execution)
+**Decision**: GO_REPLACE (A -> B2). Keep hybrid (C/D) as non-default experimental flags.
+
+**Run metadata**:
+- `run_id`: `2026-02-07__complex-v1__gpu-env-ready-rerun`
+- `corpus`: `research/ab-eval/data/corpus.200.json`
+- `queries`: `research/ab-eval/data/queries.complex.v1.json`
+- `labels`: `research/ab-eval/data/labels.complex.v1.json`
+- `interpreter`: `.venv-ab-eval\\Scripts\\python` (CUDA-visible)
+- `canonical report`: `research/ab-eval/out/report_all.md`
 
 **Rationale**:
-- **Goal**: Evaluate model performance on nuanced, multi-intent queries (`visual_shape`, `semantic_mood`, `historical_context`, `functional_pair`).
-- **Method**: Compare text baseline (A) against VL (B2), Weighted Fusion (C), and Reciprocal Rank Fusion (D).
+- Complex round rerun completed end-to-end after GPU/env readiness confirmation.
+- B2 strongly outperforms A globally and on most classes, with higher precision-oriented ranking quality (MRR@10).
+- Hybrid C/D do not provide a stable global quality win vs B2 (especially on MRR@10), so they should remain optional and disabled by default.
 
-**Metrics (Placeholder)**:
-- **recall_at_10**: { A: 0, B2: 0, C_best: 0, D: 0 }
-- **mrr_at_10**:    { A: 0, B2: 0, C_best: 0, D: 0 }
+**Metrics (global, from canonical run)**:
+- **recall_at_10**: { A: 0.1617, B2: 0.3962, C_alpha_0_5: 0.4054, D_rrf: 0.4029 }
+- **recall_at_20**: { A: 0.2858, B2: 0.6867, C_alpha_0_5: 0.5946, D_rrf: 0.6067 }
+- **mrr_at_10**:    { A: 0.2531, B2: 0.5231, C_alpha_0_5: 0.4553, D_rrf: 0.4778 }
+
+**Metrics (per class, Recall@10 / MRR@10)**:
+- `functional_pair`: A 0.2417 / 0.2500, B2 0.3917 / 0.3658, C 0.3667 / 0.4458, D 0.4583 / 0.5754
+- `historical_context`: A 0.0917 / 0.2000, B2 0.4167 / 0.6333, C 0.4167 / 0.4133, D 0.3750 / 0.4483
+- `semantic_mood`: A 0.1983 / 0.3458, B2 0.2483 / 0.4683, C 0.4017 / 0.3469, D 0.3600 / 0.3342
+- `visual_shape`: A 0.1150 / 0.2167, B2 0.5283 / 0.6250, C 0.4367 / 0.6150, D 0.4183 / 0.5533
+
+**What this means**:
+- Production default should remain **B2** (image + short structured text), not A.
+- Hybrid should be a feature flag only (`default=false`) for class-targeted experimentation, not the global default.
+- Prior partial artifact `research/ab-eval/out/report_complex.md` is non-canonical for this round (A-only/incomplete).
 
 **Next Steps**:
-- Run `python research/ab-eval/py/run_all.py --dataset complex --variant all`
-- Analyze per-class breakdown to identify modality-specific strengths.
-
+- Preserve B2 as the production retrieval default path.
+- Keep C/D behind an evaluation flag for targeted query classes and future ablations.
