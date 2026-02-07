@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A/B/C Retrieval Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --accent: #38bdf8;
+            --muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 1rem;
+            line-height: 1.2;
+        }
+
+        .font-preview {
+            font-size: 2rem;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #000;
+            border-radius: 4px;
+            margin-bottom: 0.25rem;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .font-preview:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .score-pill {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .variant-header {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            padding-bottom: 0.25rem;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 40px repeat(3, 1fr);
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .rank-col {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--muted);
+            font-weight: 700;
+            padding-top: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 3px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Dynamic Font Injector will add @font-face rules here */
+        #dynamic-fonts { }
+    </style>
+</head>
+<body>
+    <header class="max-w-7xl mx-auto mb-6">
+        <h1 class="text-2xl font-bold mb-1">Retrieval Spot-Check</h1>
+        <p class="text-sm text-slate-400">Visual comparison: A (Text), B2 (Vision), C (Hybrid)</p>
+        <div class="mt-2 flex gap-4">
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                <span class="text-xs uppercase font-bold tracking-widest text-slate-500">GPU 8B Model Run</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                <span class="text-xs uppercase font-bold tracking-widest text-slate-500">2026-02-05 Results</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto" id="results-container">
+        <!-- Content injected via JS -->
+    </main>
+
+    <style id="dynamic-fonts"></style>
+
+    <script>
+        const FONT_DATA = [
+  {
+    "name": "Tenali Ramakrishna",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/tenali-ramakrishna@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Geom",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/geom@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Saira Extra Condensed",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/saira-extra-condensed@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Khula",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/khula@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Source Serif Pro",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/source-serif-pro@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "IM Fell French Canon",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/im-fell-french-canon@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Bodoni Moda SC",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/bodoni-moda-sc@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Literata",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Playwrite CL Guides",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-cl-guides@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Playwrite DE SAS",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-de-sas@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "MonteCarlo",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/montecarlo@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Playwrite US Trad Guides",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-us-trad-guides@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Marcellus SC",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/marcellus-sc@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Manuale",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/manuale@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Tienne",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/tienne@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Artifika",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/artifika@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Noto Serif Armenian",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-armenian@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Holtwood One SC",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/holtwood-one-sc@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Marko One",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/marko-one@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Noto Serif Grantha",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-grantha@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Noto Serif Lao",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-lao@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Quattrocento",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/quattrocento@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Baskervville SC",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/baskervville-sc@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Basic",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/basic@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Sansation",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/sansation@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Send Flowers",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/send-flowers@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Playwrite CA",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ca@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Comforter Brush",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/comforter-brush@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Playwrite NG Modern Guides",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ng-modern-guides@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Aldrich",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/aldrich@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Albert Sans",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/albert-sans@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Noto Sans Balinese",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-balinese@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Oxygen",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/oxygen@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Noto Sans PhagsPa",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-phagspa@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Cairo",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/cairo@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Metrophobic",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/metrophobic@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Noto Sans Nag Mundari",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-nag-mundari@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Belleza",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/belleza@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Kumbh Sans",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/kumbh-sans@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Gudea",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/gudea@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Black And White Picture",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/black-and-white-picture@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Macondo",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/macondo@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Micro 5",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/micro-5@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Jersey 20",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/jersey-20@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Goblin One",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/goblin-one@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Libertinus Serif Display",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/libertinus-serif-display@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Bungee Inline",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/bungee-inline@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Bitcount Single",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/bitcount-single@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Libre Barcode 128",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/libre-barcode-128@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Sarina",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/sarina@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Faster One",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/faster-one@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Iceberg",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/iceberg@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Flow Block",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/flow-block@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Kumar One",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/kumar-one@latest/latin-400-normal.ttf"
+    }
+  },
+  {
+    "name": "Londrina Sketch",
+    "files": {
+      "400": "https://cdn.jsdelivr.net/fontsource/fonts/londrina-sketch@latest/latin-400-normal.ttf"
+    }
+  }
+];
+
+        const EVAL_RESULTS = [
+            {
+                query: "serif fonts (q_001)",
+                ranks: [
+                    { rank: 1, a: ["Source Serif Pro", "0.823"], b2: ["Tienne", "0.549"], c: ["Source Serif Pro", "0.681"] },
+                    { rank: 2, a: ["IM Fell French Canon", "0.812"], b2: ["Artifika", "0.541"], c: ["Artifika", "0.669"] },
+                    { rank: 3, a: ["Bodoni Moda SC", "0.812"], b2: ["Source Serif Pro", "0.539"], c: ["Tienne", "0.667"] },
+                    { rank: 4, a: ["Literata", "0.811"], b2: ["Noto Serif Armenian", "0.533"], c: ["Noto Serif Armenian", "0.662"] },
+                    { rank: 5, a: ["Playwrite CL Guides", "0.803"], b2: ["Holtwood One SC", "0.525"], c: ["Noto Serif Grantha", "0.657"] },
+                    { rank: 6, a: ["Playwrite DE SAS", "0.800"], b2: ["Marko One", "0.522"], c: ["Marcellus SC", "0.656"] },
+                    { rank: 7, a: ["MonteCarlo", "0.799"], b2: ["Noto Serif Grantha", "0.518"], c: ["IM Fell French Canon", "0.654"] },
+                    { rank: 8, a: ["Playwrite US Trad Guides", "0.798"], b2: ["Noto Serif Lao", "0.518"], c: ["Noto Serif Lao", "0.653"] },
+                    { rank: 9, a: ["Marcellus SC", "0.797"], b2: ["Quattrocento", "0.517"], c: ["Manuale", "0.652"] },
+                    { rank: 10, a: ["Manuale", "0.797"], b2: ["Marcellus SC", "0.516"], c: ["Baskervville SC", "0.652"] }
+                ]
+            },
+            {
+                query: "sans-serif fonts (q_002)",
+                ranks: [
+                    { rank: 1, a: ["Basic", "0.796"], b2: ["Sansation", "0.546"], c: ["Sansation", "0.668"] },
+                    { rank: 2, a: ["Sansation", "0.790"], b2: ["Aldrich", "0.523"], c: ["Basic", "0.649"] },
+                    { rank: 3, a: ["MonteCarlo", "0.782"], b2: ["Albert Sans", "0.521"], c: ["Albert Sans", "0.641"] },
+                    { rank: 4, a: ["Playwrite CL Guides", "0.780"], b2: ["Noto Sans Balinese", "0.506"], c: ["Oxygen", "0.625"] },
+                    { rank: 5, a: ["Playwrite DE SAS", "0.778"], b2: ["Basic", "0.502"], c: ["Noto Sans Balinese", "0.622"] },
+                    { rank: 6, a: ["Send Flowers", "0.775"], b2: ["Oxygen", "0.502"], c: ["Noto Sans PhagsPa", "0.621"] },
+                    { rank: 7, a: ["Playwrite US Trad Guides", "0.775"], b2: ["Cairo", "0.495"], c: ["Metrophobic", "0.617"] },
+                    { rank: 8, a: ["Playwrite CA", "0.773"], b2: ["Noto Sans Nag Mundari", "0.492"], c: ["Belleza", "0.615"] },
+                    { rank: 9, a: ["Comforter Brush", "0.773"], b2: ["Kumbh Sans", "0.492"], c: ["Aldrich", "0.613"] },
+                    { rank: 10, a: ["Playwrite NG Modern Guides", "0.772"], b2: ["Gudea", "0.488"], c: ["Kumbh Sans", "0.611"] }
+                ]
+            },
+            {
+                query: "display fonts (q_003)",
+                ranks: [
+                    { rank: 1, a: ["Playwrite CL Guides", "0.833"], b2: ["Black And White Picture", "0.554"], c: ["Libertinus Serif Display", "0.652"] },
+                    { rank: 2, a: ["MonteCarlo", "0.814"], b2: ["Macondo", "0.537"], c: ["Black And White Picture", "0.632"] },
+                    { rank: 3, a: ["Playwrite CA", "0.814"], b2: ["Micro 5", "0.536"], c: ["Bungee Inline", "0.631"] },
+                    { rank: 4, a: ["Playwrite US Trad Guides", "0.813"], b2: ["Jersey 20", "0.535"], c: ["Micro 5", "0.629"] },
+                    { rank: 5, a: ["Playwrite CZ Guides", "0.812"], b2: ["Goblin One", "0.531"], c: ["Bitcount Single", "0.628"] },
+                    { rank: 6, a: ["Send Flowers", "0.811"], b2: ["Libertinus Serif Display", "0.525"], c: ["Libre Barcode 128", "0.627"] },
+                    { rank: 7, a: ["Playwrite NG Modern Guides", "0.811"], b2: ["Sarina", "0.524"], c: ["Faster One", "0.626"] },
+                    { rank: 8, a: ["Playwrite RO Guides", "0.810"], b2: ["Faster One", "0.522"], c: ["Sarina", "0.621"] },
+                    { rank: 9, a: ["Playwrite DE SAS", "0.809"], b2: ["Iceberg", "0.522"], c: ["Flow Block", "0.617"] },
+                    { rank: 10, a: ["Comforter Brush", "0.806"], b2: ["Kumar One", "0.520"], c: ["Londrina Sketch", "0.617"] }
+                ]
+            }
+        ];
+
+        function getFontCssName(name) {
+            return name.replace(/\s+/g, '-').toLowerCase();
+        }
+
+        function injectFonts() {
+            const style = document.getElementById('dynamic-fonts');
+            let css = '';
+            FONT_DATA.forEach(font => {
+                const cssName = getFontCssName(font.name);
+                css += `
+                    @font-face {
+                        font-family: '${cssName}';
+                        src: url('${font.files["400"]}') format('truetype');
+                        font-weight: 400;
+                        font-style: normal;
+                        font-display: swap;
+                    }
+                `;
+            });
+            style.textContent = css;
+        }
+
+        function createCell(fontName, score) {
+            const cssName = getFontCssName(fontName);
+            return `
+                <div class="flex flex-col">
+                    <div class="font-preview" style="font-family: '${cssName}', 'Outfit', sans-serif;">
+                        Sphinx
+                    </div>
+                    <div class="flex items-center justify-between px-1">
+                        <span class="text-[10px] font-semibold truncate max-w-[120px]" title="${fontName}">${fontName}</span>
+                        <span class="score-pill">${score}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderResults() {
+            const container = document.getElementById('results-container');
+            let html = '';
+
+            EVAL_RESULTS.forEach(section => {
+                html += `
+                    <section class="mb-8">
+                        <h2 class="section-title">Query: ${section.query}</h2>
+
+                        <div class="grid-layout px-4 mb-2">
+                            <div></div>
+                            <div class="variant-header">Variant A (Text Baseline)</div>
+                            <div class="variant-header">Variant B2 (Vision Default)</div>
+                            <div class="variant-header">Variant C (Hybrid α=0.5)</div>
+                        </div>
+
+                        ${section.ranks.map(r => `
+                            <div class="grid-layout mb-2 hover:bg-slate-800/30 p-2 rounded-lg transition-colors border border-transparent hover:border-slate-700">
+                                <div class="rank-col">#${r.rank}</div>
+                                ${createCell(r.a[0], r.a[1])}
+                                ${createCell(r.b2[0], r.b2[1])}
+                                ${createCell(r.c[0], r.c[1])}
+                            </div>
+                        `).join('')}
+                    </section>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Initialize
+        injectFonts();
+        renderResults();
+    </script>
+</body>
+</html>

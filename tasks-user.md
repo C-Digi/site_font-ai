@@ -6,102 +6,103 @@
 ---
 
 
+- fast search
+- vibe search
+- ai assist
 
 
+
+
+
+
+
+Show 1–2 premium preview recommendations, then lock the rest. 
+- wouldnt this require querying AI for every request in order to get those 1-2? 
+- wouldnt we typically already be getting most of the same/overapping font results with AI as we would with style-match (since that is its grounding), so how would we determine which 1-2 to display? 
+
+One prominent search bar with placeholder that rotates examples
+- i would like to give users inspiration/showcase beyond a single placeholder at a time
+  - was thinking slow-scrolling looping list of suggested prompts below the chat input box, but it will look very 'busy' which i dont like. any ideas for alternatives?
+
+AI assist opens as a lightweight inline panel/drawer on demand
+- just gotta say, love this idea, very clean
+
+Rollout plan
+- we also still need to implement:
+  - payment system
+  - user auth
+  - other core features?
+show an updated rollout plan
+
+
+
+
+
+## AI 
+- what does a current AI request contain which the LLM receives as input for its response? does it simply use the RAG results (generated via user-query) to then generate an AI response based on those results?
+- consider how to add value to the AI-Assist
+  - AI can include in each response some suggestions for potential 'style-match' queries for improved results - IMO this would add more value to user than the AI currently has (more than doubling current value of AI-assist)... thoughts? 
+  - or, we can have the AI initiate it's own multiple-parallel RAG searches with various queries, to get more variety in each response
+  - what other ideas do you have for value-add for the AI? 
+
+
+
+
+## Next
+
+- manual validation of A/B/C testing already completed
+
+- testing to validate
+  - currently the test queries were extermely simple - serif, display, and sans-serif. we should do another round of testing with more complex queries to validate the results hold for more complex queries as well.
+
+
+
+
+Free - implement now
+  Quick Find: unlimited
+  Style Match: limited daily/monthly queries
+  Save up to 5 favorites
+Pro (Creator) - implement now
+  Unlimited Style Match
+  Guided Picks (AI assist/refinement)
+    - apply tiered rate limiting per-user
+  Collections, export/import, share
+  NOT 'compare lists'
+Team 
+ - do not implement now or later
+
+
+
+
+
+
+
+
+
+## UI Design 
+
+- Current UI is leftover from the MVP. we need to completely redo it from the ground up. use frontend skill.
 ---
 
-
-
-
-UI - find examples
-add a popup modal for each font after clicking the card, with a larger preview area and full-featured preview options
-
-
+- implement light/dark mode
+- our logo uses #00baf0 primarily - use this in the color scheme
 ---
 
-
-
-@/supabase/migrations/005_add_files_column.sql 
-
-@/scripts/seed-fonts.ts 
-
-30 fonts are hardcoded - is this all the db will have? 
-explain to me:
-- our strategy for seeding fonts
-- our sources for fonts
-- how many are expected to be seeded
-- what factors/information go into the embeddings for each font 
-- the strategy for in-production
-  - RAG / LLM logic
-  - RAG process
-  - LLM input/output
-
-
-
-is all of this fully implemented? there was a session interruption and I am unsure if any gaps were left. 
-
-font.source - is there any value to using this specific field for embedding? if not then remove it as an embedding factor. 
-
-are we already getting and saving in the db a field for each font to use as a direct download link?  
-if so do we have any detection or handling (e.g. UX, backend dev notification like sentry/email or otherwise) of broken/outdated links? 
-
-when similarity > 0.95
-- what is the user-facing response in the chat window - is it the previously used LLM response verbatim? 
-- for continued messages in the chat after this, are the cache-responses included in the chat session history for the LLM to reference later in the conversation?
-
-
----
-
-- hybrid web-scrape:
-  - https://gemini.google.com/app/f08332b6047a2dd1
-
-include in rag factors
-- visual attributes, e.g., `fonts with a large x-height and open counters for low-legibility environments`
-
-
----
-
-https://qwen.ai/blog?id=qwen3-vl-embedding
-https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B
-investigate if implementing this over our current rag embedding method would be an improvement, e.g. instead of using the only the ai-generated description to feed embedding model, use also a rendered image of full alphanumeric set plus a pangram.
-also - can this embedding be done locally on 2x rtx 3090's with nvlink? 
-
----
-
-now, fully implement B2 in our production codebase. 
-
-
-
-
-
-
-
-## Visual Identity
-- https://gemini.google.com/app/2ad7e25f4747f6db
-- 
+copy the logos into the codebase and apply them to UI
 
 Logo - type-hype.com
 "C:\Users\Casey\CloudStorage\TypeHype\Logos\logo_01\logo-typehype_01-darkmode.png"
 "C:\Users\Casey\CloudStorage\TypeHype\Logos\logo_01\logo-typehype_01-lightmode.png"
 
-light/dark mode
-
 ---
 
-## add features
+- add a popup modal for each font after clicking the card
+  - a large preview area showing the full alphanumeric set (upper, lower, numbers, symbols, etc) plus the preview-text, which can be edited from the modal
+  - full-featured preview options in integrated menu, incl any present in the main UI plus more
+  - 
+---
 
-
-if preview text empty, have AI insert a relevant string
-
-add a dismissable banner: `Leaving this page or closing the tab will clear the chat history.`
-
-
-Favorites
-- add favorites buttons on font cards 
-- add a RH sidebar with Favs list
-
-
-add a slow-scrolling looping list of suggested prompts below the chat input box, clickable to input to the chat
+add a slow-scrolling looping list of suggested prompts below the chat input box, clickable to input to the chat. entire section disappears from view after first chat message is sent by user.
 - subtly elegant wedding invitation
 - modern minimalist tech blog
 - kids halloween party flyer 
@@ -112,16 +113,52 @@ add a slow-scrolling looping list of suggested prompts below the chat input box,
 - vintage circus poster
 - sleek corporate powerpoint
 
+---
 
-add a button to open a modal which shows the entire alphanumeric set (upper, lower, numbers, symbols, etc)
+- for the preview text input box
+  - on page load, have it pre-populated with a relevant string (e.g. "The quick brown fox jumps over the lazy dog." but more unique and interesting).
+  - once clicked into the box, the pre-filled text should be automatically deleted so the user doesn't have to manually clear it out.
+  - If the user sends the AI a chat message while the preview text input is still empty (not modified by user, preset selected), have AI insert a relevant string
+
+---
+
+Favorites
+- add favorites toggle button on font cards
+- add a RH collapsible sidebar with Favs list
+  - subtle animation when a font is added/removed to favs
+  - persist between sessions, even when not signed in
+
+
+---
 
 
 
-example/competition:
-https://www.myfonts.com/pages/ai-search
-- no free fonts, no free filter
-- 
 
+
+
+
+add a dismissable banner: `Leaving this page or closing the tab will clear the chat history.`
+
+
+
+
+
+
+
+## Possible Color Schemes
+
+--text: #050708;
+--background: #f5f9fb;
+--primary: #33a2d2;
+--secondary: #80d0f2;
+--accent: #48c7fe;
+
+
+--text: #09130e;
+--background: #f1faf6;
+--primary: #47cd92;
+--secondary: #8be8bf;
+--accent: #62eaae;
 
 
 --text: #071313;
@@ -129,12 +166,6 @@ https://www.myfonts.com/pages/ai-search
 --primary: #30dfdc;
 --secondary: #7bf4f2;
 --accent: #4ffcf7;
-
---text: #09130e;
---background: #f1faf6;
---primary: #47cd92;
---secondary: #8be8bf;
---accent: #62eaae;
 
 
 --text: #eaf6f2;
@@ -162,12 +193,6 @@ https://www.myfonts.com/pages/ai-search
 --secondary: #a0acdb;
 --accent: #7185d2;
 
---text: #050708;
---background: #f5f9fb;
---primary: #33a2d2;
---secondary: #80d0f2;
---accent: #48c7fe;
-
 --text: #050505;
 --background: #f6f9f7;
 --primary: #54ab64;
@@ -185,4 +210,17 @@ font-fetcher.com
 font-fetch.com
 
 
+
+## example/competition
+https://www.myfonts.com/pages/ai-search
+- no free fonts, no free filter
+- 
+
+
+
+## decided against
+
+
+For those we 'hide' for premium, could we still render the font to preview and entice, but block the download button, name, and any revealing data? 
+ - dont do this - its more enticing not seeing them, and risks the locked fonts discouraging them from using/spending
 
