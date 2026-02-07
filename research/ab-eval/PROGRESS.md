@@ -93,4 +93,8 @@ Status legend:
 - 2026-02-05 — Executed full ABC eval on toy dataset. Results recorded in `research/ab-eval/out/LATEST_RESULTS.md`. Pipeline confirmed working end-to-end.
 - 2026-02-05 — Added 200-font corpus generator (`build_corpus_google_fonts.py`) and metadata-driven query/label generator (`build_queries_labels_metadata.py`).
 - 2026-02-05 — Updated `run_all.py` to support `--dataset 200` preset.
+- 2026-02-07 — Initialized Complex Evaluation Round (v1).
+  - Created `queries.complex.v1.json` and `labels.complex.v1.json`.
+  - Added Variant D (RRF) and per-class breakdown to `score_all_variants.py`.
+  - Updated `run_all.py` with `complex` dataset preset.
 

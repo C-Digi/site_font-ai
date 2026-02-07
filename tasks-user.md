@@ -34,17 +34,22 @@ Show 1–2 premium preview recommendations, then lock the rest.
 - wouldnt this require querying AI for every request in order to get those 1-2? 
 - wouldnt we typically already be getting most of the same/overapping font results with AI as we would with style-match (since that is its grounding), so how would we determine which 1-2 to display? 
 
-One prominent search bar with placeholder that rotates examples
+
+
+
+
+`One prominent search bar with placeholder that rotates examples`
 - i would like to give users inspiration/showcase beyond a single placeholder at a time
   - was thinking slow-scrolling looping list of suggested prompts below the chat input box, but it will look very 'busy' which i dont like. any ideas for alternatives?
 
+
+**excellent, all great planning. you are now orchestrator. first, plan out a task delegation with subagents/phases. give me a high level plan so i can sign off. inclde metnion of each item i perosnally mentioned**
+
+
+
+
+
 AI assist opens as a lightweight inline panel/drawer on demand
-- yes
-
-
-
-
-
 
 
 ## Next
@@ -57,12 +62,27 @@ AI assist opens as a lightweight inline panel/drawer on demand
 
 
 
-### AI value-add
-- research\prod-rollout\PHASE-A-query-suggestion-chips-plan.md
+
+
+### AI 
+
+- value-add
+  - research\prod-rollout\PHASE-A-query-suggestion-chips-plan.md
+
+- testing
+  - if using Hybrid embedding method, test
+    - 'inherent knowledge' test for LLM models, for model selection of font-descriptor seeding
+      - have each LLM, single response, list all known, verifiable font names, a json file, each incl some basic characterics about it, so we can run it through ran and quantify results from each LLM and see which has the best inherent font knowledge. 
+  - consider what A/B tests we should implement for the AI-assist feature, what metrics to consider, etc.
+    - LLM models - performance metrics, speed, cost, etc.
+    - system prompt topics
+    - others?
+- 
 
 
 
 
+## monetization
 Free - implement now
   Quick Find: unlimited
   Style Match: limited daily/monthly queries

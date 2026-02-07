@@ -262,7 +262,19 @@ To run the full evaluation on the 200-font dataset:
 python research/ab-eval/py/run_all.py --dataset 200 --variant all
 ```
 
-### 4.2 Running the toy pipeline (A/B/C)
+### 4.2 Running the complex pipeline (A/B2/C/D)
+
+To run the evaluation on the complex query dataset (v1):
+```powershell
+python research/ab-eval/py/run_all.py --dataset complex --variant all
+```
+
+- **Variant A**: Text baseline
+- **Variant B2**: VL + Short Metadata
+- **Variant C**: Weighted Fusion (A + B2)
+- **Variant D**: Reciprocal Rank Fusion (A + B2)
+
+### 4.3 Running the toy pipeline (A/B/C)
 
 To run the full evaluation on the toy dataset:
 ```powershell

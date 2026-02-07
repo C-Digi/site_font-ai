@@ -98,3 +98,19 @@ next_steps:
 **Next Steps**:
 - Stick with the B2 payload (Name + Category + Tags + Image) for the production Qwen3-VL-8B embedding pipeline.
 
+### 2026-02-07: Complex Query Evaluation Round (v1)
+
+**Decision**: PENDING (Awaiting execution)
+
+**Rationale**:
+- **Goal**: Evaluate model performance on nuanced, multi-intent queries (`visual_shape`, `semantic_mood`, `historical_context`, `functional_pair`).
+- **Method**: Compare text baseline (A) against VL (B2), Weighted Fusion (C), and Reciprocal Rank Fusion (D).
+
+**Metrics (Placeholder)**:
+- **recall_at_10**: { A: 0, B2: 0, C_best: 0, D: 0 }
+- **mrr_at_10**:    { A: 0, B2: 0, C_best: 0, D: 0 }
+
+**Next Steps**:
+- Run `python research/ab-eval/py/run_all.py --dataset complex --variant all`
+- Analyze per-class breakdown to identify modality-specific strengths.
+

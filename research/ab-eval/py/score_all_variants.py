@@ -14,12 +14,13 @@ def cosine_similarity_matrix(queries, docs):
     docs_norm = docs / (np.linalg.norm(docs, axis=1, keepdims=True) + 1e-9)
     return np.dot(queries_norm, docs_norm.T)
 
-def calculate_metrics_from_scores(score_matrix, doc_names, query_ids, labels, k_list=[10, 20]):
+def calculate_metrics_from_scores(score_matrix, doc_names, query_ids, labels, k_list=[10, 20], query_id_to_class=None):
     """
     score_matrix: (N_q, N_d)
     doc_names: list of N_d strings
     query_ids: list of N_q strings
     labels: { query_id: [ doc_name, ... ] }
+    query_id_to_class: { query_id: class_name }
     """
     metrics = {
         "Recall@10": 0,
@@ -30,6 +31,17 @@ def calculate_metrics_from_scores(score_matrix, doc_names, query_ids, labels, k_
     valid_queries = 0
 
     per_query_results = {}
+    
+    # Initialize class metrics
+    class_metrics = {}
+    if query_id_to_class:
+        for cls in set(query_id_to_class.values()):
+            class_metrics[cls] = {
+                "Recall@10": 0,
+                "Recall@20": 0,
+                "MRR@10": 0,
+                "count": 0
+            }
 
     for i, q_id in enumerate(query_ids):
         if q_id not in labels:
@@ -44,12 +56,18 @@ def calculate_metrics_from_scores(score_matrix, doc_names, query_ids, labels, k_
         retrieved = [(doc_names[idx], float(scores[idx])) for idx in top_indices]
         per_query_results[q_id] = retrieved
         
+        q_recall10 = 0
+        q_recall20 = 0
+        q_mrr10 = 0
+
         # Recall@K
         for k in k_list:
             top_k = [r[0] for r in retrieved[:k]]
             hits = len(set(top_k) & set(ground_truth))
             recall = hits / len(ground_truth) if ground_truth else 0
             metrics[f"Recall@{k}"] += recall
+            if k == 10: q_recall10 = recall
+            if k == 20: q_recall20 = recall
             
         # MRR@10
         mrr = 0
@@ -58,12 +76,47 @@ def calculate_metrics_from_scores(score_matrix, doc_names, query_ids, labels, k_
                 mrr = 1.0 / (rank + 1)
                 break
         metrics["MRR@10"] += mrr
+        q_mrr10 = mrr
+
+        # Class breakdown
+        if query_id_to_class and q_id in query_id_to_class:
+            cls = query_id_to_class[q_id]
+            class_metrics[cls]["Recall@10"] += q_recall10
+            class_metrics[cls]["Recall@20"] += q_recall20
+            class_metrics[cls]["MRR@10"] += q_mrr10
+            class_metrics[cls]["count"] += 1
 
     if valid_queries > 0:
         for key in metrics:
             metrics[key] /= valid_queries
             
-    return metrics, per_query_results
+    # Finalize class metrics
+    final_class_metrics = {}
+    for cls, cm in class_metrics.items():
+        if cm["count"] > 0:
+            final_class_metrics[cls] = {
+                "Recall@10": cm["Recall@10"] / cm["count"],
+                "Recall@20": cm["Recall@20"] / cm["count"],
+                "MRR@10": cm["MRR@10"] / cm["count"],
+                "count": cm["count"]
+            }
+            
+    return metrics, per_query_results, final_class_metrics
+
+def reciprocal_rank_fusion(score_matrices, k=60):
+    """
+    score_matrices: list of (N_q, N_d) matrices
+    Returns: fused (N_q, N_d) matrix
+    """
+    fused_scores = np.zeros_like(score_matrices[0])
+    for m in score_matrices:
+        for i in range(m.shape[0]):
+            scores = m[i]
+            ranks = np.empty_like(scores, dtype=int)
+            indices = np.argsort(scores)[::-1]
+            ranks[indices] = np.arange(len(scores)) + 1
+            fused_scores[i] += 1.0 / (k + ranks)
+    return fused_scores
 
 def main():
     parser = argparse.ArgumentParser()
@@ -77,6 +130,7 @@ def main():
     parser.add_argument("--vl_queries_npy", default="research/ab-eval/out/embeddings_vl_queries.npy")
     parser.add_argument("--docs_meta", default="research/ab-eval/out/metadata_docs.json")
     parser.add_argument("--queries_meta", default="research/ab-eval/out/metadata_queries.json")
+    parser.add_argument("--queries", help="Path to original queries file (to get classes)")
     # Ground Truth
     parser.add_argument("--labels", default="research/ab-eval/data/labels.toy.json")
     # Output
@@ -113,19 +167,33 @@ def main():
     doc_names = [d['name'] for d in docs_meta]
     query_ids = [q['id'] for q in queries_meta]
 
+    # Load classes if queries file is provided
+    query_id_to_class = None
+    if args.queries and os.path.exists(args.queries):
+        with open(args.queries, 'r') as f:
+            q_data = json.load(f)
+            query_id_to_class = {q['id']: q.get('class', 'unclassified') for q in q_data}
+
+    # Load VL and check alignment
+    vl_queries = None
+    if os.path.exists(args.vl_queries_npy):
+        raw_vl = np.load(args.vl_queries_npy)
+        if len(raw_vl) == len(query_ids):
+            vl_queries = raw_vl
+        else:
+            print(f"Warning: VL query embeddings shape {raw_vl.shape} doesn't match query count {len(query_ids)}. Skipping VL variants.")
+
     b1_docs = np.load(args.b1_docs_npy) if os.path.exists(args.b1_docs_npy) else None
     b2_docs = np.load(args.b2_docs_npy) if os.path.exists(args.b2_docs_npy) else None
     b2plus_docs = np.load(args.b2plus_docs_npy) if os.path.exists(args.b2plus_docs_npy) else None
-    vl_queries = np.load(args.vl_queries_npy) if os.path.exists(args.vl_queries_npy) else None
 
-    # Re-align A to metadata order if needed (assuming A was generated from the same corpus)
-    # Actually, let's just build matrices for A
+    # Re-align A to metadata order if needed
     a_doc_map = {d['name']: np.array(d['embedding']) for d in a_docs_raw}
     a_query_map = {q['id']: np.array(q['embedding']) for q in a_queries_raw}
     
     # Check alignment
-    a_docs_mtx = np.stack([a_doc_map[name] for name in doc_names]) if a_docs_raw else None
-    a_queries_mtx = np.stack([a_query_map[q_id] for q_id in query_ids]) if a_queries_raw else None
+    a_docs_mtx = np.stack([a_doc_map[name] for name in doc_names]) if a_docs_raw and all(name in a_doc_map for name in doc_names) else None
+    a_queries_mtx = np.stack([a_query_map[q_id] for q_id in query_ids]) if a_queries_raw and all(q_id in a_query_map for q_id in query_ids) else None
 
     # 3. Compute Scores
     all_scores = {}
@@ -144,13 +212,24 @@ def main():
     # 4. Hybrid Fusion (Variant C) - Sweep Alpha for A + B2
     hybrid_results = []
     if "A" in all_scores and "B2" in all_scores:
-        print("Sweeping alpha for Hybrid A + B2...")
-        for alpha in np.linspace(0, 1, 11):
-            fused_scores = alpha * all_scores["A"] + (1 - alpha) * all_scores["B2"]
-            metrics, _ = calculate_metrics_from_scores(fused_scores, doc_names, query_ids, labels)
-            hybrid_results.append({"alpha": round(alpha, 2), "metrics": metrics})
-            if alpha == 0.5:
-                all_scores["C (alpha=0.5)"] = fused_scores
+        if all_scores["A"].shape == all_scores["B2"].shape:
+            print("Sweeping alpha for Hybrid A + B2...")
+            for alpha in np.linspace(0, 1, 11):
+                fused_scores = alpha * all_scores["A"] + (1 - alpha) * all_scores["B2"]
+                metrics, _, _ = calculate_metrics_from_scores(fused_scores, doc_names, query_ids, labels, query_id_to_class=query_id_to_class)
+                hybrid_results.append({"alpha": round(alpha, 2), "metrics": metrics})
+                if alpha == 0.5:
+                    all_scores["C (alpha=0.5)"] = fused_scores
+        else:
+            print(f"Warning: Skipping Hybrid fusion (C) due to shape mismatch: A={all_scores['A'].shape}, B2={all_scores['B2'].shape}")
+
+    # 4b. Variant D (RRF of A and B2)
+    if "A" in all_scores and "B2" in all_scores:
+        if all_scores["A"].shape == all_scores["B2"].shape:
+            print("Computing Variant D (RRF of A and B2)...")
+            all_scores["D (RRF)"] = reciprocal_rank_fusion([all_scores["A"], all_scores["B2"]])
+        else:
+            print(f"Warning: Skipping Variant D (RRF) due to shape mismatch: A={all_scores['A'].shape}, B2={all_scores['B2'].shape}")
 
     # 5. Evaluate all variants
     final_report = {
@@ -159,10 +238,12 @@ def main():
     }
 
     per_variant_top10 = {}
+    per_variant_class_metrics = {}
 
     for var_name, score_mtx in all_scores.items():
-        metrics, results = calculate_metrics_from_scores(score_mtx, doc_names, query_ids, labels)
+        metrics, results, class_metrics = calculate_metrics_from_scores(score_mtx, doc_names, query_ids, labels, query_id_to_class=query_id_to_class)
         final_report["variants"][var_name] = metrics
+        per_variant_class_metrics[var_name] = class_metrics
         
         # Keep top 10 for report
         top10_dump = {}
@@ -187,6 +268,19 @@ def main():
         for var_name, metrics in final_report["variants"].items():
             f.write(f"| {var_name} | {metrics['Recall@10']:.4f} | {metrics['Recall@20']:.4f} | {metrics['MRR@10']:.4f} |\n")
         
+        # Class Breakdown Tables
+        if query_id_to_class:
+            f.write("\n## Per-Class Breakdown\n")
+            classes = sorted(set(query_id_to_class.values()))
+            for cls in classes:
+                f.write(f"\n### Class: {cls}\n\n")
+                f.write("| Variant | Recall@10 | Recall@20 | MRR@10 | Count |\n")
+                f.write("| :--- | :--- | :--- | :--- | :--- |\n")
+                for var_name in all_scores.keys():
+                    if var_name in per_variant_class_metrics and cls in per_variant_class_metrics[var_name]:
+                        cm = per_variant_class_metrics[var_name][cls]
+                        f.write(f"| {var_name} | {cm['Recall@10']:.4f} | {cm['Recall@20']:.4f} | {cm['MRR@10']:.4f} | {cm['count']} |\n")
+
         # Alpha Sweep
         if hybrid_results:
             f.write("\n## Hybrid Fusion Alpha Sweep (A + B2)\n\n")
@@ -200,13 +294,13 @@ def main():
         for q_idx, q_id in enumerate(query_ids[:3]): # Show first 3 queries
             q_text = next((q['text'] for q in queries_meta if q['id'] == q_id), q_id)
             f.write(f"### Query: {q_text} (`{q_id}`)\n\n")
-            f.write("| Rank | Variant A | Variant B2 | Variant B2-plus | Variant C (0.5) |\n")
+            f.write("| Rank | Variant A | Variant B2 | Variant B2-plus | Variant D (RRF) |\n")
             f.write("| :--- | :--- | :--- | :--- | :--- |\n")
             
             rows = []
             for rank in range(10):
                 row = [str(rank+1)]
-                for var in ["A", "B2", "B2-plus", "C (alpha=0.5)"]:
+                for var in ["A", "B2", "B2-plus", "D (RRF)"]:
                     if var in per_variant_top10 and q_id in per_variant_top10[var]:
                         if rank < len(per_variant_top10[var][q_id]):
                             doc, score = per_variant_top10[var][q_id][rank]

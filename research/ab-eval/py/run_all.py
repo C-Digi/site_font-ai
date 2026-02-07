@@ -23,8 +23,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--variant", choices=["A", "B", "all"], default="all",
                         help="Which variant to run. A: Text, B: VL, all: A+B+C")
-    parser.add_argument("--dataset", choices=["toy", "200"], default=None,
-                        help="Preset dataset to use (toy or 200). Overrides file paths if set.")
+    parser.add_argument("--dataset", choices=["toy", "200", "complex"], default=None,
+                        help="Preset dataset to use (toy, 200, or complex). Overrides file paths if set.")
     parser.add_argument("--model", default="Qwen/Qwen3-VL-Embedding-8B",
                         help="VL model to use for variant B")
     parser.add_argument("--corpus", help="Path to corpus file")
@@ -37,6 +37,10 @@ def main():
         if not args.corpus: args.corpus = "research/ab-eval/data/corpus.200.json"
         if not args.queries: args.queries = "research/ab-eval/data/queries.200.json"
         if not args.labels: args.labels = "research/ab-eval/data/labels.200.json"
+    elif args.dataset == "complex":
+        if not args.corpus: args.corpus = "research/ab-eval/data/corpus.200.json"
+        if not args.queries: args.queries = "research/ab-eval/data/queries.complex.v1.json"
+        if not args.labels: args.labels = "research/ab-eval/data/labels.complex.v1.json"
     elif args.dataset == "toy" or (not args.dataset and not args.corpus):
         if not args.corpus: args.corpus = "research/ab-eval/data/corpus.toy.json"
         if not args.queries: args.queries = "research/ab-eval/data/queries.toy.json"
@@ -70,19 +74,21 @@ def main():
 
     # 3. Final Scoring (Variant C / All)
     if args.variant == "all":
-        print("\n>>> RUNNING FINAL SCORING (A + B + C) <<<")
+        print("\n>>> RUNNING FINAL SCORING (A + B + C + D) <<<")
         run_script("score_all_variants.py", [
-            "--labels", args.labels
+            "--labels", args.labels,
+            "--queries", args.queries
         ])
     elif args.variant == "A" and success_a:
         run_script("score_retrieval.py", [
             "--labels", args.labels
         ])
     elif args.variant == "B" and success_b:
-        # B doesn't have a standalone scorer for just B in the old script, 
+        # B doesn't have a standalone scorer for just B in the old script,
         # so we use score_all_variants which handles missing A gracefully.
         run_script("score_all_variants.py", [
-            "--labels", args.labels
+            "--labels", args.labels,
+            "--queries", args.queries
         ])
 
     print(f"\n{'='*60}")

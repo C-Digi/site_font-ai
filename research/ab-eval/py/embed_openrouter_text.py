@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import requests
 import numpy as np
@@ -37,8 +38,8 @@ def main():
 
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
-        print("Error: OPENROUTER_API_KEY not found in environment.")
-        return
+        print("Error: OPENROUTER_API_KEY not found in environment (.env.local or process env).")
+        sys.exit(2)
 
     # Process Corpus
     print(f"Embedding corpus from {args.corpus}...")

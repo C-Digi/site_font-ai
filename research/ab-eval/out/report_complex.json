@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "B1": {
+      "Recall@10": 0,
+      "Recall@20": 0,
+      "MRR@10": 0
+    },
+    "B2": {
+      "Recall@10": 0,
+      "Recall@20": 0,
+      "MRR@10": 0
+    },
+    "B2-plus": {
+      "Recall@10": 0,
+      "Recall@20": 0,
+      "MRR@10": 0
+    }
+  },
+  "hybrid_sweep": [],
+  "per_query_top10": {
+    "B1": {},
+    "B2": {},
+    "B2-plus": {}
+  }
+}

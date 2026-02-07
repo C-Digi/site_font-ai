@@ -1,0 +1,199 @@
+Actor
+Alata
+Albert Sans
+Aldrich
+Amaranth
+Anek Latin
+Anonymous Pro
+Antic Slab
+Aref Ruqaa Ink
+Artifika
+Atma
+B612 Mono
+Babylonica
+Baloo Paaji 2
+Basic
+Baskervville SC
+Belleza
+Benne
+Bentham
+Big Shoulders
+Birthstone Bounce
+Bitcount Single
+Black And White Picture
+Bodoni Moda SC
+Brygada 1918
+Bubblegum Sans
+Bungee Inline
+Bungee Shade
+Cairo
+Calistoga
+Calligraffitti
+Caramel
+Chivo Mono
+Comforter Brush
+Cormorant
+Courier Prime
+Cousine
+Coustard
+Delius Swash Caps
+Dokdo
+Doppio One
+Edu NSW ACT Foundation
+Edu NSW ACT Hand Pre
+Edu VIC WA NT Beginner
+Edu VIC WA NT Hand Pre
+Elsie Swash Caps
+Encode Sans Condensed
+Encode Sans Expanded
+Esteban
+Farro
+Faster One
+Fasthand
+Federant
+Fenix
+Fira Mono
+Flow Block
+Fragment Mono
+GFS Neohellenic
+Ga Maamli
+Galdeano
+Geist Mono
+Geom
+Give You Glory
+Goblin One
+Gochi Hand
+Golos Text
+Google Sans Code
+Grand Hotel
+Grenze Gotisch
+Gudea
+Hanalei Fill
+Hind Siliguri
+Holtwood One SC
+Hubballi
+IBM Plex Mono
+IM Fell French Canon
+Iceberg
+Jersey 20
+JetBrains Mono
+Jolly Lodger
+Khula
+Kotta One
+Kumar One
+Kumar One Outline
+Kumbh Sans
+Kurale
+LXGW WenKai Mono TC
+Lalezar
+Lekton
+Lexend Giga
+Libertinus Mono
+Libertinus Serif Display
+Libre Barcode 128
+Lilex
+Lisu Bosa
+Literata
+Londrina Sketch
+Love Ya Like A Sister
+Lovers Quarrel
+M PLUS 1 Code
+Macondo
+Madimi One
+Major Mono Display
+Manuale
+Marcellus SC
+Marko One
+Martian Mono
+Material Symbols
+Merienda
+Metrophobic
+Micro 5
+Mina
+Monofett
+MonteCarlo
+Ms Madi
+Noto Rashi Hebrew
+Noto Sans Adlam
+Noto Sans Balinese
+Noto Sans Batak
+Noto Sans Nag Mundari
+Noto Sans PhagsPa
+Noto Serif Armenian
+Noto Serif Devanagari
+Noto Serif Grantha
+Noto Serif Lao
+Nova Mono
+Over the Rainbow
+Overlock SC
+Overpass Mono
+Ovo
+Oxygen
+Oxygen Mono
+PT Mono
+Pangolin
+Passion One
+Passions Conflict
+Patrick Hand
+Peralta
+Petrona
+Playpen Sans Hebrew
+Playwrite BE VLG Guides
+Playwrite BE WAL Guides
+Playwrite BR Guides
+Playwrite CA
+Playwrite CL Guides
+Playwrite CZ Guides
+Playwrite DE SAS
+Playwrite FR Trad
+Playwrite IN
+Playwrite NG Modern Guides
+Playwrite NZ Basic Guides
+Playwrite RO Guides
+Playwrite US Trad Guides
+Port Lligat Slab
+Quattrocento
+Rancho
+Red Hat Mono
+Reddit Mono
+Reem Kufi Fun
+Roboto Flex
+Roboto Mono
+Rubik Storm
+Ruge Boogie
+Ruthie
+Saira Extra Condensed
+Sansation
+Sarina
+Seaweed Script
+Send Flowers
+Share Tech Mono
+Sixtyfour
+Sixtyfour Convergence
+Solitreo
+Sometype Mono
+Source Code Pro
+Source Serif Pro
+Space Mono
+Spectral SC
+Suravaram
+Syne Mono
+TASA Orbiter
+Tai Heritage Pro
+Tektur
+Tenali Ramakrishna
+Tienne
+Tilt Prism
+Tiro Devanagari Sanskrit
+Tiro Tamil
+Train One
+Ubuntu Mono
+Ubuntu Sans Mono
+Underdog
+VT323
+Victor Mono
+WDXL Lubrifont SC
+Workbench
+Xanh Mono
+Yuji Mai
+Yuji Syuku
