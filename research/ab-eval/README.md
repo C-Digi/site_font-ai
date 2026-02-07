@@ -23,8 +23,8 @@ This repo does not yet contain the datasets/artifacts, but the evaluation should
 
 - `research/ab-eval/datasets/`
   - Frozen inputs (corpus manifest, queries, labels)
-- `research/ab-eval/artifacts/<run_id>/`
-  - Derived outputs (glyph sheets, embeddings, rankings, metrics, reports)
+- `research/ab-eval/out/`
+  - Generated artifacts (JSONL, summaries, reports)
 
 `run_id` naming (recommended):
 

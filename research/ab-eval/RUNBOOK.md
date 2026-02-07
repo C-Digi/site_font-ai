@@ -56,6 +56,15 @@ To generate the reproducible 200-font corpus and its corresponding queries/label
    python research/ab-eval/py/build_queries_labels_metadata.py --corpus research/ab-eval/data/corpus.200.json
    ```
 
+3. **Generate VL Descriptions (Bakeoff):**
+   ```powershell
+   # Standard smoke run
+   python research/ab-eval/py/gen_font_descriptions.py --limit 10 --out research/ab-eval/out/descriptions_bakeoff_smoke_v2.jsonl
+   
+   # Large model probe (32B and 235B)
+   python research/ab-eval/py/gen_font_descriptions.py --models "qwen/qwen3-vl-32b-instruct,qwen/qwen3-vl-235b-a22b-instruct" --limit 50 --out research/ab-eval/out/descriptions_bakeoff_qwen32_235_50.jsonl
+   ```
+
 Note: These labels are **proxy labels** derived from objective metadata (e.g., Google Fonts category). This evaluation tests whether retrieval respects known categorical constraints. It does NOT measure nuanced style matching (x-height, etc.) without human labels.
 
 ### 1.1 Corpus manifest (fonts)
@@ -259,6 +268,50 @@ Output:
 ## 4) Execution (The Runner)
 
 The main entry point for running the evaluation is [`research/ab-eval/py/run_all.py`](research/ab-eval/py/run_all.py).
+
+### 4.0 VL description generation bakeoff (glyph-sheet image -> typographic description)
+
+Use [`research/ab-eval/py/gen_font_descriptions.py`](research/ab-eval/py/gen_font_descriptions.py) to generate model-comparison JSONL artifacts for vision-grounded font descriptions.
+
+Scope and behavior:
+
+- Input corpus defaults to `research/ab-eval/data/corpus.200.json`.
+- Glyph sheets are resolved from `research/ab-eval/out/glyphs` by font name (configurable).
+- Prompt intentionally excludes font-family-name leakage and asks for typographic attributes only.
+- Supports provider routing:
+  - Gemini API models (e.g., `gemini-3-flash-preview`, `gemini-2.5-flash-lite-preview-09-2025`)
+  - Local Qwen VL instruct models via Transformers (e.g., `Qwen/Qwen3-VL-8B-Instruct`, `Qwen/Qwen3-VL-4B-Instruct`)
+  - OpenRouter multimodal fallback (e.g., `qwen/qwen3-vl-8b-instruct`, optional `google/gemini-2.5-flash-image`)
+
+Required env keys by provider:
+
+- Gemini: `GEMINI_API_KEY`
+- OpenRouter: `OPENROUTER_API_KEY`
+- Local Qwen: local GPU/runtime dependencies from [`research/ab-eval/py/requirements-vl.txt`](research/ab-eval/py/requirements-vl.txt)
+
+Example smoke run (10 fonts, required slate):
+
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/gen_font_descriptions.py --limit 10 --models "gemini-3-flash-preview,gemini-2.5-flash-lite-preview-09-2025,Qwen/Qwen3-VL-8B-Instruct,Qwen/Qwen3-VL-4B-Instruct,qwen/qwen3-vl-8b-instruct" --out research/ab-eval/out/descriptions_bakeoff_smoke.jsonl --resume
+```
+
+Include optional fallback model in the same run:
+
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/gen_font_descriptions.py --limit 10 --models "gemini-3-flash-preview,gemini-2.5-flash-lite-preview-09-2025,Qwen/Qwen3-VL-8B-Instruct,Qwen/Qwen3-VL-4B-Instruct,qwen/qwen3-vl-8b-instruct" --include-optional-fallback --out research/ab-eval/out/descriptions_bakeoff_smoke_with_optional.jsonl --resume
+```
+
+Dry-run to validate routing/resume without API calls:
+
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/gen_font_descriptions.py --limit 10 --dry-run --out research/ab-eval/out/descriptions_bakeoff_dryrun.jsonl
+```
+
+Output schema (JSONL row):
+
+- `font_name`, `model`, `provider`, `prompt_template`, `description`
+- `metadata` (timings, usage/tokens when available, parse details)
+- `status` (`ok|error|dry_run`) and `error`
 
 ### 4.1 Running the 200-font pipeline
 

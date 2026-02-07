@@ -52,6 +52,12 @@ Status legend:
 ### Complex Query Set Evaluation (End-to-End)
 - **Status:** `DONE` (2026-02-07)
 - **Notes:** Completed with GPU acceleration on RTX 3090 Ti. Verified non-placeholder metrics for A, B2, C, D.
+
+### Large Model VL Description Bakeoff (32B & 235B)
+- **Status:** `DONE` (2026-02-07)
+- **Notes:** Tested `qwen/qwen3-vl-32b-instruct` and `qwen/qwen3-vl-235b-a22b-instruct` via OpenRouter.
+- **Results:** 100% success on both 10-font smoke and 50-font follow-on.
+- **Artifacts:** `out/descriptions_bakeoff_qwen32_235_50.jsonl`, `out/descriptions_bakeoff_qwen32_235_50.summary.md`.
 - **Runtime:** ~50 mins
 - **Dataset:** 200 fonts
 - **VL Model:** Qwen/Qwen3-VL-Embedding-2B
