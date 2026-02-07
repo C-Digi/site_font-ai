@@ -14,7 +14,7 @@
 
 
 
-
+## IN PROGRESS CHAT 
 
 Show 1–2 premium preview recommendations, then lock the rest. 
 - wouldnt this require querying AI for every request in order to get those 1-2? 
@@ -25,7 +25,7 @@ One prominent search bar with placeholder that rotates examples
   - was thinking slow-scrolling looping list of suggested prompts below the chat input box, but it will look very 'busy' which i dont like. any ideas for alternatives?
 
 AI assist opens as a lightweight inline panel/drawer on demand
-- just gotta say, love this idea, very clean
+
 
 Rollout plan
 - we also still need to implement:
@@ -38,7 +38,7 @@ show an updated rollout plan
 
 
 
-## AI 
+### AI 
 - what does a current AI request contain which the LLM receives as input for its response? does it simply use the RAG results (generated via user-query) to then generate an AI response based on those results?
 - consider how to add value to the AI-Assist
   - AI can include in each response some suggestions for potential 'style-match' queries for improved results - IMO this would add more value to user than the AI currently has (more than doubling current value of AI-assist)... thoughts? 
@@ -50,10 +50,17 @@ show an updated rollout plan
 
 ## Next
 
-- manual validation of A/B/C testing already completed
 
-- testing to validate
-  - currently the test queries were extermely simple - serif, display, and sans-serif. we should do another round of testing with more complex queries to validate the results hold for more complex queries as well.
+
+the test queries used in previous testing were quite simple - 
+  1. Category Proxies (q_001 to q_010): These test standard font categories and styles:
+    - serif fonts, sans-serif fonts, display fonts, handwriting fonts, monospace fonts.
+    - Combined descriptors like elegant serif, modern sans-serif, decorative display, cursive style, and fixed-width
+   coding font.
+  2. Subset Proxies (q_011 to q_015): These test multi-language/script support:
+    - cyrillic support, greek support, vietnamese language support, korean fonts, and japanese fonts.
+  - we should do another round of testing with more complex queries to validate the results hold for more complex queries as well
+  - consider if we should still bother testing A variant, or if we should also try additional variants / methods
 
 
 
@@ -141,7 +148,9 @@ add a dismissable banner: `Leaving this page or closing the tab will clear the c
 
 
 
-
+## analytics
+- critical metrics to collect
+  - top queries, keywords, patterns, font results, fonts clicked, downloaded, etc
 
 
 

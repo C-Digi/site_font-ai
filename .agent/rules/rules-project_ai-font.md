@@ -110,6 +110,7 @@
 - **Visual Spot-Check**: After benchmarks/AB tests, generate a compact HTML grid (see `research/ab-eval/out/visual-spot-check.html`).
   - Use `@font-face` to load CDN binaries and render "Abg" or "Sphinx" glyphs.
   - Prioritize extreme vertical density for rapid human review of retrieval variants.
+- **Visual Test Artifacts (Human Review)**: Intern reviewers validate visual outputs from grids, screenshots, or HTML artifacts. Add concise review/validation instructions directly inside the HTML artifact guide so anyone can follow it without external docs.
 
 ## 10. General Dos and Don'ts
 
@@ -137,4 +138,3 @@
   - B2-plus and Hybrid C are optional research paths only.
   - JIT is queue-based and non-blocking.
   - External font hosting remains default.
-

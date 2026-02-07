@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieval Spot-Check v2 | AI Font Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+        :root {
+            --bg: #030712;
+            --card: #0f172a;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 48px 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .grid-header {
+            background: #111827;
+            padding: 0.75rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+        }
+
+        .grid-cell {
+            background: var(--bg);
+            padding: 0.75rem;
+            position: relative;
+        }
+
+        .rank-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #475569;
+            background: #090e1a;
+        }
+
+        .font-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .font-preview {
+            background: white;
+            color: black;
+            height: 60px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .font-preview:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .font-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+
+        .score-badge {
+            background: var(--accent-glow);
+            color: #818cf8;
+            padding: 2px 6px;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .query-header {
+            background: linear-gradient(to right, #1e1b4b, #030712);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin-top: 3rem;
+            margin-bottom: 0;
+        }
+
+        /* Scanline effect */
+        .scanline {
+            width: 100%;
+            height: 1px;
+            background: rgba(99, 102, 241, 0.1);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        #dynamic-fonts {
+            display: none;
+        }
+    </style>
+    <style id="dynamic-fonts"></style>
+</head>
+
+<body class="p-8 pb-24">
+
+    <header class="max-w-6xl mx-auto mb-12">
+        <div
+            class="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-widest uppercase border border-indigo-500/30 text-indigo-400 bg-indigo-500/5 rounded">
+            Evaluation Report: 2026-02-05
+        </div>
+        <h1 class="text-5xl font-extrabold mb-4 tracking-tight">
+            Spot-Check <span class="text-indigo-500">v2</span>
+        </h1>
+        <p class="text-slate-400 max-w-2xl text-lg leading-relaxed">
+            High-density stress tests comparing <span class="text-white font-semibold">Variant A (Text)</span> vs
+            <span class="text-white font-semibold">Variant B2 (Vision)</span>. Focusing on top 5 ranks across 5 critical
+            query types.
+        </p>
+    </header>
+
+    <div id="main-content" class="max-w-6xl mx-auto space-y-12">
+        <!-- Injected by script -->
+    </div>
+
+    <footer class="mt-20 py-12 border-t border-slate-800 max-w-6xl mx-auto text-center">
+        <p class="text-slate-500 text-sm mono italic uppercase tracking-tighter">Generated for site_font-ai benchmark
+            validation</p>
+    </footer>
+
+    <script>
+        const CORPUS = [
+            { "name": "Source Serif Pro", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/source-serif-pro@latest/latin-400-normal.ttf" } },
+            { "name": "IM Fell French Canon", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/im-fell-french-canon@latest/latin-400-normal.ttf" } },
+            { "name": "Bodoni Moda SC", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/bodoni-moda-sc@latest/latin-400-normal.ttf" } },
+            { "name": "Literata", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite CL Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-cl-guides@latest/latin-400-normal.ttf" } },
+            { "name": "Tienne", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/tienne@latest/latin-400-normal.ttf" } },
+            { "name": "Artifika", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/artifika@latest/latin-400-normal.ttf" } },
+            { "name": "Noto Serif Armenian", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-armenian@latest/latin-400-normal.ttf" } },
+            { "name": "Holtwood One SC", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/holtwood-one-sc@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite DE SAS", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-de-sas@latest/latin-400-normal.ttf" } },
+            { "name": "MonteCarlo", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/montecarlo@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite CA", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ca@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite US Trad Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-us-trad-guides@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite CZ Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-cz-guides@latest/latin-400-normal.ttf" } },
+            { "name": "Black And White Picture", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/black-and-white-picture@latest/latin-400-normal.ttf" } },
+            { "name": "Macondo", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/macondo@latest/latin-400-normal.ttf" } },
+            { "name": "Micro 5", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/micro-5@latest/latin-400-normal.ttf" } },
+            { "name": "Jersey 20", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/jersey-20@latest/latin-400-normal.ttf" } },
+            { "name": "Goblin One", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/goblin-one@latest/latin-400-normal.ttf" } },
+            { "name": "Oxygen Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/oxygen-mono@latest/latin-400-normal.ttf" } },
+            { "name": "Share Tech Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/share-tech-mono@latest/latin-400-normal.ttf" } },
+            { "name": "Space Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/space-mono@latest/latin-400-normal.ttf" } },
+            { "name": "Monofett", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/monofett@latest/latin-400-normal.ttf" } },
+            { "name": "Xanh Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/xanh-mono@latest/latin-400-normal.ttf" } },
+            { "name": "Material Symbols", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/material-symbols@latest/latin-400-normal.ttf" } },
+            { "name": "B612 Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/b612-mono@latest/latin-400-normal.ttf" } },
+            { "name": "Source Code Pro", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/source-code-pro@latest/latin-400-normal.ttf" } },
+            { "name": "Sometype Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/sometype-mono@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite FR Trad", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-fr-trad@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite BE VLG Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-be-vlg-guides@latest/latin-400-normal.ttf" } },
+            { "name": "Playwrite NG Modern Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ng-modern-guides@latest/latin-400-normal.ttf" } },
+            { "name": "Caramel", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/caramel@latest/latin-400-normal.ttf" } },
+            { "name": "Ruthie", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/ruthie@latest/latin-400-normal.ttf" } },
+            { "name": "Send Flowers", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/send-flowers@latest/latin-400-normal.ttf" } },
+            { "name": "Ms Madi", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/ms-madi@latest/latin-400-normal.ttf" } },
+            { "name": "Dokdo", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/dokdo@latest/latin-400-normal.ttf" } },
+            { "name": "LXGW WenKai Mono TC", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/lxgw-wenkai-mono-tc@latest/latin-400-normal.ttf" } },
+            { "name": "Passions Conflict", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/passions-conflict@latest/latin-400-normal.ttf" } },
+            { "name": "Comforter Brush", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/comforter-brush@latest/latin-400-normal.ttf" } }
+        ];
+
+        const RESULTS = [
+            {
+                id: "q_001",
+                text: "serif fonts",
+                desc: "Baseline category validation",
+                ranks: [
+                    { rank: 1, a: ["Source Serif Pro", "0.823"], b2: ["Tienne", "0.549"] },
+                    { rank: 2, a: ["IM Fell French Canon", "0.812"], b2: ["Artifika", "0.541"] },
+                    { rank: 3, a: ["Bodoni Moda SC", "0.812"], b2: ["Source Serif Pro", "0.539"] },
+                    { rank: 4, a: ["Literata", "0.811"], b2: ["Noto Serif Armenian", "0.533"] },
+                    { rank: 5, a: ["Playwrite CL Guides", "0.803"], b2: ["Holtwood One SC", "0.525"] }
+                ]
+            },
+            {
+                id: "q_003",
+                text: "display fonts",
+                desc: "Visual complexity stress-test",
+                ranks: [
+                    { rank: 1, a: ["Playwrite CL Guides", "0.833"], b2: ["Black And White Picture", "0.554"] },
+                    { rank: 2, a: ["MonteCarlo", "0.814"], b2: ["Macondo", "0.537"] },
+                    { rank: 3, a: ["Playwrite CA", "0.814"], b2: ["Micro 5", "0.536"] },
+                    { rank: 4, a: ["Playwrite US Trad Guides", "0.813"], b2: ["Jersey 20", "0.535"] },
+                    { rank: 5, a: ["Playwrite CZ Guides", "0.812"], b2: ["Goblin One", "0.531"] }
+                ]
+            },
+            {
+                id: "q_005",
+                text: "monospace fonts",
+                desc: "Structural / geometric constraints",
+                ranks: [
+                    { rank: 1, a: ["Oxygen Mono", "0.848"], b2: ["Material Symbols", "0.654"] },
+                    { rank: 2, a: ["Share Tech Mono", "0.842"], b2: ["B612 Mono", "0.631"] },
+                    { rank: 3, a: ["Space Mono", "0.839"], b2: ["Source Code Pro", "0.628"] },
+                    { rank: 4, a: ["Monofett", "0.835"], b2: ["Xanh Mono", "0.621"] },
+                    { rank: 5, a: ["Xanh Mono", "0.834"], b2: ["Sometype Mono", "0.621"] }
+                ]
+            },
+            {
+                id: "q_009",
+                text: "cursive style",
+                desc: "High-variance stroke patterns",
+                ranks: [
+                    { rank: 1, a: ["Playwrite US Trad Guides", "0.801"], b2: ["Caramel", "0.553"] },
+                    { rank: 2, a: ["Playwrite CA", "0.800"], b2: ["Ruthie", "0.552"] },
+                    { rank: 3, a: ["Playwrite FR Trad", "0.797"], b2: ["Send Flowers", "0.539"] },
+                    { rank: 4, a: ["Playwrite BE VLG Guides", "0.795"], b2: ["Ms Madi", "0.538"] },
+                    { rank: 5, a: ["Playwrite NG Modern Guides", "0.795"], b2: ["Playwrite CZ Guides", "0.536"] }
+                ]
+            },
+            {
+                id: "q_014",
+                text: "korean fonts",
+                desc: "Multi-script retrieval (Non-Latin validation)",
+                ranks: [
+                    { rank: 1, a: ["Comforter Brush", "0.775"], b2: ["Black And White Picture", "0.610"] },
+                    { rank: 2, a: ["MonteCarlo", "0.764"], b2: ["Dokdo", "0.595"] },
+                    { rank: 3, a: ["Dokdo", "0.764"], b2: ["Kumar One", "0.471"] },
+                    { rank: 4, a: ["Send Flowers", "0.755"], b2: ["Passions Conflict", "0.451"] },
+                    { rank: 5, a: ["Playwrite CL Guides", "0.752"], b2: ["Kumar One Outline", "0.446"] }
+                ]
+            }
+        ];
+
+        function cssSafe(name) {
+            return name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        }
+
+        function init() {
+            // Inject @font-face
+            const fontStyle = document.getElementById('dynamic-fonts');
+            let css = '';
+            CORPUS.forEach(f => {
+                css += `
+                @font-face {
+                    font-family: '${cssSafe(f.name)}';
+                    src: url('${f.files["400"]}') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
+                    font-display: swap;
+                }
+                `;
+            });
+            fontStyle.textContent = css;
+
+            // Render content
+            const main = document.getElementById('main-content');
+            let html = '';
+
+            RESULTS.forEach(q => {
+                const isKorean = q.id === 'q_014';
+                const glyph = isKorean ? '안녕하세요' : 'Sphynx';
+
+                html += `
+                <div class="query-section">
+                    <div class="query-header rounded-t-xl">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold tracking-tight text-indigo-100">${q.text} <span class="mono opacity-30 text-xs ml-2">${q.id}</span></h3>
+                                <p class="text-slate-400 text-xs mt-1 uppercase tracking-widest font-semibold">${q.desc}</p>
+                            </div>
+                            <div class="mono text-[10px] text-slate-500 bg-slate-900 px-2 py-1 rounded border border-slate-800">
+                                TOP 5 RANKS
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-grid border border-slate-800 rounded-b-xl overflow-hidden shadow-2xl shadow-indigo-500/5">
+                        <div class="grid-header rank-cell">#</div>
+                        <div class="grid-header">Variant A (Text Baseline)</div>
+                        <div class="grid-header">Variant B2 (Vision Default)</div>
+
+                        ${q.ranks.map(r => `
+                            <div class="grid-cell rank-cell mono">${r.rank}</div>
+                            <div class="grid-cell">
+                                ${renderCard(r.a[0], r.a[1], glyph)}
+                                <div class="scanline"></div>
+                            </div>
+                            <div class="grid-cell">
+                                ${renderCard(r.b2[0], r.b2[1], glyph)}
+                                <div class="scanline"></div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                `;
+            });
+
+            main.innerHTML = html;
+        }
+
+        function renderCard(name, score, glyph) {
+            return `
+            <div class="font-card">
+                <div class="font-preview" style="font-family: '${cssSafe(name)}', 'Plus Jakarta Sans', sans-serif;">
+                    ${glyph}
+                </div>
+                <div class="font-meta">
+                    <span class="font-bold truncate max-w-[180px] text-slate-200" title="${name}">${name}</span>
+                    <span class="score-badge mono text-[10px]">${score}</span>
+                </div>
+            </div>
+            `;
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
