@@ -1,5 +1,10 @@
 # RUNBOOK — Offline A/B eval (text vs Qwen3-VL embeddings)
 
+**Latest Canonical Run:** `2026-02-07` (Complex Query Set)
+- **Artifact Path:** `research/ab-eval/out/report_all.md`
+- **JSON Source:** `research/ab-eval/out/report_all.json`
+- **Visual Spot-Check:** `research/ab-eval/out/spot-check-complex-2026-02-07.html`
+
 This runbook defines the **offline** evaluation procedures, dataset definitions, artifact naming, and “done”/decision criteria.
 
 Authoritative plan references:

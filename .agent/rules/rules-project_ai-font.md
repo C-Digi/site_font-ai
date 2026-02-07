@@ -65,6 +65,10 @@
 - **Font Hosting:** Continue external font hosting (Google/Fontsource/Fontshare). Do not self-host binary font files by default.
 - **Worker Reliability:** Use retry policy and max attempts for failed queue jobs; log `last_error` for triage.
 - **API Keys / Env:** Requires `GEMINI_API_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY`; plus embedding/queue config such as `VL_EMBEDDING_ENDPOINT`, `VL_EMBEDDING_API_KEY`, and queue controls.
+- **Offline A/B Eval Env (Python harness):**
+  - Variant A (text) requires `OPENROUTER_API_KEY` (typically from `.env.local`).
+  - Local VL eval scripts (`research/ab-eval/py/*`) do **not** require `VL_EMBEDDING_ENDPOINT` / `VL_EMBEDDING_API_KEY`.
+  - Set `HF_TOKEN` or `HUGGINGFACE_HUB_TOKEN` when model pull/auth issues occur.
 
 ## 7. Frontend Error Handling
 
@@ -81,6 +85,9 @@
 - **Queue Worker Command:** `npx tsx scripts/worker-seed-jobs.ts`
 - **Backfill Command:** `npx tsx scripts/backfill-b2-embeddings.ts`
 - **Queue Health Command:** `npx tsx scripts/queue-health.ts`
+- **Offline A/B Eval Interpreter (GPU):** use `\.venv-ab-eval\Scripts\python` for evaluation runs.
+- **Complex Round Command (canonical):** `.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_all.py --dataset complex --variant all`
+- **GPU/Env readiness reference:** `research/ab-eval/READY_STATE_GPU_ENV_2026-02-07.md`
 
 ## 8. API Conventions
 
@@ -107,6 +114,8 @@
 ## 9. Testing & Validation Guidelines
 
 - No formal test suite established yet; verify API and UI manually.
+- **Offline A/B canonical artifacts:** prefer `research/ab-eval/out/report_all.md` + `research/ab-eval/out/report_all.json` as source-of-truth for completed runs.
+- **Partial artifact caveat:** `report_complex.*` may exist as interrupted/stale outputs; do not use as final decision inputs unless explicitly designated as canonical for a run.
 - **Visual Spot-Check**: After benchmarks/AB tests, generate a compact HTML grid (see `research/ab-eval/out/visual-spot-check.html`).
   - Use `@font-face` to load CDN binaries and render "Abg" or "Sphinx" glyphs.
   - Prioritize extreme vertical density for rapid human review of retrieval variants.
@@ -138,3 +147,15 @@
   - B2-plus and Hybrid C are optional research paths only.
   - JIT is queue-based and non-blocking.
   - External font hosting remains default.
+
+## 12. Offline A/B Eval Decision Notes (Complex Round)
+
+- **Complex query set:** `research/ab-eval/data/queries.complex.v1.json` with class-based prompts (`visual_shape`, `semantic_mood`, `historical_context`, `functional_pair`).
+- **Complex labels:** `research/ab-eval/data/labels.complex.v1.json`.
+- **Decision matrix to remember:**
+  - `A` = text baseline sentinel/control
+  - `B2` = production candidate
+  - `C` = weighted hybrid (alpha sweep)
+  - `D` = RRF hybrid (robust fusion check)
+- **Current recommendation:** keep `B2` as production default; keep hybrid (`C`/`D`) behind feature flag for targeted experiments.
+- **Operational rule:** complete eval decisions must include global + per-class metrics and be logged in `research/ab-eval/DECISIONS.md` with canonical artifact references.

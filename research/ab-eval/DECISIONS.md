@@ -46,6 +46,44 @@ next_steps:
 
 ## Log
 
+### 2026-02-07: Complex Query Set Evaluation - B2 vs Baseline
+
+```yaml
+date: 2026-02-07
+run_id: complex_all_v1
+datasets:
+  corpus_id: corpus.200
+  queryset_id: queries.complex.v1
+  labelset_id: labels.complex.v1
+
+decision: GO_REPLACE
+
+rationale:
+  - summary: >-
+      Variant B2 (Vision + Metadata) significantly outperforms the text baseline (A) across all complex query classes,
+      particularly in visual shape and historical context. B2-plus shows even higher recall but at the cost of
+      higher retrieval noise in some classes. Hybrid C/D offer marginal gains in specific classes but introduce complexity.
+  - metrics:
+      global:
+        recall_at_10: { A: 0.1617, B1: 0.2283, B2: 0.3962, B2-plus: 0.4575, C_0.5: 0.4054, D_RRF: 0.4029 }
+        mrr_at_10:    { A: 0.2531, B1: 0.2035, B2: 0.5231, B2-plus: 0.4833, C_0.5: 0.4553, D_RRF: 0.4778 }
+      by_class_r10:
+        visual_shape:       { A: 0.1150, B2: 0.5283, D: 0.4183 }
+        semantic_mood:      { A: 0.1983, B2: 0.2483, D: 0.3600 }
+        historical_context: { A: 0.0917, B2: 0.4167, D: 0.3750 }
+        functional_pair:    { A: 0.2417, B2: 0.3917, D: 0.4583 }
+  - qualitative:
+      - wins: Massive improvement in "visual_shape" (e.g. "geometric sans") where text often hallucinated handwriting fonts.
+      - losses: Some "semantic_mood" queries (e.g. "stern and authoritative") still benefit from text semantics, though B2 is competitive.
+  - cost_perf:
+      - peak_vram: ~16GB (RTX 3090 Ti)
+      - notes: B2 is the sweet spot for production.
+
+next_steps:
+  - Finalize B2 as the production default retrieval path.
+  - Keep Hybrid D (RRF) as a research toggle for "functional_pair" specialized searches.
+```
+
 ### 2026-02-05: Local Embedding Backend for Qwen3-VL
 
 **Decision**: Use `transformers` + `qwen-vl-utils` (Option 1) instead of vLLM (Option 2) for generating Variant B embeddings.

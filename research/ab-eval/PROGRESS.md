@@ -48,6 +48,10 @@ Status legend:
 
 ### Real 200-Font Run (End-to-End)
 - **Status:** `DONE`
+
+### Complex Query Set Evaluation (End-to-End)
+- **Status:** `DONE` (2026-02-07)
+- **Notes:** Completed with GPU acceleration on RTX 3090 Ti. Verified non-placeholder metrics for A, B2, C, D.
 - **Runtime:** ~50 mins
 - **Dataset:** 200 fonts
 - **VL Model:** Qwen/Qwen3-VL-Embedding-2B

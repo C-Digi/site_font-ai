@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Spot-Check | AI Font Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+        :root {
+            --bg: #030712;
+            --card: #0f172a;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 48px 1fr 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .grid-header {
+            background: #111827;
+            padding: 0.75rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+        }
+
+        .grid-cell {
+            background: var(--bg);
+            padding: 0.75rem;
+            position: relative;
+        }
+
+        .rank-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #475569;
+            background: #090e1a;
+        }
+
+        .font-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .font-preview {
+            background: white;
+            color: black;
+            height: 60px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .font-preview:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .font-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+
+        .score-badge {
+            background: var(--accent-glow);
+            color: #818cf8;
+            padding: 2px 6px;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .query-header {
+            background: linear-gradient(to right, #1e1b4b, #030712);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin-top: 3rem;
+            margin-bottom: 0;
+        }
+
+        #dynamic-fonts {
+            display: none;
+        }
+    </style>
+    <style id="dynamic-fonts"></style>
+</head>
+
+<body class="p-8 pb-24">
+    <header class="max-w-7xl mx-auto mb-12">
+        <div class="flex justify-between items-start">
+            <div>
+                <div
+                    class="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-widest uppercase border border-indigo-500/30 text-indigo-400 bg-indigo-500/5 rounded">
+                    Complex Evaluation Report: 2026-02-07
+                </div>
+                <h1 class="text-5xl font-extrabold mb-4 tracking-tight">
+                    Complex <span class="text-indigo-500">Spot-Check</span>
+                </h1>
+                <p class="text-slate-400 max-w-2xl text-lg leading-relaxed">
+                    Side-by-side comparison of <span class="text-white font-semibold">Variant A (Text)</span>,
+                    <span class="text-white font-semibold">Variant B2 (Vision)</span>, and
+                    <span class="text-white font-semibold">Variant D (RRF Hybrid)</span>.
+                </p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-2xl">
+                    <label class="block text-[10px] uppercase font-bold text-slate-500 mb-2 tracking-widest">Preview Text</label>
+                    <input type="text" id="preview-input" value="Sphynx" 
+                        class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 w-64 transition-all">
+                </div>
+                <button onclick="document.getElementById('guide-section').classList.toggle('hidden')" 
+                    class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all shadow-lg">
+                    Intern Review Guide
+                </button>
+            </div>
+        </div>
+
+        <div id="guide-section" class="hidden mt-8 bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-8 backdrop-blur-sm shadow-inner">
+            <h3 class="text-indigo-400 font-extrabold uppercase tracking-widest text-xs mb-6 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                Official Reviewer Instructions
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm leading-relaxed text-slate-300">
+                <div>
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                        <span class="text-indigo-500">01.</span> Execution Steps
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex gap-2"><span class="text-indigo-500 font-bold">•</span> <span>Switch preview text between <b>"Sphynx"</b> (standard), <b>"Abg"</b> (contrast), and <b>"0O1l"</b> (legibility).</span></li>
+                        <li class="flex gap-2"><span class="text-indigo-500 font-bold">•</span> <span>Evaluate <b>"Visual Shape"</b> queries specifically—B2 should vastly outperform A here.</span></li>
+                        <li class="flex gap-2"><span class="text-indigo-500 font-bold">•</span> <span>Look for <b>"hallucinations"</b>: fonts that don't match the contrast/weight described.</span></li>
+                        <li class="flex gap-2"><span class="text-indigo-500 font-bold">•</span> <span>Verify <b>"RRF Hybrid (D)"</b> provides a robust balance compared to pure B2.</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                        <span class="text-indigo-500">02.</span> Reporting Protocol
+                    </h4>
+                    <p class="mb-4">After completing the visual audit, prepare a brief report:</p>
+                    <ul class="space-y-3">
+                        <li class="flex gap-2"><span class="text-indigo-500 font-bold">•</span> <span>Note any query where Variant B2 was worse than the Text baseline.</span></li>
+                        <li class="flex gap-2"><span class="text-indigo-500 font-bold">•</span> <span>Identify the "Top Performer" for each category (Visual, Semantic, Historical).</span></li>
+                        <li class="flex gap-2"><span class="text-indigo-500 font-bold">•</span> <span>Update the <b>DECISIONS.md</b> in research/ab-eval/ with your verdict.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="main-content" class="max-w-7xl mx-auto space-y-12"></div>
+
+    <footer class="mt-20 py-12 border-t border-slate-800 max-w-7xl mx-auto text-center">
+        <p class="text-slate-500 text-sm mono italic uppercase tracking-tighter">Generated for site_font-ai complex
+            benchmark validation</p>
+    </footer>
+
+    <script>
+        const CORPUS = [{ "name": "Playwrite CA", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ca@latest/latin-400-normal.ttf" } }, { "name": "Playwrite BE VLG Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-be-vlg-guides@latest/latin-400-normal.ttf" } }, { "name": "Bubblegum Sans", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/bubblegum-sans@latest/latin-400-normal.ttf" } }, { "name": "Petrona", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/petrona@latest/latin-400-normal.ttf" } }, { "name": "Londrina Sketch", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/londrina-sketch@latest/latin-400-normal.ttf" } }, { "name": "Love Ya Like A Sister", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/love-ya-like-a-sister@latest/latin-400-normal.ttf" } }, { "name": "Playwrite US Trad Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-us-trad-guides@latest/latin-400-normal.ttf" } }, { "name": "Baskervville SC", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/baskervville-sc@latest/latin-400-normal.ttf" } }, { "name": "Quattrocento", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/quattrocento@latest/latin-400-normal.ttf" } }, { "name": "Bentham", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/bentham@latest/latin-400-normal.ttf" } }, { "name": "Federant", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/federant@latest/latin-400-normal.ttf" } }, { "name": "Playwrite RO Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ro-guides@latest/latin-400-normal.ttf" } }, { "name": "Macondo", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/macondo@latest/latin-400-normal.ttf" } }, { "name": "Basic", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/basic@latest/latin-400-normal.ttf" } }, { "name": "Noto Serif Lao", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-lao@latest/latin-400-normal.ttf" } }, { "name": "Send Flowers", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/send-flowers@latest/latin-400-normal.ttf" } }, { "name": "Coustard", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/coustard@latest/latin-400-normal.ttf" } }, { "name": "Iceberg", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/iceberg@latest/latin-400-normal.ttf" } }, { "name": "Courier Prime", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@latest/latin-400-normal.ttf" } }, { "name": "Playwrite NZ Basic Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-nz-basic-guides@latest/latin-400-normal.ttf" } }, { "name": "Sansation", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/sansation@latest/latin-400-normal.ttf" } }, { "name": "Alata", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/alata@latest/latin-400-normal.ttf" } }, { "name": "Esteban", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/esteban@latest/latin-400-normal.ttf" } }, { "name": "Oxygen Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/oxygen-mono@latest/latin-400-normal.ttf" } }, { "name": "Geom", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/geom@latest/latin-400-normal.ttf" } }, { "name": "Overpass Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/overpass-mono@latest/latin-400-normal.ttf" } }, { "name": "Metrophobic", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/metrophobic@latest/latin-400-normal.ttf" } }, { "name": "Artifika", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/artifika@latest/latin-400-normal.ttf" } }, { "name": "Kumbh Sans", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/kumbh-sans@latest/latin-400-normal.ttf" } }, { "name": "MonteCarlo", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/montecarlo@latest/latin-400-normal.ttf" } }, { "name": "Playwrite DE SAS", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-de-sas@latest/latin-400-normal.ttf" } }, { "name": "Antic Slab", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/antic-slab@latest/latin-400-normal.ttf" } }, { "name": "Bodoni Moda SC", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/bodoni-moda-sc@latest/latin-400-normal.ttf" } }, { "name": "Playwrite CL Guides", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-cl-guides@latest/latin-400-normal.ttf" } }, { "name": "Oxygen", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/oxygen@latest/latin-400-normal.ttf" } }, { "name": "Source Code Pro", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/source-code-pro@latest/latin-400-normal.ttf" } }, { "name": "Jolly Lodger", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/jolly-lodger@latest/latin-400-normal.ttf" } }, { "name": "Amaranth", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/amaranth@latest/latin-400-normal.ttf" } }, { "name": "Comforter Brush", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/comforter-brush@latest/latin-400-normal.ttf" } }, { "name": "Noto Serif Grantha", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-grantha@latest/latin-400-normal.ttf" } }, { "name": "Literata", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-normal.ttf" } }, { "name": "Elsie Swash Caps", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/elsie-swash-caps@latest/latin-400-normal.ttf" } }, { "name": "Jersey 20", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/jersey-20@latest/latin-400-normal.ttf" } }, { "name": "Tai Heritage Pro", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/tai-heritage-pro@latest/latin-400-normal.ttf" } }, { "name": "Holtwood One SC", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/holtwood-one-sc@latest/latin-400-normal.ttf" } }, { "name": "Sarina", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/sarina@latest/latin-400-normal.ttf" } }, { "name": "Marcellus SC", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/marcellus-sc@latest/latin-400-normal.ttf" } }, { "name": "Caramel", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/caramel@latest/latin-400-normal.ttf" } }, { "name": "Brygada 1918", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/brygada-1918@latest/latin-400-normal.ttf" } }, { "name": "Google Sans Code", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/google-sans-code@latest/latin-400-normal.ttf" } }, { "name": "Libertinus Serif Display", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/libertinus-serif-display@latest/latin-400-normal.ttf" } }, { "name": "IM Fell French Canon", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/im-fell-french-canon@latest/latin-400-normal.ttf" } }, { "name": "Geist Mono", "files": { "400": "https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.ttf" } }];
+        const QUERIES = [{ "id": "cq_001", "text": "ultra-thin hairline serif with high contrast", "class": "visual_shape" }, { "id": "cq_002", "text": "geometric sans with perfect circles and low stroke variation", "class": "visual_shape" }, { "id": "cq_011", "text": "playful and quirky display font for a candy shop", "class": "semantic_mood" }, { "id": "cq_012", "text": "stern and authoritative serif for a law firm", "class": "semantic_mood" }, { "id": "cq_021", "text": "19th century victorian style display serif", "class": "historical_context" }, { "id": "cq_025", "text": "art deco inspired display font", "class": "historical_context" }, { "id": "cq_031", "text": "heading font that pairs well with a minimal sans-serif body", "class": "functional_pair" }, { "id": "cq_033", "text": "coding font with clear distinctions between 0 and O", "class": "functional_pair" }];
+        const RESULTS = { "A": { "cq_001": [["Comforter Brush", 0.738646199073385], ["Playwrite CA", 0.7256471401209303], ["MonteCarlo", 0.7236998778594637], ["Playwrite DE SAS", 0.7234338602253685], ["Playwrite US Trad Guides", 0.7223365398056586], ["Playwrite NG Modern Guides", 0.7221919064071792], ["Playwrite CL Guides", 0.7196299192035451], ["Send Flowers", 0.7189667905961852], ["Playwrite BE VLG Guides", 0.718349165327025], ["Playwrite IN", 0.7131569774123561]], "cq_002": [["Geom", 0.7670139510061311], ["Sansation", 0.7339735274702306], ["Comforter Brush", 0.7045816904523187], ["MonteCarlo", 0.7005628151001175], ["Basic", 0.6985641473898891], ["Oxygen", 0.6973101281882264], ["Material Symbols", 0.6964548127493498], ["Google Sans Code", 0.6938660245843119], ["Geist Mono", 0.6928448170256147], ["Albert Sans", 0.6923335456171744]], "cq_011": [["Bubblegum Sans", 0.7458055314086818], ["Send Flowers", 0.7384004988790234], ["Playwrite CA", 0.7360398781510015], ["Caramel", 0.7318977976131051], ["MonteCarlo", 0.7211351208334865], ["Playwrite DE SAS", 0.717086856502831], ["Playwrite CL Guides", 0.7145456706112053], ["Birthstone Bounce", 0.713134222435329], ["Playwrite FR Trad", 0.7123977211224972], ["Playwrite CZ Guides", 0.7121789395909366]], "cq_012": [["IM Fell French Canon", 0.7030672590646937], ["Noto Serif Lao", 0.6949370942604652], ["Baskervville SC", 0.6939362815977504], ["Antic Slab", 0.6926141672638162], ["Coustard", 0.6916736260613727], ["Bodoni Moda SC", 0.6880494696675942], ["Literata", 0.6839563725581347], ["Bentham", 0.682347564255717], ["Marcellus SC", 0.6811798261521932], ["Source Serif Pro", 0.6810780100401387]], "cq_021": [["Libertinus Serif Display", 0.7266015784463025], ["Brygada 1918", 0.7190231654287745], ["Baskervville SC", 0.7169994741325655], ["Playwrite BE VLG Guides", 0.7155079063599035], ["MonteCarlo", 0.7147748765931999], ["Tai Heritage Pro", 0.714658634855002], ["Send Flowers", 0.7128861313864909], ["Comforter Brush", 0.7107065603763151], ["Source Serif Pro", 0.7094357926862253], ["Playwrite CA", 0.7088033731323365]], "cq_025": [["Send Flowers", 0.745625141325002], ["Playwrite DE SAS", 0.7421151332447027], ["MonteCarlo", 0.7401720883975655], ["Playwrite CA", 0.7367326031333343], ["Playwrite CL Guides", 0.7300585424253102], ["Playwrite NG Modern Guides", 0.7291735061058582], ["Playwrite BE VLG Guides", 0.7254162444875489], ["Playwrite FR Trad", 0.7245242551991888], ["Playwrite US Trad Guides", 0.7237547362739749], ["Playwrite CZ Guides", 0.7226735887035937]], "cq_031": [["MonteCarlo", 0.7152952428877895], ["Playwrite CA", 0.7103807247960047], ["Playwrite CL Guides", 0.7051694717045977], ["Playwrite DE SAS", 0.7040432506614693], ["Playwrite US Trad Guides", 0.6983618689691287], ["Bodoni Moda SC", 0.6973536557644495], ["Sansation", 0.6966189165484206], ["Playwrite NG Modern Guides", 0.6963714520294874], ["Comforter Brush", 0.6923847225608334], ["Playwrite CZ Guides", 0.6914696322696839]], "cq_033": [["Oxygen Mono", 0.668723788516631], ["Comforter Brush", 0.6653447011441173], ["Google Sans Code", 0.6629810346592336], ["Playwrite RO Guides", 0.6483803917609554], ["Playwrite NZ Basic Guides", 0.6480798652871144], ["Playwrite CZ Guides", 0.6453591586148423], ["Source Code Pro", 0.6453482467213266], ["MonteCarlo", 0.6447980993928281], ["Playwrite CA", 0.6437626135931641], ["Playwrite IN", 0.6419474017612752]] }, "B2": { "cq_001": [["Libertinus Serif Display", 0.5113710165023804], ["Quattrocento", 0.5057420134544373], ["Noto Serif Grantha", 0.5050594210624695], ["Literata", 0.5030576586723328], ["Bentham", 0.5022391080856323], ["Petrona", 0.5015542507171631], ["Artifika", 0.5004100203514099], ["Bodoni Moda SC", 0.4966943860054016], ["Source Serif Pro", 0.4962519109249115], ["Tienne", 0.4953056871891022]], "cq_002": [["Geom", 0.6004558205604553], ["Geist Mono", 0.5360999703407288], ["Google Sans Code", 0.5210080146789551], ["Metrophobic", 0.4926510751247406], ["Oxygen", 0.48679980635643005], ["Gudea", 0.483039915561676], ["Sansation", 0.4809373617172241], ["Lexend Giga", 0.4796508550643921], ["Albert Sans", 0.4767293334007263], ["Kumbh Sans", 0.4740060865879059]], "cq_011": [["Bubblegum Sans", 0.5578532218933105], ["Jolly Lodger", 0.5479634404182434], ["Love Ya Like A Sister", 0.504857063293457], ["Sarina", 0.49850964546203613], ["Elsie Swash Caps", 0.4890885055065155], ["Macondo", 0.477110356092453], ["Patrick Hand", 0.47654542326927185], ["Iceberg", 0.4760880470275879], ["Jersey 20", 0.4754035770893097], ["Black And White Picture", 0.4680739641189575]], "cq_012": [["Artifika", 0.49139204621315], ["Esteban", 0.48280298709869385], ["Bentham", 0.48179131746292114], ["Marcellus SC", 0.4767889678478241], ["Quattrocento", 0.4720100164413452], ["Tienne", 0.4677431285381317], ["Bodoni Moda SC", 0.4633927643299103], ["Kotta One", 0.45838624238967896], ["Antic Slab", 0.45716220140457153], ["Source Serif Pro", 0.456173837184906]], "cq_021": [["Libertinus Serif Display", 0.5029160380363464], ["Bentham", 0.4772261679172516], ["Artifika", 0.4609077274799347], ["Federant", 0.4542739987373352], ["Elsie Swash Caps", 0.4517248868942261], ["Calistoga", 0.44906720519065857], ["Brygada 1918", 0.44672128558158875], ["Baskervville SC", 0.4459429979324341], ["Petrona", 0.4456222951412201], ["Quattrocento", 0.44286105036735535]], "cq_025": [["Iceberg", 0.5182273983955383], ["Macondo", 0.5171721577644348], ["Jersey 20", 0.5018825531005859], ["Elsie Swash Caps", 0.48695629835128784], ["Sarina", 0.48281869292259216], ["Bungee Shade", 0.47887104749679565], ["Bungee Inline", 0.4779650568962097], ["Black And White Picture", 0.47436898946762085], ["Tilt Prism", 0.46866366267204285], ["Londrina Sketch", 0.4683632254600525]], "cq_031": [["Holtwood One SC", 0.4402067959308624], ["Kumbh Sans", 0.4235498309135437], ["Amaranth", 0.4224469065666199], ["Oxygen", 0.42107170820236206], ["Alata", 0.4167234003543854], ["Albert Sans", 0.4112345278263092], ["Google Sans Code", 0.4094878137111664], ["Bodoni Moda SC", 0.4089723527431488], ["Passion One", 0.407814621925354], ["Marko One", 0.4073464572429657]], "cq_033": [["Source Code Pro", 0.5719470977783203], ["Oxygen Mono", 0.5689671635627747], ["Google Sans Code", 0.5648359656333923], ["Oxygen", 0.5243514776229858], ["Courier Prime", 0.5138289928436279], ["Bitcount Single", 0.5135612487792969], ["Material Symbols", 0.5109869837760925], ["Cousine", 0.5078321099281311], ["M PLUS 1 Code", 0.5069373846054077], ["Reddit Mono", 0.5041405558586121]] }, "D (RRF)": { "cq_001": [["Noto Serif Grantha", 0.028373015873015873], ["Literata", 0.028283227848101264], ["Bodoni Moda SC", 0.027526395173453996], ["Petrona", 0.026140526140526144], ["Libertinus Serif Display", 0.02565270188221008], ["Source Serif Pro", 0.025603864734299518], ["Antic Slab", 0.025603392041748205], ["Artifika", 0.025451688923802042], ["Tai Heritage Pro", 0.025332691999358666], ["Bentham", 0.025188536953242836]], "cq_002": [["Geom", 0.03278688524590164], ["Sansation", 0.031054405392392875], ["Geist Mono", 0.030621785881252923], ["Google Sans Code", 0.03057889822595705], ["Oxygen", 0.030536130536130537], ["Albert Sans", 0.02877846790890269], ["Lexend Giga", 0.02803921568627451], ["Metrophobic", 0.027252906976744186], ["Basic", 0.027149321266968326], ["Material Symbols", 0.026973565905412694]], "cq_011": [["Bubblegum Sans", 0.03278688524590164], ["Caramel", 0.028612012987012988], ["Jolly Lodger", 0.02803379416282642], ["Elsie Swash Caps", 0.027149321266968326], ["Playwrite CA", 0.027108970929195647], ["Love Ya Like A Sister", 0.026182294223531334], ["Birthstone Bounce", 0.02606951871657754], ["Sarina", 0.026041666666666664], ["Merienda", 0.02581612258494337], ["Playwrite DE SAS", 0.02535559678416821]], "cq_012": [["Bentham", 0.03057889822595705], ["Artifika", 0.03028233151183971], ["Marcellus SC", 0.030117753623188408], ["Antic Slab", 0.030117753623188408], ["Bodoni Moda SC", 0.03007688828584351], ["Esteban", 0.02964254577157803], ["Baskervville SC", 0.029030910609857977], ["Source Serif Pro", 0.02857142857142857], ["Literata", 0.028438886647841874], ["Coustard", 0.028371628371628373]], "cq_021": [["Libertinus Serif Display", 0.03278688524590164], ["Brygada 1918", 0.031054405392392875], ["Baskervville SC", 0.03057889822595705], ["Tai Heritage Pro", 0.028309409888357256], ["Bentham", 0.027893738140417457], ["Source Serif Pro", 0.02715098147128967], ["Manuale", 0.02684684684684685], ["Petrona", 0.026540946394272742], ["MonteCarlo", 0.0264957264957265], ["Literata", 0.026013513513513515]], "cq_025": [["Sarina", 0.026373626373626377], ["Londrina Sketch", 0.026333907056798625], ["Artifika", 0.0261986301369863], ["Iceberg", 0.02610218048702849], ["Macondo", 0.02574441687344913], ["Bungee Inline", 0.025563671006668783], ["Libertinus Serif Display", 0.025528455284552845], ["Elsie Swash Caps", 0.024553571428571428], ["MonteCarlo", 0.024069737184491284], ["Bubblegum Sans", 0.023809523809523808]], "cq_031": [["Bodoni Moda SC", 0.029857397504456328], ["Oxygen", 0.0293236301369863], ["Sansation", 0.028083267871170464], ["Kumbh Sans", 0.02724014336917563], ["Amaranth", 0.027108970929195647], ["Holtwood One SC", 0.026597524255603883], ["Albert Sans", 0.026140526140526144], ["Marko One", 0.025155279503105588], ["Google Sans Code", 0.024540757749712976], ["Basic", 0.023709315375982042]], "cq_033": [["Oxygen Mono", 0.03252247488101534], ["Google Sans Code", 0.031746031746031744], ["Source Code Pro", 0.03131881575727918], ["Oxygen", 0.028125], ["Overpass Mono", 0.027222222222222224], ["Material Symbols", 0.025678061306371368], ["Roboto Mono", 0.02506265664160401], ["Reddit Mono", 0.02459499263622975], ["Bitcount Single", 0.024497309544038517], ["Xanh Mono", 0.024444444444444446]] } };
+
+        function render() {
+            const container = document.getElementById('main-content');
+            const previewText = document.getElementById('preview-input').value || 'Sphynx';
+            container.innerHTML = '';
+
+            QUERIES.forEach(query => {
+                const section = document.createElement('section');
+                section.innerHTML = `
+                    <div class="query-header">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-1 block">${query.class}</span>
+                                <h3 class="text-xl font-bold italic">"${query.text}"</h3>
+                            </div>
+                            <span class="mono text-xs text-slate-500">${query.id}</span>
+                        </div>
+                    </div>
+                    <div class="comparison-grid">
+                        <div class="grid-header">#</div>
+                        <div class="grid-header">Variant A (Text)</div>
+                        <div class="grid-header">Variant B2 (Vision)</div>
+                        <div class="grid-header">Variant D (RRF Hybrid)</div>
+                        ${[1, 2, 3, 4, 5].map(rank => `
+                            <div class="grid-cell rank-cell">${rank}</div>
+                            ${['A', 'B2', 'D (RRF)'].map(varName => {
+                                const res = RESULTS[varName] && RESULTS[varName][query.id] ? RESULTS[varName][query.id][rank - 1] : null;
+                                if (!res) return '<div class="grid-cell"></div>';
+                                const [name, score] = res;
+                                return `
+                                    <div class="grid-cell">
+                                        <div class="font-card">
+                                            <div class="font-preview" style="font-family: '${name}', sans-serif">
+                                                ${previewText}
+                                            </div>
+                                            <div class="font-meta">
+                                                <span class="font-bold truncate pr-2">${name}</span>
+                                                <span class="score-badge mono">${score.toFixed(3)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(section);
+            });
+        }
+
+        function init() {
+            const styleTag = document.getElementById('dynamic-fonts');
+            CORPUS.forEach(font => {
+                if (font.files && font.files['400']) {
+                    const fontFace = `@font-face {
+                        font-family: '${font.name}';
+                        src: url('${font.files['400']}') format('truetype');
+                    }`;
+                    styleTag.appendChild(document.createTextNode(fontFace));
+                }
+            });
+
+            render();
+            document.getElementById('preview-input').addEventListener('input', render);
+        }
+        init();
+    </script>
+</body>
+
+</html>

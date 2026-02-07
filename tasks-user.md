@@ -26,48 +26,24 @@ the test queries used in previous testing were quite simple -
 
 
 
-## IN PROGRESS CHAT 
 
-### 
-
-Show 1–2 premium preview recommendations, then lock the rest. 
-- wouldnt this require querying AI for every request in order to get those 1-2? 
-- wouldnt we typically already be getting most of the same/overapping font results with AI as we would with style-match (since that is its grounding), so how would we determine which 1-2 to display? 
-
-
-
-
-
-`One prominent search bar with placeholder that rotates examples`
-- i would like to give users inspiration/showcase beyond a single placeholder at a time
-  - was thinking slow-scrolling looping list of suggested prompts below the chat input box, but it will look very 'busy' which i dont like. any ideas for alternatives?
-
-
-**excellent, all great planning. you are now orchestrator. first, plan out a task delegation with subagents/phases. give me a high level plan so i can sign off. inclde metnion of each item i perosnally mentioned**
-
-
-
-
-
-AI assist opens as a lightweight inline panel/drawer on demand
 
 
 ## Next
+research\prod-rollout\PHASE-0-rag-core-ai-assist-product-plan.md
 
+research\prod-rollout\PHASE-A-query-suggestion-chips-plan.md
 
 - we also still need to implement:
   - payment system
   - user auth
   - other core features?
-
+add these in the plan but keep them high-level
 
 
 
 
 ### AI 
-
-- value-add
-  - research\prod-rollout\PHASE-A-query-suggestion-chips-plan.md
 
 - testing
   - if using Hybrid embedding method, test

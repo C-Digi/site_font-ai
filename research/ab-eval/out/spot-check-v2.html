@@ -146,18 +146,52 @@
 <body class="p-8 pb-24">
 
     <header class="max-w-6xl mx-auto mb-12">
-        <div
-            class="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-widest uppercase border border-indigo-500/30 text-indigo-400 bg-indigo-500/5 rounded">
-            Evaluation Report: 2026-02-05
+        <div class="flex justify-between items-start">
+            <div>
+                <div
+                    class="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-widest uppercase border border-indigo-500/30 text-indigo-400 bg-indigo-500/5 rounded">
+                    Evaluation Report: 2026-02-05
+                </div>
+                <h1 class="text-5xl font-extrabold mb-4 tracking-tight">
+                    Spot-Check <span class="text-indigo-500">v2</span>
+                </h1>
+                <p class="text-slate-400 max-w-2xl text-lg leading-relaxed">
+                    High-density stress tests comparing <span class="text-white font-semibold">Variant A (Text)</span> vs
+                    <span class="text-white font-semibold">Variant B2 (Vision)</span>. Focusing on top 5 ranks across 5 critical
+                    query types.
+                </p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-2xl">
+                    <label class="block text-[10px] uppercase font-bold text-slate-500 mb-2 tracking-widest">Preview Text</label>
+                    <input type="text" id="preview-input" value="Sphynx" 
+                        class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 w-64 transition-all">
+                </div>
+                <button onclick="document.getElementById('intern-guide').classList.toggle('hidden')" 
+                    class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all">
+                    Show Intern Guide
+                </button>
+            </div>
         </div>
-        <h1 class="text-5xl font-extrabold mb-4 tracking-tight">
-            Spot-Check <span class="text-indigo-500">v2</span>
-        </h1>
-        <p class="text-slate-400 max-w-2xl text-lg leading-relaxed">
-            High-density stress tests comparing <span class="text-white font-semibold">Variant A (Text)</span> vs
-            <span class="text-white font-semibold">Variant B2 (Vision)</span>. Focusing on top 5 ranks across 5 critical
-            query types.
-        </p>
+
+        <div id="intern-guide" class="hidden mt-8 bg-slate-900/50 border border-indigo-500/30 rounded-xl p-6 shadow-inner">
+            <h3 class="text-indigo-400 font-bold uppercase tracking-widest text-xs mb-4">Spot-Check Protocol</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-300">
+                <div>
+                    <h4 class="text-white font-bold mb-2">Instructions:</h4>
+                    <ul class="list-disc list-inside space-y-1 italic">
+                        <li>Vary the <b>Preview Text</b> to check glyph rendering quality.</li>
+                        <li>Compare <b>Variant B2</b> (Vision) against <b>Variant A</b> (Text).</li>
+                        <li>Does B2 better capture the "vibe" or "shape" described in the query?</li>
+                        <li>Note any fonts that load as generic sans-serif (loading failure).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-2">Completion:</h4>
+                    <p>Once finished, summarize your findings in the project Slack channel or update the <b>research/ab-eval/DECISIONS.md</b> log. Highlight any specific queries where B2 significantly outperformed or failed.</p>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div id="main-content" class="max-w-6xl mx-auto space-y-12">
@@ -279,31 +313,13 @@
             return name.toLowerCase().replace(/[^a-z0-9]/g, '-');
         }
 
-        function init() {
-            // Inject @font-face
-            const fontStyle = document.getElementById('dynamic-fonts');
-            let css = '';
-            CORPUS.forEach(f => {
-                css += `
-                @font-face {
-                    font-family: '${cssSafe(f.name)}';
-                    src: url('${f.files["400"]}') format('truetype');
-                    font-weight: normal;
-                    font-style: normal;
-                    font-display: swap;
-                }
-                `;
-            });
-            fontStyle.textContent = css;
-
+        function render() {
             // Render content
             const main = document.getElementById('main-content');
+            const previewText = document.getElementById('preview-input').value || 'Sphynx';
             let html = '';
 
             RESULTS.forEach(q => {
-                const isKorean = q.id === 'q_014';
-                const glyph = isKorean ? '안녕하세요' : 'Sphynx';
-
                 html += `
                 <div class="query-section">
                     <div class="query-header rounded-t-xl">
@@ -326,11 +342,11 @@
                         ${q.ranks.map(r => `
                             <div class="grid-cell rank-cell mono">${r.rank}</div>
                             <div class="grid-cell">
-                                ${renderCard(r.a[0], r.a[1], glyph)}
+                                ${renderCard(r.a[0], r.a[1], previewText)}
                                 <div class="scanline"></div>
                             </div>
                             <div class="grid-cell">
-                                ${renderCard(r.b2[0], r.b2[1], glyph)}
+                                ${renderCard(r.b2[0], r.b2[1], previewText)}
                                 <div class="scanline"></div>
                             </div>
                         `).join('')}
@@ -340,6 +356,27 @@
             });
 
             main.innerHTML = html;
+        }
+
+        function init() {
+            // Inject @font-face
+            const fontStyle = document.getElementById('dynamic-fonts');
+            let css = '';
+            CORPUS.forEach(f => {
+                css += `
+                @font-face {
+                    font-family: '${cssSafe(f.name)}';
+                    src: url('${f.files["400"]}') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
+                    font-display: swap;
+                }
+                `;
+            });
+            fontStyle.textContent = css;
+
+            render();
+            document.getElementById('preview-input').addEventListener('input', render);
         }
 
         function renderCard(name, score, glyph) {

@@ -112,6 +112,27 @@ It consolidates what we covered and decided across product direction, retrieval 
 - **Verification:** metric definitions and event names documented before implementation.
 - **Dependencies:** Steps 1–4.
 
+### Step 6: Add Foundational Platform Streams (High-Level)
+
+- **Payments (high-level):**
+  - Select billing provider and subscription model for Free vs Pro.
+  - Define entitlement mapping to product limits (Style Match limits, AI Assist limits, favorites/collections caps).
+  - Add lifecycle events plan: trial/activation/cancel/failed payment/grace period.
+
+- **User Auth (high-level):**
+  - Select auth approach (email/social/magic link) aligned with Supabase + Next.js architecture.
+  - Define guest-to-account upgrade path to preserve favorites/history.
+  - Define account security baseline (session handling, reset flow, abuse/rate-limit policy).
+
+- **Other Core Features (high-level):**
+  - Favorites persistence and sync strategy (guest local persistence + signed-in cloud sync).
+  - Collections (create/share/export-import) rollout sequence.
+  - Analytics baseline for funnel + monetization events.
+  - Admin/operator basics (feature flags, quota controls, health dashboards).
+
+- **Verification:** approved platform roadmap added as a short follow-on phase in [`tasks-user.md`](../../tasks-user.md).
+- **Dependencies:** Steps 1–5.
+
 ## Validation Strategy
 
 - Product validation:
