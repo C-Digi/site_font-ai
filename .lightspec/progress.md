@@ -3,7 +3,7 @@
 ## Core RAG Migration (B2)
 - **Status:** In Progress
 - **Next Milestone:** M4: Production Cutover
-- **Decision Reference:** [DEC-20260206-production-b2-migration](./decisions/DEC-20260206-production-b2-migration.md)
+- **Decision Reference:** [DEC-20260206-01-production-b2-migration](./decisions/DEC-20260206-01-production-b2-migration.md)
 
 ### Phase 1: Foundation (Feb 6 – Feb 12)
 - [x] Initialize SSoT Documentation (LightSpec)
@@ -24,7 +24,7 @@
 - **Status:** In Progress
 - **Current Dataset:** Medium Human v1
 - **Next Dataset:** Complex Human v2
-- **Decision Reference:** [DEC-20260207-complex-eval-b2-promotion](./decisions/DEC-20260207-complex-eval-b2-promotion.md)
+- **Decision Reference:** [DEC-20260207-01-complex-eval-b2-promotion](./decisions/DEC-20260207-01-complex-eval-b2-promotion.md)
 
 ### Human Labeling (Medium v1)
 - [x] Preparation scripts (queries + candidate pool)
@@ -33,9 +33,10 @@
 - [x] Human labeling session (Reviewer: casey)
 - [x] Generate `labels.medium.human.v1.json`
 - [x] Validation + Adjudication Waiver (Single Reviewer)
+- **Reference:** [DEC-20260208-01-human-label-medium-v1-workflow](./decisions/DEC-20260208-01-human-label-medium-v1-workflow.md)
 
 ### Quality-First Track
-- **Reference:** [DEC-20260208-quality-first-experiment-plan](./decisions/DEC-20260208-quality-first-experiment-plan.md)
+- **Reference:** [DEC-20260208-03-quality-first-experiment-plan](./decisions/DEC-20260208-03-quality-first-experiment-plan.md)
 - [ ] Step A — Specimen v2
 - [ ] Step B — Attribute Schema v2
 - [ ] Step C — Uncertainty Discipline

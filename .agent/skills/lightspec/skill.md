@@ -24,6 +24,7 @@ LightSpec is a streamlined specification framework designed to maintain a "singl
 
 - **`.lightspec/`**: Root directory for all specification files.
   - `[capability].md`: Individual specification files organized by feature or capability.
+  - `progress.md`: Unified implementation tracking for all capabilities and milestones.
   - `decisions/`: Decision records (ADR-style) documenting major choices, tradeoffs, and consequences.
   - `research/`: Optional research notes, experiments, and findings that informed decisions.
 
@@ -66,7 +67,7 @@ Maintain a consistent structure for every spec file. Requirement descriptions mu
 
 ## Decision Links (Optional)
 - Required for core/critical specs; optional for routine changes.
-- [DEC-YYYYMMDD-short-title](./decisions/DEC-YYYYMMDD-short-title.md)
+- [DEC-YYYYMMDD-NN-short-title](./decisions/DEC-YYYYMMDD-NN-short-title.md)
 
 ## Scenarios
 - [Scenario 1 - Narrative or Structured validation step]
@@ -75,10 +76,10 @@ Maintain a consistent structure for every spec file. Requirement descriptions mu
 ### 5. Document Major Decisions and Rationale
 For any major product, architecture, API, data model, security, or UX flow choice, create or update a decision record in `.lightspec/decisions/`.
 
-Use this decision format:
+Use this decision format. If multiple decisions are made on the same date, increment the sequence number:
 
 ```markdown
-# DEC-YYYYMMDD-short-title
+# DEC-YYYYMMDD-NN-short-title
 
 ## Status
 Accepted

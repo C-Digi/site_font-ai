@@ -1,4 +1,4 @@
-# DEC-20260208-quality-first-experiment-plan
+# DEC-20260208-03-quality-first-experiment-plan
 
 - **Date:** 2026-02-08
 - **Status:** Active

@@ -1,4 +1,4 @@
-# DEC-20260208-lightspec-initialization
+# DEC-20260208-02-lightspec-initialization
 
 ## Status
 Accepted

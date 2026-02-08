@@ -144,8 +144,8 @@
 
 ## 12. Core Decisions to Preserve (SSoT: .lightspec/decisions/)
 
-- **Production Default:** B2 (`Qwen/Qwen3-VL-Embedding-8B`) with 4096-dimensional vectors. See [DEC-20260206-production-b2-migration.md](.lightspec/decisions/DEC-20260206-production-b2-migration.md).
+- **Production Default:** B2 (`Qwen/Qwen3-VL-Embedding-8B`) with 4096-dimensional vectors. See [DEC-20260206-01-production-b2-migration.md](.lightspec/decisions/DEC-20260206-01-production-b2-migration.md).
 - **JIT Seeding:** Queue-based and non-blocking.
 - **Retrieval Path:** Semantic cache -> Vector Search -> LLM.
-- **Evaluation:** B2 significantly outperforms text-only baseline (Variant A). See [DEC-20260207-complex-eval-b2-promotion.md](.lightspec/decisions/DEC-20260207-complex-eval-b2-promotion.md).
-- **Research Gate:** Quality-first experiment sequence (specimen v2, schema v2) is required before further production default changes. See [DEC-20260208-quality-first-experiment-plan.md](.lightspec/decisions/DEC-20260208-quality-first-experiment-plan.md).
+- **Evaluation:** B2 significantly outperforms text-only baseline (Variant A). See [DEC-20260207-01-complex-eval-b2-promotion.md](.lightspec/decisions/DEC-20260207-01-complex-eval-b2-promotion.md).
+- **Research Gate:** Quality-first experiment sequence (specimen v2, schema v2) is required before further production default changes. See [DEC-20260208-03-quality-first-experiment-plan.md](.lightspec/decisions/DEC-20260208-03-quality-first-experiment-plan.md).
