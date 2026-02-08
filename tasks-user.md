@@ -53,21 +53,59 @@ research candidate models to use. must include at least 2x qwen3-vl models, they
 
 
 ---
-### AI-Assist UX
+
+- human-review SSoT
+- check deep research options
+- test more models 
+  - openai/gpt-5.2
+  - 
+
+see results from a deep-research session:
+@ 
+
+
+what do you recommend at this point. we are in no rush to get to production. please prioritize improving and validating core-functionality quality through experimentation
+
+
+
+
+to be clear - i do not want it to categorize by name or assign/guess font name -  iwill feed the AI an image of alphabet/number/glyph rendered from a single font (for each font) , AI receives image only plus instructions, target output is visual attributes of the font. 
+this info that AI outputs will be used to seed a RAG db for a semantic/vibe font-search - i dont need assistance on that side. only the AI-generation of visual font characteristics based off the rendered font. RAG vector will not get the font-name as they can be misleading.
+
+FasterViT - classifies fonts by family name; it does not directly output descriptive attributes
+- not useful to me then
+fontclip - characterize a font’s style in semantic terms (e.g. serif, elegant, bold, playful)  .... scores can be turned into tags like “serif: yes, monospace: no, cursive: no, weight: medium, contrast: high, friendly: moderately, special: slashed-zero ”, etc.... 
+- sounds perfect
+Total Disentanglement - this sounds great, but at scale for 2000+ fonts, would that mean a crazy amt of training ? ref to 'By training on all letters A–Z of a font'
+
+
+
+
+SCOPE CHECK
+- vibe search is easy - test to get best models/methods
+- characteristic search - needs tons of testing/validation
+
+
+
+
+## Would tag-format, or natural-language description, be better for a RAG db? 
+tag-format concept
+- list of binary tags, e.g. serif: yes, monospace: no, cursive: no
+- list of weighted tags, e.g. warmth: high, contrast: high, friendly: medium...
+worth testing? 
+
+
+
+
+
+## AI-Assist UX
 - consider what A/B tests we should implement for the AI-assist feature, what metrics to consider, etc.
   - LLM models - performance metrics, speed, cost, etc.
   - enhancement/additions to system prompt  
   - others?
 
 
-
-
-
 ## Uncategorized
-
-
-
-
 
 research\prod-rollout\PHASE-0-rag-core-ai-assist-product-plan.md
 

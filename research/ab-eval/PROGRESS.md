@@ -56,18 +56,21 @@ Status legend:
 ### Large Model VL Description Bakeoff (32B & 235B)
 - **Status:** `DONE` (2026-02-07)
 - **Notes:** Tested `qwen/qwen3-vl-32b-instruct` and `qwen/qwen3-vl-235b-a22b-instruct` via OpenRouter.
-- **Results:** 100% success on both 10-font smoke and 50-font follow-on.
-- **Artifacts:** `out/descriptions_bakeoff_qwen32_235_50.jsonl`, `out/descriptions_bakeoff_qwen32_235_50.summary.md`.
-- **Runtime:** ~50 mins
+- **Results:** 100% success on smoke (10), follow-on (50), and full corpus (200).
+- **Artifacts:**
+  - `out/descriptions_bakeoff_qwen32_235_full200.jsonl`
+  - `out/description_model_bakeoff_consolidated.md`
+- **Runtime:** ~90 mins (total)
 - **Dataset:** 200 fonts
-- **VL Model:** Qwen/Qwen3-VL-Embedding-2B
-- **Key Findings:** 
-  - Hybrid C (alpha=0.4) achieves Recall@10 0.33 vs 0.17 for Variant A.
-  - Variant B2 (VL + Text) significantly outperforms A on metadata-proxy labels.
-  - CPU inference is viable for batch runs but slow.
-- **Issues:**
-  - `flash-attn` installation failed due to missing CUDA; proceeded without it.
-  - Used 2B model instead of 8B for CPU performance/memory.
+- **Key Findings:**
+  - Qwen3-VL-235B is the superior descriptor for typographic nuance.
+  - Qwen3-VL-32B is a viable fast challenger.
+  - 100% success rate on OpenRouter DeepInfra/Parasail/Together providers.
+
+### Human Review Packet (v1)
+- **Status:** `DONE` (2026-02-07)
+- **Notes:** Prepared review packet with stratified sampling and scoring rubric.
+- **Next Blocker:** Formal human review of generated descriptions.
 
 ### Complex Evaluation Round (v1) — GPU/env-ready rerun
 - **Status:** `DONE`

@@ -136,6 +136,24 @@ next_steps:
 **Next Steps**:
 - Stick with the B2 payload (Name + Category + Tags + Image) for the production Qwen3-VL-8B embedding pipeline.
 
+### 2026-02-07: Description Model Selection (235B vs 32B)
+
+**Decision**: GO_PRODUCTION (Qwen3-VL-235B). Use Qwen3-VL-235B for generating the 200-font production answer key.
+
+**Rationale**:
+- **Nuance**: 235B captures finer typographic details (e.g., specific terminal shapes) than 8B or 32B.
+- **Stability**: 100% success rate on 398 total generations (235B and 32B combined).
+- **Cost**: OpenRouter DeepInfra pricing (~$0.0003/font) makes the 235B model economically viable for offline seeding.
+- **Latency**: ~5.5s per font is acceptable for background processing.
+
+**Artifacts**:
+- `research/ab-eval/out/descriptions_bakeoff_qwen32_235_full200.jsonl`
+- `research/ab-eval/out/description_model_bakeoff_consolidated.md`
+
+**Next Steps**:
+- Submit human-review packet.
+- Upon approval, use 235B descriptions to generate the final 4096-dim vector embeddings.
+
 ### 2026-02-07: Complex Query Evaluation Round (v1)
 
 **Decision**: GO_REPLACE (A -> B2). Keep hybrid (C/D) as non-default experimental flags.

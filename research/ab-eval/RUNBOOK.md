@@ -4,6 +4,7 @@
 - **Artifact Path:** `research/ab-eval/out/report_all.md`
 - **JSON Source:** `research/ab-eval/out/report_all.json`
 - **Visual Spot-Check:** `research/ab-eval/out/spot-check-complex-2026-02-07.html`
+- **Description Winner:** Qwen3-VL-235B (`out/descriptions_bakeoff_qwen32_235_full200.jsonl`)
 
 This runbook defines the **offline** evaluation procedures, dataset definitions, artifact naming, and “done”/decision criteria.
 
@@ -63,6 +64,9 @@ To generate the reproducible 200-font corpus and its corresponding queries/label
    
    # Large model probe (32B and 235B)
    python research/ab-eval/py/gen_font_descriptions.py --models "qwen/qwen3-vl-32b-instruct,qwen/qwen3-vl-235b-a22b-instruct" --limit 50 --out research/ab-eval/out/descriptions_bakeoff_qwen32_235_50.jsonl
+
+   # Full 200-font run (Winner + Challenger)
+   python research/ab-eval/py/gen_font_descriptions.py --models "qwen/qwen3-vl-235b-a22b-instruct,qwen/qwen3-vl-32b-instruct" --out research/ab-eval/out/descriptions_bakeoff_qwen32_235_full200.jsonl --resume
    ```
 
 Note: These labels are **proxy labels** derived from objective metadata (e.g., Google Fonts category). This evaluation tests whether retrieval respects known categorical constraints. It does NOT measure nuanced style matching (x-height, etc.) without human labels.
