@@ -54,45 +54,61 @@ research candidate models to use. must include at least 2x qwen3-vl models, they
 
 ---
 
-- human-review SSoT
-- check deep research options
-- test more models 
+
+## see results from a deep-research session:
+@https://chatgpt.com/share/698828b2-523c-8010-9df3-7be45bb217cc 
+@https://gemini.google.com/share/4225fb7670fd
+
+what do you recommend now? 
+we are in no rush to get to production. 
+please prioritize improving and validating core-functionality quality through targeted experimentation
+
+
+Also, for RAG-input attributes
+current:
+{ "shape": "...", "contrast": "...", "terminals": "...", "x_height": "...", "width": "...", "mood": [...], "use_cases": [...], "summary": "..." }
+should we add any? this seems like few.
+Especially moods/use_cases - Style/Vibe Search is our primary feature. we need more vibe/style data to use for embeddings. 
+consider:
+- adding more qty-minimums for each list
+- adding more fields
+- using weighted values so AI, for each attribute, ranks it - excellent, high, medium, low, none, or similar
+  - perhaps using fixed-lists so all fonts have same fields ranked
+- other ideas?
+
+- Upgrade glyph sheet spec used by [`render_font()`](research/ab-eval/py/render_glyph_sheet.py:8):
+  - 1024 canvas
+  - full A–Z, a–z, 0–9
+  - punctuation row
+  - 1 pangram row
+  - dedicated micro-tell strip (`a g 0 1 Q R & @`) large-size
+- Keep deterministic layout (same positions/sizes every font).
+- 
+
+
+## test more models 
   - openai/gpt-5.2
-  - 
-
-see results from a deep-research session:
-@ 
-
-
-what do you recommend at this point. we are in no rush to get to production. please prioritize improving and validating core-functionality quality through experimentation
+  - qwen/qwen-vl-plus
+  - qwen/qwen-2-vl-72b-instruct
+  - moonshotai/kimi-k2.5 
 
 
 
-
-to be clear - i do not want it to categorize by name or assign/guess font name -  iwill feed the AI an image of alphabet/number/glyph rendered from a single font (for each font) , AI receives image only plus instructions, target output is visual attributes of the font. 
-this info that AI outputs will be used to seed a RAG db for a semantic/vibe font-search - i dont need assistance on that side. only the AI-generation of visual font characteristics based off the rendered font. RAG vector will not get the font-name as they can be misleading.
-
-FasterViT - classifies fonts by family name; it does not directly output descriptive attributes
-- not useful to me then
-fontclip - characterize a font’s style in semantic terms (e.g. serif, elegant, bold, playful)  .... scores can be turned into tags like “serif: yes, monospace: no, cursive: no, weight: medium, contrast: high, friendly: moderately, special: slashed-zero ”, etc.... 
-- sounds perfect
-Total Disentanglement - this sounds great, but at scale for 2000+ fonts, would that mean a crazy amt of training ? ref to 'By training on all letters A–Z of a font'
+## human-review SSoT
 
 
 
 
-SCOPE CHECK
-- vibe search is easy - test to get best models/methods
-- characteristic search - needs tons of testing/validation
+## VL-embedding value
+now that we are using VL to generate good data to feed to RAG
+- test and compare if the VL-embedding adds any value over the text-only version, if its worth still using
 
 
 
 
-## Would tag-format, or natural-language description, be better for a RAG db? 
-tag-format concept
-- list of binary tags, e.g. serif: yes, monospace: no, cursive: no
-- list of weighted tags, e.g. warmth: high, contrast: high, friendly: medium...
-worth testing? 
+
+
+
 
 
 
@@ -103,6 +119,9 @@ worth testing?
   - LLM models - performance metrics, speed, cost, etc.
   - enhancement/additions to system prompt  
   - others?
+- models to test
+  - oss-120b
+  - google/gemma-3-27b-it
 
 
 ## Uncategorized
@@ -253,6 +272,17 @@ font-fetch.com
 https://www.myfonts.com/pages/ai-search
 - no free fonts, no free filter
 - 
+
+
+## potential later features
+- user-selectable attributes to make a 2D visualizer of fonts on a plot, e.g. business vs party on X scale, bold vs thin on Y scale
+  - hover or zoom in to see previews of each point/font
+
+
+
+
+
+
 
 
 
