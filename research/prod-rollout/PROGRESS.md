@@ -1,5 +1,9 @@
 # Migration Progress Tracking
 
+> [!IMPORTANT]
+> **DEPRECATED**: This file is for historical reference only.
+> Active progress tracking has moved to [.lightspec/progress.md](/.lightspec/progress.md).
+
 ## Week 1: Foundation (Feb 6 – Feb 12)
 
 | Task | Status | Owner | Milestone |

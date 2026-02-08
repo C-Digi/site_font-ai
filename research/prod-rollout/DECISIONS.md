@@ -1,5 +1,10 @@
 # Decision Log: B2 Production Migration
 
+> [!IMPORTANT]
+> **DEPRECATED**: This file is for historical reference only.
+> All active decisions have been migrated to the [LightSpec SSoT](/.lightspec/decisions/).
+> Please refer to `.lightspec/font-search-rag.md` for the current canonical specification.
+
 ## DECISION-001: Selection of B2 as Production Default
 - **Date:** 2026-02-06
 - **Status:** Approved

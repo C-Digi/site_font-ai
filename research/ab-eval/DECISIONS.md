@@ -1,5 +1,10 @@
 # DECISIONS — Offline A/B eval (text vs Qwen3-VL embeddings)
 
+> [!IMPORTANT]
+> **DEPRECATED**: This file is for historical reference only.
+> All active decisions have been migrated to the [LightSpec SSoT](/.lightspec/decisions/).
+> Please refer to `.lightspec/font-search-rag.md` for the current canonical specification.
+
 This file is the running decision log for the offline evaluation.
 
 Guidance:
@@ -64,6 +69,8 @@ rationale:
       The gap is even wider than on provisional labels, suggesting VL better captures human intent
       for stylistic queries. B2-plus (expanded text) provides marginal gains over B2 but adds
       significant index complexity; B2 remains the production recommendation.
+  - governance:
+      - gate_waiver: "Single-reviewer pass accepted for medium-v1 to accelerate calibration; adjudication requirements deferred to complex-v2."
   - metrics:
       recall_at_10: { A: 0.1214, B2: 0.3523, B2-plus: 0.3797 }
       mrr_at_10:    { A: 0.3808, B2: 0.6465, B2-plus: 0.5625 }
@@ -99,6 +106,7 @@ datasets:
   queryset_id: queries.medium.human.v1
   labelset_id: labels.medium.human.v1
 
+status: SUPERSEDED_BY_MEDIUM_HUMAN_V1
 decision: NEEDS_MORE_DATA
 
 rationale:

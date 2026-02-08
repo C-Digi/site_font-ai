@@ -128,42 +128,24 @@
 - **DO:** Ensure all environment variables are present before calling AI/DB services.
 - **DO:** Keep B2 as production default retrieval path; keep text embedding as fallback path only.
 - **DO:** Keep JIT seeding asynchronous through queue and worker processing.
-- **DO:** Update rollout SSoT docs when architecture/process changes (`research/prod-rollout/*`).
+- **DO:** Update LightSpec SSoT docs when architecture/process changes (`.lightspec/`).
 - **DON'T:** Commit `.env.local` or other sensitive keys.
 - **DON'T:** Use markdown blocks in AI-generated JSON responses; keep it raw for parsing.
 - **DON'T:** Block user search requests on embedding generation or enrichment tasks.
 - **DON'T:** Assume a local dev GPU machine is a 24/7 production dependency.
 
-## 11. Production Rollout SSoT (Feb 2026)
-
-- **Single Source of Truth Folder:** `research/prod-rollout/`
-  - `README.md`: program overview
-  - `RUNBOOK.md`: operator steps and cutover/rollback gates
-  - `PROGRESS.md`: milestone checklist and status
-  - `DECISIONS.md`: architecture and policy decisions
-  - `WORK_BREAKDOWN.md`: implementation phases and acceptance criteria
-- **Core Decisions to Preserve:**
-  - B2 (`Qwen/Qwen3-VL-Embedding-8B`) is production default.
-  - B2-plus and Hybrid C are optional research paths only.
-  - JIT is queue-based and non-blocking.
-  - External font hosting remains default.
-
-## 12. Offline A/B Eval Decision Notes (Complex Round)
-
-- **Complex query set:** `research/ab-eval/data/queries.complex.v1.json` with class-based prompts (`visual_shape`, `semantic_mood`, `historical_context`, `functional_pair`).
-- **Complex labels:** `research/ab-eval/data/labels.complex.v1.json`.
-- **Decision matrix to remember:**
-  - `A` = text baseline sentinel/control
-  - `B2` = production candidate
-  - `C` = weighted hybrid (alpha sweep)
-  - `D` = RRF hybrid (robust fusion check)
-- **Current recommendation:** keep `B2` as production default; keep hybrid (`C`/`D`) behind feature flag for targeted experiments.
-- **Operational rule:** complete eval decisions must include global + per-class metrics and be logged in `research/ab-eval/DECISIONS.md` with canonical artifact references.
-
-## 13. LightSpec Source of Truth
+## 11. LightSpec Source of Truth (SSoT)
 
 - **Canonical spec root:** `.lightspec/`
 - **Core capability spec:** `.lightspec/font-search-rag.md`
 - **Decision records:** `.lightspec/decisions/`
-- **Initialization ADR:** `.lightspec/decisions/DEC-20260208-lightspec-initialization.md`
 - **Usage rule:** For new features or significant changes, define/update requirements in `.lightspec/*.md` before implementation and record major decisions as ADRs in `.lightspec/decisions/`.
+- **Legacy Migration:** All active decisions and specs previously in `research/prod-rollout/` and `research/ab-eval/` have been migrated to `.lightspec/`.
+
+## 12. Core Decisions to Preserve (SSoT: .lightspec/decisions/)
+
+- **Production Default:** B2 (`Qwen/Qwen3-VL-Embedding-8B`) with 4096-dimensional vectors. See [DEC-20260206-production-b2-migration.md](.lightspec/decisions/DEC-20260206-production-b2-migration.md).
+- **JIT Seeding:** Queue-based and non-blocking.
+- **Retrieval Path:** Semantic cache -> Vector Search -> LLM.
+- **Evaluation:** B2 significantly outperforms text-only baseline (Variant A). See [DEC-20260207-complex-eval-b2-promotion.md](.lightspec/decisions/DEC-20260207-complex-eval-b2-promotion.md).
+- **Research Gate:** Quality-first experiment sequence (specimen v2, schema v2) is required before further production default changes. See [DEC-20260208-quality-first-experiment-plan.md](.lightspec/decisions/DEC-20260208-quality-first-experiment-plan.md).

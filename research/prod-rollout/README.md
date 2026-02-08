@@ -1,6 +1,11 @@
 # B2 (Qwen3-VL) Production Rollout
 
-This folder serves as the Single Source of Truth (SSoT) for the production migration to B2 retrieval (`Qwen/Qwen3-VL-Embedding-8B`).
+> [!IMPORTANT]
+> **SSoT MIGRATED**: The Single Source of Truth has moved to the [LightSpec root](/.lightspec/).
+> This folder now serves as a repository for implementation artifacts and rollout tracking.
+> Refer to `.lightspec/font-search-rag.md` for current specs.
+
+This folder serves as the historical documentation for the production migration to B2 retrieval (`Qwen/Qwen3-VL-Embedding-8B`).
 
 ## 🎯 Goals
 - Replace text-only embeddings with multimodal (image + short text) embeddings.
@@ -9,8 +14,8 @@ This folder serves as the Single Source of Truth (SSoT) for the production migra
 
 ## 📂 Documentation Structure
 - [`RUNBOOK.md`](RUNBOOK.md): Step-by-step operator guide for Week 1 and Week 2.
-- [`PROGRESS.md`](PROGRESS.md): Detailed checklist for tracking migration status.
-- [`DECISIONS.md`](DECISIONS.md): Log of architectural decisions and their justifications.
+- [`PROGRESS.md`](PROGRESS.md) (Deprecated): Detailed checklist for tracking migration status.
+- [`DECISIONS.md`](DECISIONS.md) (Deprecated): Log of architectural decisions and their justifications.
 - [`WORK_BREAKDOWN.md`](WORK_BREAKDOWN.md): Task decomposition, milestones, and acceptance criteria.
 
 ## 🔗 Related Resources

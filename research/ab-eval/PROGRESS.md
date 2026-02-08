@@ -1,5 +1,9 @@
 # PROGRESS — Offline A/B eval (text vs Qwen3-VL embeddings)
 
+> [!IMPORTANT]
+> **DEPRECATED**: This file is for historical reference only.
+> Active progress tracking has moved to [.lightspec/progress.md](/.lightspec/progress.md).
+
 This file tracks execution status and provides a running log.
 
 Status legend:
