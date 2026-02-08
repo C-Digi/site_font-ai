@@ -25,22 +25,6 @@ research candidate models to use. must include at least 2x qwen3-vl models, they
 ---
 ## test improvements
 
-### test top-level grounding for scoring
-- need manual (human) input
-- need clear, streamlined, quantitave scoring method for human to 'score' variations of our scoring method (automated test scoring)
--  `labels.complex.v1.json`, assuming this is SSoT for scoring against
-   -  how was this generated - by memory/knowledge of the developer who wrote it?
-
-### text-input for embeddings
-- remove font name, it can be misleading/conflicting
-- consider appending category value into tags as tag#1 as category is essentially a characteristic, aka tag
-- Description
-  - remove oem-metadata description, e.g. "A monospace font from Google Fonts."
-    - see `research\ab-eval\data\corpus.200.json`
-    - no value added, `monospace` should already be a tag/category
-  - replace with vision-grounded AI-generated description below
-
-
 ### VL input for text-description (A/C)
 - research image/VL models
   - gemini
@@ -84,6 +68,32 @@ consider:
   - dedicated micro-tell strip (`a g 0 1 Q R & @`) large-size
 - Keep deterministic layout (same positions/sizes every font).
 - 
+
+---
+---
+---
+
+#$$#
+
+### test top-level grounding for scoring
+-  `labels.complex.v1.json` - SSoT for scoring against
+   - generated via curated/manual (developer judgment)
+
+
+
+
+
+
+#$$#
+research\ab-eval\DECISIONS.md
+
+
+
+
+
+
+
+
 
 
 ## test more models 

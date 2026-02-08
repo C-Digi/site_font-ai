@@ -190,3 +190,50 @@ next_steps:
 **Next Steps**:
 - Preserve B2 as the production retrieval default path.
 - Keep C/D behind an evaluation flag for targeted query classes and future ablations.
+
+### 2026-02-08: Quality-First Core Functionality Experiment Plan (No Production Rush)
+
+**Decision**: NEEDS_MORE_DATA. Prioritize targeted quality experiments over production rollout and over additional model-shopping.
+
+**Rationale**:
+- Current descriptor outputs in `research/ab-eval/out/descriptions_bakeoff_qwen32_235_full200.jsonl` show repetitive, generic attribute patterns across many fonts.
+- The current specimen renderer likely limits visual signal for nuanced extraction:
+  - `research/ab-eval/py/render_glyph_sheet.py` currently renders a small deterministic sheet with partial alphabet and no pangram.
+- Current description schema is too shallow for robust vibe/style retrieval:
+  - Prompt in `research/ab-eval/py/gen_font_descriptions.py` enforces only a small free-form set of fields and 3–6 mood/use-case tags.
+
+**Selected Approach**:
+- Improve and validate **input representation + ontology quality** first, then re-score retrieval.
+
+**Planned Experiment Sequence**:
+- Step A — Specimen v2 (highest impact)
+  - Move to 1024 deterministic layout.
+  - Include full `A–Z`, `a–z`, `0–9`, punctuation, pangram, and a dedicated micro-tell strip (`a g 0 1 Q R & @`).
+- Step B — Attribute schema v2 (backward-compatible)
+  - Keep existing top-level fields for compatibility.
+  - Add fixed-vocabulary scored blocks for moods and use-cases (continuous ranking, not only list presence).
+  - Add confidence and brief evidence notes per attribute.
+- Step C — Uncertainty discipline
+  - Require explicit `unknown`/`uncertain` handling when evidence is weak.
+- Step C.5 — Label SSoT review gate (`labels.complex.v1.json`)
+  - Treat `research/ab-eval/data/labels.complex.v1.json` as provisional until human-reviewed.
+  - Perform a focused adjudication pass (especially borderline/subjective vibe queries).
+  - Freeze reviewed labels as canonical before using them for score-driven comparisons.
+- Step D — Targeted quality validation before retrieval reruns
+  - A/B only these levers:
+    - old specimen + old schema
+    - new specimen + old schema
+    - new specimen + new schema
+  - Use human-review workflow to measure technical accuracy + vibe fidelity agreement.
+  - If any quantitative scoring references `labels.complex.v1.json`, run only after Step C.5 sign-off.
+- Step E — Retrieval rerun only after quality gate
+  - Regenerate embeddings with winning schema and rerun complex benchmark.
+
+**Open Questions to Resolve Before Implementation**:
+- Final fixed vocab lists and sizes for mood/use-case dimensions.
+- Score scale to standardize (`none/low/medium/high/excellent` mapped to numeric 0–4).
+- Minimum UI surfacing policy (e.g., show top 3–6 labels while storing full scored vectors).
+
+**Next Steps**:
+- Log this plan as the active blocker-clearing priority for the next engineering session.
+- Keep production retrieval default unchanged (B2) while this quality workstream runs.

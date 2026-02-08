@@ -1,0 +1,4 @@
+description = "Reads all LightSpec specifications and synchronizes their content with the project rules."
+prompt = """
+@C:\\git\\Sites\\site_font-ai\\.agent\\workflows\\lightspec-sync-rules.md
+"""
