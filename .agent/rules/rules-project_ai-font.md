@@ -159,3 +159,11 @@
   - `D` = RRF hybrid (robust fusion check)
 - **Current recommendation:** keep `B2` as production default; keep hybrid (`C`/`D`) behind feature flag for targeted experiments.
 - **Operational rule:** complete eval decisions must include global + per-class metrics and be logged in `research/ab-eval/DECISIONS.md` with canonical artifact references.
+
+## 13. LightSpec Source of Truth
+
+- **Canonical spec root:** `.lightspec/`
+- **Core capability spec:** `.lightspec/font-search-rag.md`
+- **Decision records:** `.lightspec/decisions/`
+- **Initialization ADR:** `.lightspec/decisions/DEC-20260208-lightspec-initialization.md`
+- **Usage rule:** For new features or significant changes, define/update requirements in `.lightspec/*.md` before implementation and record major decisions as ADRs in `.lightspec/decisions/`.
