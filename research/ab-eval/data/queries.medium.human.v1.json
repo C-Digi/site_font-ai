@@ -1,0 +1,102 @@
+[
+  {
+    "id": "cq_002",
+    "text": "geometric sans with perfect circles and low stroke variation",
+    "class": "visual_shape"
+  },
+  {
+    "id": "cq_003",
+    "text": "condensed industrial sans for tight headlines",
+    "class": "visual_shape"
+  },
+  {
+    "id": "cq_008",
+    "text": "heavy blackletter style for gothic impact",
+    "class": "visual_shape"
+  },
+  {
+    "id": "cq_009",
+    "text": "soft rounded sans for a friendly children's brand",
+    "class": "visual_shape"
+  },
+  {
+    "id": "cq_010",
+    "text": "traditional calligraphic hand with varying line weight",
+    "class": "visual_shape"
+  },
+  {
+    "id": "cq_011",
+    "text": "playful and quirky display font for a candy shop",
+    "class": "semantic_mood"
+  },
+  {
+    "id": "cq_012",
+    "text": "stern and authoritative serif for a law firm",
+    "class": "semantic_mood"
+  },
+  {
+    "id": "cq_015",
+    "text": "cold and sterile monospace for a terminal interface",
+    "class": "semantic_mood"
+  },
+  {
+    "id": "cq_016",
+    "text": "elegant and sophisticated serif for luxury branding",
+    "class": "semantic_mood"
+  },
+  {
+    "id": "cq_019",
+    "text": "nostalgic and vintage display font for a 1920s poster",
+    "class": "semantic_mood"
+  },
+  {
+    "id": "cq_021",
+    "text": "19th century victorian style display serif",
+    "class": "historical_context"
+  },
+  {
+    "id": "cq_024",
+    "text": "retro 8-bit computer font from the 80s",
+    "class": "historical_context"
+  },
+  {
+    "id": "cq_025",
+    "text": "art deco inspired display font",
+    "class": "historical_context"
+  },
+  {
+    "id": "cq_029",
+    "text": "classic typewriter font",
+    "class": "historical_context"
+  },
+  {
+    "id": "cq_030",
+    "text": "western style slab serif",
+    "class": "historical_context"
+  },
+  {
+    "id": "cq_032",
+    "text": "legible serif for long-form editorial reading",
+    "class": "functional_pair"
+  },
+  {
+    "id": "cq_033",
+    "text": "coding font with clear distinctions between 0 and O",
+    "class": "functional_pair"
+  },
+  {
+    "id": "cq_038",
+    "text": "gentle script for wedding invitations",
+    "class": "functional_pair"
+  },
+  {
+    "id": "cq_039",
+    "text": "rugged outdoor display font for camping gear",
+    "class": "functional_pair"
+  },
+  {
+    "id": "cq_040",
+    "text": "distinguishable monospace for data tables",
+    "class": "functional_pair"
+  }
+]

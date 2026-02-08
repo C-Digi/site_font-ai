@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Labeling Tool (Medium v1) | AI Font Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        :root {
+            --bg: #020617;
+            --card: #0f172a;
+            --accent: #6366f1;
+            --border: #1e293b;
+        }
+        body {
+            background-color: var(--bg);
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.01em;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+        
+        .font-card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 1rem;
+            padding: 1rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+        .font-card:hover { border-color: #334155; }
+        .font-card.active { border-color: var(--accent); ring: 2px solid var(--accent); }
+        
+        .font-card.labeled-0 { border-color: #ef4444; opacity: 0.6; }
+        .font-card.labeled-1 { border-color: #10b981; background: rgba(16, 185, 129, 0.05); }
+
+        .glyph-preview {
+            background: white;
+            color: black;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .status-pill {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .sidebar {
+            width: 320px;
+            border-right: 1px solid var(--border);
+            background: #020617;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            overflow-y: auto;
+            background: #070b1d;
+        }
+
+        .key-hint {
+            background: #1e293b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            border-bottom: 2px solid #0f172a;
+        }
+    </style>
+    <style id="dynamic-fonts"></style>
+</head>
+<body class="antialiased">
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar p-6 space-y-8">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 bg-indigo-500 text-white text-[10px] font-black uppercase rounded">Medium v1</span>
+                    <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Binary Mode</span>
+                </div>
+                <h1 class="text-2xl font-black">Labeler</h1>
+            </div>
+
+            <div class="space-y-4">
+                <label class="text-[10px] font-black uppercase text-slate-500 tracking-wider">Reviewer ID</label>
+                <input id="reviewer-id" type="text" placeholder="Your Name" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-indigo-500">
+            </div>
+
+            <div class="space-y-4 flex-1">
+                <label class="text-[10px] font-black uppercase text-slate-500 tracking-wider">Queries</label>
+                <div id="query-list" class="space-y-2 overflow-y-auto max-h-[40vh] pr-2">
+                    <!-- Queries injected here -->
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800 space-y-4">
+                <div class="flex justify-between items-center text-[10px] font-bold text-slate-500">
+                    <span>PROGRESS</span>
+                    <span id="global-progress">0/0</span>
+                </div>
+                <div class="w-full bg-slate-900 h-1 rounded-full overflow-hidden">
+                    <div id="global-progress-bar" class="bg-indigo-500 h-full transition-all" style="width: 0%"></div>
+                </div>
+                
+                <button onclick="exportJudgments()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-black transition-all shadow-lg flex items-center justify-center gap-2 uppercase text-xs tracking-widest">
+                    Export JSON
+                </button>
+            </div>
+            
+            <div class="text-[10px] text-slate-500 space-y-2 mono uppercase">
+                <p><span class="key-hint">0</span> / <span class="key-hint">1</span> Mark Relevance</p>
+                <p><span class="key-hint">J</span> / <span class="key-hint">K</span> Prev/Next Font</p>
+                <p><span class="key-hint">N</span> / <span class="key-hint">P</span> Prev/Next Query</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <div id="query-header" class="sticky top-0 z-10 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 p-8">
+                <div id="query-class" class="text-indigo-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">-</div>
+                <h2 id="query-text" class="text-3xl font-extrabold tracking-tight mb-4">Select a query</h2>
+                <div class="flex justify-between items-end">
+                    <div class="text-slate-400 text-sm max-w-xl" id="query-hint">
+                        Choose 1 if the font matches the description, 0 otherwise.
+                    </div>
+                    <div class="text-right">
+                        <div class="text-[10px] font-bold text-slate-500 uppercase mb-1">Query Progress</div>
+                        <div class="text-xl font-black text-white" id="query-progress">0 / 0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="font-grid" class="card-grid">
+                <!-- Fonts injected here -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const DATA = {"queries": [{"id": "cq_002", "text": "geometric sans with perfect circles and low stroke variation", "class": "visual_shape"}, {"id": "cq_003", "text": "condensed industrial sans for tight headlines", "class": "visual_shape"}, {"id": "cq_008", "text": "heavy blackletter style for gothic impact", "class": "visual_shape"}, {"id": "cq_009", "text": "soft rounded sans for a friendly children's brand", "class": "visual_shape"}, {"id": "cq_010", "text": "traditional calligraphic hand with varying line weight", "class": "visual_shape"}, {"id": "cq_011", "text": "playful and quirky display font for a candy shop", "class": "semantic_mood"}, {"id": "cq_012", "text": "stern and authoritative serif for a law firm", "class": "semantic_mood"}, {"id": "cq_015", "text": "cold and sterile monospace for a terminal interface", "class": "semantic_mood"}, {"id": "cq_016", "text": "elegant and sophisticated serif for luxury branding", "class": "semantic_mood"}, {"id": "cq_019", "text": "nostalgic and vintage display font for a 1920s poster", "class": "semantic_mood"}, {"id": "cq_021", "text": "19th century victorian style display serif", "class": "historical_context"}, {"id": "cq_024", "text": "retro 8-bit computer font from the 80s", "class": "historical_context"}, {"id": "cq_025", "text": "art deco inspired display font", "class": "historical_context"}, {"id": "cq_029", "text": "classic typewriter font", "class": "historical_context"}, {"id": "cq_030", "text": "western style slab serif", "class": "historical_context"}, {"id": "cq_032", "text": "legible serif for long-form editorial reading", "class": "functional_pair"}, {"id": "cq_033", "text": "coding font with clear distinctions between 0 and O", "class": "functional_pair"}, {"id": "cq_038", "text": "gentle script for wedding invitations", "class": "functional_pair"}, {"id": "cq_039", "text": "rugged outdoor display font for camping gear", "class": "functional_pair"}, {"id": "cq_040", "text": "distinguishable monospace for data tables", "class": "functional_pair"}], "pool": {"cq_002": ["Grand Hotel", "Ovo", "Rubik Storm", "TASA Orbiter", "Lalezar", "Golos Text", "Kumbh Sans", "Tiro Devanagari Sanskrit", "Comforter Brush", "Encode Sans Expanded", "Geom", "Sometype Mono", "JetBrains Mono", "Geist Mono", "Alata", "Playwrite FR Trad", "Playwrite CA", "Reem Kufi Fun", "Bentham", "Yuji Mai", "LXGW WenKai Mono TC", "Holtwood One SC", "Noto Sans Adlam", "Farro", "Noto Sans PhagsPa", "Anek Latin", "Albert Sans", "Tiro Tamil", "Libertinus Mono", "Ms Madi"], "cq_003": ["Goblin One", "Edu VIC WA NT Beginner", "Kumbh Sans", "Encode Sans Condensed", "Doppio One", "Playwrite CL Guides", "Sixtyfour", "Saira Extra Condensed", "Atma", "Playwrite CZ Guides", "Londrina Sketch", "Mina", "Gudea", "Reddit Mono", "Big Shoulders", "Marcellus SC", "Tienne", "Nova Mono", "Fragment Mono", "Major Mono Display", "Tektur", "Bentham", "WDXL Lubrifont SC", "Baloo Paaji 2", "Tai Heritage Pro", "Bodoni Moda SC", "Artifika", "Hanalei Fill", "Rancho"], "cq_008": ["Londrina Sketch", "Grenze Gotisch", "Google Sans Code", "Underdog", "Sixtyfour Convergence", "Libertinus Serif Display", "Lilex", "Playwrite CL Guides", "Jersey 20", "Aref Ruqaa Ink", "Fira Mono", "Noto Sans Batak", "Marko One", "Port Lligat Slab", "Goblin One", "Victor Mono", "Farro", "Share Tech Mono", "Playwrite IN", "Passions Conflict", "Playwrite NZ Basic Guides", "Anonymous Pro", "Yuji Syuku", "Solitreo", "Playwrite FR Trad", "Big Shoulders"], "cq_009": ["Ms Madi", "M PLUS 1 Code", "Libre Barcode 128", "Noto Sans Nag Mundari", "Playwrite DE SAS", "Tenali Ramakrishna", "Ubuntu Mono", "Baloo Paaji 2", "Delius Swash Caps", "Playwrite RO Guides", "Atma", "Madimi One", "Calligraffitti", "Bubblegum Sans", "Hubballi", "Sometype Mono", "Ovo", "Edu VIC WA NT Hand Pre", "Manuale", "Major Mono Display", "Nova Mono", "Noto Serif Devanagari", "LXGW WenKai Mono TC", "Playwrite NG Modern Guides", "Marko One", "Goblin One", "Spectral SC", "Quattrocento"], "cq_010": ["Martian Mono", "Anonymous Pro", "Iceberg", "Lovers Quarrel", "Basic", "Metrophobic", "Send Flowers", "Aref Ruqaa Ink", "Tektur", "TASA Orbiter", "Geom", "Port Lligat Slab", "Ruthie", "Noto Sans PhagsPa", "Alata", "Birthstone Bounce", "Edu VIC WA NT Beginner", "Sixtyfour Convergence", "Tai Heritage Pro", "Ms Madi", "Playwrite US Trad Guides", "WDXL Lubrifont SC", "JetBrains Mono", "Lilex", "Macondo", "MonteCarlo", "Patrick Hand", "Roboto Flex", "Ga Maamli", "Tiro Tamil"], "cq_011": ["Artifika", "Atma", "Tienne", "Esteban", "Noto Rashi Hebrew", "Rubik Storm", "Farro", "Khula", "Hubballi", "Playwrite BR Guides", "Literata", "Cousine", "Bungee Shade", "Playwrite BE WAL Guides", "Jolly Lodger", "Madimi One", "Noto Serif Armenian", "Faster One", "Anek Latin", "Calligraffitti", "Playwrite CL Guides", "GFS Neohellenic", "Aref Ruqaa Ink", "Space Mono", "Passion One", "Fasthand", "Noto Sans Balinese", "Bubblegum Sans", "Doppio One"], "cq_012": ["Seaweed Script", "IM Fell French Canon", "Edu NSW ACT Hand Pre", "Over the Rainbow", "Kumbh Sans", "Underdog", "Manuale", "WDXL Lubrifont SC", "Rancho", "Literata", "Metrophobic", "Solitreo", "Aldrich", "Albert Sans", "Playwrite NZ Basic Guides", "Aref Ruqaa Ink", "Sometype Mono", "Esteban", "Chivo Mono", "VT323", "Elsie Swash Caps", "Babylonica", "Brygada 1918", "Monofett", "Kurale", "Source Serif Pro", "Merienda", "B612 Mono", "Cormorant", "Passions Conflict"], "cq_015": ["IBM Plex Mono", "Sixtyfour", "Google Sans Code", "MonteCarlo", "Spectral SC", "Reddit Mono", "Marko One", "Kotta One", "JetBrains Mono", "Belleza", "Libertinus Mono", "Source Code Pro", "Suravaram", "Space Mono", "Madimi One", "Ga Maamli", "Noto Serif Lao", "Delius Swash Caps", "Noto Serif Devanagari", "Noto Sans Nag Mundari", "Saira Extra Condensed", "Courier Prime", "Edu VIC WA NT Beginner", "Hubballi", "Lalezar", "Federant", "Playwrite CA", "Grand Hotel", "Source Serif Pro"], "cq_016": ["Encode Sans Condensed", "Solitreo", "Ubuntu Mono", "Suravaram", "Rancho", "Edu VIC WA NT Beginner", "Marcellus SC", "Galdeano", "Fasthand", "Actor", "Lalezar", "Albert Sans", "Cormorant", "Grand Hotel", "Bitcount Single", "Courier Prime", "Noto Sans Nag Mundari", "Aref Ruqaa Ink", "Roboto Mono", "Flow Block", "Bodoni Moda SC", "Kumar One Outline", "Hanalei Fill", "Baskervville SC", "Artifika", "Quattrocento", "Manuale", "Playwrite FR Trad", "Love Ya Like A Sister", "Esteban"], "cq_019": ["Grand Hotel", "Macondo", "Merienda", "Calistoga", "Kurale", "Fira Mono", "Underdog", "Cousine", "Encode Sans Condensed", "Hubballi", "Sarina", "Madimi One", "VT323", "Edu VIC WA NT Hand Pre", "WDXL Lubrifont SC", "Playwrite NZ Basic Guides", "Reem Kufi Fun", "Babylonica", "Iceberg", "Big Shoulders", "Quattrocento", "Geist Mono", "Tienne", "Marko One", "Federant", "Overlock SC", "Playwrite CL Guides", "Workbench"], "cq_021": ["Love Ya Like A Sister", "Artifika", "Noto Serif Lao", "Edu VIC WA NT Beginner", "Merienda", "Faster One", "Bentham", "Google Sans Code", "Suravaram", "Quattrocento", "Playwrite BR Guides", "Geist Mono", "Anonymous Pro", "Baloo Paaji 2", "Actor", "Coustard", "Playpen Sans Hebrew", "Edu VIC WA NT Hand Pre", "Lovers Quarrel", "Bubblegum Sans", "Courier Prime", "IM Fell French Canon", "Elsie Swash Caps", "IBM Plex Mono", "Passions Conflict", "Tenali Ramakrishna", "Seaweed Script"], "cq_024": ["Patrick Hand", "Courier Prime", "Holtwood One SC", "Belleza", "Quattrocento", "Mina", "Aref Ruqaa Ink", "Noto Sans Balinese", "VT323", "Port Lligat Slab", "Syne Mono", "Cousine", "Micro 5", "Pangolin", "Jolly Lodger", "Geom", "Google Sans Code", "Lilex", "Material Symbols", "Rubik Storm", "Send Flowers", "Red Hat Mono", "Jersey 20", "Goblin One", "Passion One", "Big Shoulders", "Hubballi", "Galdeano"], "cq_025": ["TASA Orbiter", "Kumbh Sans", "Sometype Mono", "Lovers Quarrel", "Xanh Mono", "Solitreo", "Federant", "Roboto Flex", "Yuji Syuku", "Grand Hotel", "Bentham", "Elsie Swash Caps", "Micro 5", "Fasthand", "Alata", "Reddit Mono", "Jolly Lodger", "Iceberg", "Calligraffitti", "Cairo", "Noto Sans Nag Mundari", "Farro", "Kumar One", "Bungee Inline", "Black And White Picture", "Macondo", "Lekton", "Fenix"], "cq_029": ["Belleza", "PT Mono", "Anonymous Pro", "Noto Sans Balinese", "Xanh Mono", "Edu NSW ACT Hand Pre", "Tienne", "Dokdo", "Kumbh Sans", "Amaranth", "Ruge Boogie", "Train One", "Yuji Syuku", "Macondo", "Passion One", "Noto Sans Adlam", "Baloo Paaji 2", "M PLUS 1 Code", "Fira Mono", "Comforter Brush", "IBM Plex Mono", "Antic Slab", "Libertinus Serif Display", "Kurale", "Goblin One", "Sixtyfour", "Elsie Swash Caps", "Noto Rashi Hebrew", "Courier Prime"], "cq_030": ["Syne Mono", "Port Lligat Slab", "Antic Slab", "Comforter Brush", "GFS Neohellenic", "Merienda", "Cousine", "Benne", "Holtwood One SC", "Hubballi", "Edu NSW ACT Hand Pre", "Lilex", "Lalezar", "Coustard", "Playwrite NG Modern Guides", "Playwrite CZ Guides", "Geist Mono", "Jersey 20", "Noto Serif Lao", "Metrophobic", "Albert Sans", "Ovo", "Major Mono Display", "Red Hat Mono", "Noto Sans Adlam", "Atma", "Manuale", "Overpass Mono"], "cq_032": ["Manuale", "Tektur", "Flow Block", "Federant", "Noto Rashi Hebrew", "Kurale", "Baloo Paaji 2", "Nova Mono", "Passions Conflict", "Macondo", "Passion One", "Literata", "Yuji Mai", "Tienne", "Source Code Pro", "Cousine", "Holtwood One SC", "Reem Kufi Fun", "Train One", "Playwrite BE WAL Guides", "Babylonica", "Pangolin", "Bubblegum Sans", "Source Serif Pro", "Yuji Syuku", "Encode Sans Expanded", "MonteCarlo", "Spectral SC", "Ubuntu Sans Mono"], "cq_033": ["Baskervville SC", "Playwrite US Trad Guides", "IBM Plex Mono", "Cormorant", "Yuji Mai", "Source Serif Pro", "Flow Block", "M PLUS 1 Code", "Doppio One", "Artifika", "Babylonica", "Kotta One", "Underdog", "Syne Mono", "Google Sans Code", "Bentham", "Tiro Devanagari Sanskrit", "Ubuntu Mono", "Source Code Pro", "Metrophobic", "Gochi Hand", "JetBrains Mono", "Antic Slab", "Give You Glory", "Workbench", "Playwrite CL Guides", "Lilex", "Goblin One"], "cq_038": ["Birthstone Bounce", "Playwrite RO Guides", "Babylonica", "Playwrite CZ Guides", "Rancho", "Madimi One", "Kumar One", "Ms Madi", "Cairo", "Edu NSW ACT Foundation", "Metrophobic", "Edu NSW ACT Hand Pre", "Aref Ruqaa Ink", "Libertinus Mono", "Overpass Mono", "MonteCarlo", "Big Shoulders", "Baloo Paaji 2", "Alata", "Noto Serif Lao", "Amaranth", "Martian Mono", "Basic", "Send Flowers", "Lexend Giga", "Tiro Tamil", "Over the Rainbow", "Edu VIC WA NT Hand Pre"], "cq_039": ["Underdog", "Basic", "PT Mono", "Ovo", "Workbench", "Source Code Pro", "Madimi One", "Overpass Mono", "Sixtyfour", "Bentham", "Major Mono Display", "Noto Sans Batak", "Marko One", "Playwrite US Trad Guides", "Kotta One", "Goblin One", "Bungee Inline", "Cairo", "Share Tech Mono", "Coustard", "Grand Hotel", "Noto Serif Armenian", "Reddit Mono", "Rubik Storm", "TASA Orbiter", "Noto Serif Grantha", "Tiro Tamil"], "cq_040": ["Tai Heritage Pro", "Space Mono", "Calistoga", "Playwrite US Trad Guides", "Bungee Inline", "Roboto Flex", "Fragment Mono", "Noto Serif Grantha", "Solitreo", "Anek Latin", "Monofett", "Noto Rashi Hebrew", "JetBrains Mono", "Tienne", "Martian Mono", "Fasthand", "Overlock SC", "Sometype Mono", "Libertinus Mono", "Albert Sans", "Playwrite RO Guides", "IBM Plex Mono", "Cousine", "Patrick Hand", "Ruge Boogie", "IM Fell French Canon", "Playwrite CZ Guides", "Roboto Mono", "Faster One"]}, "fonts": {"Overlock SC": {"name": "Overlock SC", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/overlock-sc@latest/latin-400-normal.ttf"}}, "Tenali Ramakrishna": {"name": "Tenali Ramakrishna", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/tenali-ramakrishna@latest/latin-400-normal.ttf"}}, "Merienda": {"name": "Merienda", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/merienda@latest/latin-400-normal.ttf"}}, "Anonymous Pro": {"name": "Anonymous Pro", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/anonymous-pro@latest/latin-400-normal.ttf"}}, "Anek Latin": {"name": "Anek Latin", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/anek-latin@latest/latin-400-normal.ttf"}}, "Aldrich": {"name": "Aldrich", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/aldrich@latest/latin-400-normal.ttf"}}, "Black And White Picture": {"name": "Black And White Picture", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/black-and-white-picture@latest/latin-400-normal.ttf"}}, "Send Flowers": {"name": "Send Flowers", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/send-flowers@latest/latin-400-normal.ttf"}}, "Kumbh Sans": {"name": "Kumbh Sans", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/kumbh-sans@latest/latin-400-normal.ttf"}}, "JetBrains Mono": {"name": "JetBrains Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/jetbrains-mono@latest/latin-400-normal.ttf"}}, "Playpen Sans Hebrew": {"name": "Playpen Sans Hebrew", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playpen-sans-hebrew@latest/latin-400-normal.ttf"}}, "Libertinus Mono": {"name": "Libertinus Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/libertinus-mono@latest/latin-400-normal.ttf"}}, "GFS Neohellenic": {"name": "GFS Neohellenic", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/gfs-neohellenic@latest/latin-400-normal.ttf"}}, "Antic Slab": {"name": "Antic Slab", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/antic-slab@latest/latin-400-normal.ttf"}}, "Sometype Mono": {"name": "Sometype Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/sometype-mono@latest/latin-400-normal.ttf"}}, "Overpass Mono": {"name": "Overpass Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/overpass-mono@latest/latin-400-normal.ttf"}}, "Sixtyfour Convergence": {"name": "Sixtyfour Convergence", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/sixtyfour-convergence@latest/latin-400-normal.ttf"}}, "Roboto Mono": {"name": "Roboto Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/roboto-mono@latest/latin-400-normal.ttf"}}, "Encode Sans Condensed": {"name": "Encode Sans Condensed", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/encode-sans-condensed@latest/latin-400-normal.ttf"}}, "IM Fell French Canon": {"name": "IM Fell French Canon", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/im-fell-french-canon@latest/latin-400-normal.ttf"}}, "Fira Mono": {"name": "Fira Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/fira-mono@latest/latin-400-normal.ttf"}}, "Love Ya Like A Sister": {"name": "Love Ya Like A Sister", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/love-ya-like-a-sister@latest/latin-400-normal.ttf"}}, "Quattrocento": {"name": "Quattrocento", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/quattrocento@latest/latin-400-normal.ttf"}}, "Libre Barcode 128": {"name": "Libre Barcode 128", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/libre-barcode-128@latest/latin-400-normal.ttf"}}, "Playwrite RO Guides": {"name": "Playwrite RO Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ro-guides@latest/latin-400-normal.ttf"}}, "Basic": {"name": "Basic", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/basic@latest/latin-400-normal.ttf"}}, "Ruthie": {"name": "Ruthie", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ruthie@latest/latin-400-normal.ttf"}}, "Farro": {"name": "Farro", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/farro@latest/latin-400-normal.ttf"}}, "Saira Extra Condensed": {"name": "Saira Extra Condensed", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/saira-extra-condensed@latest/latin-400-normal.ttf"}}, "Fragment Mono": {"name": "Fragment Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/fragment-mono@latest/latin-400-normal.ttf"}}, "VT323": {"name": "VT323", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/vt323@latest/latin-400-normal.ttf"}}, "Playwrite BE WAL Guides": {"name": "Playwrite BE WAL Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-be-wal-guides@latest/latin-400-normal.ttf"}}, "Martian Mono": {"name": "Martian Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/martian-mono@latest/latin-400-normal.ttf"}}, "Tai Heritage Pro": {"name": "Tai Heritage Pro", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/tai-heritage-pro@latest/latin-400-normal.ttf"}}, "M PLUS 1 Code": {"name": "M PLUS 1 Code", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/m-plus-1-code@latest/latin-400-normal.ttf"}}, "Doppio One": {"name": "Doppio One", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/doppio-one@latest/latin-400-normal.ttf"}}, "IBM Plex Mono": {"name": "IBM Plex Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-400-normal.ttf"}}, "Lexend Giga": {"name": "Lexend Giga", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/lexend-giga@latest/latin-400-normal.ttf"}}, "B612 Mono": {"name": "B612 Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/b612-mono@latest/latin-400-normal.ttf"}}, "Playwrite US Trad Guides": {"name": "Playwrite US Trad Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-us-trad-guides@latest/latin-400-normal.ttf"}}, "Train One": {"name": "Train One", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/train-one@latest/latin-400-normal.ttf"}}, "Actor": {"name": "Actor", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/actor@latest/latin-400-normal.ttf"}}, "Noto Sans Batak": {"name": "Noto Sans Batak", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-batak@latest/latin-400-normal.ttf"}}, "Jersey 20": {"name": "Jersey 20", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/jersey-20@latest/latin-400-normal.ttf"}}, "TASA Orbiter": {"name": "TASA Orbiter", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/tasa-orbiter@latest/latin-400-normal.ttf"}}, "Dokdo": {"name": "Dokdo", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/dokdo@latest/latin-400-normal.ttf"}}, "Suravaram": {"name": "Suravaram", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/suravaram@latest/latin-400-normal.ttf"}}, "Pangolin": {"name": "Pangolin", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/pangolin@latest/latin-400-normal.ttf"}}, "Tektur": {"name": "Tektur", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/tektur@latest/latin-400-normal.ttf"}}, "LXGW WenKai Mono TC": {"name": "LXGW WenKai Mono TC", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/lxgw-wenkai-mono-tc@latest/latin-400-normal.ttf"}}, "Noto Rashi Hebrew": {"name": "Noto Rashi Hebrew", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-rashi-hebrew@latest/latin-400-normal.ttf"}}, "Space Mono": {"name": "Space Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/space-mono@latest/latin-400-normal.ttf"}}, "Brygada 1918": {"name": "Brygada 1918", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/brygada-1918@latest/latin-400-normal.ttf"}}, "Jolly Lodger": {"name": "Jolly Lodger", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/jolly-lodger@latest/latin-400-normal.ttf"}}, "Chivo Mono": {"name": "Chivo Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/chivo-mono@latest/latin-400-normal.ttf"}}, "Literata": {"name": "Literata", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-normal.ttf"}}, "Cousine": {"name": "Cousine", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/cousine@latest/latin-400-normal.ttf"}}, "Cairo": {"name": "Cairo", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/cairo@latest/latin-400-normal.ttf"}}, "Passions Conflict": {"name": "Passions Conflict", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/passions-conflict@latest/latin-400-normal.ttf"}}, "Galdeano": {"name": "Galdeano", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/galdeano@latest/latin-400-normal.ttf"}}, "WDXL Lubrifont SC": {"name": "WDXL Lubrifont SC", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/wdxl-lubrifont-sc@latest/latin-400-normal.ttf"}}, "Courier Prime": {"name": "Courier Prime", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@latest/latin-400-normal.ttf"}}, "Bitcount Single": {"name": "Bitcount Single", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/bitcount-single@latest/latin-400-normal.ttf"}}, "Amaranth": {"name": "Amaranth", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/amaranth@latest/latin-400-normal.ttf"}}, "Encode Sans Expanded": {"name": "Encode Sans Expanded", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/encode-sans-expanded@latest/latin-400-normal.ttf"}}, "Faster One": {"name": "Faster One", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/faster-one@latest/latin-400-normal.ttf"}}, "Rancho": {"name": "Rancho", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/rancho@latest/latin-400-normal.ttf"}}, "Major Mono Display": {"name": "Major Mono Display", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/major-mono-display@latest/latin-400-normal.ttf"}}, "Benne": {"name": "Benne", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/benne@latest/latin-400-normal.ttf"}}, "Birthstone Bounce": {"name": "Birthstone Bounce", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/birthstone-bounce@latest/latin-400-normal.ttf"}}, "Solitreo": {"name": "Solitreo", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/solitreo@latest/latin-400-normal.ttf"}}, "Fasthand": {"name": "Fasthand", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/fasthand@latest/latin-400-normal.ttf"}}, "Lovers Quarrel": {"name": "Lovers Quarrel", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/lovers-quarrel@latest/latin-400-normal.ttf"}}, "Port Lligat Slab": {"name": "Port Lligat Slab", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/port-lligat-slab@latest/latin-400-normal.ttf"}}, "Roboto Flex": {"name": "Roboto Flex", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/roboto-flex@latest/latin-400-normal.ttf"}}, "Ruge Boogie": {"name": "Ruge Boogie", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ruge-boogie@latest/latin-400-normal.ttf"}}, "Ubuntu Sans Mono": {"name": "Ubuntu Sans Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu-sans-mono@latest/latin-400-normal.ttf"}}, "Geist Mono": {"name": "Geist Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.ttf"}}, "Grand Hotel": {"name": "Grand Hotel", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/grand-hotel@latest/latin-400-normal.ttf"}}, "Noto Sans Balinese": {"name": "Noto Sans Balinese", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-balinese@latest/latin-400-normal.ttf"}}, "Sarina": {"name": "Sarina", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/sarina@latest/latin-400-normal.ttf"}}, "Playwrite CL Guides": {"name": "Playwrite CL Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-cl-guides@latest/latin-400-normal.ttf"}}, "Micro 5": {"name": "Micro 5", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/micro-5@latest/latin-400-normal.ttf"}}, "Monofett": {"name": "Monofett", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/monofett@latest/latin-400-normal.ttf"}}, "Gochi Hand": {"name": "Gochi Hand", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/gochi-hand@latest/latin-400-normal.ttf"}}, "Patrick Hand": {"name": "Patrick Hand", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/patrick-hand@latest/latin-400-normal.ttf"}}, "Reddit Mono": {"name": "Reddit Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/reddit-mono@latest/latin-400-normal.ttf"}}, "Tiro Tamil": {"name": "Tiro Tamil", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/tiro-tamil@latest/latin-400-normal.ttf"}}, "Bubblegum Sans": {"name": "Bubblegum Sans", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/bubblegum-sans@latest/latin-400-normal.ttf"}}, "Syne Mono": {"name": "Syne Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/syne-mono@latest/latin-400-normal.ttf"}}, "Xanh Mono": {"name": "Xanh Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/xanh-mono@latest/latin-400-normal.ttf"}}, "Playwrite DE SAS": {"name": "Playwrite DE SAS", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-de-sas@latest/latin-400-normal.ttf"}}, "Noto Sans PhagsPa": {"name": "Noto Sans PhagsPa", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-phagspa@latest/latin-400-normal.ttf"}}, "Londrina Sketch": {"name": "Londrina Sketch", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/londrina-sketch@latest/latin-400-normal.ttf"}}, "Ubuntu Mono": {"name": "Ubuntu Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu-mono@latest/latin-400-normal.ttf"}}, "Yuji Mai": {"name": "Yuji Mai", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/yuji-mai@latest/latin-400-normal.ttf"}}, "Playwrite NG Modern Guides": {"name": "Playwrite NG Modern Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ng-modern-guides@latest/latin-400-normal.ttf"}}, "Metrophobic": {"name": "Metrophobic", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/metrophobic@latest/latin-400-normal.ttf"}}, "Lekton": {"name": "Lekton", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/lekton@latest/latin-400-normal.ttf"}}, "Share Tech Mono": {"name": "Share Tech Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/share-tech-mono@latest/latin-400-normal.ttf"}}, "Delius Swash Caps": {"name": "Delius Swash Caps", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/delius-swash-caps@latest/latin-400-normal.ttf"}}, "Atma": {"name": "Atma", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/atma@latest/latin-400-normal.ttf"}}, "Cormorant": {"name": "Cormorant", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/cormorant@latest/latin-400-normal.ttf"}}, "Bungee Shade": {"name": "Bungee Shade", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/bungee-shade@latest/latin-400-normal.ttf"}}, "Artifika": {"name": "Artifika", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/artifika@latest/latin-400-normal.ttf"}}, "Federant": {"name": "Federant", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/federant@latest/latin-400-normal.ttf"}}, "Coustard": {"name": "Coustard", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/coustard@latest/latin-400-normal.ttf"}}, "Noto Serif Devanagari": {"name": "Noto Serif Devanagari", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-devanagari@latest/latin-400-normal.ttf"}}, "Baloo Paaji 2": {"name": "Baloo Paaji 2", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/baloo-paaji-2@latest/latin-400-normal.ttf"}}, "Esteban": {"name": "Esteban", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/esteban@latest/latin-400-normal.ttf"}}, "Playwrite CZ Guides": {"name": "Playwrite CZ Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-cz-guides@latest/latin-400-normal.ttf"}}, "Madimi One": {"name": "Madimi One", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/madimi-one@latest/latin-400-normal.ttf"}}, "Victor Mono": {"name": "Victor Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/victor-mono@latest/latin-400-normal.ttf"}}, "Playwrite BR Guides": {"name": "Playwrite BR Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-br-guides@latest/latin-400-normal.ttf"}}, "Edu NSW ACT Hand Pre": {"name": "Edu NSW ACT Hand Pre", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/edu-nsw-act-hand-pre@latest/latin-400-normal.ttf"}}, "Lalezar": {"name": "Lalezar", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/lalezar@latest/latin-400-normal.ttf"}}, "Gudea": {"name": "Gudea", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/gudea@latest/latin-400-normal.ttf"}}, "Kurale": {"name": "Kurale", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/kurale@latest/latin-400-normal.ttf"}}, "PT Mono": {"name": "PT Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/pt-mono@latest/latin-400-normal.ttf"}}, "Rubik Storm": {"name": "Rubik Storm", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/rubik-storm@latest/latin-400-normal.ttf"}}, "Google Sans Code": {"name": "Google Sans Code", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/google-sans-code@latest/latin-400-normal.ttf"}}, "Marko One": {"name": "Marko One", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/marko-one@latest/latin-400-normal.ttf"}}, "Aref Ruqaa Ink": {"name": "Aref Ruqaa Ink", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/aref-ruqaa-ink@latest/latin-400-normal.ttf"}}, "Material Symbols": {"name": "Material Symbols", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/material-symbols@latest/latin-400-normal.ttf"}}, "Yuji Syuku": {"name": "Yuji Syuku", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/yuji-syuku@latest/latin-400-normal.ttf"}}, "Edu VIC WA NT Hand Pre": {"name": "Edu VIC WA NT Hand Pre", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/edu-vic-wa-nt-hand-pre@latest/latin-400-normal.ttf"}}, "Macondo": {"name": "Macondo", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/macondo@latest/latin-400-normal.ttf"}}, "Ovo": {"name": "Ovo", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ovo@latest/latin-400-normal.ttf"}}, "Holtwood One SC": {"name": "Holtwood One SC", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/holtwood-one-sc@latest/latin-400-normal.ttf"}}, "MonteCarlo": {"name": "MonteCarlo", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/montecarlo@latest/latin-400-normal.ttf"}}, "Albert Sans": {"name": "Albert Sans", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/albert-sans@latest/latin-400-normal.ttf"}}, "Edu NSW ACT Foundation": {"name": "Edu NSW ACT Foundation", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/edu-nsw-act-foundation@latest/latin-400-normal.ttf"}}, "Hubballi": {"name": "Hubballi", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/hubballi@latest/latin-400-normal.ttf"}}, "Playwrite NZ Basic Guides": {"name": "Playwrite NZ Basic Guides", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-nz-basic-guides@latest/latin-400-normal.ttf"}}, "Mina": {"name": "Mina", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/mina@latest/latin-400-normal.ttf"}}, "Flow Block": {"name": "Flow Block", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/flow-block@latest/latin-400-normal.ttf"}}, "Workbench": {"name": "Workbench", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/workbench@latest/latin-400-normal.ttf"}}, "Khula": {"name": "Khula", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/khula@latest/latin-400-normal.ttf"}}, "Passion One": {"name": "Passion One", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/passion-one@latest/latin-400-normal.ttf"}}, "Bentham": {"name": "Bentham", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/bentham@latest/latin-400-normal.ttf"}}, "Noto Serif Armenian": {"name": "Noto Serif Armenian", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-armenian@latest/latin-400-normal.ttf"}}, "Red Hat Mono": {"name": "Red Hat Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/red-hat-mono@latest/latin-400-normal.ttf"}}, "Give You Glory": {"name": "Give You Glory", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/give-you-glory@latest/latin-400-normal.ttf"}}, "Tiro Devanagari Sanskrit": {"name": "Tiro Devanagari Sanskrit", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/tiro-devanagari-sanskrit@latest/latin-400-normal.ttf"}}, "Alata": {"name": "Alata", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/alata@latest/latin-400-normal.ttf"}}, "Iceberg": {"name": "Iceberg", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/iceberg@latest/latin-400-normal.ttf"}}, "Calligraffitti": {"name": "Calligraffitti", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/calligraffitti@latest/latin-400-normal.ttf"}}, "Source Serif Pro": {"name": "Source Serif Pro", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/source-serif-pro@latest/latin-400-normal.ttf"}}, "Ms Madi": {"name": "Ms Madi", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ms-madi@latest/latin-400-normal.ttf"}}, "Comforter Brush": {"name": "Comforter Brush", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/comforter-brush@latest/latin-400-normal.ttf"}}, "Playwrite FR Trad": {"name": "Playwrite FR Trad", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-fr-trad@latest/latin-400-normal.ttf"}}, "Kumar One Outline": {"name": "Kumar One Outline", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/kumar-one-outline@latest/latin-400-normal.ttf"}}, "Nova Mono": {"name": "Nova Mono", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/nova-mono@latest/latin-400-normal.ttf"}}, "Bungee Inline": {"name": "Bungee Inline", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/bungee-inline@latest/latin-400-normal.ttf"}}, "Underdog": {"name": "Underdog", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/underdog@latest/latin-400-normal.ttf"}}, "Seaweed Script": {"name": "Seaweed Script", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/seaweed-script@latest/latin-400-normal.ttf"}}, "Kumar One": {"name": "Kumar One", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/kumar-one@latest/latin-400-normal.ttf"}}, "Source Code Pro": {"name": "Source Code Pro", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/source-code-pro@latest/latin-400-normal.ttf"}}, "Calistoga": {"name": "Calistoga", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/calistoga@latest/latin-400-normal.ttf"}}, "Over the Rainbow": {"name": "Over the Rainbow", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/over-the-rainbow@latest/latin-400-normal.ttf"}}, "Fenix": {"name": "Fenix", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/fenix@latest/latin-400-normal.ttf"}}, "Geom": {"name": "Geom", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/geom@latest/latin-400-normal.ttf"}}, "Reem Kufi Fun": {"name": "Reem Kufi Fun", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/reem-kufi-fun@latest/latin-400-normal.ttf"}}, "Tienne": {"name": "Tienne", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/tienne@latest/latin-400-normal.ttf"}}, "Playwrite IN": {"name": "Playwrite IN", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-in@latest/latin-400-normal.ttf"}}, "Edu VIC WA NT Beginner": {"name": "Edu VIC WA NT Beginner", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/edu-vic-wa-nt-beginner@latest/latin-400-normal.ttf"}}, "Hanalei Fill": {"name": "Hanalei Fill", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/hanalei-fill@latest/latin-400-normal.ttf"}}, "Noto Serif Lao": {"name": "Noto Serif Lao", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-lao@latest/latin-400-normal.ttf"}}, "Noto Serif Grantha": {"name": "Noto Serif Grantha", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-serif-grantha@latest/latin-400-normal.ttf"}}, "Lilex": {"name": "Lilex", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/lilex@latest/latin-400-normal.ttf"}}, "Golos Text": {"name": "Golos Text", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/golos-text@latest/latin-400-normal.ttf"}}, "Ga Maamli": {"name": "Ga Maamli", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/ga-maamli@latest/latin-400-normal.ttf"}}, "Sixtyfour": {"name": "Sixtyfour", "category": "monospace", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/sixtyfour@latest/latin-400-normal.ttf"}}, "Goblin One": {"name": "Goblin One", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/goblin-one@latest/latin-400-normal.ttf"}}, "Libertinus Serif Display": {"name": "Libertinus Serif Display", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/libertinus-serif-display@latest/latin-400-normal.ttf"}}, "Bodoni Moda SC": {"name": "Bodoni Moda SC", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/bodoni-moda-sc@latest/latin-400-normal.ttf"}}, "Spectral SC": {"name": "Spectral SC", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/spectral-sc@latest/latin-400-normal.ttf"}}, "Babylonica": {"name": "Babylonica", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/babylonica@latest/latin-400-normal.ttf"}}, "Kotta One": {"name": "Kotta One", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/kotta-one@latest/latin-400-normal.ttf"}}, "Noto Sans Adlam": {"name": "Noto Sans Adlam", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-adlam@latest/latin-400-normal.ttf"}}, "Big Shoulders": {"name": "Big Shoulders", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/big-shoulders@latest/latin-400-normal.ttf"}}, "Belleza": {"name": "Belleza", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/belleza@latest/latin-400-normal.ttf"}}, "Marcellus SC": {"name": "Marcellus SC", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/marcellus-sc@latest/latin-400-normal.ttf"}}, "Playwrite CA": {"name": "Playwrite CA", "category": "handwriting", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/playwrite-ca@latest/latin-400-normal.ttf"}}, "Manuale": {"name": "Manuale", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/manuale@latest/latin-400-normal.ttf"}}, "Elsie Swash Caps": {"name": "Elsie Swash Caps", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/elsie-swash-caps@latest/latin-400-normal.ttf"}}, "Baskervville SC": {"name": "Baskervville SC", "category": "serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/baskervville-sc@latest/latin-400-normal.ttf"}}, "Grenze Gotisch": {"name": "Grenze Gotisch", "category": "display", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/grenze-gotisch@latest/latin-400-normal.ttf"}}, "Noto Sans Nag Mundari": {"name": "Noto Sans Nag Mundari", "category": "sans-serif", "files": {"400": "https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-nag-mundari@latest/latin-400-normal.ttf"}}}};
+        let currentQueryIdx = 0;
+        let currentFontIdx = 0;
+        
+        // Load state from localStorage
+        const STORAGE_KEY = 'human-judgments-v1';
+        let judgments = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        
+        const reviewerInput = document.getElementById('reviewer-id');
+        reviewerInput.value = localStorage.getItem('reviewer-id') || '';
+        reviewerInput.onchange = (e) => localStorage.setItem('reviewer-id', e.target.value);
+
+        function save() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(judgments));
+            updateSidebar();
+        }
+
+        function updateSidebar() {
+            const list = document.getElementById('query-list');
+            list.innerHTML = '';
+            
+            let totalLabeled = 0;
+            let totalPossible = 0;
+
+            DATA.queries.forEach((q, idx) => {
+                const qPool = DATA.pool[q.id] || [];
+                const qJudgments = judgments[q.id] || {};
+                const labeledCount = Object.keys(qJudgments).length;
+                totalLabeled += labeledCount;
+                totalPossible += qPool.length;
+
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-3 rounded-lg text-xs transition-all flex justify-between items-center ${idx === currentQueryIdx ? 'bg-indigo-500/20 border border-indigo-500/50 text-indigo-100' : 'hover:bg-slate-900 text-slate-400'}`;
+                btn.onclick = () => selectQuery(idx);
+                
+                const isComplete = labeledCount === qPool.length;
+                btn.innerHTML = `
+                    <span class="truncate pr-2">${q.text}</span>
+                    <span class="mono text-[10px] ${isComplete ? 'text-emerald-500' : 'text-slate-600'}">${labeledCount}/${qPool.length}</span>
+                `;
+                list.appendChild(btn);
+            });
+
+            document.getElementById('global-progress').innerText = `${totalLabeled}/${totalPossible}`;
+            document.getElementById('global-progress-bar').style.width = `${(totalLabeled / totalPossible) * 100}%`;
+        }
+
+        function selectQuery(idx) {
+            currentQueryIdx = idx;
+            currentFontIdx = 0;
+            renderQuery();
+            updateSidebar();
+        }
+
+        function renderQuery() {
+            const query = DATA.queries[currentQueryIdx];
+            if (!query) return;
+
+            document.getElementById('query-text').innerText = query.text;
+            document.getElementById('query-class').innerText = query.class.replace('_', ' ');
+            
+            const pool = DATA.pool[query.id] || [];
+            const qJudgments = judgments[query.id] || {};
+            
+            document.getElementById('query-progress').innerText = `${Object.keys(qJudgments).length} / ${pool.length}`;
+
+            const grid = document.getElementById('font-grid');
+            grid.innerHTML = '';
+
+            pool.forEach((fontName, idx) => {
+                const font = DATA.fonts[fontName];
+                const score = qJudgments[fontName];
+                
+                const card = document.createElement('div');
+                card.id = `font-card-${idx}`;
+                card.className = `font-card ${idx === currentFontIdx ? 'active' : ''} ${score !== undefined ? 'labeled-' + score : ''}`;
+                card.onclick = () => { currentFontIdx = idx; renderQuery(); };
+                
+                card.innerHTML = `
+                    ${score !== undefined ? `<div class="status-pill ${score === 1 ? 'bg-emerald-500' : 'bg-red-500'}">${score === 1 ? 'REL' : 'NOT'}</div>` : ''}
+                    <div class="glyph-preview" style="font-family: '${fontName}'">
+                        Sphinx 123
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] font-black uppercase text-slate-500 truncate mr-2">${fontName}</span>
+                        <span class="text-[8px] font-bold text-slate-700 mono">${font.category}</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Scroll into view
+            const activeCard = document.getElementById(`font-card-${currentFontIdx}`);
+            if (activeCard) activeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function markRelevance(score) {
+            const query = DATA.queries[currentQueryIdx];
+            const pool = DATA.pool[query.id] || [];
+            const fontName = pool[currentFontIdx];
+            
+            if (!judgments[query.id]) judgments[query.id] = {};
+            judgments[query.id][fontName] = score;
+            
+            save();
+            
+            // Auto-advance to next font
+            if (currentFontIdx < pool.length - 1) {
+                currentFontIdx++;
+            }
+            renderQuery();
+        }
+
+        function exportJudgments() {
+            const reviewer = document.getElementById('reviewer-id').value || 'anonymous';
+            const exportData = {
+                reviewer_id: reviewer,
+                timestamp: new Date().toISOString(),
+                judgments: judgments
+            };
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", `judgments_medium_v1_${reviewer}.json`);
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        window.onkeydown = (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+
+            if (e.key === '0') markRelevance(0);
+            if (e.key === '1') markRelevance(1);
+            
+            if (e.key.toLowerCase() === 'j') {
+                const query = DATA.queries[currentQueryIdx];
+                const pool = DATA.pool[query.id] || [];
+                if (currentFontIdx < pool.length - 1) {
+                    currentFontIdx++;
+                    renderQuery();
+                }
+            }
+            if (e.key.toLowerCase() === 'k') {
+                if (currentFontIdx > 0) {
+                    currentFontIdx--;
+                    renderQuery();
+                }
+            }
+            if (e.key.toLowerCase() === 'n') {
+                if (currentQueryIdx < DATA.queries.length - 1) {
+                    selectQuery(currentQueryIdx + 1);
+                }
+            }
+            if (e.key.toLowerCase() === 'p') {
+                if (currentQueryIdx > 0) {
+                    selectQuery(currentQueryIdx - 1);
+                }
+            }
+        };
+
+        function init() {
+            const styleTag = document.getElementById('dynamic-fonts');
+            Object.values(DATA.fonts).forEach(font => {
+                if (font.files && font.files['400']) {
+                    const fontFace = `@font-face {
+                        font-family: '${font.name}';
+                        src: url('${font.files['400']}') format('truetype');
+                        font-display: swap;
+                    }`;
+                    styleTag.appendChild(document.createTextNode(fontFace));
+                }
+            });
+            selectQuery(0);
+        }
+        init();
+    </script>
+</body>
+</html>

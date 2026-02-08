@@ -46,6 +46,55 @@ next_steps:
 
 ## Log
 
+### 2026-02-08: Human-Reviewed Label SSoT Track (Medium Query Set v1)
+
+- **Decision:** Use **binary grading only** (0 = not relevant, 1 = relevant) for the Medium v1 labeling workflow.
+- **Rationale:** 
+  - Simplicity and speed for non-expert reviewers.
+  - Direct compatibility with existing `score_retrieval.py` metrics.
+  - Reduces ambiguity compared to 0/1/2 graded relevance.
+- **Next Steps:** 
+  - Generate `research/ab-eval/human_labeling_medium_v1.html`.
+  - Perform labeling and generate `labels.medium.human.v1.json`.
+
+```yaml
+date: 2026-02-08
+run_id: label_workflow_medium_v1_spec
+datasets:
+  corpus_id: corpus.200
+  queryset_id: queries.medium.human.v1
+  labelset_id: labels.medium.human.v1
+
+decision: NEEDS_MORE_DATA
+
+rationale:
+  - summary: >-
+      The team will not immediately re-author all 40 complex labels. Instead, we adopt a high-ROI,
+      visual, blind-first human-labeling workflow over a medium-complexity query slate to establish
+      a trustworthy human-reviewed canonical labelset before scaling to complex v2.
+  - qualitative:
+      - wins: Reduces reviewer fatigue and anchoring risk while preserving retrieval-relevance signal.
+      - losses: Does not fully resolve all complex-v1 coverage in this first pass.
+      - failure_modes: Reviewer disagreement on subjective mood/use-case queries if rubric is unclear.
+  - process_design:
+      - query_count_target: 20 (allowed 16-24)
+      - rubric: graded relevance 0/1/2 + optional top-pick + query confidence
+      - candidate_pool: 18/query default (coverage + uncertainty + diversity + capped legacy-seed)
+      - anti_bias: blind-first UI, randomized order per reviewer, prior labels hidden and capped to 15% of pool
+      - promotion_gates:
+          weighted_kappa_overall_min: 0.55
+          weighted_kappa_per_class_min: 0.45
+          relevant_bounds_per_query: 5-12
+          conflict_rate_max_pre_adjudication: 0.25
+
+next_steps:
+  - Implement the medium-v1 review UI and raw judgment export pipeline (separate coding task).
+  - Run pilot (4 queries), calibrate rubric wording, then execute full 20-query pass.
+  - Convert raw judgments deterministically into labels.medium.human.v1 + provenance metadata.
+  - Promote to canonical SSoT only after agreement and adjudication gates are met.
+  - Use medium-v1 learnings to draft labels.complex.v2.human-reviewed migration plan.
+```
+
 ### 2026-02-07: Complex Query Set Evaluation - B2 vs Baseline
 
 ```yaml

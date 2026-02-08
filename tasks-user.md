@@ -38,42 +38,18 @@ research candidate models to use. must include at least 2x qwen3-vl models, they
 
 ---
 
-
-## see results from a deep-research session:
-@https://chatgpt.com/share/698828b2-523c-8010-9df3-7be45bb217cc 
-@https://gemini.google.com/share/4225fb7670fd
-
-what do you recommend now? 
-we are in no rush to get to production. 
-please prioritize improving and validating core-functionality quality through targeted experimentation
+delegate a task right now for architect to generate a visual, interactive human-input method to generate a new human-made version of `labels.complex.v1.json`
+- i'd prefer to minimize bias of human input from the current json data - but we can  include the current data within a multiple-choice set, ranking, etc 
+- 40 complex queries is too much for manual creation. instead do less queries, and medium complexity - somewhere between the basic and complex queries (human reviewers are not graphic design or typography experts)
+- i am picturing for each query, a selection of rendered-glyphs, each glyph with a input field or buttons to rank, so each query gets a ranked set... i am open to ideas but be creative to make it high ROI for human time/effort which is very valuable
 
 
-Also, for RAG-input attributes
-current:
-{ "shape": "...", "contrast": "...", "terminals": "...", "x_height": "...", "width": "...", "mood": [...], "use_cases": [...], "summary": "..." }
-should we add any? this seems like few.
-Especially moods/use_cases - Style/Vibe Search is our primary feature. we need more vibe/style data to use for embeddings. 
-consider:
-- adding more qty-minimums for each list
-- adding more fields
-- using weighted values so AI, for each attribute, ranks it - excellent, high, medium, low, none, or similar
-  - perhaps using fixed-lists so all fonts have same fields ranked
-- other ideas?
 
-- Upgrade glyph sheet spec used by [`render_font()`](research/ab-eval/py/render_glyph_sheet.py:8):
-  - 1024 canvas
-  - full A–Z, a–z, 0–9
-  - punctuation row
-  - 1 pangram row
-  - dedicated micro-tell strip (`a g 0 1 Q R & @`) large-size
-- Keep deterministic layout (same positions/sizes every font).
-- 
+
 
 ---
 ---
 ---
-
-#$$#
 
 ### test top-level grounding for scoring
 -  `labels.complex.v1.json` - SSoT for scoring against
@@ -81,30 +57,26 @@ consider:
 
 
 
-
-
-
-#$$#
-research\ab-eval\DECISIONS.md
-
-
-
-
-
-
-
-
-
-
-## test more models 
-  - openai/gpt-5.2
-  - qwen/qwen-vl-plus
-  - qwen/qwen-2-vl-72b-instruct
-  - moonshotai/kimi-k2.5 
-
-
-
 ## human-review SSoT
+
+
+
+
+## see results from a deep-research session:
+@https://chatgpt.com/share/698828b2-523c-8010-9df3-7be45bb217cc 
+@https://gemini.google.com/share/4225fb7670fd
+
+what do you recommend?
+we are in no rush to get to production. 
+please prioritize improving and validating core-functionality quality through targeted experimentation
+
+
+
+## test more models over qwen3 235b, for better quality?
+  - qwen/qwen-vl-plus
+  - moonshotai/kimi-k2.5 
+  - openai/gpt-5.2
+
 
 
 
@@ -122,6 +94,15 @@ now that we are using VL to generate good data to feed to RAG
 
 
 
+## Links
+
+research\ab-eval\DECISIONS.md
+research\prod-rollout\DECISIONS.md
+research\prod-rollout\PHASE-0-rag-core-ai-assist-product-plan.md
+research\prod-rollout\PHASE-A-query-suggestion-chips-plan.md
+
+
+
 
 
 ## AI-Assist UX
@@ -132,14 +113,6 @@ now that we are using VL to generate good data to feed to RAG
 - models to test
   - oss-120b
   - google/gemma-3-27b-it
-
-
-## Uncategorized
-
-research\prod-rollout\PHASE-0-rag-core-ai-assist-product-plan.md
-
-research\prod-rollout\PHASE-A-query-suggestion-chips-plan.md
-
 
 
 

@@ -42,6 +42,13 @@ Status legend:
 - [x] Record go/no-go decision + rationale — `DONE`
 - [x] Record next-step plan (replace vs hybrid vs no-go) — `DONE`
 
+### Human Labeling (Medium v1)
+- [x] Implement preparation scripts (queries + candidate pool) — `DONE`
+- [x] Implement interactive HTML labeling UI (Binary 0/1) — `DONE`
+- [x] Implement export conversion to canonical labels — `DONE`
+- [ ] Complete human labeling session — `NOT STARTED`
+- [ ] Generate `labels.medium.human.v1.json` — `NOT STARTED`
+
 ---
 
 ## Status blocks (fill as you go)
@@ -71,6 +78,19 @@ Status legend:
 - **Status:** `DONE` (2026-02-07)
 - **Notes:** Prepared review packet with stratified sampling and scoring rubric.
 - **Next Blocker:** Formal human review of generated descriptions.
+
+### Human Label SSoT Rebuild Track (Medium v1)
+- **Status:** `IN PROGRESS` (2026-02-08)
+- **Notes:** New architecture/spec track established to replace/augment provisional `labels.complex.v1.json` with human-reviewed medium labelset first.
+- **Primary plan doc:** `research/ab-eval/HUMAN_LABELING_WORKFLOW_MEDIUM_V1.md`
+- **Target artifacts:**
+  - `research/ab-eval/data/queries.medium.human.v1.json`
+  - `research/ab-eval/data/human/raw/judgments.medium.human.v1.jsonl`
+  - `research/ab-eval/data/human/adjudication.medium.human.v1.json`
+  - `research/ab-eval/data/labels.medium.human.v1.json`
+  - `research/ab-eval/data/labels.medium.human.v1.meta.json`
+- **Current blocker cleared:** workflow/rubric/candidate strategy now specified.
+- **Current blockers remaining:** UI implementation, reviewer pilot, agreement/adjudication gates.
 
 ### Complex Evaluation Round (v1) — GPU/env-ready rerun
 - **Status:** `DONE`
@@ -127,4 +147,8 @@ Status legend:
   - Runtime checks passed (`torch.cuda.is_available() == True`; `.env.local` load path confirmed in eval scripts).
   - Ran end-to-end pipeline for `--dataset complex --variant all`.
   - Confirmed canonical report set is `report_all.json/.md` for this run; `report_complex.*` is stale/interrupted.
+- 2026-02-08 — Defined medium-complexity human-labeling SSoT rebuild workflow.
+  - Added full spec: `research/ab-eval/HUMAN_LABELING_WORKFLOW_MEDIUM_V1.md`.
+  - Logged decision entry for blind-first, anti-bias, graded (0/1/2) rubric and promotion gates.
+  - Set phased rollout path toward future `labels.complex.v2.human-reviewed.json`.
 

@@ -125,29 +125,71 @@ Recommended `query_class` taxonomy:
 - `use_case` (UI, editorial, branding, coding/mono)
 - `language_script` (if you include script/locale queries)
 
-### 1.3 Relevance labels
+### 1.3 Human-reviewed label set (Medium v1)
 
-Purpose: ground truth for offline scoring.
+Purpose: derive high-quality, nuanced style labels from human visual judgment for a diverse set of 20 queries.
 
-Labeling rules (keep simple):
+Artifacts:
+- `research/ab-eval/data/queries.medium.human.v1.json` (The query set)
+- `research/ab-eval/human_labeling_medium_v1.html` (The interactive UI)
+- `research/ab-eval/data/labels.medium.human.v1.json` (The canonical scoring labels)
 
-- Binary relevance is acceptable
-- 5–20 relevant fonts per query is enough
+Procedure:
+1. **Prepare:** Generate queries and candidate pool.
+   ```powershell
+   python research/ab-eval/py/prepare_human_labeling.py
+   ```
+2. **Generate UI:** Create the interactive HTML labeling tool.
+   ```powershell
+   python research/ab-eval/py/gen_human_labeling_ui.py
+   ```
+3. **Label:** Open `human_labeling_medium_v1.html` in a browser. Complete binary labeling (0/1) for each query and font.
+4. **Export:** Click "Export JSON" to download `judgments_medium_v1_<name>.json`.
+5. **Convert:** Produce the canonical labels file.
+   ```powershell
+   python research/ab-eval/py/convert_judgments_to_labels.py --input <path_to_exported_json>
+   ```
 
-Labels format:
+### 1.4 Human-reviewed medium label workflow (new canonicalization track)
 
-- `labels.<labelset_id>.json`
+Use this workflow to create a human-reviewed labelset that can replace/augment provisional complex labels.
 
-Required structure:
+Authoritative spec:
 
-- `version` (string)
-- `queryset_id`
-- `corpus_id`
-- `labels: Array<{ query_id, relevant_font_ids, notes? }>`
+- [`research/ab-eval/HUMAN_LABELING_WORKFLOW_MEDIUM_V1.md`](research/ab-eval/HUMAN_LABELING_WORKFLOW_MEDIUM_V1.md)
 
-Optional:
+Canonical targets:
 
-- graded relevance (0/1/2) if you’re willing to be consistent; otherwise stick to binary
+- `research/ab-eval/data/queries.medium.human.v1.json`
+- `research/ab-eval/data/labels.medium.human.v1.json`
+- `research/ab-eval/data/labels.medium.human.v1.meta.json`
+
+Raw provenance artifacts:
+
+- `research/ab-eval/data/human/raw/judgments.medium.human.v1.jsonl`
+- `research/ab-eval/data/human/raw/sessions.medium.human.v1.jsonl`
+- `research/ab-eval/data/human/adjudication.medium.human.v1.json`
+
+Operator flow (high-level):
+
+- Freeze medium query slate (`16–24`, target `20`).
+- Run blind-first visual review with graded `0/1/2` relevance per candidate card.
+- Ensure minimum two reviewers per query, plus stratified audit pass.
+- Apply deterministic conversion + adjudication to emit canonical labels.
+- Promote only if agreement and conflict gates are satisfied.
+
+Promotion gates (default):
+
+- weighted kappa overall `>= 0.55`
+- per-class weighted kappa `>= 0.45`
+- unresolved conflict rate (pre-adjudication) `<= 0.25`
+- each query yields `5–12` relevant fonts in final export
+
+Scoring integration command after promotion:
+
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_all.py --dataset 200 --queries research/ab-eval/data/queries.medium.human.v1.json --labels research/ab-eval/data/labels.medium.human.v1.json --variant all
+```
 
 ---
 
