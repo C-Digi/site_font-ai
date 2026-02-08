@@ -179,9 +179,9 @@ def gen_human_labeling_ui():
             </div>
             
             <div class="text-[10px] text-slate-500 space-y-2 mono uppercase">
-                <p><span class="key-hint">0</span> / <span class="key-hint">1</span> Mark Relevance</p>
-                <p><span class="key-hint">J</span> / <span class="key-hint">K</span> Prev/Next Font</p>
-                <p><span class="key-hint">N</span> / <span class="key-hint">P</span> Prev/Next Query</p>
+                <p><span class="key-hint">D</span> / <span class="key-hint">F</span> Mark 0 / 1</p>
+                <p><span class="key-hint">J</span> / <span class="key-hint">K</span> Next/Prev Font</p>
+                <p><span class="key-hint">L</span> / <span class="key-hint">H</span> Next/Prev Query</p>
             </div>
         </aside>
 
@@ -340,10 +340,12 @@ def gen_human_labeling_ui():
         window.onkeydown = (e) => {
             if (document.activeElement.tagName === 'INPUT') return;
 
-            if (e.key === '0') markRelevance(0);
-            if (e.key === '1') markRelevance(1);
+            const key = e.key.toLowerCase();
+
+            if (key === '0' || key === 'd') markRelevance(0);
+            if (key === '1' || key === 'f') markRelevance(1);
             
-            if (e.key.toLowerCase() === 'j') {
+            if (key === 'j') {
                 const query = DATA.queries[currentQueryIdx];
                 const pool = DATA.pool[query.id] || [];
                 if (currentFontIdx < pool.length - 1) {
@@ -351,18 +353,18 @@ def gen_human_labeling_ui():
                     renderQuery();
                 }
             }
-            if (e.key.toLowerCase() === 'k') {
+            if (key === 'k') {
                 if (currentFontIdx > 0) {
                     currentFontIdx--;
                     renderQuery();
                 }
             }
-            if (e.key.toLowerCase() === 'n') {
+            if (key === 'n' || key === 'l') {
                 if (currentQueryIdx < DATA.queries.length - 1) {
                     selectQuery(currentQueryIdx + 1);
                 }
             }
-            if (e.key.toLowerCase() === 'p') {
+            if (key === 'p' || key === 'h') {
                 if (currentQueryIdx > 0) {
                     selectQuery(currentQueryIdx - 1);
                 }

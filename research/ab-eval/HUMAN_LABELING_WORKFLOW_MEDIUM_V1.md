@@ -93,11 +93,17 @@ Layout:
 
 ## High-throughput controls
 
-### Keyboard shortcuts
+### Keyboard shortcuts (Two-handed Ergonomic)
 
-- `0`, `1`: set relevance on focused card
-- `J` / `K`: next/previous card
-- `N` / `P`: next/previous query
+- Left Hand:
+  - `D`: set relevance to **0** (Not Relevant)
+  - `F`: set relevance to **1** (Relevant)
+- Right Hand:
+  - `J` / `K`: Next / Previous **Font**
+  - `L` / `H`: Next / Previous **Query**
+- Legacy / Alternate:
+  - `0` / `1`: set relevance
+  - `N` / `P`: Next / Previous Query
 - `S`: force save checkpoint
 - `U`: undo last label action
 - `F`: toggle unlabeled-only filter
