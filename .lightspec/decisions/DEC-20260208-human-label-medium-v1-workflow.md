@@ -1,7 +1,7 @@
 # DEC-20260208-human-label-medium-v1-workflow
 
 ## Status
-Accepted
+Completed (2026-02-08)
 
 ## Context
 `research/ab-eval/data/labels.complex.v1.json` became a practical scoring SSoT for complex benchmark runs, but it is acknowledged as provisional and not sufficiently human-reviewed for subjective style/vibe relevance. The team needs a higher-confidence label source with limited reviewer bandwidth and a non-expert-friendly interaction model.
@@ -46,4 +46,10 @@ Adopt a **medium-first, blind-first visual human-labeling workflow** as the next
 
 ## Superseded By
 - N/A
+
+## Results (2026-02-08)
+- **Labelset Produced:** `labels.medium.human.v1.json` (140 relevant pairs across 20 queries).
+- **Run ID:** `medium-human-v1`
+- **Key Outcome:** Variant B2 (VL) achieved **Recall@10 of 0.35** and **MRR of 0.64**, more than doubling the performance of the text baseline (Variant A).
+- **Conclusion:** Medium-v1 human labels confirmed B2 as the superior retrieval path. The workflow is validated and ready for full-scale complex-v2 labeling.
 

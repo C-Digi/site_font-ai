@@ -23,8 +23,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--variant", choices=["A", "B", "all"], default="all",
                         help="Which variant to run. A: Text, B: VL, all: A+B+C")
-    parser.add_argument("--dataset", choices=["toy", "200", "complex"], default=None,
-                        help="Preset dataset to use (toy, 200, or complex). Overrides file paths if set.")
+    parser.add_argument("--dataset", choices=["toy", "200", "complex", "medium"], default=None,
+                        help="Preset dataset to use (toy, 200, complex, or medium). Overrides file paths if set.")
     parser.add_argument("--model", default="Qwen/Qwen3-VL-Embedding-8B",
                         help="VL model to use for variant B")
     parser.add_argument("--corpus", help="Path to corpus file")
@@ -41,6 +41,10 @@ def main():
         if not args.corpus: args.corpus = "research/ab-eval/data/corpus.200.json"
         if not args.queries: args.queries = "research/ab-eval/data/queries.complex.v1.json"
         if not args.labels: args.labels = "research/ab-eval/data/labels.complex.v1.json"
+    elif args.dataset == "medium":
+        if not args.corpus: args.corpus = "research/ab-eval/data/corpus.200.json"
+        if not args.queries: args.queries = "research/ab-eval/data/queries.medium.human.v1.json"
+        if not args.labels: args.labels = "research/ab-eval/data/labels.medium.human.v1.json"
     elif args.dataset == "toy" or (not args.dataset and not args.corpus):
         if not args.corpus: args.corpus = "research/ab-eval/data/corpus.toy.json"
         if not args.queries: args.queries = "research/ab-eval/data/queries.toy.json"

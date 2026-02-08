@@ -46,8 +46,8 @@ Status legend:
 - [x] Implement preparation scripts (queries + candidate pool) — `DONE`
 - [x] Implement interactive HTML labeling UI (Binary 0/1) — `DONE`
 - [x] Implement export conversion to canonical labels — `DONE`
-- [ ] Complete human labeling session — `NOT STARTED`
-- [ ] Generate `labels.medium.human.v1.json` — `NOT STARTED`
+- [x] Complete human labeling session — `DONE` (Reviewer: casey)
+- [x] Generate `labels.medium.human.v1.json` — `DONE`
 
 ---
 

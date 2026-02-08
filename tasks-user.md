@@ -51,13 +51,8 @@ delegate a task right now for architect to generate a visual, interactive human-
 ---
 ---
 
-### test top-level grounding for scoring
--  `labels.complex.v1.json` - SSoT for scoring against
-   - generated via curated/manual (developer judgment)
 
-
-
-## human-review SSoT
+## human-review SSoT 
 
 
 

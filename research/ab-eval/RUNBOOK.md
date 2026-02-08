@@ -1,8 +1,8 @@
 # RUNBOOK — Offline A/B eval (text vs Qwen3-VL embeddings)
 
-**Latest Canonical Run:** `2026-02-07` (Complex Query Set)
-- **Artifact Path:** `research/ab-eval/out/report_all.md`
-- **JSON Source:** `research/ab-eval/out/report_all.json`
+**Latest Canonical Run:** `2026-02-08` (Medium Query Set v1 - Human Labels)
+- **Artifact Path:** `research/ab-eval/out/report_medium_human_v1.md`
+- **JSON Source:** `research/ab-eval/out/report_medium_human_v1.json`
 - **Visual Spot-Check:** `research/ab-eval/out/spot-check-complex-2026-02-07.html`
 - **Description Winner:** Qwen3-VL-235B (`out/descriptions_bakeoff_qwen32_235_full200.jsonl`)
 
@@ -47,6 +47,20 @@ All datasets should be **frozen** under [`research/ab-eval/data/`](research/ab-e
 ### 1.0 Generating the 200-font dataset
 
 To generate the reproducible 200-font corpus and its corresponding queries/labels:
+
+### 1.1 Human Label Conversion (Medium v1)
+To convert raw human judgments (0/1) to canonical scoring labels:
+```bash
+# From project root
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/convert_judgments_to_labels.py --input research/ab-eval/judgments_medium_v1_casey.json
+```
+
+### 1.2 Medium Evaluation Run
+To run the full pipeline on the medium human-labeled set:
+```bash
+# From project root
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_all.py --dataset medium --variant all
+```
 
 1. **Build Corpus:** Fetch 200 fonts from Google Fonts (via Fontsource API).
    ```powershell

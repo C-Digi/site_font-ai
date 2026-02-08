@@ -48,6 +48,40 @@ next_steps:
 
 ### 2026-02-08: Human-Reviewed Label SSoT Track (Medium Query Set v1)
 
+```yaml
+date: 2026-02-08
+run_id: medium-human-v1
+datasets:
+  corpus_id: corpus.200
+  queryset_id: queries.medium.human.v1
+  labelset_id: labels.medium.human.v1
+
+decision: GO_REPLACE
+
+rationale:
+  - summary: >-
+      B2 (VL + short text) overwhelmingly outperforms Variant A (text) on human-reviewed labels.
+      The gap is even wider than on provisional labels, suggesting VL better captures human intent
+      for stylistic queries. B2-plus (expanded text) provides marginal gains over B2 but adds
+      significant index complexity; B2 remains the production recommendation.
+  - metrics:
+      recall_at_10: { A: 0.1214, B2: 0.3523, B2-plus: 0.3797 }
+      mrr_at_10:    { A: 0.3808, B2: 0.6465, B2-plus: 0.5625 }
+  - qualitative:
+      - wins: "High precision on visual_shape (MRR 0.66) and historical_context (MRR 0.49)."
+      - losses: "Semantic mood remains challenging but still improved over text-only."
+      - failure_modes: "Some script/handwritten fonts still misidentified as generic sans if visual features are subtle."
+  - cost_perf:
+      - throughput_docs: 25 fonts/sec (batch)
+      - throughput_queries: 10 queries/sec
+      - peak_vram: 20GB (A100)
+      - notes: "Production B2 uses 4096 dimensions."
+
+next_steps:
+  - Promote B2 to production default.
+  - Begin complex-v2 labeling based on medium-v1 success.
+```
+
 - **Decision:** Use **binary grading only** (0 = not relevant, 1 = relevant) for the Medium v1 labeling workflow.
 - **Rationale:** 
   - Simplicity and speed for non-expert reviewers.

@@ -1,0 +1,89 @@
+{
+  "reviewer_id": "casey",
+  "timestamp": "2026-02-08T22:12:10.703Z",
+  "total_queries": 20,
+  "total_labeled_fonts": 570,
+  "total_relevant_fonts": 140,
+  "per_query_stats": {
+    "cq_003": {
+      "labeled": 29,
+      "relevant": 11
+    },
+    "cq_002": {
+      "labeled": 30,
+      "relevant": 15
+    },
+    "cq_008": {
+      "labeled": 26,
+      "relevant": 7
+    },
+    "cq_009": {
+      "labeled": 28,
+      "relevant": 10
+    },
+    "cq_010": {
+      "labeled": 30,
+      "relevant": 5
+    },
+    "cq_011": {
+      "labeled": 29,
+      "relevant": 8
+    },
+    "cq_012": {
+      "labeled": 30,
+      "relevant": 9
+    },
+    "cq_015": {
+      "labeled": 29,
+      "relevant": 7
+    },
+    "cq_016": {
+      "labeled": 30,
+      "relevant": 12
+    },
+    "cq_019": {
+      "labeled": 28,
+      "relevant": 5
+    },
+    "cq_021": {
+      "labeled": 27,
+      "relevant": 5
+    },
+    "cq_024": {
+      "labeled": 28,
+      "relevant": 2
+    },
+    "cq_025": {
+      "labeled": 28,
+      "relevant": 4
+    },
+    "cq_029": {
+      "labeled": 29,
+      "relevant": 5
+    },
+    "cq_030": {
+      "labeled": 28,
+      "relevant": 2
+    },
+    "cq_032": {
+      "labeled": 29,
+      "relevant": 6
+    },
+    "cq_033": {
+      "labeled": 28,
+      "relevant": 7
+    },
+    "cq_038": {
+      "labeled": 28,
+      "relevant": 6
+    },
+    "cq_039": {
+      "labeled": 27,
+      "relevant": 6
+    },
+    "cq_040": {
+      "labeled": 29,
+      "relevant": 8
+    }
+  }
+}
