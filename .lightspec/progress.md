@@ -17,6 +17,8 @@
 - [x] Deep Mismatch Analysis vs amended SSoT
 - [x] Run Intervention Matrix (Prompt V3, Specimen V3, Policy Gating)
 - [x] Quantify Agreement gains (+1.1% on G2)
+- [x] Execute G3 Production-Like Trial (V3 Policy + 0.9 Gating)
+  - [x] Precision boost (+13.9%), Agreement (+3.2%)
 - [ ] Roll out Prompt V3 to JIT Seeding path
 
 ---
