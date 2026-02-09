@@ -22,7 +22,7 @@ def image_to_data_url(image_path: Path) -> str:
     b64 = base64.b64encode(b).decode("utf-8")
     return f"data:image/png;base64,{b64}"
 
-def call_openrouter(model: str, query: str, font_name: str, image_path: Path) -> Dict[str, Any]:
+def call_openrouter_batched(model: str, queries: List[str], font_name: str, image_path: Path) -> Dict[str, Any]:
     if not OPENROUTER_API_KEY:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
         
@@ -32,18 +32,26 @@ def call_openrouter(model: str, query: str, font_name: str, image_path: Path) ->
         "Content-Type": "application/json",
     }
     
-    prompt = f"""You are a typography expert judging font relevance to a query.
-Query: "{query}"
+    queries_formatted = "\n".join([f"{i+1}. \"{q}\"" for i, q in enumerate(queries)])
+    
+    prompt = f"""You are a typography expert judging font relevance to multiple queries.
 Font: "{font_name}"
 
 Analyze the provided specimen image for this font. 
 Pay close attention to the "Legibility Pairs" (il1I, O0, etc.) and character forms.
-Determine if this font is a good match for the query.
+Determine if this font is a good match for EACH of the following queries.
+
+Queries:
+{queries_formatted}
 
 Return STRICT JSON only (no markdown blocks, no prose):
 {{
-  "thought": "your reasoning here, referencing visual details from the image",
-  "match": 1 or 0
+  "thought": "your overall reasoning here, referencing visual details from the image",
+  "matches": [
+    {{"query_index": 1, "match": 1 or 0}},
+    {{"query_index": 2, "match": 1 or 0}},
+    ...
+  ]
 }}
 """
     
@@ -63,11 +71,26 @@ Return STRICT JSON only (no markdown blocks, no prose):
     }
     
     t0 = time.time()
-    resp = requests.post(url, headers=headers, json=payload, timeout=180)
+    # Retry logic
+    for attempt in range(3):
+        try:
+            resp = requests.post(url, headers=headers, json=payload, timeout=180)
+            if resp.status_code == 429:
+                print(f"  Rate limited. Sleeping 10s...")
+                time.sleep(10)
+                continue
+            if not resp.ok:
+                print(f"  OpenRouter Error {resp.status_code}: {resp.text}")
+                time.sleep(5)
+                continue
+            break
+        except Exception as e:
+            print(f"  Connection error: {e}")
+            time.sleep(5)
+    else:
+        raise RuntimeError(f"OpenRouter failed after 3 attempts")
+
     latency = time.time() - t0
-    
-    if not resp.ok:
-        raise RuntimeError(f"OpenRouter HTTP {resp.status_code}: {resp.text}")
     
     body = resp.json()
     choices = body.get('choices', [])
@@ -76,7 +99,7 @@ Return STRICT JSON only (no markdown blocks, no prose):
         
     content = choices[0].get('message', {}).get('content', '').strip()
     
-    # Clean up JSON if necessary
+    # Clean up JSON
     if content.startswith("```json"):
         content = content[7:-3].strip()
     elif content.startswith("```"):
@@ -89,132 +112,12 @@ Return STRICT JSON only (no markdown blocks, no prose):
     except json.JSONDecodeError:
         return {
             "thought": f"Failed to parse JSON. Raw content: {content}",
-            "match": 0,
+            "matches": [{"query_index": i+1, "match": 0} for i in range(len(queries))],
             "latency_sec": round(latency, 2)
         }
 
-class LocalQwenRouter:
-    def __init__(self) -> None:
-        self._loaded: Dict[str, Dict[str, Any]] = {}
-
-    def _load_model(self, model: str) -> Dict[str, Any]:
-        if model in self._loaded:
-            return self._loaded[model]
-
-        try:
-            import torch
-            from qwen_vl_utils import process_vision_info
-            from transformers import AutoModelForImageTextToText, AutoProcessor
-        except Exception as e:
-            raise RuntimeError(f"Local Qwen dependencies unavailable: {e}")
-
-        cuda = torch.cuda.is_available()
-        dtype = torch.bfloat16 if cuda else torch.float32
-        print(f"Loading local model {model} (CUDA: {cuda})...")
-        load_t0 = time.time()
-        model_obj = AutoModelForImageTextToText.from_pretrained(
-            model,
-            trust_remote_code=True,
-            torch_dtype=dtype,
-            device_map="auto" if cuda else None,
-        ).eval()
-        if not cuda:
-            model_obj.to("cpu")
-
-        processor = AutoProcessor.from_pretrained(model, trust_remote_code=True)
-        load_latency = time.time() - load_t0
-        print(f"Model loaded in {load_latency:.2f}s")
-
-        bundle = {
-            "model": model_obj,
-            "processor": processor,
-            "process_vision_info": process_vision_info,
-            "cuda": cuda,
-            "load_latency_sec": round(load_latency, 3),
-        }
-        self._loaded[model] = bundle
-        return bundle
-
-    def generate(self, model: str, query: str, font_name: str, image_path: Path) -> Dict[str, Any]:
-        bundle = self._load_model(model)
-        model_obj = bundle["model"]
-        processor = bundle["processor"]
-        process_vision_info = bundle["process_vision_info"]
-
-        prompt = f"""You are a typography expert judging font relevance to a query.
-Query: "{query}"
-Font: "{font_name}"
-
-Analyze the provided specimen image for this font. 
-Pay close attention to the "Legibility Pairs" (il1I, O0, etc.) and character forms.
-Determine if this font is a good match for the query.
-
-Return STRICT JSON only (no markdown blocks, no prose):
-{{
-  "thought": "your reasoning here, referencing visual details from the image",
-  "match": 1 or 0
-}}
-"""
-
-        image_uri = str(image_path.resolve())
-        messages = [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "image", "image": image_uri},
-                    {"type": "text", "text": prompt},
-                ],
-            }
-        ]
-
-        chat_text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        image_inputs, video_inputs = process_vision_info(messages)
-        inputs = processor(
-            text=[chat_text],
-            images=image_inputs,
-            videos=video_inputs,
-            padding=True,
-            return_tensors="pt",
-        )
-
-        if bundle["cuda"]:
-            inputs = inputs.to(model_obj.device)
-
-        t0 = time.time()
-        import torch
-        with torch.no_grad():
-            out_ids = model_obj.generate(
-                **inputs,
-                max_new_tokens=512,
-            )
-        latency = time.time() - t0
-
-        generated_ids = [
-            output_ids[len(input_ids) :] for input_ids, output_ids in zip(inputs.input_ids, out_ids)
-        ]
-        content = processor.batch_decode(
-            generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False
-        )[0].strip()
-
-        # Clean up JSON if necessary
-        if content.startswith("```json"):
-            content = content[7:-3].strip()
-        elif content.startswith("```"):
-            content = content[3:-3].strip()
-            
-        try:
-            data = json.loads(content)
-            data['latency_sec'] = round(latency, 2)
-            return data
-        except json.JSONDecodeError:
-            return {
-                "thought": f"Failed to parse JSON. Raw content: {content}",
-                "match": 0,
-                "latency_sec": round(latency, 2)
-            }
-
-def run_evaluation(model_id: str, is_local: bool, local_router: LocalQwenRouter = None):
-    print(f"\n=== Starting Evaluation for {model_id} ({'Local' if is_local else 'OpenRouter'}) ===")
+def run_evaluation(model_id: str):
+    print(f"\n=== Starting Evaluation for {model_id} ===")
     data_dir = Path("research/ab-eval/data")
     out_dir = Path("research/ab-eval/out")
     specimen_dir = out_dir / "specimens_v2_medium"
@@ -228,57 +131,64 @@ def run_evaluation(model_id: str, is_local: bool, local_router: LocalQwenRouter 
         return None
     
     with open(queries_path, "r") as f:
-        queries = {q['id']: q for q in json.load(f)}
+        queries_all = {q['id']: q for q in json.load(f)}
     with open(labels_path, "r") as f:
         human_labels = json.load(f)
     with open(candidates_path, "r") as f:
         candidate_pool = json.load(f)
         
     target_query_ids = ["cq_002", "cq_011", "cq_025", "cq_033", "cq_016"]
+    
+    # Group pairs by font
+    font_to_queries = {}
+    for qid in target_query_ids:
+        candidates = candidate_pool.get(qid, [])[:3]
+        for font_name in candidates:
+            if font_name not in font_to_queries:
+                font_to_queries[font_name] = []
+            font_to_queries[font_name].append(qid)
+            
     results = []
     
-    for qid in target_query_ids:
-        query_text = queries[qid]['text']
-        print(f"\n[QUERY] {qid}: {query_text}")
+    for font_name, qids in font_to_queries.items():
+        safe_name = font_name.replace(" ", "_").replace("/", "_")
+        image_path = specimen_dir / f"{safe_name}.png"
         
-        candidates = candidate_pool.get(qid, [])[:3]
-        labeled_positive = set(human_labels.get(qid, []))
-        
-        for font_name in candidates:
-            safe_name = font_name.replace(" ", "_").replace("/", "_")
-            image_path = specimen_dir / f"{safe_name}.png"
+        if not image_path.exists():
+            print(f"  [MISSING] {font_name}")
+            continue
             
-            if not image_path.exists():
-                print(f"  [MISSING] {font_name}")
-                continue
-                
-            print(f"  [JUDGING] {font_name}...", end="", flush=True)
+        print(f"  [JUDGING BATCH] {font_name} ({len(qids)} queries)...", end="", flush=True)
+        
+        # Split into batches of 10
+        for i in range(0, len(qids), 10):
+            batch_qids = qids[i:i+10]
+            batch_query_texts = [queries_all[qid]['text'] for qid in batch_qids]
+            
             try:
-                if is_local:
-                    judgment = local_router.generate(model_id, query_text, font_name, image_path)
-                else:
-                    judgment = call_openrouter(model_id, query_text, font_name, image_path)
+                judgment = call_openrouter_batched(model_id, batch_query_texts, font_name, image_path)
             except Exception as e:
                 print(f" Error: {e}")
-                judgment = {"thought": f"Error: {e}", "match": 0, "latency_sec": 0}
+                judgment = {"thought": f"Error: {e}", "matches": [], "latency_sec": 0}
             
-            ai_match = judgment.get("match", 0)
-            human_match = 1 if font_name in labeled_positive else 0
+            matches_map = {m['query_index']: m['match'] for m in judgment.get('matches', [])}
             
-            print(f" AI: {ai_match} | Human: {human_match} ({judgment.get('latency_sec')}s)")
-            
-            results.append({
-                "query_id": qid,
-                "query_text": query_text,
-                "font_name": font_name,
-                "ai_match": ai_match,
-                "human_match": human_match,
-                "thought": judgment.get("thought", ""),
-                "latency_sec": judgment.get("latency_sec", 0)
-            })
-            
-            if not is_local:
-                time.sleep(1)
+            for idx, qid in enumerate(batch_qids):
+                ai_match = matches_map.get(idx + 1, 0)
+                human_match = 1 if font_name in human_labels.get(qid, []) else 0
+                
+                results.append({
+                    "query_id": qid,
+                    "query_text": queries_all[qid]['text'],
+                    "font_name": font_name,
+                    "ai_match": ai_match,
+                    "human_match": human_match,
+                    "thought": judgment.get("thought", ""),
+                    "latency_sec": judgment.get("latency_sec", 0)
+                })
+        
+        print(f" Done ({judgment.get('latency_sec')}s)")
+        time.sleep(1) # OpenRouter politeness
             
     total = len(results)
     if total == 0:
@@ -289,7 +199,7 @@ def run_evaluation(model_id: str, is_local: bool, local_router: LocalQwenRouter 
     fn = sum(1 for r in results if r['ai_match'] == 0 and r['human_match'] == 1)
     tn = sum(1 for r in results if r['ai_match'] == 0 and r['human_match'] == 0)
     
-    agreement_rate = (tp + tn) / total
+    agreement_rate = (tp + tn) / total if total > 0 else 0
     
     summary = {
         "model_id": model_id,
@@ -306,22 +216,21 @@ def run_evaluation(model_id: str, is_local: bool, local_router: LocalQwenRouter 
 
 def main():
     out_dir = Path("research/ab-eval/out")
+    out_dir.mkdir(parents=True, exist_ok=True)
     
-    # Model 1: OpenRouter Qwen 235B
+    # Model 1: Qwen 235B
     model_235b = "qwen/qwen3-vl-235b-a22b-instruct"
-    res_235b = run_evaluation(model_235b, is_local=False)
+    res_235b = run_evaluation(model_235b)
     if res_235b:
         with open(out_dir / "spot_check_alignment_qwen3vl_235b.json", "w") as f:
             json.dump(res_235b, f, indent=2)
             
-    # Model 2: Local Qwen 8B
-    # Note: Using the HF ID for local loading
-    model_8b_local = "Qwen/Qwen3-VL-8B-Instruct"
-    router = LocalQwenRouter()
-    res_8b = run_evaluation(model_8b_local, is_local=True, local_router=router)
-    if res_8b:
-        with open(out_dir / "spot_check_alignment_qwen3vl_8b_local.json", "w") as f:
-            json.dump(res_8b, f, indent=2)
+    # Model 2: Qwen VL Plus
+    model_vl_plus = "qwen/qwen-vl-plus"
+    res_vl_plus = run_evaluation(model_vl_plus)
+    if res_vl_plus:
+        with open(out_dir / "spot_check_alignment_vl_plus.json", "w") as f:
+            json.dump(res_vl_plus, f, indent=2)
 
 if __name__ == "__main__":
     main()

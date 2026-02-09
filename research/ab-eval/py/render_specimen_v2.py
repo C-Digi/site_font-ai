@@ -66,8 +66,8 @@ def render_specimen_v2(font_path, output_path):
     y_offset += 60
 
     # 4. Vertical "Micro-tell" side strip (optional but good for detail)
-    # We'll just add a footer with font info for reproducibility
-    draw.text((margin, HEIGHT - 40), f"Specimen v2 - Deterministic 1024 - Font: {os.path.basename(font_path)}", font=font_nano, fill=(150, 150, 150))
+    # We'll just add a footer for reproducibility
+    draw.text((margin, HEIGHT - 40), f"Specimen v2 - Deterministic 1024 - No Label", font=font_nano, fill=(150, 150, 150))
 
     img.save(output_path)
     return True
