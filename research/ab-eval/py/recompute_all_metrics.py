@@ -43,7 +43,8 @@ def main():
         "Qwen 235B": "full_set_no_bias_qwen235b.json",
         "VL-Plus": "full_set_no_bias_vl_plus.json",
         "Gemini 2.5 Flash Lite": "full_set_no_bias_gemini25.json",
-        "Gemini 3 Flash Preview": "full_set_no_bias_gemini3flashpreview.json"
+        "Gemini 3 Flash Preview": "full_set_no_bias_gemini3flashpreview.json",
+        "Kimi K2.5": "full_set_no_bias_kimi_k2_5.json"
     }
     
     final_metrics = {}

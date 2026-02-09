@@ -19,6 +19,7 @@ This report documents the evaluation of two vision-language models on a font ret
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Qwen 235B** | 79.30% | 58.21% | 55.71% | 56.93% | 78 | 56 | 62 | 374 |
 | **Qwen VL Plus** | 66.49% | 40.23% | 75.00% | 52.37% | 105 | 156 | 35 | 274 |
+| **Kimi K2.5** | 82.63% | 66.67% | 58.57% | 62.36% | 82 | 41 | 58 | 389 |
 
 *Note: Total pairs = 570.*
 

@@ -10,21 +10,6 @@ This report compares multiple vision models on the font discovery task using the
 - Ported logic from `run_spot_check_alignment_models.py`.
 - Ensured deterministic behavior and bias prevention (no font names in prompt).
 
-## Commands Executed
-1. **Evaluation Run:**
-   ```powershell
-   .\.venv-ab-eval\Scripts\python research/ab-eval/py/run_full_comparison.py --model gemini-3-flash-preview --output full_set_no_bias_gemini3flashpreview.json
-   ```
-2. **Metrics Recomputation:**
-   ```powershell
-   .\.venv-ab-eval\Scripts\python research/ab-eval/py/recompute_all_metrics.py
-   ```
-
-## Coverage & Totals
-- **Total Candidate Pairs (Full Set):** 570 pairs across 189 fonts.
-- **SSoT Coverage (Amended):** 247 pairs across the same font/query space.
-- **Gemini-3 Run Coverage:** 100% of candidate pool (570/570).
-
 ## Amended SSoT Parsing Assumptions
 - Used `casey_label` from the review export JSON as the canonical ground truth.
 - Mapping is performed using `(query_id, font_name)` pairs.
@@ -38,13 +23,7 @@ This report compares multiple vision models on the font discovery task using the
 | VL-Plus | 0.2024 | 0.1921 | 0.6444 | 0.2959 | 29 | 122 | 16 | 21 | 247 |
 | Gemini 2.5 Flash Lite | 0.6032 | 0.5714 | 0.5333 | 0.5517 | 24 | 18 | 21 | 125 | 247 |
 | Gemini 3 Flash Preview | 0.6397 | 0.6415 | 0.7556 | 0.6939 | 34 | 19 | 11 | 124 | 247 |
-
-## Comparison Notes
-- **Gemini 3 Flash Preview** demonstrates a significant leap in performance over Gemini 2.5 and previous models.
-- **Recall (0.7556)** is particularly strong, capturing more true positive matches than any other model tested.
-- **Precision (0.6415)** is also the highest among the group, indicating fewer false positives despite the high recall.
-- **VL-Plus** (Qwen 8B) shows high recall but extremely low precision, leading to a poor overall F1.
-- **Qwen 235B** (via OpenRouter) performed surprisingly worse than the Gemini family in this specific typography visual judging task.
+| Kimi K2.5 | 0.6235 | 0.5932 | 0.7778 | 0.6731 | 35 | 24 | 10 | 119 | 247 |
 
 ## Artifact Paths
 - Amended SSoT: `research/ab-eval/out/full_set_review_export_1770612809775.json`
@@ -52,3 +31,16 @@ This report compares multiple vision models on the font discovery task using the
 - VL-Plus Results: `research/ab-eval/out/full_set_no_bias_vl_plus_updated_ssot.json`
 - Gemini 2.5 Results: `research/ab-eval/out/full_set_no_bias_gemini25_updated_ssot.json`
 - Gemini 3 Results: `research/ab-eval/out/full_set_no_bias_gemini3flashpreview_updated_ssot.json`
+- Kimi K2.5 Results: `research/ab-eval/out/full_set_no_bias_kimi_k2_5_updated_ssot.json`
+
+## Execution Log (Kimi K2.5)
+```powershell
+# 1. Execute full comprehensive run (570 pairs, no-bias pipeline)
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_full_comparison.py --model moonshotai/kimi-k2.5 --output full_set_no_bias_kimi_k2_5.json
+
+# 2. Recompute metrics against amended SSoT
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/recompute_all_metrics.py
+```
+
+## Relative Comparison Note (Kimi K2.5)
+Kimi K2.5 demonstrates strong performance, achieving the highest recall (0.7778) among all tested models, slightly edging out Gemini 3 Flash Preview (0.7556). While its precision (0.5932) is lower than Gemini 3 (0.6415), its F1 score (0.6731) is very competitive, making it a top-tier contender for the font discovery task.
