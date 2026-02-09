@@ -57,6 +57,32 @@ delegate a task right now for architect to generate a visual, interactive human-
 
 
 
+
+
+make the rendered visibility pair 'o0' instead be 'O0' with capital O. 
+then lets run a spot-check with gpt-5.2 on the research\ab-eval\data\labels.medium.human.v1.json data and see how well the AI alligns with Casey's decisions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## see results from a deep-research session:
 @https://chatgpt.com/share/698828b2-523c-8010-9df3-7be45bb217cc 
 @https://gemini.google.com/share/4225fb7670fd
@@ -73,7 +99,7 @@ please prioritize improving and validating core-functionality quality through ta
   - openai/gpt-5.2
 
 
-
+'research\ab-eval\human_labeling_medium_v1.html' should be used as a template/example or human-labeling. going forward we must use this UX as it was developed in part by those who will use it.
 
 
 ## VL-embedding value

@@ -1,6 +1,6 @@
 ---
 name: lightspec
-description: A lightweight specification framework for managing requirements directly in a .lightspec/ directory with implementation tracking, plus decision records for core/critical specifications and major design choices. MANDATORY for all new project features or significant changes.
+description: A lightweight specification framework for managing requirements directly in a .lightspec/ directory with implementation tracking, plus decision records for core/critical specifications and major design choices. MANDATORY for all new project features or significant changes. Quick Ref: .lightspec/ (Canonical specs), .lightspec/progress.md (Tracking), .lightspec/decisions/ (ADRs), .lightspec/research/ (Notes).
 ---
 
 # LightSpec Skill

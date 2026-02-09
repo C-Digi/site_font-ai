@@ -31,6 +31,7 @@ Request-time search does not block on embedding generation; missing/unseeded rec
 - [DEC-20260208-03-quality-first-experiment-plan](./decisions/DEC-20260208-03-quality-first-experiment-plan.md)
 - [DEC-20260207-01-complex-eval-b2-promotion](./decisions/DEC-20260207-01-complex-eval-b2-promotion.md)
 - [DEC-20260206-01-production-b2-migration](./decisions/DEC-20260206-01-production-b2-migration.md)
+- [DEC-20260209-01-ai-vs-human-alignment-spotcheck](./decisions/DEC-20260209-01-ai-vs-human-alignment-spotcheck.md)
 
 ## Scenarios
 - A user submits a complex visual-shape query and receives B2-ranked results without waiting for any new embeddings to be generated inline.

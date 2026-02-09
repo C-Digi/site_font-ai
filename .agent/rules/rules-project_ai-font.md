@@ -136,9 +136,7 @@
 
 ## 11. LightSpec Source of Truth (SSoT)
 
-- **Canonical spec root:** `.lightspec/`
 - **Core capability spec:** `.lightspec/font-search-rag.md`
-- **Decision records:** `.lightspec/decisions/`
 - **Usage rule:** For new features or significant changes, define/update requirements in `.lightspec/*.md` before implementation and record major decisions as ADRs in `.lightspec/decisions/`.
 - **Legacy Migration:** All active decisions and specs previously in `research/prod-rollout/` and `research/ab-eval/` have been migrated to `.lightspec/`.
 

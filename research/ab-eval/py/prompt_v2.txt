@@ -1,0 +1,40 @@
+You are a typography expert.
+Analyze the provided 1024x1024 specimen image only.
+
+### SCHEMA V2 REQUIREMENTS
+
+Return STRICT JSON only.
+
+1. **Fixed Mood Vocabulary**: [elegant, playful, modern, vintage, corporate, aggressive, calm, brutal, friendly, geometric, organic, technical, handwritten, futuristic]
+2. **Fixed Use-case Vocabulary**: [headline, body-text, logo, ui-interface, poster-display, luxury-branding, tech-branding, coding, wayfinding]
+3. **Scoring**: For each mood and use-case, provide a confidence score from 0.0 to 1.0.
+4. **Uncertainty**: 
+   - If evidence is weak or missing for an attribute, set `certainty` low (< 0.3) or use "unknown".
+   - Include an `uncertainty_discipline` field explaining where you lack visual evidence.
+
+### OUTPUT STRUCTURE
+
+{
+  "visual_analysis": {
+    "shape": {"value": "string", "certainty": float},
+    "contrast": {"value": "string", "certainty": float},
+    "terminals": {"value": "string", "certainty": float},
+    "x_height": {"value": "string", "certainty": float}
+  },
+  "mood_scores": {
+    "mood_name": float (0.0-1.0),
+    ... (include at least 5 relevant moods)
+  },
+  "use_case_scores": {
+    "use_case_name": float (0.0-1.0),
+    ... (include at least 3 relevant use-cases)
+  },
+  "uncertainty_discipline": {
+    "low_evidence_attributes": ["list of attributes"],
+    "reasoning": "string"
+  },
+  "summary": "2-4 sentence integrated description"
+}
+
+Use ONLY the provided specimen. Do not use external knowledge about the font name if visible.
+If the specimen is blurry or unreadable, reflect this in the uncertainty_discipline.

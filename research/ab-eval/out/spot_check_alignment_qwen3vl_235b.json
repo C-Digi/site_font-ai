@@ -1,0 +1,150 @@
+{
+  "model_id": "qwen/qwen3-vl-235b-a22b-instruct",
+  "metrics": {
+    "total_pairs": 15,
+    "agreement_rate": 0.8667,
+    "confusion": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 2,
+      "tn": 11
+    }
+  },
+  "details": [
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Grand Hotel",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The font 'Grand Hotel' is a script or display typeface with flowing, calligraphic strokes and high stroke variation, not a geometric sans. The letterforms are irregular and organic, lacking the perfect circles and uniform stroke weights required by the query. The 'O' and '0' in the legibility pairs are not perfect circles, and the 'i', 'l', '1', 'I' are not designed with the neutral, geometric precision expected. This font is stylistically opposite to a geometric sans.",
+      "latency_sec": 3.01
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Ovo",
+      "ai_match": 0,
+      "human_match": 1,
+      "thought": "The font 'Ovo' displays\u660e\u663e\u7684 serif features, particularly on letters like 'A', 'G', 'J', and 'Q', which contradicts the 'geometric sans' requirement. The 'O' and '0' in the Legibility Pairs are not perfect circles\u2014they are slightly elliptical or have subtle stress. Stroke variation is visible in characters like 'A' and 'M', which have thicker and thinner parts, violating the 'low stroke variation' criterion. The overall structure is more humanist or transitional than geometric.",
+      "latency_sec": 2.73
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Rubik Storm",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The font 'Rubik Storm' exhibits a highly irregular, distressed, and fragmented appearance with broken strokes and uneven edges, which contradicts the query's requirement for 'perfect circles' and 'low stroke variation'. The letterforms are not geometrically clean; for example, the 'O' and '0' in the Legibility Pairs are visibly distorted and not circular. The overall design is decorative and chaotic, not a geometric sans-serif with uniform stroke weight.",
+      "latency_sec": 3.52
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Artifika",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "Artifika is a serif font with classic, elegant letterforms and even stroke weights. Its structure is formal and traditional, lacking the exaggerated curves, irregularity, or whimsical details typically associated with playful or quirky display fonts. The legibility pairs show standard, conservative spacing and forms (e.g., 'il1I' are distinct but not stylized; 'O0' are cleanly differentiated without decorative flair). The overall impression is refined and serious, not suitable for a candy shop\u2019s fun, lighthearted branding.",
+      "latency_sec": 2.99
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Atma",
+      "ai_match": 1,
+      "human_match": 1,
+      "thought": "The font 'Atma' exhibits a hand-drawn, irregular stroke quality with varying line weights and slightly uneven letterforms, which contributes to a playful and informal character. The lowercase letters, such as 'g', 'j', and 'y', have extended, whimsical tails, and the overall structure feels loose and organic \u2014 suitable for a candy shop\u2019s lighthearted branding. Legibility pairs like 'il1I' and 'O0' show moderate differentiation, acceptable for display use where context aids recognition. The font\u2019s informal charm and visual quirkiness align well with the 'playful and quirky display font' requirement, despite not being overly cartoonish. It\u2019s clearly intended for display rather than body text, matching the query\u2019s intent.",
+      "latency_sec": 3.7
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Tienne",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "Tienne is a serif font with a classic, somewhat formal structure. Its letterforms are balanced and traditional, lacking the exaggerated curves, irregularity, or whimsical details typically associated with playful or quirky display fonts. The legibility pairs show standard, unembellished forms (e.g., 'il1I' are distinct but not stylized), and the overall impression is more suited for body text or editorial use than for a candy shop\u2019s branding. It does not convey fun, sweetness, or eccentricity.",
+      "latency_sec": 2.87
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "TASA Orbiter",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The font 'TASA Orbiter' exhibits a geometric, sans-serif structure with clean lines and uniform stroke weights, lacking the ornamental flourishes, stepped forms, or stylized curves characteristic of Art Deco typography. The letterforms (e.g., 'A', 'B', 'G') are minimalist and functional, resembling modernist or tech-inspired designs rather than the luxurious, symmetrical, and decorative motifs of Art Deco. Legibility pairs like 'il1I' and 'O0' show high contrast and clarity, which is typical of display fonts but not specifically aligned with Art Deco aesthetics. The overall impression is utilitarian and contemporary, not evocative of the 1920s\u20131930s Art Deco era.",
+      "latency_sec": 6.57
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "human_match": 1,
+      "thought": "The font 'Kumbh Sans' exhibits a clean, geometric sans-serif structure with uniform stroke weights and minimal ornamentation. Art deco inspired display fonts typically feature bold, stylized forms, often with angular lines, symmetry, and decorative elements reminiscent of 1920s-30s design. The specimen shows no such characteristics \u2014 the letterforms are neutral and modern, lacking the flair or historical reference expected. Legibility pairs like 'il1I' and 'O0' are clearly differentiated, which is good for readability but not indicative of art deco aesthetics. The overall design is functional and contemporary, not evocative of art deco.",
+      "latency_sec": 3.25
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Sometype Mono",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The font 'Sometype Mono' is a monospaced typeface with uniform character widths and a geometric, minimalist structure. The letterforms are highly rationalized and lack the ornamental curves, sharp angles, or decorative elements typical of Art Deco design. The 'Legibility Pairs' section shows clean, unadorned forms (e.g., 'i', 'l', '1', 'I' are distinct but plain; 'O' and '0' are simple circles). Art Deco fonts usually feature stylized serifs, sunburst motifs, or stepped geometries \u2014 none of which are present. The overall aesthetic is modernist and functional, not decorative or period-inspired. Thus, it does not match the 'art deco inspired display font' query.",
+      "latency_sec": 6.7
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Baskervville SC",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows 'O0' under 'Legibility Pairs', but both characters are nearly identical in shape \u2014 both are perfectly round and lack distinguishing features such as a slash or dot. This makes it difficult to visually differentiate the digit zero from the letter O, which is critical for coding fonts. The font is a serif typeface with decorative strokes, not optimized for monospaced code clarity.",
+      "latency_sec": 5.44
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Playwrite US Trad Guides",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows 'Playwrite US Trad Guides' as a cursive, handwritten-style font. In the 'Legibility Pairs' section, the 'O' and '0' are nearly identical in shape \u2014 both are rounded and lack any distinguishing feature such as a slash or dot. This makes them visually ambiguous, which is unsuitable for coding where clear differentiation between zero and the letter O is critical. The font\u2019s informal, flowing design prioritizes aesthetics over technical legibility.",
+      "latency_sec": 2.87
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "IBM Plex Mono",
+      "ai_match": 1,
+      "human_match": 1,
+      "thought": "In the 'Legibility Pairs' section, the 'O0' pair clearly shows a distinct difference: the letter 'O' is a perfect circle with a closed counter, while the digit '0' has a slightly more oval shape and a small slash or dot inside, making it visually distinguishable from 'O'. This design explicitly addresses the need for clear distinction between zero and oh, which is critical for coding fonts.",
+      "latency_sec": 2.65
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Encode Sans Condensed",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "Encode Sans Condensed is a sans-serif typeface with geometric, condensed letterforms. It lacks serifs entirely, which directly contradicts the 'serif' requirement in the query. Its design is modern and utilitarian, not elegant or sophisticated. The legibility pairs show clean, functional forms typical of sans-serifs, not the refined details expected in luxury branding. The overall aesthetic is stark and industrial, unsuitable for conveying luxury.",
+      "latency_sec": 2.41
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Solitreo",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The font 'Solitreo' is a cursive, handwritten-style script with irregular stroke weights and informal connections between letters. It lacks the structured, refined serifs and balanced proportions expected in elegant, sophisticated serif fonts. The legibility pairs (e.g., 'il1I', 'O0') show inconsistent forms and poor differentiation, which undermines clarity. The overall aesthetic is casual and expressive, not aligned with luxury branding, which typically demands precision, formality, and timeless elegance. The specimen\u2019s handwritten appearance and lack of traditional serif features make it unsuitable for the query.",
+      "latency_sec": 3.27
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Ubuntu Mono",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "Ubuntu Mono is a monospaced sans-serif font designed for coding and technical use, not luxury branding. Its characters are uniform in width, lack serifs, and have a functional, utilitarian appearance. The legibility pairs (il1I, O0) show minimal differentiation, which is acceptable for code but not for elegant typography. The overall structure is geometric and rigid, lacking the refinement, contrast, and organic curves associated with sophisticated serif fonts. It does not convey luxury or elegance.",
+      "latency_sec": 2.3
+    }
+  ]
+}

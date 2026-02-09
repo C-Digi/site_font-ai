@@ -20,8 +20,8 @@ REQUIRED_MODEL_SLATE = [
     "gemini-3-flash-preview",
     "gemini-2.5-flash-lite-preview-09-2025",
     "Qwen/Qwen3-VL-8B-Instruct",
-    "Qwen/Qwen3-VL-4B-Instruct",
     "qwen/qwen3-vl-8b-instruct",
+    "openai/gpt-5.2", # Track A directive
 ]
 
 OPTIONAL_MODEL_SLATE = [
@@ -81,6 +81,7 @@ def parse_args() -> argparse.Namespace:
         default="default_v1",
         help="Either 'default_v1' or a path to a custom template file.",
     )
+    parser.add_argument("--schema-version", type=int, default=1, help="1 (legacy) or 2 (quality-first).")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument(
         "--include-optional-fallback",
@@ -104,7 +105,7 @@ def provider_for_model(model: str) -> str:
         return "gemini"
     if model.startswith("Qwen/"):
         return "local_qwen"
-    if model.startswith("qwen/") or model.startswith("google/"):
+    if model.startswith("qwen/") or model.startswith("google/") or model.startswith("openai/"):
         return "openrouter"
     # default to OpenRouter for unknown slash-style models
     if "/" in model:
@@ -290,6 +291,12 @@ def call_openrouter(model: str, prompt: str, image_path: Path, timeout_s: int = 
         ],
     }
 
+    # High-reasoning / thinking mode directive for openai/gpt-5.2
+    if model == "openai/gpt-5.2":
+        payload["include_reasoning"] = True
+        # Documentation: gpt-5.2 uses high reasoning levels by default when this flag is set.
+        # Fallback is standard generation if not supported.
+
     t0 = time.time()
     resp = requests.post(url, headers=headers, json=payload, timeout=timeout_s)
     latency = time.time() - t0
@@ -363,8 +370,6 @@ class LocalQwenRouter:
         processor = bundle["processor"]
         process_vision_info = bundle["process_vision_info"]
 
-        # On Windows, as_uri() can produce file:///C:/... which some tools misinterpret as /C:/...
-        # We'll use a safer absolute path string for the local processor.
         image_uri = str(image_path.resolve())
         messages = [
             {
@@ -415,7 +420,6 @@ class LocalQwenRouter:
         }
         return text_out, metadata
 
-
 def _coerce_list_str(v: Any) -> List[str]:
     if isinstance(v, list):
         return [str(x).strip() for x in v if str(x).strip()]
@@ -426,7 +430,18 @@ def _coerce_list_str(v: Any) -> List[str]:
     return []
 
 
-def normalize_description_json(obj: Dict[str, Any]) -> Dict[str, Any]:
+def _coerce_score_dict(v: Any) -> Dict[str, float]:
+    out = {}
+    if isinstance(v, dict):
+        for k, val in v.items():
+            try:
+                out[str(k)] = float(val)
+            except:
+                continue
+    return out
+
+
+def normalize_description_v1_json(obj: Dict[str, Any]) -> Dict[str, Any]:
     normalized = {
         "shape": str(obj.get("shape", "")).strip(),
         "contrast": str(obj.get("contrast", "")).strip(),
@@ -440,7 +455,39 @@ def normalize_description_json(obj: Dict[str, Any]) -> Dict[str, Any]:
     return normalized
 
 
-def try_parse_strict_json(raw_text: str) -> Tuple[Optional[Dict[str, Any]], Dict[str, Any]]:
+def normalize_description_v2_json(obj: Dict[str, Any]) -> Dict[str, Any]:
+    # Schema V2 with uncertainty and scored blocks
+    vis = obj.get("visual_analysis", {})
+    if not isinstance(vis, dict):
+        vis = {}
+
+    def norm_attr(d):
+        if not isinstance(d, dict):
+            return {"value": str(d), "certainty": 0.5}
+        return {
+            "value": str(d.get("value", "")),
+            "certainty": float(d.get("certainty", 0.5))
+        }
+
+    normalized = {
+        "visual_analysis": {
+            "shape": norm_attr(vis.get("shape")),
+            "contrast": norm_attr(vis.get("contrast")),
+            "terminals": norm_attr(vis.get("terminals")),
+            "x_height": norm_attr(vis.get("x_height")),
+        },
+        "mood_scores": _coerce_score_dict(obj.get("mood_scores")),
+        "use_case_scores": _coerce_score_dict(obj.get("use_case_scores")),
+        "uncertainty_discipline": {
+            "low_evidence_attributes": _coerce_list_str(obj.get("uncertainty_discipline", {}).get("low_evidence_attributes")),
+            "reasoning": str(obj.get("uncertainty_discipline", {}).get("reasoning", ""))
+        },
+        "summary": str(obj.get("summary", "")).strip(),
+    }
+    return normalized
+
+
+def try_parse_strict_json(raw_text: str, schema_version: int = 1) -> Tuple[Optional[Dict[str, Any]], Dict[str, Any]]:
     t = (raw_text or "").strip()
     parse_meta: Dict[str, Any] = {"parse_path": None}
 
@@ -453,7 +500,9 @@ def try_parse_strict_json(raw_text: str) -> Tuple[Optional[Dict[str, Any]], Dict
         parsed = json.loads(t)
         if isinstance(parsed, dict):
             parse_meta["parse_path"] = "direct"
-            return normalize_description_json(parsed), parse_meta
+            if schema_version == 2:
+                return normalize_description_v2_json(parsed), parse_meta
+            return normalize_description_v1_json(parsed), parse_meta
     except json.JSONDecodeError:
         pass
 
@@ -465,7 +514,9 @@ def try_parse_strict_json(raw_text: str) -> Tuple[Optional[Dict[str, Any]], Dict
             parsed = json.loads(inner)
             if isinstance(parsed, dict):
                 parse_meta["parse_path"] = "fenced"
-                return normalize_description_json(parsed), parse_meta
+                if schema_version == 2:
+                    return normalize_description_v2_json(parsed), parse_meta
+                return normalize_description_v1_json(parsed), parse_meta
         except json.JSONDecodeError:
             pass
 
@@ -477,7 +528,9 @@ def try_parse_strict_json(raw_text: str) -> Tuple[Optional[Dict[str, Any]], Dict
             parsed = json.loads(candidate)
             if isinstance(parsed, dict):
                 parse_meta["parse_path"] = "substring"
-                return normalize_description_json(parsed), parse_meta
+                if schema_version == 2:
+                    return normalize_description_v2_json(parsed), parse_meta
+                return normalize_description_v1_json(parsed), parse_meta
         except json.JSONDecodeError:
             pass
 
@@ -486,6 +539,23 @@ def try_parse_strict_json(raw_text: str) -> Tuple[Optional[Dict[str, Any]], Dict
 
 
 def description_from_structured(d: Dict[str, Any]) -> str:
+    if "visual_analysis" in d:
+        # V2 path
+        vis = d["visual_analysis"]
+        moods = [f"{k}({v})" for k, v in d.get("mood_scores", {}).items() if v > 0.3]
+        use_cases = [f"{k}({v})" for k, v in d.get("use_case_scores", {}).items() if v > 0.3]
+        
+        parts = [
+            f"Shape: {vis.get('shape', {}).get('value')} (c={vis.get('shape', {}).get('certainty')})",
+            f"Contrast: {vis.get('contrast', {}).get('value')} (c={vis.get('contrast', {}).get('certainty')})",
+            f"Terminals: {vis.get('terminals', {}).get('value')} (c={vis.get('terminals', {}).get('certainty')})",
+            f"Moods: {', '.join(moods)}",
+            f"Use-cases: {', '.join(use_cases)}",
+            f"Summary: {d.get('summary', '')}",
+        ]
+        return " | ".join(parts)
+
+    # V1 path
     mood = ", ".join(d.get("mood", []))
     use_cases = ", ".join(d.get("use_cases", []))
     parts = [
@@ -527,7 +597,6 @@ def invoke_model(
 def write_summary_md(out_path: Path, attempted: int, ok: int, err: int, skipped: int) -> Path:
     summary_path = out_path.with_suffix(".summary.md")
     
-    # Load data to analyze failures/costs
     rows: List[Dict[str, Any]] = []
     with out_path.open("r", encoding="utf-8") as f:
         for line in f:
@@ -536,7 +605,6 @@ def write_summary_md(out_path: Path, attempted: int, ok: int, err: int, skipped:
             except:
                 continue
 
-    # Group by model
     by_model: Dict[str, Dict[str, Any]] = {}
     for r in rows:
         m = r["model"]
@@ -568,20 +636,6 @@ def write_summary_md(out_path: Path, attempted: int, ok: int, err: int, skipped:
             status = "🟢" if stats["ok"] > 0 and stats["err"] == 0 else "🟡" if stats["ok"] > 0 else "🔴"
             f.write(f"| {model_id} | {provider} | {status} | {stats['ok']} | {stats['err']} | {avg_lat} |\n")
 
-        f.write("\n## Cost Estimate (Rough)\n\n")
-        # Rough pricing for 1M tokens (avg description is ~200-300 tokens + image tokens)
-        # Gemini 1.5 Flash: $0.075 / 1M (input) | $0.30 / 1M (output)
-        # Gemini 1.5 Lite: $0.075 / 1M (input)
-        # OpenRouter Qwen VL: depends on provider, usually low (~$0.10/1M)
-        f.write("- **Gemini Primary:** ~$0.001 - $0.005 per font (including image overhead).\n")
-        f.write("- **Local Qwen:** $0.00 (Compute only).\n")
-        f.write("- **OpenRouter Fallback:** ~$0.002 per font.\n\n")
-
-        f.write("## Error Sample (Last 5)\n\n")
-        unique_errors = list(set([e for stats in by_model.values() for e in stats["errors"] if e]))
-        for e in unique_errors[:5]:
-            f.write(f"- `{e}`\n")
-
     return summary_path
 
 
@@ -595,6 +649,11 @@ def main() -> None:
 
     models = parse_models(args.models, args.include_optional_fallback)
     prompt_template_id, prompt_template_text = load_prompt_template(args.prompt_template)
+
+    # Auto-detect schema v2 from prompt template path if not explicitly set
+    schema_version = args.schema_version
+    if schema_version == 1 and "prompt_v2" in str(prompt_template_id):
+        schema_version = 2
 
     corpus = read_corpus(corpus_path, args.limit)
     glyph_index = build_glyph_index(glyph_dir)
@@ -625,7 +684,6 @@ def main() -> None:
 
                 if key in existing_keys:
                     skipped_resume += 1
-                    # print(f"[resume-skip] {font_name} :: {model}")
                     continue
 
                 row: Dict[str, Any] = {
@@ -633,6 +691,7 @@ def main() -> None:
                     "model": model,
                     "provider": provider,
                     "prompt_template": prompt_template_id,
+                    "schema_version": schema_version,
                     "description": "",
                     "metadata": {
                         "font_index": i,
@@ -671,7 +730,7 @@ def main() -> None:
                         glyph_path=glyph_path,
                         local_router=local_router,
                     )
-                    parsed_json, parse_meta = try_parse_strict_json(raw_text)
+                    parsed_json, parse_meta = try_parse_strict_json(raw_text, schema_version=schema_version)
 
                     if parsed_json is not None:
                         desc = description_from_structured(parsed_json)

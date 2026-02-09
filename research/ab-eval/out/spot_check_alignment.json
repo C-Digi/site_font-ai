@@ -1,0 +1,149 @@
+{
+  "metrics": {
+    "total_pairs": 15,
+    "agreement_rate": 0.8667,
+    "confusion": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 2,
+      "tn": 11
+    }
+  },
+  "details": [
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Grand Hotel",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows a connected script/display face with cursive, looped forms (e.g., the swashy \u201cG\u201d and \u201cg\u201d) rather than a geometric sans. Characters have handwritten construction and irregular, calligraphic terminals; counters are not built from perfect circular geometry. The legibility pairs (i/l/1, O/0, m/n, w/v, e/o) appear stylized and non-sans, with shapes that rely on cursive joins and distinctive loops rather than simple geometric forms. Stroke weight is fairly consistent but the overall style is not a geometric sans and does not emphasize perfect circles.",
+      "latency_sec": 5.26
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Ovo",
+      "ai_match": 0,
+      "human_match": 1,
+      "thought": "The specimen shows a serif typeface: the uppercase A, B, and other capitals have clear bracketed serifs and tapered terminals. Stroke contrast is noticeable (thicker verticals and thinner hairlines), and the contrast strip indicates variation rather than monolinear construction. In the legibility pairs, the \u201cOO\u201d are not perfect geometric circles but more oldstyle/oval forms, and the lowercase e/o pair shows a traditional serif-text structure rather than geometric sans counters. Overall it is neither a sans nor geometric/monoline with perfect circles.",
+      "latency_sec": 5.58
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Rubik Storm",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows a highly distressed, blotchy display style with rough, eroded contours and irregular texture across all glyphs. Bowls in O/o and other rounded forms are not clean \u201cperfect circles,\u201d and the apparent stroke thickness varies due to the grunge effect. In the Legibility Pairs (iI1l, 0O, etc.), characters are intentionally degraded and hard to distinguish, which is opposite of a clean geometric sans with uniform strokes.",
+      "latency_sec": 4.38
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Artifika",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "Artifika in the specimen reads as a traditional serif with moderate contrast and classic proportions rather than a playful display face. The caps (A\u2013Z) have sharp wedge serifs and a formal, bookish texture; the lowercase shows restrained curves (two-storey \u201cg\u201d, conventional \u201ca\u201d) and no exaggerated, candy-like quirks. In the legibility pairs, il1I are quite similar due to the slabby serifs and uniform stems, reinforcing a text/oldstyle feel rather than a bold, distinctive shop-sign personality. Overall it feels refined and literary, not whimsical or quirky for a candy shop display use.",
+      "latency_sec": 5.03
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Atma",
+      "ai_match": 1,
+      "human_match": 1,
+      "thought": "Atma has a playful, quirky handwritten display feel: rounded terminals, bouncy irregular strokes, and friendly proportions that evoke a casual \u201ctreat shop\u201d vibe. The uppercase is narrow and whimsical, and the lowercase has distinctive loops (notably the single\u2011storey a and the loopy g) that read fun rather than formal. In the Legibility Pairs, i/l/1 are quite similar due to simple vertical forms, and e/o can be a bit close, but for a candy shop display context these minor ambiguities are acceptable and the overall personality fits well.",
+      "latency_sec": 5.39
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Tienne",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "Tienne appears as a traditional, bookish serif with moderate contrast, bracketed serifs, and conventional proportions (e.g., the uppercase A with sharp apex and the lowercase g with a classic double-storey form). The legibility pairs show very standard, easily confusable-looking shapes in a serious text-face way (i/l/1 are all straight and similar; rn/m are tightly set; v/w are conventional), indicating it\u2019s designed for readability rather than quirky personality. Overall it reads formal and editorial, not playful, quirky, or candy-shop display oriented.",
+      "latency_sec": 5.28
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "TASA Orbiter",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows a clean, modern geometric/grotesque sans with uniform stroke weight and simple terminals. Uppercase forms (e.g., A, M, N, R) are straightforward without the ornamental geometry, high-contrast strokes, sharp deco flares, or stylized proportions typical of Art Deco display type. Lowercase is highly functional (single-storey g, plain a, round o) and the \u201cLegibility Pairs\u201d section (i/l/1, O/0, rn/m, vv/w, e/o) emphasizes text clarity rather than decorative display character. Overall it reads as a versatile UI/text sans, not an Art Deco\u2013inspired display font.",
+      "latency_sec": 7.41
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "human_match": 1,
+      "thought": "The specimen shows a clean, modern geometric sans with uniform stroke weight and very neutral character forms (simple triangular A, round O, straightforward R and G, no decorative terminals or inline/outline treatments). The legibility pairs (il1I, rn/m, vv/w, e/o) are designed for clarity, indicating a functional text/UI sans rather than a stylized display face. There are no Art Deco cues such as high-contrast strokes, sharp stepped geometry, elongated proportions, or ornamental details typical of Deco-inspired display fonts.",
+      "latency_sec": 5.06
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Sometype Mono",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows a clean, modern monospaced sans with uniform stroke weight and utilitarian proportions. In the legibility pairs (i/l/1/I and O/0) the forms are engineered for clarity (simple verticals, plain round O and slashed/oval 0), reinforcing a code/editor mono aesthetic rather than decorative styling. Character shapes like the open, geometric but non-stylized bowls (b, g), straightforward uppercase with no fluting, inline details, or high-contrast/stepped terminals lack the hallmark Art Deco cues (streamlined ornament, sharp zigzags, chevrons, dramatic geometry). It reads as a functional text mono, not an Art Deco inspired display font.",
+      "latency_sec": 5.81
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Baskervville SC",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "Baskervville SC is a high-contrast serif, proportional display/text face rather than a coding font. In the numeral row, the \u201c0\u201d appears as a plain oval with no slash or dot, and its form is very close to the uppercase \u201cO\u201d shown in the alphabet line (both are similar elliptical bowls with contrast). The \u201cLegibility Pairs\u201d section tests \u201cOo\u201d but not \u201c0/O\u201d, and there\u2019s no visible special disambiguation for zero. Overall it does not provide the clear 0 vs O distinction expected for coding.",
+      "latency_sec": 6.19
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Playwrite US Trad Guides",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen is a cursive script style, not a coding/monospaced design. In the Legibility Pairs row the 0 and O appear extremely similar\u2014both are simple oval loops with no slash, dot, or other distinguishing feature; the zero doesn\u2019t have a clear marker to separate it from a capital O. This makes it a poor fit for code where 0/O disambiguation is critical.",
+      "latency_sec": 4.55
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "IBM Plex Mono",
+      "ai_match": 1,
+      "human_match": 1,
+      "thought": "The specimen\u2019s numeral 0 is clearly differentiated from the capital O by an internal mark: in the digit row and in the \u201cLegibility Pairs\u201d sample (\u201c00\u201d), each zero shows a distinct centered dot/inner counter detail, while the letter O in the uppercase alphabet line is a clean oval without that interior mark. This makes 0 vs O unambiguous for coding use.",
+      "latency_sec": 5.6
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Encode Sans Condensed",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows a condensed sans-serif with uniform stroke weight and no serifs; the forms are clean and utilitarian rather than high-contrast or calligraphic. In the legibility pairs, the glyphs are designed for clarity (e.g., l/1/I are very similar vertical strokes and rely on subtle differences; rn/m and e/o are fairly distinguishable but still in a functional grotesque style). Overall the character shapes (single-storey g, modern rounded counters, narrow proportions) read contemporary/technical, not an elegant, sophisticated serif suited to luxury branding.",
+      "latency_sec": 4.8
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Solitreo",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows a casual handwritten/script style with rounded monoline strokes and no serif structure (uppercase A/B/C etc. are brush-like, not a classic serif with terminals). Contrast is low and forms are informal. The Legibility Pairs indicate ambiguity: i/l/1 are very similar, rn/m can blur due to connected cursive shapes, v/w are close, and e/o are highly similar\u2014hurting clarity. Overall it reads friendly and whimsical rather than elegant, sophisticated luxury-serif branding.",
+      "latency_sec": 5.49
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Ubuntu Mono",
+      "ai_match": 0,
+      "human_match": 0,
+      "thought": "The specimen shows Ubuntu Mono as a monospaced, utilitarian sans with uniform character widths, low/no stroke contrast, and no serifs\u2014more suited to coding/technical UI than luxury branding. Character forms are rounded and functional (single-storey a and g, plain terminals). The Legibility Pairs highlight typical mono compromises: i/l/1/I are very similar, 0/O are close, and rn can resemble m\u2014signals of a pragmatic coding font rather than an elegant, sophisticated serif with refined details for luxury identity work.",
+      "latency_sec": 5.09
+    }
+  ]
+}

@@ -37,9 +37,9 @@
 
 ### Quality-First Track
 - **Reference:** [DEC-20260208-03-quality-first-experiment-plan](./decisions/DEC-20260208-03-quality-first-experiment-plan.md)
-- [ ] Step A — Specimen v2
-- [ ] Step B — Attribute Schema v2
-- [ ] Step C — Uncertainty Discipline
+- [x] Step A — Specimen v2
+- [x] Step B — Attribute Schema v2
+- [x] Step C — Uncertainty Discipline
 - [ ] Step C.5 — Label SSoT Review Gate (Complex v1)
 - [ ] Step D — Targeted Quality Validation
 - [ ] Step E — Retrieval Rerun
