@@ -40,6 +40,11 @@
 - [x] Step A — Specimen v2
 - [x] Step B — Attribute Schema v2
 - [x] Step C — Uncertainty Discipline
-- [ ] Step C.5 — Label SSoT Review Gate (Complex v1)
+- [x] Step C.5 — Label SSoT Review Gate (Complex v1)
+- [x] Step C.7 — FontCLIP Benefit Quantification Experiment
+  - [x] Design experiment design (arms/hypotheses)
+  - [x] Implement typographic proxy pipeline
+  - [x] Run Baseline vs FontCLIP-Proxy vs Assisted arms
+  - [x] Quantify impact on Precision/Recall
 - [ ] Step D — Targeted Quality Validation
 - [ ] Step E — Retrieval Rerun

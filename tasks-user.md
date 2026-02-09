@@ -87,7 +87,7 @@ has been populated with final SSoT data from user - some previous user-inputs we
 ---
 ---
 
-some of the font 'specimens' have overlapping content
+some of the font 'specimens' have visually overlapping content
 - example: research\ab-eval\out\specimens_v2_medium_nobias\Playwrite_BE_WAL_Guides.png
 
 

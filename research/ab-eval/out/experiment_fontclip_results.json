@@ -1,0 +1,2528 @@
+{
+  "metrics": {
+    "Baseline": {
+      "agreement": 0.6397,
+      "precision": 0.6415,
+      "recall": 0.7556,
+      "f1": 0.6939,
+      "counts": {
+        "tp": 34,
+        "fp": 19,
+        "fn": 11,
+        "tn": 124,
+        "total": 247
+      }
+    },
+    "FontCLIP-Proxy": {
+      "agreement": 0.5385,
+      "precision": 0.4138,
+      "recall": 0.5333,
+      "f1": 0.466,
+      "counts": {
+        "tp": 24,
+        "fp": 34,
+        "fn": 21,
+        "tn": 109,
+        "total": 247
+      }
+    },
+    "FontCLIP-Assisted (AND)": {
+      "agreement": 0.6356,
+      "precision": 0.7333,
+      "recall": 0.4889,
+      "f1": 0.5867,
+      "counts": {
+        "tp": 22,
+        "fp": 8,
+        "fn": 23,
+        "tn": 135,
+        "total": 247
+      }
+    },
+    "FontCLIP-Assisted (OR)": {
+      "agreement": 0.5425,
+      "precision": 0.4444,
+      "recall": 0.8,
+      "f1": 0.5714,
+      "counts": {
+        "tp": 36,
+        "fp": 45,
+        "fn": 9,
+        "tn": 98,
+        "total": 247
+      }
+    }
+  },
+  "details": [
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Alata",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Farro",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Geom",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Golos Text",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Holtwood One SC",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "JetBrains Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Kumbh Sans",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "LXGW WenKai Mono TC",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Lalezar",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Ovo",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Sometype Mono",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "TASA Orbiter",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Encode Sans Condensed",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Goblin One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Kumbh Sans",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Londrina Sketch",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Major Mono Display",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Marcellus SC",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Nova Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Playwrite CL Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Rancho",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Sixtyfour",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Tai Heritage Pro",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Tektur",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Tienne",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Big Shoulders",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Farro",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Goblin One",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Jersey 20",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Marko One",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Playwrite CL Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Playwrite NZ Basic Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Port Lligat Slab",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Share Tech Mono",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Underdog",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_008",
+      "query_text": "heavy blackletter style for gothic impact",
+      "font_name": "Yuji Syuku",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Atma",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Baloo Paaji 2",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Delius Swash Caps",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Hubballi",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "LXGW WenKai Mono TC",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "M PLUS 1 Code",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Madimi One",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Marko One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Nova Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Playwrite DE SAS",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Sometype Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Ubuntu Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Edu VIC WA NT Beginner",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Ga Maamli",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Macondo",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Ms Madi",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Patrick Hand",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Playwrite US Trad Guides",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Port Lligat Slab",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Send Flowers",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Tai Heritage Pro",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Tiro Tamil",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Artifika",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Atma",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Bungee Shade",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Calligraffitti",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Faster One",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Madimi One",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Playwrite BE WAL Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Playwrite BR Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Playwrite CL Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Rubik Storm",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Albert Sans",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "B612 Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Chivo Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Elsie Swash Caps",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Esteban",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "IM Fell French Canon",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Kumbh Sans",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Merienda",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Metrophobic",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Playwrite NZ Basic Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Sometype Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Source Serif Pro",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Underdog",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "VT323",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "WDXL Lubrifont SC",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Courier Prime",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Google Sans Code",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "IBM Plex Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Lalezar",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Noto Sans Nag Mundari",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Reddit Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Saira Extra Condensed",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Sixtyfour",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Source Code Pro",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Space Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Suravaram",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Actor",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Albert Sans",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Artifika",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Courier Prime",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Edu VIC WA NT Beginner",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Encode Sans Condensed",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Esteban",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Galdeano",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Kumar One Outline",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Lalezar",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Manuale",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Marcellus SC",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Noto Sans Nag Mundari",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Playwrite FR Trad",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Roboto Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Suravaram",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Ubuntu Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Calistoga",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Federant",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Marko One",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Merienda",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Playwrite CL Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Playwrite NZ Basic Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Quattrocento",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Reem Kufi Fun",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Sarina",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Tienne",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Underdog",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Anonymous Pro",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Artifika",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Bentham",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Bubblegum Sans",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Courier Prime",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Elsie Swash Caps",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Google Sans Code",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "IBM Plex Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Merienda",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Noto Serif Lao",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Playpen Sans Hebrew",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Playwrite BR Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Suravaram",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_021",
+      "query_text": "19th century victorian style display serif",
+      "font_name": "Tenali Ramakrishna",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Holtwood One SC",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Jersey 20",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Material Symbols",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Pangolin",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Passion One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Rubik Storm",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Syne Mono",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Alata",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Bungee Inline",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Federant",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Iceberg",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Kumar One",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Kumbh Sans",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Noto Sans Nag Mundari",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Reddit Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Roboto Flex",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "TASA Orbiter",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Amaranth",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Anonymous Pro",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Antic Slab",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Courier Prime",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Fira Mono",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Goblin One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "IBM Plex Mono",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Kurale",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Macondo",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Noto Rashi Hebrew",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Noto Sans Adlam",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Noto Sans Balinese",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "PT Mono",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Passion One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Sixtyfour",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Tienne",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Xanh Mono",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Yuji Syuku",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Antic Slab",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Lalezar",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Noto Serif Lao",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Ovo",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Playwrite NG Modern Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Port Lligat Slab",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Syne Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Baloo Paaji 2",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Bubblegum Sans",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Cousine",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Encode Sans Expanded",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Federant",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Manuale",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Nova Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Passion One",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Playwrite BE WAL Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Reem Kufi Fun",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Source Code Pro",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Spectral SC",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Train One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Ubuntu Sans Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Antic Slab",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Artifika",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Baskervville SC",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Bentham",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Cormorant",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Doppio One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Goblin One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Metrophobic",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Playwrite CL Guides",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Source Serif Pro",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Syne Mono",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Tiro Devanagari Sanskrit",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Underdog",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Workbench",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_038",
+      "query_text": "gentle script for wedding invitations",
+      "font_name": "Babylonica",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_038",
+      "query_text": "gentle script for wedding invitations",
+      "font_name": "Edu NSW ACT Foundation",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_038",
+      "query_text": "gentle script for wedding invitations",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_038",
+      "query_text": "gentle script for wedding invitations",
+      "font_name": "Over the Rainbow",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_038",
+      "query_text": "gentle script for wedding invitations",
+      "font_name": "Playwrite CZ Guides",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_038",
+      "query_text": "gentle script for wedding invitations",
+      "font_name": "Playwrite RO Guides",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_038",
+      "query_text": "gentle script for wedding invitations",
+      "font_name": "Rancho",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Basic",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Bungee Inline",
+      "human_match": 2,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Cairo",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Goblin One",
+      "human_match": 1,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Kotta One",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Madimi One",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Major Mono Display",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Noto Sans Batak",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Overpass Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Reddit Mono",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Share Tech Mono",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Sixtyfour",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Source Code Pro",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "TASA Orbiter",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Underdog",
+      "human_match": 2,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Workbench",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Albert Sans",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Anek Latin",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Bungee Inline",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Fragment Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "IBM Plex Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "JetBrains Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Martian Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Monofett",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 0
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Noto Serif Grantha",
+      "human_match": 0,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Overlock SC",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Roboto Flex",
+      "human_match": 0,
+      "baseline_match": 0,
+      "fontclip_match": 1,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Roboto Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Sometype Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 0,
+      "fusion_and": 0,
+      "fusion_or": 1
+    },
+    {
+      "query_id": "cq_040",
+      "query_text": "distinguishable monospace for data tables",
+      "font_name": "Space Mono",
+      "human_match": 1,
+      "baseline_match": 1,
+      "fontclip_match": 1,
+      "fusion_and": 1,
+      "fusion_or": 1
+    }
+  ]
+}
