@@ -1,6 +1,6 @@
 ---
 name: lightspec
-description: A lightweight specification framework for managing requirements directly in a .lightspec/ directory with implementation tracking, plus decision records for core/critical specifications and major design choices. MANDATORY for all new project features or significant changes. Quick Ref: .lightspec/ (Canonical specs), .lightspec/progress.md (Tracking), .lightspec/decisions/ (ADRs), .lightspec/research/ (Notes).
+description: A lightweight specification framework for managing requirements directly in a .lightspec/ directory with implementation tracking, plus decision records for core/critical specifications and major design choices. MANDATORY for all new project features or significant changes. Quick Ref - .lightspec/ (Canonical specs), .lightspec/progress.md (Tracking), .lightspec/decisions/ (ADRs), .lightspec/research/ (Notes).
 ---
 
 # LightSpec Skill
@@ -67,7 +67,7 @@ Maintain a consistent structure for every spec file. Requirement descriptions mu
 
 ## Decision Links (Optional)
 - Required for core/critical specs; optional for routine changes.
-- [DEC-YYYYMMDD-NN-short-title](./decisions/DEC-YYYYMMDD-NN-short-title.md)
+- (./decisions/DEC-YYYYMMDD-NN-short-title.md)
 
 ## Scenarios
 - [Scenario 1 - Narrative or Structured validation step]
@@ -102,11 +102,11 @@ Accepted
 - [Tradeoffs / risks]
 
 ## Related Specs
-- [capability-a](../capability-a.md)
-- [capability-b](../capability-b.md)
+- (../capability-a.md)
+- (../capability-b.md)
 
 ## Related R&D
-- [research-note](../research/research-note.md)
+- (../research/research-note.md)
 
 ## Supersedes
 - N/A

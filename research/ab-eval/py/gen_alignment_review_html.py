@@ -21,8 +21,14 @@ def main():
         gpt52 = {"details": []}
         
     try:
-        with open(out_dir / "spot_check_alignment_qwen3vl_235b.json", "r") as f:
-            qwen235b = json.load(f)
+        # Prioritize comprehensive results if they exist
+        comp_file = out_dir / "comprehensive_235b_results.json"
+        if comp_file.exists():
+            with open(comp_file, "r") as f:
+                qwen235b = json.load(f)
+        else:
+            with open(out_dir / "spot_check_alignment_qwen3vl_235b.json", "r") as f:
+                qwen235b = json.load(f)
     except:
         qwen235b = {"details": []}
         
@@ -206,34 +212,12 @@ def main():
     html += """
     </div>
 
-    <button class="btn btn-success" onclick="exportResults()">Export Review JSON</button>
+    <!-- Export Review JSON button removed per user request -->
 
     <script>
+        // Export logic disabled
         function exportResults() {
-            const votes = {};
-            document.querySelectorAll('.query-vote').forEach(select => {
-                if (select.value) {
-                    votes[select.dataset.qid] = select.value;
-                }
-            });
-
-            const payload = {
-                timestamp: new Date().toISOString(),
-                session_id: "alignment_review_" + Date.now(),
-                votes: votes,
-                metadata: {
-                    models_compared: ["qwen235b", "qwen8b"],
-                    reference: "Casey labels medium v1"
-                }
-            };
-
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonPrettyPrint(payload));
-            const downloadAnchorNode = document.createElement('a');
-            downloadAnchorNode.setAttribute("href", dataStr);
-            downloadAnchorNode.setAttribute("download", "alignment_review_export.json");
-            document.body.appendChild(downloadAnchorNode);
-            downloadAnchorNode.click();
-            downloadAnchorNode.remove();
+            console.log("Export disabled");
         }
 
         function jsonPrettyPrint(obj) {

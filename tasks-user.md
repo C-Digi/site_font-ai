@@ -52,17 +52,24 @@ delegate a task right now for architect to generate a visual, interactive human-
 ---
 
 
-## human-review SSoT 
+## SSoT 
+
+*compare VL models against human and determine if and which VL can be used as top level visual reviewer*
 
 
 
 
+now do a spot-check test comparing qwen/qwen-vl-plus (newest VL model) to 235b
 
+first, update the test script to:
+- batch LLM requests by combining up to 10 decisions per request - for the same font, but different queries
+- since its outputting a description already for each request, it does this for each (most) fonts multiple times
+- within a single LLM request, it can easily handle a single font-render and determine 0/1 for 10 queries.
 
-make the rendered visibility pair 'o0' instead be 'O0' with capital O. 
-then lets run a spot-check with gpt-5.2 on the research\ab-eval\data\labels.medium.human.v1.json data and see how well the AI alligns with Casey's decisions.
-
-
+then regenerate the html for human review
+- enable json export 
+- put Casey + 235b + vl-plus (remove 8b) side-by-side for human review, selection, and export
+- show only the decisions that are conflicting from Casey 
 
 
 
