@@ -13,10 +13,11 @@
 - [x] Local E2E Validation (Toy Set)
 - [x] Batch Re-embedding (Full Corpus)
 
-### Phase 2: Migration & Launch (Feb 13 – Feb 20)
-- [ ] Production Database Backup
-- [ ] Deployment to Production
-- [ ] Human Visual-Intent Validation
+### Phase 3: Quality Optimization (Feb 9 – Feb 15)
+- [x] Deep Mismatch Analysis vs amended SSoT
+- [x] Run Intervention Matrix (Prompt V3, Specimen V3, Policy Gating)
+- [x] Quantify Agreement gains (+1.1% on G2)
+- [ ] Roll out Prompt V3 to JIT Seeding path
 
 ---
 
@@ -46,5 +47,10 @@
   - [x] Implement typographic proxy pipeline
   - [x] Run Baseline vs FontCLIP-Proxy vs Assisted arms
   - [x] Quantify impact on Precision/Recall
+- [x] Step C.8 — Agreement Optimization Session
+  - [x] Build experiment matrix (Calibration, Fusion, Query-aware)
+  - [x] Establish query-level validation protocol
+  - [x] Execute session and generate agreement leaderboard
+  - [x] Deliver policy recommendation
 - [ ] Step D — Targeted Quality Validation
 - [ ] Step E — Retrieval Rerun

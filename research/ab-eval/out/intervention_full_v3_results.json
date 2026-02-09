@@ -1,0 +1,1948 @@
+{
+  "details": [
+    {
+      "query_id": "cq_002",
+      "font_name": "Alata",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'O' and 'o' are perfect circles. The stroke variation is very low, almost monolinear.",
+      "thought": "The font is a geometric sans-serif with a focus on clean, circular forms and minimal stroke contrast. It does not exhibit any Art Deco characteristics. | The 'O' and 'o' are perfect circles. The stroke variation is very low, almost monolinear."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Alata",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks any of the characteristic features of Art Deco, such as strong vertical emphasis, geometric ornamentation, or stylized letterforms.",
+      "thought": "The font is a geometric sans-serif with a focus on clean, circular forms and minimal stroke contrast. It does not exhibit any Art Deco characteristics. | The font lacks any of the characteristic features of Art Deco, such as strong vertical emphasis, geometric ornamentation, or stylized letterforms."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Farro",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'O' and 'o' are perfect circles. The stroke variation is very low, almost non-existent.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not resemble a blackletter style. | The 'O' and 'o' are perfect circles. The stroke variation is very low, almost non-existent."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Farro",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking the characteristic thick-to-thin strokes and angular forms of blackletter.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not resemble a blackletter style. | The font is a sans-serif, lacking the characteristic thick-to-thin strokes and angular forms of blackletter."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Geom",
+      "ai_match": 1,
+      "confidence": 1.0,
+      "evidence": "The uppercase 'O' and lowercase 'o' are perfect circles. The stroke variation is very low, almost monolinear, as seen in the contrast strip.",
+      "thought": "The font is a geometric sans-serif with circular forms and minimal stroke contrast, fitting the query requirements. | The uppercase 'O' and lowercase 'o' are perfect circles. The stroke variation is very low, almost monolinear, as seen in the contrast strip."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Golos Text",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'o' and 'g' exhibit near-perfect circular forms. The stroke variation is minimal, as seen in the even weight distribution across characters.",
+      "thought": "The font is a geometric sans-serif with circular forms and minimal stroke contrast, fitting the query's description. | The 'o' and 'g' exhibit near-perfect circular forms. The stroke variation is minimal, as seen in the even weight distribution across characters."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Holtwood One SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The letterforms are not based on perfect circles. The stroke variation is minimal but present, and the overall shape is not geometric.",
+      "thought": "This font is a very bold, blocky sans-serif. It does not appear to be geometric, nor does it resemble an 8-bit computer font. | The letterforms are not based on perfect circles. The stroke variation is minimal but present, and the overall shape is not geometric."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Holtwood One SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the pixelated or blocky appearance characteristic of 8-bit computer fonts.",
+      "thought": "This font is a very bold, blocky sans-serif. It does not appear to be geometric, nor does it resemble an 8-bit computer font. | The font lacks the pixelated or blocky appearance characteristic of 8-bit computer fonts."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "JetBrains Mono",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The uppercase 'O' and lowercase 'g' exhibit near-perfect circular forms. The stroke weight is consistent across the letters.",
+      "thought": "The font appears to be a geometric sans-serif with minimal stroke variation. It also has good distinguishability between characters, making it suitable for data tables. | The uppercase 'O' and lowercase 'g' exhibit near-perfect circular forms. The stroke weight is consistent across the letters."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "JetBrains Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'Legibility Pairs' section shows clear differentiation between 'il1I' and '0O', which is crucial for data tables.",
+      "thought": "The font appears to be a geometric sans-serif with minimal stroke variation. It also has good distinguishability between characters, making it suitable for data tables. | The 'Legibility Pairs' section shows clear differentiation between 'il1I' and '0O', which is crucial for data tables."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Kumbh Sans",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'O' and 'Q' are perfect circles, and the stroke variation is minimal as seen in the 'Contrast & Rhythm Strip'.",
+      "thought": "This font is a geometric sans-serif with minimal stroke contrast. It does not appear condensed, nor does it have serifs or art deco characteristics. | The 'O' and 'Q' are perfect circles, and the stroke variation is minimal as seen in the 'Contrast & Rhythm Strip'."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not condensed. The letterforms are relatively wide.",
+      "thought": "This font is a geometric sans-serif with minimal stroke contrast. It does not appear condensed, nor does it have serifs or art deco characteristics. | The font is not condensed. The letterforms are relatively wide."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs. It also doesn't convey a stern or authoritative tone.",
+      "thought": "This font is a geometric sans-serif with minimal stroke contrast. It does not appear condensed, nor does it have serifs or art deco characteristics. | The font is a sans-serif, lacking serifs. It also doesn't convey a stern or authoritative tone."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks any of the characteristic features of Art Deco, such as strong vertical lines, geometric ornamentation, or a sense of glamour.",
+      "thought": "This font is a geometric sans-serif with minimal stroke contrast. It does not appear condensed, nor does it have serifs or art deco characteristics. | The font lacks any of the characteristic features of Art Deco, such as strong vertical lines, geometric ornamentation, or a sense of glamour."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "LXGW WenKai Mono TC",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'O' and 'o' characters are nearly perfect circles, and the stroke variation is minimal across all glyphs.",
+      "thought": "This font is a rounded sans-serif with a friendly and approachable feel. It exhibits low stroke variation and geometric forms, making it suitable for various applications, including children's brands. | The 'O' and 'o' characters are nearly perfect circles, and the stroke variation is minimal across all glyphs."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "LXGW WenKai Mono TC",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The rounded terminals on letters like 'a', 'b', 'g', and 'd' give it a soft and friendly appearance, suitable for a children's brand.",
+      "thought": "This font is a rounded sans-serif with a friendly and approachable feel. It exhibits low stroke variation and geometric forms, making it suitable for various applications, including children's brands. | The rounded terminals on letters like 'a', 'b', 'g', and 'd' give it a soft and friendly appearance, suitable for a children's brand."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Lalezar",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'O' and '0' are perfect circles. The stroke variation is very low. The font is clearly geometric.",
+      "thought": "This font is a geometric sans-serif with a very heavy weight. It has some circular forms, but also some squared-off terminals. It is not monospace, nor is it a serif. It does not evoke a western style. | The 'O' and '0' are perfect circles. The stroke variation is very low. The font is clearly geometric."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Lalezar",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not monospace.",
+      "thought": "This font is a geometric sans-serif with a very heavy weight. It has some circular forms, but also some squared-off terminals. It is not monospace, nor is it a serif. It does not evoke a western style. | The font is not monospace."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Lalezar",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, not a serif.",
+      "thought": "This font is a geometric sans-serif with a very heavy weight. It has some circular forms, but also some squared-off terminals. It is not monospace, nor is it a serif. It does not evoke a western style. | The font is a sans-serif, not a serif."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Lalezar",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, not a slab serif, and does not have any western styling cues.",
+      "thought": "This font is a geometric sans-serif with a very heavy weight. It has some circular forms, but also some squared-off terminals. It is not monospace, nor is it a serif. It does not evoke a western style. | The font is a sans-serif, not a slab serif, and does not have any western styling cues."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Ovo",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has serifs and stroke variation, and is not geometric.",
+      "thought": "This font is a serif typeface with moderate stroke contrast and classic proportions. It does not exhibit geometric forms or slab serif characteristics. | The font has serifs and stroke variation, and is not geometric."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Ovo",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has bracketed serifs and does not have the heavy, unbracketed serifs characteristic of slab serifs.",
+      "thought": "This font is a serif typeface with moderate stroke contrast and classic proportions. It does not exhibit geometric forms or slab serif characteristics. | The font has bracketed serifs and does not have the heavy, unbracketed serifs characteristic of slab serifs."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Sometype Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The uppercase 'O' and lowercase 'g' show near-perfect circles. The contrast strip shows very little stroke variation.",
+      "thought": "This font appears to be a geometric sans-serif with a focus on clarity and legibility. It has a clean, modern look with minimal stroke variation. The monospace version is designed for data tables. | The uppercase 'O' and lowercase 'g' show near-perfect circles. The contrast strip shows very little stroke variation."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Sometype Mono",
+      "ai_match": 0,
+      "confidence": 0.2,
+      "evidence": "While there is some rounding, it's not soft enough for a friendly children's brand. It's more clinical.",
+      "thought": "This font appears to be a geometric sans-serif with a focus on clarity and legibility. It has a clean, modern look with minimal stroke variation. The monospace version is designed for data tables. | While there is some rounding, it's not soft enough for a friendly children's brand. It's more clinical."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Sometype Mono",
+      "ai_match": 0,
+      "confidence": 0.1,
+      "evidence": "This is a sans-serif, not a serif. It lacks the serifs required for a traditional, authoritative look.",
+      "thought": "This font appears to be a geometric sans-serif with a focus on clarity and legibility. It has a clean, modern look with minimal stroke variation. The monospace version is designed for data tables. | This is a sans-serif, not a serif. It lacks the serifs required for a traditional, authoritative look."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Sometype Mono",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'Legibility Pairs' section shows clear differentiation between characters like 'il1I' and '0O', essential for data tables.",
+      "thought": "This font appears to be a geometric sans-serif with a focus on clarity and legibility. It has a clean, modern look with minimal stroke variation. The monospace version is designed for data tables. | The 'Legibility Pairs' section shows clear differentiation between characters like 'il1I' and '0O', essential for data tables."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "TASA Orbiter",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The capital 'O' and lowercase 'g' are perfect circles. The stroke variation is very low across all characters.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any art deco or rugged outdoor characteristics. | The capital 'O' and lowercase 'g' are perfect circles. The stroke variation is very low across all characters."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "TASA Orbiter",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks any of the stylized, decorative elements associated with Art Deco.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any art deco or rugged outdoor characteristics. | The font lacks any of the stylized, decorative elements associated with Art Deco."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "TASA Orbiter",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is too clean and lacks the distressed or rough texture typically associated with a rugged outdoor aesthetic.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any art deco or rugged outdoor characteristics. | The font is too clean and lacks the distressed or rough texture typically associated with a rugged outdoor aesthetic."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Encode Sans Condensed",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The uppercase letters are condensed and have a uniform stroke weight, fitting the 'condensed industrial sans' description. The overall design is simple and functional.",
+      "thought": "The font appears to be a condensed sans-serif with a clean, industrial aesthetic. It lacks the ornate details required for luxury branding. | The uppercase letters are condensed and have a uniform stroke weight, fitting the 'condensed industrial sans' description. The overall design is simple and functional."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Encode Sans Condensed",
+      "ai_match": 0,
+      "confidence": 0.95,
+      "evidence": "The font is a sans-serif, lacking serifs which are a primary requirement for the query. It also lacks the calligraphic details or high contrast typically associated with 'elegant and sophisticated' serifs.",
+      "thought": "The font appears to be a condensed sans-serif with a clean, industrial aesthetic. It lacks the ornate details required for luxury branding. | The font is a sans-serif, lacking serifs which are a primary requirement for the query. It also lacks the calligraphic details or high contrast typically associated with 'elegant and sophisticated' serifs."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Goblin One",
+      "ai_match": 1,
+      "confidence": 0.8,
+      "evidence": "The font is condensed, sans-serif, and the specimen shows it in all caps, suitable for headlines. The blocky nature gives it an industrial feel.",
+      "thought": "This font is a very heavy, condensed sans-serif. It has some industrial qualities, but also a slightly rounded, almost playful feel. It is not a blackletter, typewriter, or coding font. It could potentially work for outdoor display, but lacks a truly rugged feel. | The font is condensed, sans-serif, and the specimen shows it in all caps, suitable for headlines. The blocky nature gives it an industrial feel."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, not a blackletter.",
+      "thought": "This font is a very heavy, condensed sans-serif. It has some industrial qualities, but also a slightly rounded, almost playful feel. It is not a blackletter, typewriter, or coding font. It could potentially work for outdoor display, but lacks a truly rugged feel. | The font is a sans-serif, not a blackletter."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, not a typewriter font.",
+      "thought": "This font is a very heavy, condensed sans-serif. It has some industrial qualities, but also a slightly rounded, almost playful feel. It is not a blackletter, typewriter, or coding font. It could potentially work for outdoor display, but lacks a truly rugged feel. | The font is a sans-serif, not a typewriter font."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The specimen does not highlight coding-specific features, and the '0' and 'O' are not clearly distinguished.",
+      "thought": "This font is a very heavy, condensed sans-serif. It has some industrial qualities, but also a slightly rounded, almost playful feel. It is not a blackletter, typewriter, or coding font. It could potentially work for outdoor display, but lacks a truly rugged feel. | The specimen does not highlight coding-specific features, and the '0' and 'O' are not clearly distinguished."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 0.6,
+      "evidence": "The font is heavy and bold, which could work for display. The blocky nature could be seen as rugged.",
+      "thought": "This font is a very heavy, condensed sans-serif. It has some industrial qualities, but also a slightly rounded, almost playful feel. It is not a blackletter, typewriter, or coding font. It could potentially work for outdoor display, but lacks a truly rugged feel. | The font is heavy and bold, which could work for display. The blocky nature could be seen as rugged."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Londrina Sketch",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's rounded, outlined forms and wide proportions are not characteristic of condensed industrial sans-serif fonts.",
+      "thought": "The font is a sans-serif with a hand-drawn, outlined style. It is not condensed, nor does it evoke an industrial feel. Therefore, it does not match the query. | The font's rounded, outlined forms and wide proportions are not characteristic of condensed industrial sans-serif fonts."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Major Mono Display",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is not condensed; it has a wide set width.",
+      "thought": "This font is a very light, geometric sans-serif. It lacks the weight and ruggedness needed for outdoor applications, and it is not condensed enough for tight headlines. | The font is not condensed; it has a wide set width."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Major Mono Display",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is too delicate and lacks the ruggedness needed for outdoor applications. The thin strokes would not convey a sense of strength or durability.",
+      "thought": "This font is a very light, geometric sans-serif. It lacks the weight and ruggedness needed for outdoor applications, and it is not condensed enough for tight headlines. | The font is too delicate and lacks the ruggedness needed for outdoor applications. The thin strokes would not convey a sense of strength or durability."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Marcellus SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a serif, not a sans-serif. It is not particularly condensed, and its overall aesthetic is not industrial.",
+      "thought": "This font is a serif with a classic, slightly condensed appearance. It has a formal and refined feel, making it suitable for elegant applications but not industrial or headline-focused uses. | The font is a serif, not a sans-serif. It is not particularly condensed, and its overall aesthetic is not industrial."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Marcellus SC",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font's elegant serifs, balanced proportions, and overall refined appearance make it suitable for luxury branding.",
+      "thought": "This font is a serif with a classic, slightly condensed appearance. It has a formal and refined feel, making it suitable for elegant applications but not industrial or headline-focused uses. | The font's elegant serifs, balanced proportions, and overall refined appearance make it suitable for luxury branding."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Nova Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The condensed letterforms and overall blocky, utilitarian design make it suitable for tight headlines with an industrial aesthetic. See the uppercase letters in the first image.",
+      "thought": "This font is a condensed sans-serif with a somewhat industrial feel due to its blocky construction and slightly squared-off curves. It's not particularly soft or rounded, and while legible, it's not optimized for long-form reading. | The condensed letterforms and overall blocky, utilitarian design make it suitable for tight headlines with an industrial aesthetic. See the uppercase letters in the first image."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Nova Mono",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "The font lacks the soft, rounded features typically associated with a friendly children's brand. The letterforms are more angular and blocky. See the lowercase 'a' and 'g' in the first image.",
+      "thought": "This font is a condensed sans-serif with a somewhat industrial feel due to its blocky construction and slightly squared-off curves. It's not particularly soft or rounded, and while legible, it's not optimized for long-form reading. | The font lacks the soft, rounded features typically associated with a friendly children's brand. The letterforms are more angular and blocky. See the lowercase 'a' and 'g' in the first image."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Nova Mono",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "This is a sans-serif font, not a serif font, and therefore not suitable for long-form editorial reading. The second image shows the lack of serifs.",
+      "thought": "This font is a condensed sans-serif with a somewhat industrial feel due to its blocky construction and slightly squared-off curves. It's not particularly soft or rounded, and while legible, it's not optimized for long-form reading. | This is a sans-serif font, not a serif font, and therefore not suitable for long-form editorial reading. The second image shows the lack of serifs."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a sans-serif.",
+      "thought": "This is a cursive script font, not suitable for any of the queries provided. | The font is a cursive script, not a sans-serif."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a blackletter style.",
+      "thought": "This is a cursive script font, not suitable for any of the queries provided. | The font is a cursive script, not a blackletter style."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "While playful, it's more of a handwriting style than a display font suitable for a candy shop.",
+      "thought": "This is a cursive script font, not suitable for any of the queries provided. | While playful, it's more of a handwriting style than a display font suitable for a candy shop."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a vintage display font.",
+      "thought": "This is a cursive script font, not suitable for any of the queries provided. | The font is a cursive script, not a vintage display font."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a coding font.",
+      "thought": "This is a cursive script font, not suitable for any of the queries provided. | The font is a cursive script, not a coding font."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Rancho",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a script, not a sans-serif. It is not condensed.",
+      "thought": "This font is a casual script style. It is not condensed, industrial, or sans-serif. It is a script, but not particularly refined for wedding invitations. | The font is a script, not a sans-serif. It is not condensed."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Rancho",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "The font is a script, which is appropriate for wedding invitations. However, it is a very casual script, not a refined or elegant one.",
+      "thought": "This font is a casual script style. It is not condensed, industrial, or sans-serif. It is a script, but not particularly refined for wedding invitations. | The font is a script, which is appropriate for wedding invitations. However, it is a very casual script, not a refined or elegant one."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Sixtyfour",
+      "ai_match": 0,
+      "confidence": 0.1,
+      "evidence": "The font is not condensed and lacks the traditional characteristics of an industrial sans-serif.",
+      "thought": "This font is a highly stylized monospace font with a distinct horizontal bar design. It is not suitable for general-purpose use but could be appropriate for specific niche applications. | The font is not condensed and lacks the traditional characteristics of an industrial sans-serif."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Sixtyfour",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is monospace and has a cold, sterile aesthetic suitable for a terminal interface.",
+      "thought": "This font is a highly stylized monospace font with a distinct horizontal bar design. It is not suitable for general-purpose use but could be appropriate for specific niche applications. | The font is monospace and has a cold, sterile aesthetic suitable for a terminal interface."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Sixtyfour",
+      "ai_match": 0,
+      "confidence": 0.1,
+      "evidence": "The font does not resemble a classic typewriter font.",
+      "thought": "This font is a highly stylized monospace font with a distinct horizontal bar design. It is not suitable for general-purpose use but could be appropriate for specific niche applications. | The font does not resemble a classic typewriter font."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Sixtyfour",
+      "ai_match": 0,
+      "confidence": 0.1,
+      "evidence": "The font lacks the ruggedness and visual cues associated with outdoor or camping gear.",
+      "thought": "This font is a highly stylized monospace font with a distinct horizontal bar design. It is not suitable for general-purpose use but could be appropriate for specific niche applications. | The font lacks the ruggedness and visual cues associated with outdoor or camping gear."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tai Heritage Pro",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a serif typeface, not a sans-serif.",
+      "thought": "The provided font specimen is a serif typeface. It lacks the condensed nature and sans-serif characteristics required for the first query. It also lacks the calligraphic hand-drawn feel with varying line weight required for the second query. | The font is a serif typeface, not a sans-serif."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Tai Heritage Pro",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has a consistent stroke weight and lacks the appearance of being hand-drawn.",
+      "thought": "The provided font specimen is a serif typeface. It lacks the condensed nature and sans-serif characteristics required for the first query. It also lacks the calligraphic hand-drawn feel with varying line weight required for the second query. | The font has a consistent stroke weight and lacks the appearance of being hand-drawn."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tektur",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The letterforms are condensed and have a blocky, industrial aesthetic. The uppercase letters are particularly impactful for headlines.",
+      "thought": "The font is condensed and has an industrial, almost futuristic, feel. It is suitable for headlines due to its strong visual presence. | The letterforms are condensed and have a blocky, industrial aesthetic. The uppercase letters are particularly impactful for headlines."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tienne",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "The font is not a sans-serif, which is a primary requirement for an 'industrial sans'.",
+      "thought": "This font is a serif typeface with a classic, somewhat condensed appearance. It doesn't immediately evoke industrial or typewriter aesthetics, nor does it strongly suggest a 1920s vintage style. | The font is not a sans-serif, which is a primary requirement for an 'industrial sans'."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Tienne",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "The font lacks the decorative elements and specific stylistic cues typically associated with 1920s display fonts.",
+      "thought": "This font is a serif typeface with a classic, somewhat condensed appearance. It doesn't immediately evoke industrial or typewriter aesthetics, nor does it strongly suggest a 1920s vintage style. | The font lacks the decorative elements and specific stylistic cues typically associated with 1920s display fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Tienne",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is a serif typeface, not a monospaced typewriter font.",
+      "thought": "This font is a serif typeface with a classic, somewhat condensed appearance. It doesn't immediately evoke industrial or typewriter aesthetics, nor does it strongly suggest a 1920s vintage style. | The font is a serif typeface, not a monospaced typewriter font."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Big Shoulders",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The letterforms are simple and geometric, lacking any of the calligraphic strokes or ornamentation associated with blackletter.",
+      "thought": "This font is a sans-serif typeface with a very heavy weight. It does not resemble blackletter at all. | The letterforms are simple and geometric, lacking any of the calligraphic strokes or ornamentation associated with blackletter."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Jersey 20",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's pixelated structure is completely different from the calligraphic strokes of blackletter.",
+      "thought": "This font is a pixelated typeface reminiscent of early computer fonts. It lacks any characteristics of blackletter or gothic styles. | The font's pixelated structure is completely different from the calligraphic strokes of blackletter."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Jersey 20",
+      "ai_match": 1,
+      "confidence": 1.0,
+      "evidence": "The pixelated design and blocky forms are characteristic of 8-bit computer fonts from the 80s, as seen in the capital letters.",
+      "thought": "This font is a pixelated typeface reminiscent of early computer fonts. It lacks any characteristics of blackletter or gothic styles. | The pixelated design and blocky forms are characteristic of 8-bit computer fonts from the 80s, as seen in the capital letters."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Playwrite NZ Basic Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not a blackletter style.",
+      "thought": "This font is a slanted sans-serif, with a calligraphic feel. It is not suitable for any of the queries. | The font is not a blackletter style."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Playwrite NZ Basic Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not a serif.",
+      "thought": "This font is a slanted sans-serif, with a calligraphic feel. It is not suitable for any of the queries. | The font is not a serif."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Playwrite NZ Basic Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font does not evoke a 1920s aesthetic.",
+      "thought": "This font is a slanted sans-serif, with a calligraphic feel. It is not suitable for any of the queries. | The font does not evoke a 1920s aesthetic."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Port Lligat Slab",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a slab serif, not a blackletter style.",
+      "thought": "This font is a slab serif. It does not have blackletter or calligraphic qualities. | The font is a slab serif, not a blackletter style."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Port Lligat Slab",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has a consistent line weight and lacks the characteristics of a calligraphic hand.",
+      "thought": "This font is a slab serif. It does not have blackletter or calligraphic qualities. | The font has a consistent line weight and lacks the characteristics of a calligraphic hand."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Port Lligat Slab",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is a slab serif, which is a common style for western themes.",
+      "thought": "This font is a slab serif. It does not have blackletter or calligraphic qualities. | The font is a slab serif, which is a common style for western themes."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Share Tech Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking the characteristic strokes and flourishes of blackletter styles.",
+      "thought": "This font is a modern, geometric sans-serif. It lacks the characteristics of blackletter or rugged outdoor fonts. | The font is a sans-serif, lacking the characteristic strokes and flourishes of blackletter styles."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Share Tech Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's clean, geometric design does not convey a rugged or outdoor aesthetic.",
+      "thought": "This font is a modern, geometric sans-serif. It lacks the characteristics of blackletter or rugged outdoor fonts. | The font's clean, geometric design does not convey a rugged or outdoor aesthetic."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Underdog",
+      "ai_match": 1,
+      "confidence": 0.8,
+      "evidence": "The font's thick strokes and angular forms resemble blackletter, providing a gothic impact.",
+      "thought": "The font appears to be a decorative display font with a somewhat rough, hand-drawn feel. It has some characteristics reminiscent of blackletter, but it's not a true blackletter font. It lacks the formality and precision typically associated with fonts used for law firms. It doesn't evoke a strong 1920s vintage aesthetic. The font's legibility pairs section suggests it might not be ideal for coding. The font's rugged appearance could potentially align with an outdoor theme. | The font's thick strokes and angular forms resemble blackletter, providing a gothic impact."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Underdog",
+      "ai_match": 0,
+      "confidence": 0.1,
+      "evidence": "The font lacks the refined serifs and formal structure needed for a law firm.",
+      "thought": "The font appears to be a decorative display font with a somewhat rough, hand-drawn feel. It has some characteristics reminiscent of blackletter, but it's not a true blackletter font. It lacks the formality and precision typically associated with fonts used for law firms. It doesn't evoke a strong 1920s vintage aesthetic. The font's legibility pairs section suggests it might not be ideal for coding. The font's rugged appearance could potentially align with an outdoor theme. | The font lacks the refined serifs and formal structure needed for a law firm."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Underdog",
+      "ai_match": 0,
+      "confidence": 0.2,
+      "evidence": "The font doesn't have the specific Art Deco or vintage characteristics associated with 1920s posters.",
+      "thought": "The font appears to be a decorative display font with a somewhat rough, hand-drawn feel. It has some characteristics reminiscent of blackletter, but it's not a true blackletter font. It lacks the formality and precision typically associated with fonts used for law firms. It doesn't evoke a strong 1920s vintage aesthetic. The font's legibility pairs section suggests it might not be ideal for coding. The font's rugged appearance could potentially align with an outdoor theme. | The font doesn't have the specific Art Deco or vintage characteristics associated with 1920s posters."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Underdog",
+      "ai_match": 0,
+      "confidence": 0.3,
+      "evidence": "The legibility pairs section shows potential issues with character distinction.",
+      "thought": "The font appears to be a decorative display font with a somewhat rough, hand-drawn feel. It has some characteristics reminiscent of blackletter, but it's not a true blackletter font. It lacks the formality and precision typically associated with fonts used for law firms. It doesn't evoke a strong 1920s vintage aesthetic. The font's legibility pairs section suggests it might not be ideal for coding. The font's rugged appearance could potentially align with an outdoor theme. | The legibility pairs section shows potential issues with character distinction."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Underdog",
+      "ai_match": 1,
+      "confidence": 0.6,
+      "evidence": "The font's rough, slightly uneven appearance could be suitable for a rugged outdoor theme.",
+      "thought": "The font appears to be a decorative display font with a somewhat rough, hand-drawn feel. It has some characteristics reminiscent of blackletter, but it's not a true blackletter font. It lacks the formality and precision typically associated with fonts used for law firms. It doesn't evoke a strong 1920s vintage aesthetic. The font's legibility pairs section suggests it might not be ideal for coding. The font's rugged appearance could potentially align with an outdoor theme. | The font's rough, slightly uneven appearance could be suitable for a rugged outdoor theme."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Yuji Syuku",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the characteristic angular strokes and dense texture of blackletter fonts.",
+      "thought": "This font is a serif typeface with a typewriter style. It does not have any blackletter characteristics. | The font lacks the characteristic angular strokes and dense texture of blackletter fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Yuji Syuku",
+      "ai_match": 1,
+      "confidence": 1.0,
+      "evidence": "The monospaced nature and the slightly uneven inking simulate the look of a classic typewriter.",
+      "thought": "This font is a serif typeface with a typewriter style. It does not have any blackletter characteristics. | The monospaced nature and the slightly uneven inking simulate the look of a classic typewriter."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Atma",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The rounded terminals and simple, approachable letterforms make it suitable for a friendly children's brand.",
+      "thought": "The font is a rounded sans-serif with a playful, childlike quality. It has a soft, friendly appearance due to its rounded terminals and simple letterforms. It is well-suited for children's brands and playful display purposes. | The rounded terminals and simple, approachable letterforms make it suitable for a friendly children's brand."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Atma",
+      "ai_match": 1,
+      "confidence": 0.85,
+      "evidence": "The font's playful and slightly quirky style, evident in the shapes of letters like 'g' and 'y', makes it a good fit for a candy shop.",
+      "thought": "The font is a rounded sans-serif with a playful, childlike quality. It has a soft, friendly appearance due to its rounded terminals and simple letterforms. It is well-suited for children's brands and playful display purposes. | The font's playful and slightly quirky style, evident in the shapes of letters like 'g' and 'y', makes it a good fit for a candy shop."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Baloo Paaji 2",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The rounded terminals on letters like 'a', 'b', and 'g' give it a soft and friendly appearance, suitable for a children's brand.",
+      "thought": "The font is a rounded sans-serif with good legibility. It has a friendly, approachable feel due to the rounded terminals. However, it is not a serif font. | The rounded terminals on letters like 'a', 'b', and 'g' give it a soft and friendly appearance, suitable for a children's brand."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Baloo Paaji 2",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs which are essential for long-form editorial reading.",
+      "thought": "The font is a rounded sans-serif with good legibility. It has a friendly, approachable feel due to the rounded terminals. However, it is not a serif font. | The font is a sans-serif, lacking serifs which are essential for long-form editorial reading."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Delius Swash Caps",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The rounded terminals and soft curves of the letters 'a', 'b', 'g', and 'y' create a friendly and approachable feel. The overall design is simple and legible, suitable for children's materials.",
+      "thought": "The font is a rounded sans-serif with a playful, friendly vibe, making it suitable for a children's brand. | The rounded terminals and soft curves of the letters 'a', 'b', 'g', and 'y' create a friendly and approachable feel. The overall design is simple and legible, suitable for children's materials."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Hubballi",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The rounded terminals on letters like 'a', 'b', 'g' and the overall soft appearance of the font make it suitable for a friendly children's brand.",
+      "thought": "The font is a rounded sans-serif with a friendly and approachable feel, making it suitable for a children's brand. | The rounded terminals on letters like 'a', 'b', 'g' and the overall soft appearance of the font make it suitable for a friendly children's brand."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "M PLUS 1 Code",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The lowercase 'a', 'g', and 'b' show soft, rounded terminals. The overall form is sans-serif, making it clean and approachable.",
+      "thought": "The font is a rounded sans-serif. The roundness gives it a friendly vibe, suitable for a children's brand. | The lowercase 'a', 'g', and 'b' show soft, rounded terminals. The overall form is sans-serif, making it clean and approachable."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Madimi One",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The rounded terminals and soft curves of the letters 'a', 'b', and 'g' create a friendly and approachable feel, suitable for a children's brand.",
+      "thought": "This font is a rounded sans-serif with a very soft and friendly appearance. It seems well-suited for children's brands and playful applications. | The rounded terminals and soft curves of the letters 'a', 'b', and 'g' create a friendly and approachable feel, suitable for a children's brand."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Madimi One",
+      "ai_match": 1,
+      "confidence": 0.85,
+      "evidence": "The overall rounded and slightly quirky nature of the font, as seen in the 'g' and 'y', makes it suitable for a candy shop's display font.",
+      "thought": "This font is a rounded sans-serif with a very soft and friendly appearance. It seems well-suited for children's brands and playful applications. | The overall rounded and slightly quirky nature of the font, as seen in the 'g' and 'y', makes it suitable for a candy shop's display font."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Madimi One",
+      "ai_match": 0,
+      "confidence": 0.1,
+      "evidence": "The font lacks any rugged or outdoor characteristics. It's too soft and rounded.",
+      "thought": "This font is a rounded sans-serif with a very soft and friendly appearance. It seems well-suited for children's brands and playful applications. | The font lacks any rugged or outdoor characteristics. It's too soft and rounded."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Playwrite DE SAS",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a script, with connected letterforms and calligraphic styling, not a sans-serif.",
+      "thought": "This is a script font, not a sans-serif. Therefore, it cannot match the query. | The font is a script, with connected letterforms and calligraphic styling, not a sans-serif."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Ubuntu Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The rounded terminals on letters like 'a', 'b', 'g' and the overall soft appearance make it suitable for a friendly children's brand.",
+      "thought": "The font is a rounded sans-serif. It has a clean and modern appearance. The rounding is subtle but present. It is not a serif font. | The rounded terminals on letters like 'a', 'b', 'g' and the overall soft appearance make it suitable for a friendly children's brand."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Ubuntu Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs which are essential for an elegant and sophisticated serif font.",
+      "thought": "The font is a rounded sans-serif. It has a clean and modern appearance. The rounding is subtle but present. It is not a serif font. | The font is a sans-serif, lacking serifs which are essential for an elegant and sophisticated serif font."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Edu VIC WA NT Beginner",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The varying line weight in letters like 'A', 'b', and 'g' demonstrates a calligraphic hand.",
+      "thought": "This font appears to be a casual, handwritten style with noticeable variations in line weight. It lacks the formality and precision typically associated with luxury branding. | The varying line weight in letters like 'A', 'b', and 'g' demonstrates a calligraphic hand."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Edu VIC WA NT Beginner",
+      "ai_match": 0,
+      "confidence": 0.95,
+      "evidence": "The font is a handwritten style, not a serif. It lacks the sharp serifs and balanced proportions expected for luxury branding.",
+      "thought": "This font appears to be a casual, handwritten style with noticeable variations in line weight. It lacks the formality and precision typically associated with luxury branding. | The font is a handwritten style, not a serif. It lacks the sharp serifs and balanced proportions expected for luxury branding."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Ga Maamli",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The varying thickness in strokes of letters like 'A', 'B', 'G', and throughout the alphabet demonstrates varying line weight.",
+      "thought": "This font exhibits characteristics of a calligraphic hand with noticeable variations in line weight, making it relevant to the query. | The varying thickness in strokes of letters like 'A', 'B', 'G', and throughout the alphabet demonstrates varying line weight."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Macondo",
+      "ai_match": 1,
+      "confidence": 0.7,
+      "evidence": "The lowercase 'g' and 'y' show varying line weight and a calligraphic influence.",
+      "thought": "The font has a handwritten feel with some line variation, but it doesn't strongly evoke traditional calligraphy or a typewriter aesthetic. | The lowercase 'g' and 'y' show varying line weight and a calligraphic influence."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Macondo",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The rounded forms and lack of monospacing are completely unlike a typewriter font.",
+      "thought": "The font has a handwritten feel with some line variation, but it doesn't strongly evoke traditional calligraphy or a typewriter aesthetic. | The rounded forms and lack of monospacing are completely unlike a typewriter font."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Ms Madi",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The uppercase 'A' and 'B' show thick-to-thin strokes characteristic of calligraphy. The lowercase letters also demonstrate varying line weight.",
+      "thought": "The font exhibits characteristics of traditional calligraphy, with noticeable variations in line weight and a flowing, handwritten style. | The uppercase 'A' and 'B' show thick-to-thin strokes characteristic of calligraphy. The lowercase letters also demonstrate varying line weight."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Patrick Hand",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font has a consistent line weight and lacks the pointed terminals or flourishes typical of calligraphy. The letterforms are simple and rounded, not reflecting the complex strokes of a calligraphic hand.",
+      "thought": "The font is a casual, rounded sans-serif with a handwritten feel, but it lacks the specific characteristics of traditional calligraphy, such as significant variation in line weight and formal letterforms. | The font has a consistent line weight and lacks the pointed terminals or flourishes typical of calligraphy. The letterforms are simple and rounded, not reflecting the complex strokes of a calligraphic hand."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Playwrite US Trad Guides",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The lowercase 'a', 'b', and 'g' demonstrate the varying line weight characteristic of calligraphic hands.",
+      "thought": "The font exhibits clear calligraphic qualities, with noticeable variations in line weight and a hand-written feel. | The lowercase 'a', 'b', and 'g' demonstrate the varying line weight characteristic of calligraphic hands."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Send Flowers",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The varying line weight is visible in the strokes of letters like 'A', 'B', 'g', and 'y'. The overall style resembles a traditional calligraphic hand.",
+      "thought": "The font exhibits characteristics of traditional calligraphy, including varying line weight and a flowing, handwritten style. | The varying line weight is visible in the strokes of letters like 'A', 'B', 'g', and 'y'. The overall style resembles a traditional calligraphic hand."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Tiro Tamil",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "The 'g' shows some variation in line weight, but the overall impression is not strongly calligraphic.",
+      "thought": "The font exhibits some variation in stroke weight, but it does not strongly evoke a traditional calligraphic hand. It is more of a serif typeface with subtle contrast. | The 'g' shows some variation in line weight, but the overall impression is not strongly calligraphic."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Artifika",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "The font's serifs and overall structure are too formal for a playful candy shop. The lowercase 'g' has a slight curve, but not enough to be considered quirky.",
+      "thought": "This font is a serif typeface with a classic and somewhat formal appearance. It lacks the extreme characteristics needed for highly specialized queries. | The font's serifs and overall structure are too formal for a playful candy shop. The lowercase 'g' has a slight curve, but not enough to be considered quirky."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Artifika",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font's clean lines, balanced proportions, and classic serif structure lend themselves well to luxury branding. The uppercase letters have a refined and sophisticated feel.",
+      "thought": "This font is a serif typeface with a classic and somewhat formal appearance. It lacks the extreme characteristics needed for highly specialized queries. | The font's clean lines, balanced proportions, and classic serif structure lend themselves well to luxury branding. The uppercase letters have a refined and sophisticated feel."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Artifika",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "While it is a serif, it lacks the ornate details and exaggerated features typically associated with 19th-century Victorian styles. The serifs are too simple.",
+      "thought": "This font is a serif typeface with a classic and somewhat formal appearance. It lacks the extreme characteristics needed for highly specialized queries. | While it is a serif, it lacks the ornate details and exaggerated features typically associated with 19th-century Victorian styles. The serifs are too simple."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Artifika",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The specimen shows that the font does not have clear distinctions between 0 and O. The 'Legibility Pairs' section shows '00' which are very similar.",
+      "thought": "This font is a serif typeface with a classic and somewhat formal appearance. It lacks the extreme characteristics needed for highly specialized queries. | The specimen shows that the font does not have clear distinctions between 0 and O. The 'Legibility Pairs' section shows '00' which are very similar."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Bungee Shade",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The rounded letterforms and 3D effect give it a playful and quirky appearance.",
+      "thought": "The font has a playful and quirky vibe due to its rounded forms and 3D effect, making it suitable for a candy shop display. | The rounded letterforms and 3D effect give it a playful and quirky appearance."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Calligraffitti",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "The swashes on the uppercase letters like 'A' and 'Q' add a touch of playfulness.",
+      "thought": "The font is a script font with a handwritten feel. It has some playful elements but lacks the boldness and quirkiness typically associated with a candy shop display font. | The swashes on the uppercase letters like 'A' and 'Q' add a touch of playfulness."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Faster One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's speed lines and overall design evoke a sense of motion and speed, which is not aligned with the playful and quirky aesthetic typically associated with a candy shop.",
+      "thought": "This font is not suitable for a candy shop. It is more appropriate for a sports or racing theme. | The font's speed lines and overall design evoke a sense of motion and speed, which is not aligned with the playful and quirky aesthetic typically associated with a candy shop."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite BE WAL Guides",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The exaggerated loops and flourishes in letters like 'A', 'g', and 'y' create a playful and quirky feel.",
+      "thought": "This font is a cursive script with exaggerated loops and flourishes, making it suitable for display purposes where a playful and informal tone is desired. However, its cursive nature and lack of strong serifs make it unsuitable for long-form editorial reading. | The exaggerated loops and flourishes in letters like 'A', 'g', and 'y' create a playful and quirky feel."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Playwrite BE WAL Guides",
+      "ai_match": 0,
+      "confidence": 0.95,
+      "evidence": "The cursive nature and lack of serifs make it difficult to read in long blocks of text.",
+      "thought": "This font is a cursive script with exaggerated loops and flourishes, making it suitable for display purposes where a playful and informal tone is desired. However, its cursive nature and lack of strong serifs make it unsuitable for long-form editorial reading. | The cursive nature and lack of serifs make it difficult to read in long blocks of text."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite BR Guides",
+      "ai_match": 1,
+      "confidence": 0.8,
+      "evidence": "The rounded forms and flowing lines give it a playful and quirky feel. The handwritten style makes it suitable for a display font.",
+      "thought": "This is a cursive font with a handwritten feel. It has rounded forms and a flowing rhythm. It is not a serif font. | The rounded forms and flowing lines give it a playful and quirky feel. The handwritten style makes it suitable for a display font."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Playwrite BR Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "This is a cursive font, not a serif font. It does not have the characteristics of a 19th-century Victorian style.",
+      "thought": "This is a cursive font with a handwritten feel. It has rounded forms and a flowing rhythm. It is not a serif font. | This is a cursive font, not a serif font. It does not have the characteristics of a 19th-century Victorian style."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Rubik Storm",
+      "ai_match": 1,
+      "confidence": 0.7,
+      "evidence": "The irregular, almost bubbly shapes of the letters, especially in the uppercase 'A' and 'B', suggest a playful quality. The pixelated texture adds a quirky element.",
+      "thought": "This font has a pixelated, distressed appearance, making it potentially suitable for retro or playful contexts, but its legibility is questionable. | The irregular, almost bubbly shapes of the letters, especially in the uppercase 'A' and 'B', suggest a playful quality. The pixelated texture adds a quirky element."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Rubik Storm",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The pixelated design strongly evokes the look of 8-bit computer fonts from the 80s. The blocky forms are reminiscent of early computer displays.",
+      "thought": "This font has a pixelated, distressed appearance, making it potentially suitable for retro or playful contexts, but its legibility is questionable. | The pixelated design strongly evokes the look of 8-bit computer fonts from the 80s. The blocky forms are reminiscent of early computer displays."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Albert Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is sans-serif, lacking the serifs required for a 'stern and authoritative serif'.",
+      "thought": "This font is a sans-serif with a clean, modern, and geometric appearance. It lacks the serifs required for the first two queries and is not monospace for the third. | The font is sans-serif, lacking the serifs required for a 'stern and authoritative serif'."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Albert Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is sans-serif, lacking the serifs required for an 'elegant and sophisticated serif'.",
+      "thought": "This font is a sans-serif with a clean, modern, and geometric appearance. It lacks the serifs required for the first two queries and is not monospace for the third. | The font is sans-serif, lacking the serifs required for an 'elegant and sophisticated serif'."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Albert Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is proportional, not monospace. The 'Contrast & Rhythm Strip' shows varying widths.",
+      "thought": "This font is a sans-serif with a clean, modern, and geometric appearance. It lacks the serifs required for the first two queries and is not monospace for the third. | The font is proportional, not monospace. The 'Contrast & Rhythm Strip' shows varying widths."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "B612 Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs entirely.",
+      "thought": "This font is a sans-serif, which immediately disqualifies it from being a match for a serif font. The overall style is also too informal and lacks the gravitas needed for a law firm. | The font is a sans-serif, lacking serifs entirely."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Chivo Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs entirely.",
+      "thought": "This font is a sans-serif, which immediately disqualifies it from being a match for a serif font. It also lacks the traditional gravitas associated with law firms. | The font is a sans-serif, lacking serifs entirely."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The rounded terminals and handwritten style of the letters lack the sternness and authority needed for a law firm.",
+      "thought": "This font is a casual script, lacking the formality required for legal contexts or the mechanical feel of a typewriter. It is most suited for informal or decorative purposes. | The rounded terminals and handwritten style of the letters lack the sternness and authority needed for a law firm."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The flowing, cursive nature of the font is the opposite of the fixed-width, monospaced characteristics of a typewriter font.",
+      "thought": "This font is a casual script, lacking the formality required for legal contexts or the mechanical feel of a typewriter. It is most suited for informal or decorative purposes. | The flowing, cursive nature of the font is the opposite of the fixed-width, monospaced characteristics of a typewriter font."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "While it is a script, it lacks the elegance and refinement typically associated with wedding invitations. The letterforms are too casual.",
+      "thought": "This font is a casual script, lacking the formality required for legal contexts or the mechanical feel of a typewriter. It is most suited for informal or decorative purposes. | While it is a script, it lacks the elegance and refinement typically associated with wedding invitations. The letterforms are too casual."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Elsie Swash Caps",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's playful and ornate serifs lack the sternness and authority required for a law firm. The 'g' and 'a' are too whimsical.",
+      "thought": "This font is a highly decorative display serif with strong Victorian influences. Its ornate details and flourishes make it unsuitable for body text but ideal for headlines and signage where a vintage aesthetic is desired. | The font's playful and ornate serifs lack the sternness and authority required for a law firm. The 'g' and 'a' are too whimsical."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Elsie Swash Caps",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The font's elaborate serifs, swashes, and overall design aesthetic strongly evoke the 19th-century Victorian style. See the capital letters A, B, and g.",
+      "thought": "This font is a highly decorative display serif with strong Victorian influences. Its ornate details and flourishes make it unsuitable for body text but ideal for headlines and signage where a vintage aesthetic is desired. | The font's elaborate serifs, swashes, and overall design aesthetic strongly evoke the 19th-century Victorian style. See the capital letters A, B, and g."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Esteban",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The strong serifs and upright posture of the uppercase letters, particularly 'A' and 'B', project a sense of sternness and authority.",
+      "thought": "This serif typeface exhibits a classic and somewhat reserved character, suitable for conveying authority and sophistication. Its clean lines and balanced proportions make it versatile for various applications. | The strong serifs and upright posture of the uppercase letters, particularly 'A' and 'B', project a sense of sternness and authority."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Esteban",
+      "ai_match": 1,
+      "confidence": 0.85,
+      "evidence": "The elegant curves and refined details, such as the subtly flared serifs and balanced letterforms, contribute to a sophisticated and luxurious feel.",
+      "thought": "This serif typeface exhibits a classic and somewhat reserved character, suitable for conveying authority and sophistication. Its clean lines and balanced proportions make it versatile for various applications. | The elegant curves and refined details, such as the subtly flared serifs and balanced letterforms, contribute to a sophisticated and luxurious feel."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "IM Fell French Canon",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The uppercase letters like 'A', 'B', and 'R' show a strong, upright stance and clear serif structure, conveying authority. The overall weight and contrast contribute to a stern impression.",
+      "thought": "The font has a classic serif structure with strong vertical strokes and clear letterforms, lending itself well to conveying authority and seriousness. The serifs are bracketed and relatively sharp, contributing to a stern appearance. | The uppercase letters like 'A', 'B', and 'R' show a strong, upright stance and clear serif structure, conveying authority. The overall weight and contrast contribute to a stern impression."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Merienda",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a script, not a serif. It lacks the sternness required for a law firm.",
+      "thought": "This font is a script typeface with a calligraphic feel. It lacks the necessary characteristics for the queries related to serif fonts or authoritative/vintage styles. | The font is a script, not a serif. It lacks the sternness required for a law firm."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Merienda",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's style is not reminiscent of 1920s poster design. It lacks the geometric or art deco elements typically associated with that era.",
+      "thought": "This font is a script typeface with a calligraphic feel. It lacks the necessary characteristics for the queries related to serif fonts or authoritative/vintage styles. | The font's style is not reminiscent of 1920s poster design. It lacks the geometric or art deco elements typically associated with that era."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Merienda",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not a serif, and its calligraphic style does not align with 19th-century Victorian display serifs.",
+      "thought": "This font is a script typeface with a calligraphic feel. It lacks the necessary characteristics for the queries related to serif fonts or authoritative/vintage styles. | The font is not a serif, and its calligraphic style does not align with 19th-century Victorian display serifs."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Metrophobic",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is sans-serif, lacking serifs on the letterforms.",
+      "thought": "This font is a sans-serif typeface. It has a clean, modern appearance. It is not suitable for queries requesting a serif font. | The font is sans-serif, lacking serifs on the letterforms."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Metrophobic",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'Legibility Pairs' section shows clear distinction between '0' and 'O'.",
+      "thought": "This font is a sans-serif typeface. It has a clean, modern appearance. It is not suitable for queries requesting a serif font. | The 'Legibility Pairs' section shows clear distinction between '0' and 'O'."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Source Serif Pro",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font's strong serifs and upright posture convey authority. The overall design is serious and professional, fitting for a law firm.",
+      "thought": "This font is a serif typeface with a classic and somewhat formal appearance. It has clear letterforms and a moderate contrast, making it suitable for various applications. | The font's strong serifs and upright posture convey authority. The overall design is serious and professional, fitting for a law firm."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Source Serif Pro",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The specimen shows the numeral '0' and the uppercase 'O'. While they are distinct, they are not designed with the specific clarity needed for coding, where even subtle differences are crucial.",
+      "thought": "This font is a serif typeface with a classic and somewhat formal appearance. It has clear letterforms and a moderate contrast, making it suitable for various applications. | The specimen shows the numeral '0' and the uppercase 'O'. While they are distinct, they are not designed with the specific clarity needed for coding, where even subtle differences are crucial."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "VT323",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The pixelated nature of the font makes it appear informal and lacking in sophistication.",
+      "thought": "This is a pixelated font, which is not suitable for a law firm. It lacks the elegance and authority typically associated with legal branding. | The pixelated nature of the font makes it appear informal and lacking in sophistication."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "WDXL Lubrifont SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs entirely.",
+      "thought": "This font is a sans-serif with rounded terminals. It lacks the traditional serifs required for a law firm and does not convey a stern or authoritative tone. | The font is a sans-serif, lacking serifs entirely."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Courier Prime",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "The font is monospaced, which is suitable for a terminal interface.",
+      "thought": "The provided font is a monospaced serif typeface. It has a utilitarian feel, but not particularly cold or sterile. It evokes a typewriter aesthetic, but not necessarily a classic one. It lacks the elegance for luxury branding and the ornate details of Victorian display serifs. | The font is monospaced, which is suitable for a terminal interface."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Courier Prime",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font has serifs, but they are blocky and lack the refinement needed for luxury branding.",
+      "thought": "The provided font is a monospaced serif typeface. It has a utilitarian feel, but not particularly cold or sterile. It evokes a typewriter aesthetic, but not necessarily a classic one. It lacks the elegance for luxury branding and the ornate details of Victorian display serifs. | The font has serifs, but they are blocky and lack the refinement needed for luxury branding."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Courier Prime",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font lacks the ornate details and high contrast characteristic of 19th-century Victorian display serifs.",
+      "thought": "The provided font is a monospaced serif typeface. It has a utilitarian feel, but not particularly cold or sterile. It evokes a typewriter aesthetic, but not necessarily a classic one. It lacks the elegance for luxury branding and the ornate details of Victorian display serifs. | The font lacks the ornate details and high contrast characteristic of 19th-century Victorian display serifs."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Courier Prime",
+      "ai_match": 1,
+      "confidence": 0.8,
+      "evidence": "The monospaced nature and blocky serifs evoke a typewriter aesthetic.",
+      "thought": "The provided font is a monospaced serif typeface. It has a utilitarian feel, but not particularly cold or sterile. It evokes a typewriter aesthetic, but not necessarily a classic one. It lacks the elegance for luxury branding and the ornate details of Victorian display serifs. | The monospaced nature and blocky serifs evoke a typewriter aesthetic."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Google Sans Code",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is monospace, has a clean, unadorned appearance, and good legibility, making it suitable for terminal interfaces.",
+      "thought": "The font appears to be a monospace font with a clean, modern design. It lacks the ornate details of Victorian-era fonts. | The font is monospace, has a clean, unadorned appearance, and good legibility, making it suitable for terminal interfaces."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Google Sans Code",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the elaborate serifs, high contrast, and decorative elements characteristic of 19th-century Victorian display serifs.",
+      "thought": "The font appears to be a monospace font with a clean, modern design. It lacks the ornate details of Victorian-era fonts. | The font lacks the elaborate serifs, high contrast, and decorative elements characteristic of 19th-century Victorian display serifs."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "IBM Plex Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font's monospace nature and clean design make it suitable for terminal interfaces. The lack of decorative elements contributes to a sterile feel.",
+      "thought": "The font is a monospace font with a clean, modern appearance. It prioritizes legibility and clarity, making it suitable for technical applications. | The font's monospace nature and clean design make it suitable for terminal interfaces. The lack of decorative elements contributes to a sterile feel."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "IBM Plex Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the ornate details and serifs characteristic of 19th-century Victorian display fonts.",
+      "thought": "The font is a monospace font with a clean, modern appearance. It prioritizes legibility and clarity, making it suitable for technical applications. | The font lacks the ornate details and serifs characteristic of 19th-century Victorian display fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "IBM Plex Mono",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "While monospace, it lacks the distinct imperfections and unevenness typically associated with classic typewriter fonts.",
+      "thought": "The font is a monospace font with a clean, modern appearance. It prioritizes legibility and clarity, making it suitable for technical applications. | While monospace, it lacks the distinct imperfections and unevenness typically associated with classic typewriter fonts."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "IBM Plex Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font's clear letterforms and monospace nature ensure that characters are easily distinguishable, which is crucial for data tables.",
+      "thought": "The font is a monospace font with a clean, modern appearance. It prioritizes legibility and clarity, making it suitable for technical applications. | The font's clear letterforms and monospace nature ensure that characters are easily distinguishable, which is crucial for data tables."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Noto Sans Nag Mundari",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is monospaced, has a clean, unadorned appearance, and lacks any warmth, making it suitable for a terminal interface.",
+      "thought": "The font is a sans-serif typeface with a clean and modern appearance. It features uniform stroke widths and a relatively simple design. It is monospaced. | The font is monospaced, has a clean, unadorned appearance, and lacks any warmth, making it suitable for a terminal interface."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Noto Sans Nag Mundari",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font lacks serifs and the refined details typically associated with luxury branding.",
+      "thought": "The font is a sans-serif typeface with a clean and modern appearance. It features uniform stroke widths and a relatively simple design. It is monospaced. | The font lacks serifs and the refined details typically associated with luxury branding."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Noto Sans Nag Mundari",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks any of the characteristic geometric shapes, ornamentation, or stylistic flair associated with Art Deco.",
+      "thought": "The font is a sans-serif typeface with a clean and modern appearance. It features uniform stroke widths and a relatively simple design. It is monospaced. | The font lacks any of the characteristic geometric shapes, ornamentation, or stylistic flair associated with Art Deco."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Reddit Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is monospace, and the letterforms are simple and unadorned, giving it a cold and sterile feel suitable for a terminal interface.",
+      "thought": "The font appears to be a monospace font with a clean, modern design. It lacks any distinct stylistic features that would make it suitable for art deco or rugged outdoor themes. | The font is monospace, and the letterforms are simple and unadorned, giving it a cold and sterile feel suitable for a terminal interface."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Reddit Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the geometric shapes, ornamentation, and overall elegance associated with art deco.",
+      "thought": "The font appears to be a monospace font with a clean, modern design. It lacks any distinct stylistic features that would make it suitable for art deco or rugged outdoor themes. | The font lacks the geometric shapes, ornamentation, and overall elegance associated with art deco."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Reddit Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's clean and modern design does not convey the ruggedness or outdoorsy feel required for camping gear.",
+      "thought": "The font appears to be a monospace font with a clean, modern design. It lacks any distinct stylistic features that would make it suitable for art deco or rugged outdoor themes. | The font's clean and modern design does not convey the ruggedness or outdoorsy feel required for camping gear."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Saira Extra Condensed",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The monospace nature and simple, clean letterforms (e.g., 'A', 'b', 'g') suggest suitability for a terminal interface. The lack of serifs and geometric shapes contribute to a cold, sterile aesthetic.",
+      "thought": "The font is monospace and has a clean, simple design that could be suitable for a terminal interface. The letterforms are relatively geometric, contributing to a sterile feel. | The monospace nature and simple, clean letterforms (e.g., 'A', 'b', 'g') suggest suitability for a terminal interface. The lack of serifs and geometric shapes contribute to a cold, sterile aesthetic."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Source Code Pro",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "The font is not monospace, as evidenced by the varying widths of the characters (e.g., 'i' vs. 'm').",
+      "thought": "The font appears to be a sans-serif typeface with a clean, modern design. It exhibits good legibility and a neutral tone, making it suitable for various applications. | The font is not monospace, as evidenced by the varying widths of the characters (e.g., 'i' vs. 'm')."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Source Code Pro",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is sans-serif, lacking serifs which are generally preferred for long-form editorial reading to aid eye tracking.",
+      "thought": "The font appears to be a sans-serif typeface with a clean, modern design. It exhibits good legibility and a neutral tone, making it suitable for various applications. | The font is sans-serif, lacking serifs which are generally preferred for long-form editorial reading to aid eye tracking."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Source Code Pro",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "The font's clean and modern design does not convey a rugged or outdoor aesthetic. It lacks the distressed or bold characteristics typically associated with camping gear branding.",
+      "thought": "The font appears to be a sans-serif typeface with a clean, modern design. It exhibits good legibility and a neutral tone, making it suitable for various applications. | The font's clean and modern design does not convey a rugged or outdoor aesthetic. It lacks the distressed or bold characteristics typically associated with camping gear branding."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Space Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font's geometric shapes and monospace nature give it a cold, sterile feel suitable for terminal interfaces. The consistent width of characters contributes to this.",
+      "thought": "The font is a monospace typeface with a clean, geometric design. It has good legibility and distinguishable characters, making it suitable for both terminal interfaces and data tables. | The font's geometric shapes and monospace nature give it a cold, sterile feel suitable for terminal interfaces. The consistent width of characters contributes to this."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Space Mono",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'Legibility Pairs' section demonstrates the font's ability to distinguish between similar characters like 'il1I' and '0O', which is crucial for data tables.",
+      "thought": "The font is a monospace typeface with a clean, geometric design. It has good legibility and distinguishable characters, making it suitable for both terminal interfaces and data tables. | The 'Legibility Pairs' section demonstrates the font's ability to distinguish between similar characters like 'il1I' and '0O', which is crucial for data tables."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Suravaram",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is clearly proportional, not monospace, as seen in the varying widths of the letters.",
+      "thought": "This font is a serif typeface with a classic, somewhat condensed appearance. It doesn't appear to be monospace, nor does it have the extreme ornamentation associated with Victorian display fonts. It has some elegance but lacks the refinement for high-end luxury branding. | The font is clearly proportional, not monospace, as seen in the varying widths of the letters."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Suravaram",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "While the font has serifs, it lacks the delicate details and high contrast often associated with luxury branding. The serifs are somewhat blunt.",
+      "thought": "This font is a serif typeface with a classic, somewhat condensed appearance. It doesn't appear to be monospace, nor does it have the extreme ornamentation associated with Victorian display fonts. It has some elegance but lacks the refinement for high-end luxury branding. | While the font has serifs, it lacks the delicate details and high contrast often associated with luxury branding. The serifs are somewhat blunt."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Suravaram",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the elaborate ornamentation, exaggerated serifs, and overall theatrical flair characteristic of 19th-century Victorian display serifs.",
+      "thought": "This font is a serif typeface with a classic, somewhat condensed appearance. It doesn't appear to be monospace, nor does it have the extreme ornamentation associated with Victorian display fonts. It has some elegance but lacks the refinement for high-end luxury branding. | The font lacks the elaborate ornamentation, exaggerated serifs, and overall theatrical flair characteristic of 19th-century Victorian display serifs."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Actor",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs entirely.",
+      "thought": "The font is a sans-serif, which immediately disqualifies it from being a match for queries requiring a serif font. The overall style is also quite plain and functional, not particularly elegant or sophisticated. | The font is a sans-serif, lacking serifs entirely."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Galdeano",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The overall appearance is too blocky and lacks refinement. The serifs are simple and unadorned.",
+      "thought": "The font is a serif, but lacks the elegance and sophistication typically associated with luxury branding. It appears more functional and utilitarian. | The overall appearance is too blocky and lacks refinement. The serifs are simple and unadorned."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Kumar One Outline",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's blocky, outlined construction and lack of delicate serifs do not convey elegance or sophistication.",
+      "thought": "This font is a decorative serif with a unique, almost stencil-like design. It lacks the refined details typically associated with luxury branding and elegance. | The font's blocky, outlined construction and lack of delicate serifs do not convey elegance or sophistication."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Manuale",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font's elegant serifs and balanced proportions lend themselves well to luxury branding. The uppercase 'A' and 'g' showcase a sophisticated design.",
+      "thought": "The font is a serif with a classic and refined appearance. It has a moderate contrast and clear letterforms, making it suitable for both display and body text purposes. | The font's elegant serifs and balanced proportions lend themselves well to luxury branding. The uppercase 'A' and 'g' showcase a sophisticated design."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Manuale",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The clear letterforms, moderate contrast, and well-defined serifs contribute to excellent legibility in long-form text. The 'Body 24pt' and 'Body 12pt' examples demonstrate this.",
+      "thought": "The font is a serif with a classic and refined appearance. It has a moderate contrast and clear letterforms, making it suitable for both display and body text purposes. | The clear letterforms, moderate contrast, and well-defined serifs contribute to excellent legibility in long-form text. The 'Body 24pt' and 'Body 12pt' examples demonstrate this."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Playwrite FR Trad",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a script, not a serif.",
+      "thought": "This is a script font, not a serif. It is not suitable for luxury branding. | The font is a script, not a serif."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Roboto Mono",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is sans-serif, lacking serifs which are a primary requirement for the query.",
+      "thought": "This font is a sans-serif typeface with a clean, modern appearance. It prioritizes legibility and clarity, making it suitable for functional applications. However, it lacks the ornate details and traditional forms typically associated with luxury branding or elegant serif fonts. | The font is sans-serif, lacking serifs which are a primary requirement for the query."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Roboto Mono",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is not monospace, as evidenced by the varying widths of the letters in the sample text.",
+      "thought": "This font is a sans-serif typeface with a clean, modern appearance. It prioritizes legibility and clarity, making it suitable for functional applications. However, it lacks the ornate details and traditional forms typically associated with luxury branding or elegant serif fonts. | The font is not monospace, as evidenced by the varying widths of the letters in the sample text."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Calistoga",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The rounded serifs and high contrast are reminiscent of fonts used in the 1920s. The bold weight makes it suitable for posters.",
+      "thought": "This font has a vintage feel due to its high contrast and rounded serifs. It is suitable for display purposes, and the overall aesthetic aligns with the 1920s era. | The rounded serifs and high contrast are reminiscent of fonts used in the 1920s. The bold weight makes it suitable for posters."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a display font with vintage characteristics.",
+      "thought": "This font is a cursive script. It does not have the characteristics of a 1920s display font or a 19th-century Victorian serif. | The font is a cursive script, not a display font with vintage characteristics."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a serif font in the Victorian style.",
+      "thought": "This font is a cursive script. It does not have the characteristics of a 1920s display font or a 19th-century Victorian serif. | The font is a cursive script, not a serif font in the Victorian style."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Federant",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The overall aesthetic, particularly the elongated forms and geometric influence, aligns well with the 1920s poster style.",
+      "thought": "This font has a distinct Art Deco vibe, making it suitable for display purposes, especially those evoking the 1920s. However, its legibility for long-form reading is questionable due to its stylized letterforms. | The overall aesthetic, particularly the elongated forms and geometric influence, aligns well with the 1920s poster style."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Federant",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The font's geometric shapes and stylized letterforms are clearly inspired by Art Deco design principles.",
+      "thought": "This font has a distinct Art Deco vibe, making it suitable for display purposes, especially those evoking the 1920s. However, its legibility for long-form reading is questionable due to its stylized letterforms. | The font's geometric shapes and stylized letterforms are clearly inspired by Art Deco design principles."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Federant",
+      "ai_match": 0,
+      "confidence": 0.2,
+      "evidence": "The stylized letterforms and unusual shapes (e.g., the 'g' and 'a') hinder readability for extended reading.",
+      "thought": "This font has a distinct Art Deco vibe, making it suitable for display purposes, especially those evoking the 1920s. However, its legibility for long-form reading is questionable due to its stylized letterforms. | The stylized letterforms and unusual shapes (e.g., the 'g' and 'a') hinder readability for extended reading."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Quattrocento",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "The overall serif style evokes a sense of history and tradition, fitting the 'nostalgic and vintage' aspect.",
+      "thought": "This font has a classic serif style, but it lacks the specific art deco or geometric qualities often associated with 1920s design. It's more generally 'vintage' than specifically '1920s'. | The overall serif style evokes a sense of history and tradition, fitting the 'nostalgic and vintage' aspect."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Reem Kufi Fun",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's clean, geometric sans-serif style is not reminiscent of 1920s fonts, which often feature more ornate or Art Deco elements.",
+      "thought": "This font is a sans-serif with a modern, clean appearance. It lacks the stylistic features typically associated with vintage or nostalgic designs. While legible, its geometric simplicity might not be ideal for extended editorial reading, where serifs often aid eye tracking. | The font's clean, geometric sans-serif style is not reminiscent of 1920s fonts, which often feature more ornate or Art Deco elements."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Reem Kufi Fun",
+      "ai_match": 0,
+      "confidence": 0.7,
+      "evidence": "While the font is legible, its sans-serif nature and lack of distinct serifs may not be optimal for long-form reading, where serifs can improve readability.",
+      "thought": "This font is a sans-serif with a modern, clean appearance. It lacks the stylistic features typically associated with vintage or nostalgic designs. While legible, its geometric simplicity might not be ideal for extended editorial reading, where serifs often aid eye tracking. | While the font is legible, its sans-serif nature and lack of distinct serifs may not be optimal for long-form reading, where serifs can improve readability."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Sarina",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The rounded, flowing script style is not typical of 1920s fonts.",
+      "thought": "This font is a script style, but it doesn't evoke a 1920s aesthetic. It's more modern and casual. | The rounded, flowing script style is not typical of 1920s fonts."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Anonymous Pro",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is sans-serif, lacking any serifs characteristic of Victorian display fonts.",
+      "thought": "This font is a sans-serif typeface with a modern, clean design. It lacks the characteristics associated with Victorian serifs or classic typewriters. | The font is sans-serif, lacking any serifs characteristic of Victorian display fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Anonymous Pro",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the monospaced nature and the specific letterforms (e.g., 'i', 'j', 't') associated with classic typewriter fonts.",
+      "thought": "This font is a sans-serif typeface with a modern, clean design. It lacks the characteristics associated with Victorian serifs or classic typewriters. | The font lacks the monospaced nature and the specific letterforms (e.g., 'i', 'j', 't') associated with classic typewriter fonts."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Bentham",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The high contrast, bracketed serifs, and overall ornate design of the uppercase letters (e.g., 'A', 'B', 'G') are characteristic of 19th-century Victorian display serifs.",
+      "thought": "This font is a serif typeface with high contrast and elegant letterforms. It is suitable for display purposes and evokes a sense of classic sophistication. However, it is not designed for coding purposes. | The high contrast, bracketed serifs, and overall ornate design of the uppercase letters (e.g., 'A', 'B', 'G') are characteristic of 19th-century Victorian display serifs."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Bentham",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The specimen does not show any specific design considerations for coding, such as clear differentiation between '0' and 'O'. The letterforms are not monospaced.",
+      "thought": "This font is a serif typeface with high contrast and elegant letterforms. It is suitable for display purposes and evokes a sense of classic sophistication. However, it is not designed for coding purposes. | The specimen does not show any specific design considerations for coding, such as clear differentiation between '0' and 'O'. The letterforms are not monospaced."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Bubblegum Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs entirely, and has a very modern, rounded appearance, not at all reminiscent of 19th-century Victorian styles.",
+      "thought": "This font is a sans-serif with a rounded, playful aesthetic. It lacks the characteristics of a 19th-century Victorian serif or a legible serif for long-form reading. | The font is a sans-serif, lacking serifs entirely, and has a very modern, rounded appearance, not at all reminiscent of 19th-century Victorian styles."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Bubblegum Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The rounded terminals and overall playful design make it unsuitable for long-form editorial reading, where clarity and traditional letterforms are preferred.",
+      "thought": "This font is a sans-serif with a rounded, playful aesthetic. It lacks the characteristics of a 19th-century Victorian serif or a legible serif for long-form reading. | The rounded terminals and overall playful design make it unsuitable for long-form editorial reading, where clarity and traditional letterforms are preferred."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Noto Serif Lao",
+      "ai_match": 0,
+      "confidence": 0.6,
+      "evidence": "The font has serifs and a display style, but lacks the ornate details typically associated with Victorian fonts.",
+      "thought": "The font is a slab serif with a somewhat antique feel, but not strongly Victorian. It has some characteristics that could be considered Western, but it's not a definitive match. | The font has serifs and a display style, but lacks the ornate details typically associated with Victorian fonts."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Noto Serif Lao",
+      "ai_match": 1,
+      "confidence": 0.8,
+      "evidence": "The font's slab serifs and robust appearance align with the characteristics of Western-style fonts.",
+      "thought": "The font is a slab serif with a somewhat antique feel, but not strongly Victorian. It has some characteristics that could be considered Western, but it's not a definitive match. | The font's slab serifs and robust appearance align with the characteristics of Western-style fonts."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Playpen Sans Hebrew",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a rounded sans-serif, lacking serifs and any Victorian-era characteristics.",
+      "thought": "This font is a rounded sans-serif, which does not match the query for a 19th-century Victorian-style display serif. | The font is a rounded sans-serif, lacking serifs and any Victorian-era characteristics."
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Tenali Ramakrishna",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font has serifs, but they are simple and lack the decorative flourishes of Victorian typefaces. The contrast is low.",
+      "thought": "The font is a serif, but lacks the ornate details and high contrast typically associated with 19th-century Victorian display serifs. It appears more modern and minimalist. | The font has serifs, but they are simple and lack the decorative flourishes of Victorian typefaces. The contrast is low."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Material Symbols",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has smooth curves and consistent stroke widths, unlike the pixelated or blocky appearance of 8-bit fonts.",
+      "thought": "This font is a geometric sans-serif. It does not evoke an 8-bit or retro computer aesthetic. | The font has smooth curves and consistent stroke widths, unlike the pixelated or blocky appearance of 8-bit fonts."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Pangolin",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The rounded, slightly uneven strokes of the letters do not resemble the pixelated or blocky style of 8-bit fonts.",
+      "thought": "The font has a hand-drawn, slightly irregular appearance. It does not resemble a typical 8-bit computer font. | The rounded, slightly uneven strokes of the letters do not resemble the pixelated or blocky style of 8-bit fonts."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Passion One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's smooth, rounded forms and lack of pixelation are inconsistent with 8-bit aesthetics.",
+      "thought": "This font is a sans-serif typeface with a bold weight. It lacks the characteristics associated with retro 8-bit fonts, typewriter fonts, or legible serifs for long-form reading. | The font's smooth, rounded forms and lack of pixelation are inconsistent with 8-bit aesthetics."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Passion One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks serifs and monospaced character widths, which are essential for typewriter fonts.",
+      "thought": "This font is a sans-serif typeface with a bold weight. It lacks the characteristics associated with retro 8-bit fonts, typewriter fonts, or legible serifs for long-form reading. | The font lacks serifs and monospaced character widths, which are essential for typewriter fonts."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Passion One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, and the query specifically asks for a serif font.",
+      "thought": "This font is a sans-serif typeface with a bold weight. It lacks the characteristics associated with retro 8-bit fonts, typewriter fonts, or legible serifs for long-form reading. | The font is a sans-serif, and the query specifically asks for a serif font."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Syne Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The pixelated, blocky letterforms and numerals strongly evoke the aesthetic of 8-bit computers from the 1980s.",
+      "thought": "This font has a pixelated, blocky style reminiscent of early computer displays, but lacks serifs or other characteristics associated with Western or coding fonts. | The pixelated, blocky letterforms and numerals strongly evoke the aesthetic of 8-bit computers from the 1980s."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Syne Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks any serifs, slab or otherwise, and does not resemble typical Western-style fonts.",
+      "thought": "This font has a pixelated, blocky style reminiscent of early computer displays, but lacks serifs or other characteristics associated with Western or coding fonts. | The font lacks any serifs, slab or otherwise, and does not resemble typical Western-style fonts."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Syne Mono",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "While the font does show some distinction between '0' and 'O', it is not designed primarily for coding purposes and lacks other features common in coding fonts.",
+      "thought": "This font has a pixelated, blocky style reminiscent of early computer displays, but lacks serifs or other characteristics associated with Western or coding fonts. | While the font does show some distinction between '0' and 'O', it is not designed primarily for coding purposes and lacks other features common in coding fonts."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Bungee Inline",
+      "ai_match": 0,
+      "confidence": 0.8,
+      "evidence": "The font lacks the geometric shapes and elegant curves typically associated with Art Deco.",
+      "thought": "This font has a rounded, outlined style. It's bold and attention-grabbing, but lacks the specific characteristics needed for the queries. | The font lacks the geometric shapes and elegant curves typically associated with Art Deco."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Bungee Inline",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's rounded edges and clean lines don't convey the ruggedness expected for outdoor/camping gear.",
+      "thought": "This font has a rounded, outlined style. It's bold and attention-grabbing, but lacks the specific characteristics needed for the queries. | The font's rounded edges and clean lines don't convey the ruggedness expected for outdoor/camping gear."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Bungee Inline",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is not monospace; the letter widths vary. Also, the rounded style is not ideal for data tables.",
+      "thought": "This font has a rounded, outlined style. It's bold and attention-grabbing, but lacks the specific characteristics needed for the queries. | The font is not monospace; the letter widths vary. Also, the rounded style is not ideal for data tables."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Iceberg",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is geometric and suitable for display purposes.",
+      "thought": "This font has a very geometric, almost stencil-like quality. It is a display font due to its unique and somewhat unconventional letterforms. However, it lacks the curves and elegance typically associated with Art Deco. | The font is geometric and suitable for display purposes."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Kumar One",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The font's geometric letterforms, particularly in the 'A', 'b', and 'g', and the overall bold, stylized appearance, are reminiscent of Art Deco design.",
+      "thought": "The font exhibits strong Art Deco characteristics in its geometric forms and overall aesthetic, making it suitable for display purposes. | The font's geometric letterforms, particularly in the 'A', 'b', and 'g', and the overall bold, stylized appearance, are reminiscent of Art Deco design."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Roboto Flex",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the geometric and ornamental details characteristic of Art Deco. The letterforms are simple and unadorned.",
+      "thought": "The font appears to be a clean, sans-serif typeface. It lacks the stylistic flourishes associated with Art Deco and does not appear to be monospace. | The font lacks the geometric and ornamental details characteristic of Art Deco. The letterforms are simple and unadorned."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Roboto Flex",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is proportional, not monospace. The width of the 'i' is clearly different from the width of the 'm'.",
+      "thought": "The font appears to be a clean, sans-serif typeface. It lacks the stylistic flourishes associated with Art Deco and does not appear to be monospace. | The font is proportional, not monospace. The width of the 'i' is clearly different from the width of the 'm'."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Amaranth",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The rounded terminals and proportional spacing are not characteristic of typewriter fonts.",
+      "thought": "This font is a sans-serif typeface with rounded terminals. It does not resemble a classic typewriter font, which typically features monospaced characters and a more mechanical, less refined appearance. | The rounded terminals and proportional spacing are not characteristic of typewriter fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Antic Slab",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is a slab serif, not a monospaced typewriter font.",
+      "thought": "This font is a slab serif with a relatively clean and modern appearance. It lacks the specific characteristics needed to match the queries about typewriter fonts or western styles. It does not appear to be optimized for coding. | The font is a slab serif, not a monospaced typewriter font."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Antic Slab",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "While it is a slab serif, it lacks the rugged, distressed, or ornamental qualities typically associated with a 'western' style.",
+      "thought": "This font is a slab serif with a relatively clean and modern appearance. It lacks the specific characteristics needed to match the queries about typewriter fonts or western styles. It does not appear to be optimized for coding. | While it is a slab serif, it lacks the rugged, distressed, or ornamental qualities typically associated with a 'western' style."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Antic Slab",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is not monospaced, and while the legibility pairs are shown, it is not specifically designed for coding purposes.",
+      "thought": "This font is a slab serif with a relatively clean and modern appearance. It lacks the specific characteristics needed to match the queries about typewriter fonts or western styles. It does not appear to be optimized for coding. | The font is not monospaced, and while the legibility pairs are shown, it is not specifically designed for coding purposes."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Fira Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is sans-serif and proportionally spaced, unlike typewriter fonts which are monospaced.",
+      "thought": "This font is a sans-serif typeface with a modern, clean design. It lacks the specific characteristics associated with classic typewriter fonts, such as monospaced characters, fixed width, and a slightly distressed or imperfect appearance. | The font is sans-serif and proportionally spaced, unlike typewriter fonts which are monospaced."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Kurale",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has proportional spacing, unlike typewriter fonts which are monospaced.",
+      "thought": "The font is a serif typeface, but it does not resemble a typewriter font. It lacks the monospaced characteristic and the specific letterforms associated with typewriters. | The font has proportional spacing, unlike typewriter fonts which are monospaced."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Noto Rashi Hebrew",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has serifs, which are not present in typewriter fonts.",
+      "thought": "This font is a serif font, and does not resemble a typewriter font. | The font has serifs, which are not present in typewriter fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Noto Sans Balinese",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is sans-serif, lacking the serifs typical of typewriter fonts.",
+      "thought": "The font is a sans-serif typeface, lacking the key characteristics of a typewriter font, such as serifs and monospaced design. | The font is sans-serif, lacking the serifs typical of typewriter fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "PT Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font has a clean, even stroke weight and lacks the unevenness or slight imperfections typically found in typewriter fonts.",
+      "thought": "The font is a sans-serif typeface with a clean, modern appearance. It lacks the specific characteristics associated with classic typewriter fonts, such as monospacing, slight imperfections, or a vintage aesthetic. | The font has a clean, even stroke weight and lacks the unevenness or slight imperfections typically found in typewriter fonts."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Xanh Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font has a clear serif structure and the letterforms are reminiscent of a typewriter font, especially the 'g' and 'a'.",
+      "thought": "The font has serifs and a monospaced appearance, resembling a typewriter font. | The font has a clear serif structure and the letterforms are reminiscent of a typewriter font, especially the 'g' and 'a'."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Playwrite NG Modern Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a monolinear sans-serif, lacking slab serifs.",
+      "thought": "This font is a monolinear sans-serif, and does not have any slab serifs or western styling. | The font is a monolinear sans-serif, lacking slab serifs."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Cousine",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font specimen shows a sans-serif typeface.",
+      "thought": "This font is a sans-serif, so it does not match the query. | The font specimen shows a sans-serif typeface."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Encode Sans Expanded",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font specimen clearly shows a sans-serif typeface.",
+      "thought": "This font is a sans-serif, so it does not meet the primary requirement of being a serif font. | The font specimen clearly shows a sans-serif typeface."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Spectral SC",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The specimen shows clear letterforms and good spacing, making it legible for extended reading. The 'Body 24pt' and 'Body 12pt' examples demonstrate its suitability for body text.",
+      "thought": "The font is a serif with good readability, suitable for editorial use. | The specimen shows clear letterforms and good spacing, making it legible for extended reading. The 'Body 24pt' and 'Body 12pt' examples demonstrate its suitability for body text."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Train One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking serifs entirely.",
+      "thought": "This font is not a serif font. It is a sans-serif font with a double-line design. Therefore, it does not meet the criteria for a legible serif font for long-form editorial reading. | The font is a sans-serif, lacking serifs entirely."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Ubuntu Sans Mono",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font specimen clearly shows a sans-serif typeface.",
+      "thought": "This font is a sans-serif, so it does not meet the primary requirement of being a serif font. | The font specimen clearly shows a sans-serif typeface."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Baskervville SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The specimen shows the 'Legibility Pairs (Zoomed)' section, where 'Oo' are shown together. The distinction is not clear enough for coding.",
+      "thought": "This font is not suitable for coding. It is a serif font, and the specimen shows that the distinctions between 0 and O are not clear enough for coding purposes. | The specimen shows the 'Legibility Pairs (Zoomed)' section, where 'Oo' are shown together. The distinction is not clear enough for coding."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Cormorant",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a serif font, which is not typically used for coding. The sample does not show a clear distinction between 0 and O.",
+      "thought": "This font is not suitable for coding. It is a serif font, and the sample does not show a clear distinction between 0 and O. | The font is a serif font, which is not typically used for coding. The sample does not show a clear distinction between 0 and O."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Doppio One",
+      "ai_match": 1,
+      "confidence": 1.0,
+      "evidence": "The 'Legibility Pairs (Zoomed)' section clearly shows the distinction between '0' and 'O'. The zero has a dot inside, while the uppercase O is a plain oval.",
+      "thought": "The font specimen includes a zoomed-in view of potentially ambiguous character pairs, including '0' and 'O', which is helpful for evaluating its suitability as a coding font. | The 'Legibility Pairs (Zoomed)' section clearly shows the distinction between '0' and 'O'. The zero has a dot inside, while the uppercase O is a plain oval."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Tiro Devanagari Sanskrit",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The specimen shows the capital 'O' and the number '0' are very similar in shape, making them difficult to distinguish in a coding context.",
+      "thought": "This font is a serif font, which is not typically used for coding. The distinction between 0 and O is not clear. | The specimen shows the capital 'O' and the number '0' are very similar in shape, making them difficult to distinguish in a coding context."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Workbench",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's extreme stylization makes it unsuitable for coding, as the letterforms are not easily distinguishable.",
+      "thought": "This font is highly stylized and decorative, making it unsuitable for coding or rugged outdoor display purposes. The extreme stylization compromises legibility and practicality for the specified use cases. | The font's extreme stylization makes it unsuitable for coding, as the letterforms are not easily distinguishable."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Workbench",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the rugged, outdoorsy aesthetic required for camping gear. Its decorative nature is not aligned with the query's intent.",
+      "thought": "This font is highly stylized and decorative, making it unsuitable for coding or rugged outdoor display purposes. The extreme stylization compromises legibility and practicality for the specified use cases. | The font lacks the rugged, outdoorsy aesthetic required for camping gear. Its decorative nature is not aligned with the query's intent."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Babylonica",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The flowing, elegant letterforms, especially visible in the uppercase 'A' and 'B', suggest a gentle script suitable for wedding invitations.",
+      "thought": "This font is a highly stylized script with calligraphic elements. It has a gentle, flowing quality suitable for elegant applications. | The flowing, elegant letterforms, especially visible in the uppercase 'A' and 'B', suggest a gentle script suitable for wedding invitations."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Edu NSW ACT Foundation",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The lowercase 'g' and 'y' have a playful, informal loop. The overall style is too casual for a wedding invitation.",
+      "thought": "This font has a handwritten script style, but it is not elegant or refined enough for wedding invitations. It is more casual and playful. | The lowercase 'g' and 'y' have a playful, informal loop. The overall style is too casual for a wedding invitation."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Over the Rainbow",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The lowercase 'g' and 'a' have gentle, flowing curves, characteristic of a script font suitable for wedding invitations.",
+      "thought": "The font has a handwritten script style with gentle curves, making it suitable for wedding invitations. | The lowercase 'g' and 'a' have gentle, flowing curves, characteristic of a script font suitable for wedding invitations."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Playwrite CZ Guides",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The lowercase 'a' and 'g' exhibit gentle curves and a flowing script style.",
+      "thought": "The font is a flowing script with gentle curves, making it suitable for wedding invitations. | The lowercase 'a' and 'g' exhibit gentle curves and a flowing script style."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Playwrite RO Guides",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The lowercase 'g' and uppercase 'A' exhibit gentle curves and a flowing script style.",
+      "thought": "This font is a classic script style with gentle curves and a flowing rhythm, making it suitable for elegant applications like wedding invitations. | The lowercase 'g' and uppercase 'A' exhibit gentle curves and a flowing script style."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Basic",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's clean, uniform strokes and lack of texture or distressed elements do not align with the 'rugged outdoor' aesthetic.",
+      "thought": "This font is a clean, modern sans-serif. It lacks the ruggedness typically associated with outdoor or camping themes. Its geometric forms are present but not emphasized in a way that evokes a sense of adventure or the outdoors. | The font's clean, uniform strokes and lack of texture or distressed elements do not align with the 'rugged outdoor' aesthetic."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Cairo",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's clean lines and lack of texture do not evoke a rugged, outdoor feel.",
+      "thought": "The font is a sans-serif with a clean, modern appearance. It lacks the ruggedness typically associated with outdoor or camping themes. Its geometric forms are too refined for such applications. | The font's clean lines and lack of texture do not evoke a rugged, outdoor feel."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Kotta One",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's flowing, cursive style is not suitable for a rugged outdoor theme.",
+      "thought": "This font is a cursive script, which does not align with the rugged, outdoor, or display font characteristics requested in the query. | The font's flowing, cursive style is not suitable for a rugged outdoor theme."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Noto Sans Batak",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's clean lines and lack of texture do not evoke a rugged outdoor feel.",
+      "thought": "This font is a clean, geometric sans-serif. It lacks the ruggedness typically associated with outdoor or camping themes. | The font's clean lines and lack of texture do not evoke a rugged outdoor feel."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Overpass Mono",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font's clean, geometric shapes and lack of texture do not evoke a rugged or outdoor feel.",
+      "thought": "This font is a clean, geometric sans-serif. It lacks the ruggedness typically associated with outdoor or camping themes. Its simplicity makes it more suitable for modern, minimalist designs rather than conveying a sense of adventure or the outdoors. | The font's clean, geometric shapes and lack of texture do not evoke a rugged or outdoor feel."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Anek Latin",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'Legibility Pairs' section shows clear differentiation between characters like 'il1I' and '0O'. The font is also monospace.",
+      "thought": "The font is monospace and has good distinguishability between characters, making it suitable for data tables. | The 'Legibility Pairs' section shows clear differentiation between characters like 'il1I' and '0O'. The font is also monospace."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Fragment Mono",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'Legibility Pairs' section shows clear differentiation between characters like 'il1I' and '0O', and the full character set confirms monospace spacing.",
+      "thought": "The font appears to be monospace and has good distinguishability between characters, making it suitable for data tables. | The 'Legibility Pairs' section shows clear differentiation between characters like 'il1I' and '0O', and the full character set confirms monospace spacing."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Martian Mono",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'il1I' and '0O' pairs are clearly distinguishable. The monospace nature is evident from the consistent width of the characters.",
+      "thought": "The font is monospace and has good letterform differentiation, making it suitable for data tables. | The 'il1I' and '0O' pairs are clearly distinguishable. The monospace nature is evident from the consistent width of the characters."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Monofett",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is monospace, as evidenced by the consistent width of the characters.",
+      "thought": "This font is monospace, but its extreme roundness and lack of clear differentiation between characters makes it unsuitable for data tables. | The font is monospace, as evidenced by the consistent width of the characters."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Noto Serif Grantha",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The glyphs clearly have variable widths, as seen in the full character set.",
+      "thought": "This font is not monospace. It is a serif font with variable width characters. Therefore, it cannot be a match for any query requiring monospace. | The glyphs clearly have variable widths, as seen in the full character set."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Overlock SC",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'Legibility Pairs' section shows clear differentiation between characters like 'I', 'l', and '1', and the monospaced nature is evident in the 'Contrast & Rhythm Strip'.",
+      "thought": "The font is monospaced and has good readability, making it suitable for data tables. | The 'Legibility Pairs' section shows clear differentiation between characters like 'I', 'l', and '1', and the monospaced nature is evident in the 'Contrast & Rhythm Strip'."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "leaderboard": {
+    "Gemini 3 Flash Preview (Baseline)": {
+      "agreement": 0.6923,
+      "precision": 0.7121,
+      "recall": 0.4519,
+      "f1": 0.5529,
+      "tp": 47,
+      "fp": 19,
+      "fn": 57,
+      "tn": 124,
+      "total": 247
+    },
+    "Qwen 235B (Baseline)": {
+      "agreement": 0.5385,
+      "precision": 0.4265,
+      "recall": 0.2788,
+      "f1": 0.3372,
+      "tp": 29,
+      "fp": 39,
+      "fn": 75,
+      "tn": 104,
+      "total": 247
+    },
+    "VL-Plus (Baseline)": {
+      "agreement": 0.3806,
+      "precision": 0.3744,
+      "recall": 0.7019,
+      "f1": 0.4883,
+      "tp": 73,
+      "fp": 122,
+      "fn": 31,
+      "tn": 21,
+      "total": 247
+    },
+    "FontCLIP-Proxy (Baseline)": {
+      "agreement": 0.583,
+      "precision": 0.5072,
+      "recall": 0.3365,
+      "f1": 0.4046,
+      "tp": 35,
+      "fp": 34,
+      "fn": 69,
+      "tn": 109,
+      "total": 247
+    },
+    "Fusion (G3 AND FontCLIP)": {
+      "agreement": 0.6559,
+      "precision": 0.7714,
+      "recall": 0.2596,
+      "f1": 0.3885,
+      "tp": 27,
+      "fp": 8,
+      "fn": 77,
+      "tn": 135,
+      "total": 247
+    },
+    "Fusion (G3 OR FontCLIP)": {
+      "agreement": 0.6194,
+      "precision": 0.55,
+      "recall": 0.5288,
+      "f1": 0.5392,
+      "tp": 55,
+      "fp": 45,
+      "fn": 49,
+      "tn": 98,
+      "total": 247
+    },
+    "Fusion (Qwen OR FontCLIP)": {
+      "agreement": 0.5709,
+      "precision": 0.4904,
+      "recall": 0.4904,
+      "f1": 0.4904,
+      "tp": 51,
+      "fp": 53,
+      "fn": 53,
+      "tn": 90,
+      "total": 247
+    },
+    "Majority Vote (G3, Qwen, FC)": {
+      "agreement": 0.6154,
+      "precision": 0.5714,
+      "recall": 0.3462,
+      "f1": 0.4311,
+      "tp": 36,
+      "fp": 27,
+      "fn": 68,
+      "tn": 116,
+      "total": 247
+    },
+    "Weighted Voter (G3, Qwen, FC)": {
+      "agreement": 0.6923,
+      "precision": 0.7121,
+      "recall": 0.4519,
+      "f1": 0.5529,
+      "tp": 47,
+      "fp": 19,
+      "fn": 57,
+      "tn": 124,
+      "total": 247
+    },
+    "Query-Aware (Visual:OR, Semantic:AND)": {
+      "agreement": 0.6316,
+      "precision": 0.6275,
+      "recall": 0.3077,
+      "f1": 0.4129,
+      "tp": 32,
+      "fp": 19,
+      "fn": 72,
+      "tn": 124,
+      "total": 247
+    },
+    "Gating (Support-based with G3 Tie-breaker)": {
+      "agreement": 0.6559,
+      "precision": 0.6234,
+      "recall": 0.4615,
+      "f1": 0.5304,
+      "tp": 48,
+      "fp": 29,
+      "fn": 56,
+      "tn": 114,
+      "total": 247
+    }
+  },
+  "best_config_weighted": "((0.25, 0.0, 0.0), np.float64(0.1))",
+  "total_failures": 76
+}
