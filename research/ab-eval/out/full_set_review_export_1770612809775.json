@@ -1,0 +1,3957 @@
+{
+  "timestamp": "2026-02-09T04:53:29.774Z",
+  "decisions": [
+    {
+      "query_id": "cq_002",
+      "font_name": "Alata",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Farro",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Geom",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Golos Text",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Holtwood One SC",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "JetBrains Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Kumbh Sans",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "LXGW WenKai Mono TC",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Lalezar",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Ovo",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Sometype Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "TASA Orbiter",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Encode Sans Condensed",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Goblin One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Kumbh Sans",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Londrina Sketch",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Major Mono Display",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Marcellus SC",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Nova Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Playwrite CL Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Rancho",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Sixtyfour",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tai Heritage Pro",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tektur",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tienne",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Big Shoulders",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Farro",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Goblin One",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Jersey 20",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Marko One",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Playwrite CL Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Playwrite NZ Basic Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Port Lligat Slab",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Share Tech Mono",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Underdog",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Yuji Syuku",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Atma",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Baloo Paaji 2",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Delius Swash Caps",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Hubballi",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "LXGW WenKai Mono TC",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "M PLUS 1 Code",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Madimi One",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Marko One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Nova Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Playwrite DE SAS",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Sometype Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Ubuntu Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Edu VIC WA NT Beginner",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Ga Maamli",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Macondo",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Ms Madi",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Patrick Hand",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Playwrite US Trad Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Port Lligat Slab",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Send Flowers",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Tai Heritage Pro",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Tiro Tamil",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Artifika",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Atma",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Bungee Shade",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Calligraffitti",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Faster One",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Madimi One",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite BE WAL Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite BR Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite CL Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Rubik Storm",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Albert Sans",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "B612 Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Chivo Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Elsie Swash Caps",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Esteban",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "IM Fell French Canon",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Kumbh Sans",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Merienda",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Metrophobic",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Playwrite NZ Basic Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Sometype Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Source Serif Pro",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Underdog",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "VT323",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "WDXL Lubrifont SC",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Courier Prime",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Google Sans Code",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "IBM Plex Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Lalezar",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Noto Sans Nag Mundari",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Reddit Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Saira Extra Condensed",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Sixtyfour",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Source Code Pro",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Space Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Suravaram",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Actor",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Albert Sans",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Artifika",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Courier Prime",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Edu VIC WA NT Beginner",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Encode Sans Condensed",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Esteban",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Galdeano",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Kumar One Outline",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Lalezar",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Manuale",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Marcellus SC",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Noto Sans Nag Mundari",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Playwrite FR Trad",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Roboto Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Suravaram",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Ubuntu Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Calistoga",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Federant",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Marko One",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Merienda",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Playwrite CL Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Playwrite NZ Basic Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Quattrocento",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Reem Kufi Fun",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Sarina",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Tienne",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Underdog",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Anonymous Pro",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Artifika",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Bentham",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Bubblegum Sans",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Courier Prime",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Elsie Swash Caps",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Google Sans Code",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "IBM Plex Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Merienda",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Noto Serif Lao",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Playpen Sans Hebrew",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Playwrite BR Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Suravaram",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Tenali Ramakrishna",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Holtwood One SC",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Jersey 20",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Material Symbols",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Pangolin",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Passion One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Rubik Storm",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Syne Mono",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Alata",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Bungee Inline",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Federant",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Iceberg",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Kumar One",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Kumbh Sans",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Noto Sans Nag Mundari",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Reddit Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Roboto Flex",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "TASA Orbiter",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Amaranth",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Anonymous Pro",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Antic Slab",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Courier Prime",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Fira Mono",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Goblin One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "IBM Plex Mono",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Kurale",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Macondo",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Noto Rashi Hebrew",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Noto Sans Adlam",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Noto Sans Balinese",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "PT Mono",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Passion One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Sixtyfour",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Tienne",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Xanh Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Yuji Syuku",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Antic Slab",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Lalezar",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Noto Serif Lao",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Ovo",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Playwrite NG Modern Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Port Lligat Slab",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Syne Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Baloo Paaji 2",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Bubblegum Sans",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Cousine",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Encode Sans Expanded",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Federant",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Manuale",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Nova Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Passion One",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Playwrite BE WAL Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Reem Kufi Fun",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Source Code Pro",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Spectral SC",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Train One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Ubuntu Sans Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Antic Slab",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Artifika",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Baskervville SC",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Bentham",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Cormorant",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Doppio One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Goblin One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Metrophobic",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Playwrite CL Guides",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Source Serif Pro",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Syne Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Tiro Devanagari Sanskrit",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Underdog",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Workbench",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Babylonica",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Edu NSW ACT Foundation",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Over the Rainbow",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Playwrite CZ Guides",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Playwrite RO Guides",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Rancho",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Basic",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Bungee Inline",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Cairo",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Goblin One",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Kotta One",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Madimi One",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Major Mono Display",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Noto Sans Batak",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Overpass Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Reddit Mono",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Share Tech Mono",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Sixtyfour",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Source Code Pro",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "TASA Orbiter",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Underdog",
+      "casey_label": 2,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Workbench",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Albert Sans",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Anek Latin",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Bungee Inline",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Fragment Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "IBM Plex Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "JetBrains Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Martian Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Monofett",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Noto Serif Grantha",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 1,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 0,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Overlock SC",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Roboto Flex",
+      "casey_label": 0,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": true
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": false
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Roboto Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Sometype Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Space Mono",
+      "casey_label": 1,
+      "overall_vote": "",
+      "models": {
+        "qwen235b": {
+          "match": 0,
+          "is_correct": false
+        },
+        "vl_plus": {
+          "match": 1,
+          "is_correct": true
+        }
+      }
+    }
+  ]
+}

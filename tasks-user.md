@@ -47,10 +47,6 @@ delegate a task right now for architect to generate a visual, interactive human-
 
 
 
----
----
----
-
 
 ## SSoT 
 
@@ -74,6 +70,25 @@ then regenerate the html for human review
 
 
 
+/research/ab-eval/out/full_set_review_export_1770612809775.json 
+has been populated with final SSoT data from user - some previous user-inputs were ammended. 
+- first:
+  - use gemini api key (already in .env) to test google/gemini-2.5-flash-lite-preview-09-2025 comprehensively on the same dataset
+  - the full_comparison.py did not get the batch-processing upgrade that run_spot_check_alignment_models.py did - implement this in the full_comparison script BEFORE rerunning it with 2.5 flash lite
+- add 2.5 flash lite to the metrics calculation / comparison
+- use this data to rerun the metrics against the existing LLM responses
+- report updated metrics using:
+  - ammended SSoT from human in review_export json
+  - added flash lite model responses
+
+
+
+---
+---
+---
+
+some of the font 'specimens' have overlapping content
+- example: research\ab-eval\out\specimens_v2_medium_nobias\Playwrite_BE_WAL_Guides.png
 
 
 
@@ -84,10 +99,7 @@ then regenerate the html for human review
 
 
 
-
-
-
-
+check that actual metadata that is relevant (e.g. display/monospace etc) gets into RAG input
 
 
 ## see results from a deep-research session:
@@ -101,7 +113,6 @@ please prioritize improving and validating core-functionality quality through ta
 
 
 ## test more models over qwen3 235b, for better quality?
-  - qwen/qwen-vl-plus
   - moonshotai/kimi-k2.5 
   - openai/gpt-5.2
 

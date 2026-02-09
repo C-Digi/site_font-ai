@@ -17,13 +17,14 @@ def load_env():
 load_env()
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 def image_to_data_url(image_path: Path) -> str:
     b = image_path.read_bytes()
     b64 = base64.b64encode(b).decode("utf-8")
     return f"data:image/png;base64,{b64}"
 
-def call_openrouter(query: str, image_path: Path, model: str) -> Dict[str, Any]:
+def call_openrouter_batched(queries: List[str], image_path: Path, model: str) -> Dict[str, Any]:
     if not OPENROUTER_API_KEY:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
         
@@ -33,18 +34,26 @@ def call_openrouter(query: str, image_path: Path, model: str) -> Dict[str, Any]:
         "Content-Type": "application/json",
     }
     
+    queries_formatted = "\n".join([f"{i+1}. \"{q}\"" for i, q in enumerate(queries)])
+    
     # FONT NAME REMOVED FROM PROMPT TO PREVENT BIAS
-    prompt = f"""You are a typography expert judging font relevance to a query.
-Query: "{query}"
+    prompt = f"""You are a typography expert judging font relevance to multiple queries.
 
 Analyze the provided specimen image for this font. 
 Pay close attention to the "Legibility Pairs" (il1I, O0, etc.) and character forms.
-Determine if this font is a good match for the query.
+Determine if this font is a good match for EACH of the following queries.
+
+Queries:
+{queries_formatted}
 
 Return STRICT JSON only (no markdown blocks, no prose):
 {{
-  "thought": "your reasoning here, referencing visual details from the image",
-  "match": 1 or 0
+  "thought": "your overall reasoning here, referencing visual details from the image",
+  "matches": [
+    {{"query_index": 1, "match": 1 or 0}},
+    {{"query_index": 2, "match": 1 or 0}},
+    ...
+  ]
 }}
 """
     
@@ -105,7 +114,109 @@ Return STRICT JSON only (no markdown blocks, no prose):
     except json.JSONDecodeError:
         return {
             "thought": f"Failed to parse JSON. Raw content: {content}",
-            "match": 0,
+            "matches": [{"query_index": i+1, "match": 0} for i in range(len(queries))],
+            "latency_sec": round(latency, 2)
+        }
+
+def call_gemini_batched(queries: List[str], image_path: Path, model: str) -> Dict[str, Any]:
+    if not GEMINI_API_KEY:
+        raise RuntimeError("GEMINI_API_KEY is not set")
+        
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
+    headers = {
+        "Content-Type": "application/json",
+    }
+    
+    queries_formatted = "\n".join([f"{i+1}. \"{q}\"" for i, q in enumerate(queries)])
+    
+    prompt = f"""You are a typography expert judging font relevance to multiple queries.
+
+Analyze the provided specimen image for this font. 
+Pay close attention to the "Legibility Pairs" (il1I, O0, etc.) and character forms.
+Determine if this font is a good match for EACH of the following queries.
+
+Queries:
+{queries_formatted}
+
+Return STRICT JSON only (no markdown blocks, no prose):
+{{
+  "thought": "your overall reasoning here, referencing visual details from the image",
+  "matches": [
+    {{"query_index": 1, "match": 1 or 0}},
+    {{"query_index": 2, "match": 1 or 0}},
+    ...
+  ]
+}}
+"""
+    
+    with open(image_path, "rb") as f:
+        img_data = base64.b64encode(f.read()).decode("utf-8")
+
+    payload = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt},
+                    {
+                        "inline_data": {
+                            "mime_type": "image/png",
+                            "data": img_data
+                        }
+                    }
+                ]
+            }
+        ],
+        "generationConfig": {
+            "temperature": 0.1,
+            "response_mime_type": "application/json"
+        }
+    }
+    
+    t0 = time.time()
+    for attempt in range(5):
+        try:
+            resp = requests.post(url, headers=headers, json=payload, timeout=180)
+            if resp.status_code == 429:
+                print(f"  Rate limited. Sleeping 15s...")
+                time.sleep(15)
+                continue
+            if resp.status_code == 503:
+                print(f"  Model overloaded. Sleeping 20s...")
+                time.sleep(20)
+                continue
+            if not resp.ok:
+                print(f"  Gemini Error {resp.status_code}: {resp.text}")
+                time.sleep(10)
+                continue
+            break
+        except Exception as e:
+            print(f"  Attempt {attempt+1} failed: {e}")
+            time.sleep(10)
+    else:
+        raise RuntimeError(f"Failed to call Gemini after 5 attempts")
+        
+    latency = time.time() - t0
+    
+    body = resp.json()
+    try:
+        content = body['candidates'][0]['content']['parts'][0]['text'].strip()
+    except (KeyError, IndexError):
+        raise RuntimeError(f"Gemini returned unexpected format: {body}")
+    
+    # Clean up JSON if necessary
+    if content.startswith("```json"):
+        content = content[7:-3].strip()
+    elif content.startswith("```"):
+        content = content[3:-3].strip()
+        
+    try:
+        data = json.loads(content)
+        data['latency_sec'] = round(latency, 2)
+        return data
+    except json.JSONDecodeError:
+        return {
+            "thought": f"Failed to parse JSON. Raw content: {content}",
+            "matches": [{"query_index": i+1, "match": 0} for i in range(len(queries))],
             "latency_sec": round(latency, 2)
         }
 
@@ -158,51 +269,76 @@ def main():
     results = []
     if cache_file.exists():
         with open(cache_file, "r") as f:
-            results = json.load(f).get("details", [])
+            data = json.load(f)
+            if isinstance(data, dict) and "details" in data:
+                results = data["details"]
+            elif isinstance(data, list):
+                results = data
             print(f"Loaded {len(results)} existing results from cache.")
 
     completed_keys = set((r["query_id"], r["font_name"]) for r in results)
     
-    todo = []
+    # Group todo by font
+    font_to_queries = {}
     for qid, fonts in pool.items():
         for font in fonts:
             if (qid, font) not in completed_keys:
-                todo.append((qid, font))
+                if font not in font_to_queries:
+                    font_to_queries[font] = []
+                font_to_queries[font].append(qid)
     
-    print(f"Total pairs to evaluate for {args.model}: {len(todo)}")
+    total_pairs = sum(len(qids) for qids in font_to_queries.values())
+    print(f"Total pairs to evaluate for {args.model}: {total_pairs} across {len(font_to_queries)} fonts")
     
+    processed_count = 0
     try:
-        for i, (qid, font) in enumerate(todo):
-            print(f"[{i+1}/{len(todo)}] Evaluating {qid} | {font}")
-            
-            image_path = specimen_dir / f"{font.replace(' ', '_')}.png"
+        for font_name, qids in font_to_queries.items():
+            image_path = specimen_dir / f"{font_name.replace(' ', '_')}.png"
             if not image_path.exists():
                 print(f"  WARNING: Specimen not found at {image_path}")
+                processed_count += len(qids)
                 continue
                 
-            query_text = query_map.get(qid, "Unknown query")
+            print(f"Evaluating {font_name} ({len(qids)} queries)...", end="", flush=True)
             
-            # Call AI
-            ai_resp = call_openrouter(query_text, image_path, args.model)
+            # Split into batches of 10
+            last_latency = 0
+            for i in range(0, len(qids), 10):
+                batch_qids = qids[i:i+10]
+                batch_query_texts = [query_map.get(qid, "Unknown query") for qid in batch_qids]
+                
+                if "gemini" in args.model.lower() and not ("openrouter" in args.model.lower() or "google/" in args.model.lower()):
+                    ai_resp = call_gemini_batched(batch_query_texts, image_path, args.model)
+                else:
+                    ai_resp = call_openrouter_batched(batch_query_texts, image_path, args.model)
+
+                matches_map = {m['query_index']: m['match'] for m in ai_resp.get('matches', [])}
+                last_latency = ai_resp.get('latency_sec', 0)
+                
+                for idx, qid in enumerate(batch_qids):
+                    human_match = 1 if font_name in labels_pos.get(qid, []) else 0
+                    ai_match = matches_map.get(idx + 1, 0)
+                    
+                    res = {
+                        "query_id": qid,
+                        "query_text": query_map.get(qid, "Unknown query"),
+                        "font_name": font_name,
+                        "human_match": human_match,
+                        "ai_match": ai_match,
+                        "thought": ai_resp.get("thought", ""),
+                        "latency_sec": last_latency
+                    }
+                    results.append(res)
+                
+                processed_count += len(batch_qids)
             
-            # Get human label
-            human_match = 1 if font in labels_pos.get(qid, []) else 0
-            
-            res = {
-                "query_id": qid,
-                "query_text": query_text,
-                "font_name": font,
-                "human_match": human_match,
-                "ai_match": ai_resp.get("match", 0),
-                "thought": ai_resp.get("thought", ""),
-                "latency_sec": ai_resp.get("latency_sec", 0)
-            }
-            results.append(res)
+            print(f" Done ({last_latency}s)")
             
             # Intermediate save
-            if (i + 1) % 5 == 0:
-                with open(cache_file, "w") as f:
-                    json.dump({"details": results}, f, indent=2)
+            with open(cache_file, "w") as f:
+                json.dump({"details": results}, f, indent=2)
+            
+            time.sleep(2) # politeness
                     
     except KeyboardInterrupt:
         print("Interrupted. Saving progress...")
@@ -238,12 +374,13 @@ def main():
                 
     # Summary report (Markdown)
     report_path = out_dir / args.output.replace(".json", ".md")
+    source = "Gemini API" if "gemini" in args.model.lower() and "google/" not in args.model.lower() else "OpenRouter"
     report = f"""# Evaluation Report: {args.model}
 Generated on: {time.strftime('%Y-%m-%d %H:%M:%S')}
 
 ## Run Configuration
 - **Model:** `{args.model}`
-- **Source:** OpenRouter
+- **Source:** {source}
 - **Bias Prevention:** Font name removed from prompt and specimen image.
 - **Population:** `candidate_pool.medium.v1.json` (Full set)
 - **Ground Truth:** `labels.medium.human.v1.json` (Human labeling)

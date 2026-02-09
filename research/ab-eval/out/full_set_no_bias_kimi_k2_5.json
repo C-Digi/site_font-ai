@@ -1,0 +1,346 @@
+{
+  "details": [
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Grand Hotel",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a monoline script font with connected lowercase letters and decorative uppercase capitals featuring loops and curls. The stroke width is consistent throughout (confirmed by the contrast strip), and the overall style is casual, organic, and flowing rather than geometric or angular. Key observations: 1) Not geometric sans - it's a script font with cursive connections, not built from perfect circles and straight lines like Futura. 2) Not monospace - letters have clearly varying widths (proportional spacing). 3) Not a serif font - it lacks serifs entirely, being a script/sans-serif hybrid. 4) Good match for vintage/nostalgic display - the decorative uppercase and flowing lowercase evoke vintage signage and mid-century script styles suitable for poster display, though it's more casual than formal 1920s Art Deco scripts. 5) Not Art Deco - lacks the geometric angularity, high contrast, and architectural precision characteristic of Art Deco typography. 6) Not rugged outdoor - smooth, flowing curves with no texture or distressed rugged qualities.",
+      "latency_sec": 145.32
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Grand Hotel",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a monoline script font with connected lowercase letters and decorative uppercase capitals featuring loops and curls. The stroke width is consistent throughout (confirmed by the contrast strip), and the overall style is casual, organic, and flowing rather than geometric or angular. Key observations: 1) Not geometric sans - it's a script font with cursive connections, not built from perfect circles and straight lines like Futura. 2) Not monospace - letters have clearly varying widths (proportional spacing). 3) Not a serif font - it lacks serifs entirely, being a script/sans-serif hybrid. 4) Good match for vintage/nostalgic display - the decorative uppercase and flowing lowercase evoke vintage signage and mid-century script styles suitable for poster display, though it's more casual than formal 1920s Art Deco scripts. 5) Not Art Deco - lacks the geometric angularity, high contrast, and architectural precision characteristic of Art Deco typography. 6) Not rugged outdoor - smooth, flowing curves with no texture or distressed rugged qualities.",
+      "latency_sec": 145.32
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Grand Hotel",
+      "human_match": 1,
+      "ai_match": 0,
+      "thought": "The specimen shows a monoline script font with connected lowercase letters and decorative uppercase capitals featuring loops and curls. The stroke width is consistent throughout (confirmed by the contrast strip), and the overall style is casual, organic, and flowing rather than geometric or angular. Key observations: 1) Not geometric sans - it's a script font with cursive connections, not built from perfect circles and straight lines like Futura. 2) Not monospace - letters have clearly varying widths (proportional spacing). 3) Not a serif font - it lacks serifs entirely, being a script/sans-serif hybrid. 4) Good match for vintage/nostalgic display - the decorative uppercase and flowing lowercase evoke vintage signage and mid-century script styles suitable for poster display, though it's more casual than formal 1920s Art Deco scripts. 5) Not Art Deco - lacks the geometric angularity, high contrast, and architectural precision characteristic of Art Deco typography. 6) Not rugged outdoor - smooth, flowing curves with no texture or distressed rugged qualities.",
+      "latency_sec": 145.32
+    },
+    {
+      "query_id": "cq_019",
+      "query_text": "nostalgic and vintage display font for a 1920s poster",
+      "font_name": "Grand Hotel",
+      "human_match": 1,
+      "ai_match": 1,
+      "thought": "The specimen shows a monoline script font with connected lowercase letters and decorative uppercase capitals featuring loops and curls. The stroke width is consistent throughout (confirmed by the contrast strip), and the overall style is casual, organic, and flowing rather than geometric or angular. Key observations: 1) Not geometric sans - it's a script font with cursive connections, not built from perfect circles and straight lines like Futura. 2) Not monospace - letters have clearly varying widths (proportional spacing). 3) Not a serif font - it lacks serifs entirely, being a script/sans-serif hybrid. 4) Good match for vintage/nostalgic display - the decorative uppercase and flowing lowercase evoke vintage signage and mid-century script styles suitable for poster display, though it's more casual than formal 1920s Art Deco scripts. 5) Not Art Deco - lacks the geometric angularity, high contrast, and architectural precision characteristic of Art Deco typography. 6) Not rugged outdoor - smooth, flowing curves with no texture or distressed rugged qualities.",
+      "latency_sec": 145.32
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Grand Hotel",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a monoline script font with connected lowercase letters and decorative uppercase capitals featuring loops and curls. The stroke width is consistent throughout (confirmed by the contrast strip), and the overall style is casual, organic, and flowing rather than geometric or angular. Key observations: 1) Not geometric sans - it's a script font with cursive connections, not built from perfect circles and straight lines like Futura. 2) Not monospace - letters have clearly varying widths (proportional spacing). 3) Not a serif font - it lacks serifs entirely, being a script/sans-serif hybrid. 4) Good match for vintage/nostalgic display - the decorative uppercase and flowing lowercase evoke vintage signage and mid-century script styles suitable for poster display, though it's more casual than formal 1920s Art Deco scripts. 5) Not Art Deco - lacks the geometric angularity, high contrast, and architectural precision characteristic of Art Deco typography. 6) Not rugged outdoor - smooth, flowing curves with no texture or distressed rugged qualities.",
+      "latency_sec": 145.32
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Grand Hotel",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a monoline script font with connected lowercase letters and decorative uppercase capitals featuring loops and curls. The stroke width is consistent throughout (confirmed by the contrast strip), and the overall style is casual, organic, and flowing rather than geometric or angular. Key observations: 1) Not geometric sans - it's a script font with cursive connections, not built from perfect circles and straight lines like Futura. 2) Not monospace - letters have clearly varying widths (proportional spacing). 3) Not a serif font - it lacks serifs entirely, being a script/sans-serif hybrid. 4) Good match for vintage/nostalgic display - the decorative uppercase and flowing lowercase evoke vintage signage and mid-century script styles suitable for poster display, though it's more casual than formal 1920s Art Deco scripts. 5) Not Art Deco - lacks the geometric angularity, high contrast, and architectural precision characteristic of Art Deco typography. 6) Not rugged outdoor - smooth, flowing curves with no texture or distressed rugged qualities.",
+      "latency_sec": 145.32
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Ovo",
+      "human_match": 1,
+      "ai_match": 0,
+      "thought": "The specimen shows a refined serif typeface with bracketed serifs (visible on 'A', 'b', 'I'), high stroke contrast (evident in the 'Contrast Strip' and letterforms like 'A' and 'g'), and classical proportions. It is clearly not a sans-serif, eliminating queries 1 and 2. The serifs are delicate and bracketed rather than heavy/block-like slab serifs, ruling out query 3. The font demonstrates excellent readability at 8pt, 12pt, and 24pt with clean, elegant lines suitable for body text, not rugged outdoor display applications, eliminating query 4. The 'Legibility Pairs' (il1I, O0, rn/m) show careful distinction for text clarity, reinforcing its identity as a traditional text serif rather than geometric, rounded, slab, or display categories.",
+      "latency_sec": 47.66
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Ovo",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a refined serif typeface with bracketed serifs (visible on 'A', 'b', 'I'), high stroke contrast (evident in the 'Contrast Strip' and letterforms like 'A' and 'g'), and classical proportions. It is clearly not a sans-serif, eliminating queries 1 and 2. The serifs are delicate and bracketed rather than heavy/block-like slab serifs, ruling out query 3. The font demonstrates excellent readability at 8pt, 12pt, and 24pt with clean, elegant lines suitable for body text, not rugged outdoor display applications, eliminating query 4. The 'Legibility Pairs' (il1I, O0, rn/m) show careful distinction for text clarity, reinforcing its identity as a traditional text serif rather than geometric, rounded, slab, or display categories.",
+      "latency_sec": 47.66
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Ovo",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a refined serif typeface with bracketed serifs (visible on 'A', 'b', 'I'), high stroke contrast (evident in the 'Contrast Strip' and letterforms like 'A' and 'g'), and classical proportions. It is clearly not a sans-serif, eliminating queries 1 and 2. The serifs are delicate and bracketed rather than heavy/block-like slab serifs, ruling out query 3. The font demonstrates excellent readability at 8pt, 12pt, and 24pt with clean, elegant lines suitable for body text, not rugged outdoor display applications, eliminating query 4. The 'Legibility Pairs' (il1I, O0, rn/m) show careful distinction for text clarity, reinforcing its identity as a traditional text serif rather than geometric, rounded, slab, or display categories.",
+      "latency_sec": 47.66
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Ovo",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a refined serif typeface with bracketed serifs (visible on 'A', 'b', 'I'), high stroke contrast (evident in the 'Contrast Strip' and letterforms like 'A' and 'g'), and classical proportions. It is clearly not a sans-serif, eliminating queries 1 and 2. The serifs are delicate and bracketed rather than heavy/block-like slab serifs, ruling out query 3. The font demonstrates excellent readability at 8pt, 12pt, and 24pt with clean, elegant lines suitable for body text, not rugged outdoor display applications, eliminating query 4. The 'Legibility Pairs' (il1I, O0, rn/m) show careful distinction for text clarity, reinforcing its identity as a traditional text serif rather than geometric, rounded, slab, or display categories.",
+      "latency_sec": 47.66
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Rubik Storm",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The font specimen shows a bitmap/pixel font constructed from a visible grid of square pixels, characteristic of early computer displays and 8-bit graphics. The characters have jagged, pixelated edges and appear to be monospace. The 'Legibility Pairs' section (il1I, O0, rn/m, vv/w, e/o) tests classic computer font differentiations. The contrast strip shows horizontal pixel lines. The O and 0 characters are pixelated octagons, not perfect circles. The style is technical and digital, not organic, playful, or rugged. This is definitively a retro computer font aesthetic.",
+      "latency_sec": 13.15
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Rubik Storm",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The font specimen shows a bitmap/pixel font constructed from a visible grid of square pixels, characteristic of early computer displays and 8-bit graphics. The characters have jagged, pixelated edges and appear to be monospace. The 'Legibility Pairs' section (il1I, O0, rn/m, vv/w, e/o) tests classic computer font differentiations. The contrast strip shows horizontal pixel lines. The O and 0 characters are pixelated octagons, not perfect circles. The style is technical and digital, not organic, playful, or rugged. This is definitively a retro computer font aesthetic.",
+      "latency_sec": 13.15
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Rubik Storm",
+      "human_match": 0,
+      "ai_match": 1,
+      "thought": "The font specimen shows a bitmap/pixel font constructed from a visible grid of square pixels, characteristic of early computer displays and 8-bit graphics. The characters have jagged, pixelated edges and appear to be monospace. The 'Legibility Pairs' section (il1I, O0, rn/m, vv/w, e/o) tests classic computer font differentiations. The contrast strip shows horizontal pixel lines. The O and 0 characters are pixelated octagons, not perfect circles. The style is technical and digital, not organic, playful, or rugged. This is definitively a retro computer font aesthetic.",
+      "latency_sec": 13.15
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "Rubik Storm",
+      "human_match": 1,
+      "ai_match": 0,
+      "thought": "The font specimen shows a bitmap/pixel font constructed from a visible grid of square pixels, characteristic of early computer displays and 8-bit graphics. The characters have jagged, pixelated edges and appear to be monospace. The 'Legibility Pairs' section (il1I, O0, rn/m, vv/w, e/o) tests classic computer font differentiations. The contrast strip shows horizontal pixel lines. The O and 0 characters are pixelated octagons, not perfect circles. The style is technical and digital, not organic, playful, or rugged. This is definitively a retro computer font aesthetic.",
+      "latency_sec": 13.15
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "TASA Orbiter",
+      "human_match": 1,
+      "ai_match": 1,
+      "thought": "The specimen shows a clean, modern sans-serif typeface with monoline stroke weight (evidenced by the uniform vertical lines in the Contrast Strip). The uppercase O, C, and Q appear as perfect circles or near-circles, and the overall construction is geometric with minimal stroke variation, matching query 1. For query 2, the font lacks any calligraphic characteristics: there are no brush-like terminals, no varying line weight, and no handwritten flow - it is mechanically constructed. For query 3, while geometric sans fonts emerged during the Art Deco era, this particular font lacks the high contrast, decorative inline strokes, or stylized letterforms typical of Art Deco display fonts; instead it appears designed for text readability (shown at 8pt-24pt). For query 4, the font shows no rugged qualities: edges are clean and precise, there is no distressing or texture, and the forms are refined rather than outdoorsy or adventurous. The Legibility Pairs (il1I, O0, rn/m) demonstrate clear differentiation suitable for text settings, not display applications.",
+      "latency_sec": 30.06
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "TASA Orbiter",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a clean, modern sans-serif typeface with monoline stroke weight (evidenced by the uniform vertical lines in the Contrast Strip). The uppercase O, C, and Q appear as perfect circles or near-circles, and the overall construction is geometric with minimal stroke variation, matching query 1. For query 2, the font lacks any calligraphic characteristics: there are no brush-like terminals, no varying line weight, and no handwritten flow - it is mechanically constructed. For query 3, while geometric sans fonts emerged during the Art Deco era, this particular font lacks the high contrast, decorative inline strokes, or stylized letterforms typical of Art Deco display fonts; instead it appears designed for text readability (shown at 8pt-24pt). For query 4, the font shows no rugged qualities: edges are clean and precise, there is no distressing or texture, and the forms are refined rather than outdoorsy or adventurous. The Legibility Pairs (il1I, O0, rn/m) demonstrate clear differentiation suitable for text settings, not display applications.",
+      "latency_sec": 30.06
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "TASA Orbiter",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a clean, modern sans-serif typeface with monoline stroke weight (evidenced by the uniform vertical lines in the Contrast Strip). The uppercase O, C, and Q appear as perfect circles or near-circles, and the overall construction is geometric with minimal stroke variation, matching query 1. For query 2, the font lacks any calligraphic characteristics: there are no brush-like terminals, no varying line weight, and no handwritten flow - it is mechanically constructed. For query 3, while geometric sans fonts emerged during the Art Deco era, this particular font lacks the high contrast, decorative inline strokes, or stylized letterforms typical of Art Deco display fonts; instead it appears designed for text readability (shown at 8pt-24pt). For query 4, the font shows no rugged qualities: edges are clean and precise, there is no distressing or texture, and the forms are refined rather than outdoorsy or adventurous. The Legibility Pairs (il1I, O0, rn/m) demonstrate clear differentiation suitable for text settings, not display applications.",
+      "latency_sec": 30.06
+    },
+    {
+      "query_id": "cq_039",
+      "query_text": "rugged outdoor display font for camping gear",
+      "font_name": "TASA Orbiter",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a clean, modern sans-serif typeface with monoline stroke weight (evidenced by the uniform vertical lines in the Contrast Strip). The uppercase O, C, and Q appear as perfect circles or near-circles, and the overall construction is geometric with minimal stroke variation, matching query 1. For query 2, the font lacks any calligraphic characteristics: there are no brush-like terminals, no varying line weight, and no handwritten flow - it is mechanically constructed. For query 3, while geometric sans fonts emerged during the Art Deco era, this particular font lacks the high contrast, decorative inline strokes, or stylized letterforms typical of Art Deco display fonts; instead it appears designed for text readability (shown at 8pt-24pt). For query 4, the font shows no rugged qualities: edges are clean and precise, there is no distressing or texture, and the forms are refined rather than outdoorsy or adventurous. The Legibility Pairs (il1I, O0, rn/m) demonstrate clear differentiation suitable for text settings, not display applications.",
+      "latency_sec": 30.06
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Lalezar",
+      "human_match": 1,
+      "ai_match": 1,
+      "thought": "The font specimen displays 'Deterministic1024', a monospace sans-serif with geometric design elements. Key visual evidence includes: perfect circular forms for 'O' and '0' (visible in legibility pairs), uniform stroke width confirmed by the contrast strip of evenly spaced vertical bars, and single-story 'g' characteristic of geometric fonts. The monospace property is evident in consistent character widths throughout the alphabet rows. The aesthetic is cold, mechanical, and technical - ideal for terminal interfaces. The font lacks serifs entirely, ruling out both the luxury branding serif and western slab serif categories.",
+      "latency_sec": 71.84
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Lalezar",
+      "human_match": 0,
+      "ai_match": 1,
+      "thought": "The font specimen displays 'Deterministic1024', a monospace sans-serif with geometric design elements. Key visual evidence includes: perfect circular forms for 'O' and '0' (visible in legibility pairs), uniform stroke width confirmed by the contrast strip of evenly spaced vertical bars, and single-story 'g' characteristic of geometric fonts. The monospace property is evident in consistent character widths throughout the alphabet rows. The aesthetic is cold, mechanical, and technical - ideal for terminal interfaces. The font lacks serifs entirely, ruling out both the luxury branding serif and western slab serif categories.",
+      "latency_sec": 71.84
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Lalezar",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The font specimen displays 'Deterministic1024', a monospace sans-serif with geometric design elements. Key visual evidence includes: perfect circular forms for 'O' and '0' (visible in legibility pairs), uniform stroke width confirmed by the contrast strip of evenly spaced vertical bars, and single-story 'g' characteristic of geometric fonts. The monospace property is evident in consistent character widths throughout the alphabet rows. The aesthetic is cold, mechanical, and technical - ideal for terminal interfaces. The font lacks serifs entirely, ruling out both the luxury branding serif and western slab serif categories.",
+      "latency_sec": 71.84
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Lalezar",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The font specimen displays 'Deterministic1024', a monospace sans-serif with geometric design elements. Key visual evidence includes: perfect circular forms for 'O' and '0' (visible in legibility pairs), uniform stroke width confirmed by the contrast strip of evenly spaced vertical bars, and single-story 'g' characteristic of geometric fonts. The monospace property is evident in consistent character widths throughout the alphabet rows. The aesthetic is cold, mechanical, and technical - ideal for terminal interfaces. The font lacks serifs entirely, ruling out both the luxury branding serif and western slab serif categories.",
+      "latency_sec": 71.84
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Golos Text",
+      "human_match": 1,
+      "ai_match": 0,
+      "thought": "The specimen shows a sans-serif font with monoline stroke weight (confirmed by the contrast strip showing uniform vertical strokes). While the 'O' and '0' appear circular and the stroke variation is low, this is not a geometric sans-serif. Key indicators include the double-story 'g' (visible in the large 'Abg' display and lowercase alphabet), which features a closed counter and ear rather than the single-story geometric form. Additionally, the 'a' appears to be double-story, the 'M' has splayed legs rather than geometric construction, and terminals are cut horizontally in a grotesque manner rather than following pure geometric logic. The font appears to be a neo-grotesque or humanist sans optimized for legibility (as suggested by the 'Deterministic' label and extensive legibility pairs), not a geometric sans based on circles, triangles, and squares like Futura or Avenir.",
+      "latency_sec": 38.7
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Kumbh Sans",
+      "human_match": 1,
+      "ai_match": 1,
+      "thought": "The specimen shows a geometric sans-serif typeface (similar to Futura) characterized by perfect circular forms in 'O', 'C', 'G', and '0' (confirmed by the identical 'O0' legibility pair), extremely low stroke variation (evident in the uniform contrast strip), and a double-story 'g'. It is not condensed (letters have standard proportions), lacks serifs entirely, shows no Art Deco decorative stylization or display-specific flourishes, and is proportionally spaced rather than monospaced. The 'il1I' pair demonstrates the typical geometric sans construction where these characters are nearly identical vertical strokes.",
+      "latency_sec": 31.69
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Kumbh Sans",
+      "human_match": 1,
+      "ai_match": 0,
+      "thought": "The specimen shows a geometric sans-serif typeface (similar to Futura) characterized by perfect circular forms in 'O', 'C', 'G', and '0' (confirmed by the identical 'O0' legibility pair), extremely low stroke variation (evident in the uniform contrast strip), and a double-story 'g'. It is not condensed (letters have standard proportions), lacks serifs entirely, shows no Art Deco decorative stylization or display-specific flourishes, and is proportionally spaced rather than monospaced. The 'il1I' pair demonstrates the typical geometric sans construction where these characters are nearly identical vertical strokes.",
+      "latency_sec": 31.69
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Kumbh Sans",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a geometric sans-serif typeface (similar to Futura) characterized by perfect circular forms in 'O', 'C', 'G', and '0' (confirmed by the identical 'O0' legibility pair), extremely low stroke variation (evident in the uniform contrast strip), and a double-story 'g'. It is not condensed (letters have standard proportions), lacks serifs entirely, shows no Art Deco decorative stylization or display-specific flourishes, and is proportionally spaced rather than monospaced. The 'il1I' pair demonstrates the typical geometric sans construction where these characters are nearly identical vertical strokes.",
+      "latency_sec": 31.69
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "font_name": "Kumbh Sans",
+      "human_match": 1,
+      "ai_match": 0,
+      "thought": "The specimen shows a geometric sans-serif typeface (similar to Futura) characterized by perfect circular forms in 'O', 'C', 'G', and '0' (confirmed by the identical 'O0' legibility pair), extremely low stroke variation (evident in the uniform contrast strip), and a double-story 'g'. It is not condensed (letters have standard proportions), lacks serifs entirely, shows no Art Deco decorative stylization or display-specific flourishes, and is proportionally spaced rather than monospaced. The 'il1I' pair demonstrates the typical geometric sans construction where these characters are nearly identical vertical strokes.",
+      "latency_sec": 31.69
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Kumbh Sans",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a geometric sans-serif typeface (similar to Futura) characterized by perfect circular forms in 'O', 'C', 'G', and '0' (confirmed by the identical 'O0' legibility pair), extremely low stroke variation (evident in the uniform contrast strip), and a double-story 'g'. It is not condensed (letters have standard proportions), lacks serifs entirely, shows no Art Deco decorative stylization or display-specific flourishes, and is proportionally spaced rather than monospaced. The 'il1I' pair demonstrates the typical geometric sans construction where these characters are nearly identical vertical strokes.",
+      "latency_sec": 31.69
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Tiro Devanagari Sanskrit",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "This is clearly a serif font (likely transitional or old-style) with pronounced thick/thin stroke contrast visible in the 'Contrast Strip' and letters like 'A' and 'Q'. It is not a geometric sans-serif - the 'O' and '0' are oval rather than perfect circles, and stroke variation is high, not low. Regarding legibility pairs for coding: the 'O0' pair shows nearly identical oval shapes without distinguishing marks (no slash in the zero, no significant proportion differences), making them easily confused. The 'il1I' pair shows some distinction but the zero/oh confusion disqualifies it as a coding font with clear 0/O distinctions.",
+      "latency_sec": 18.76
+    },
+    {
+      "query_id": "cq_033",
+      "query_text": "coding font with clear distinctions between 0 and O",
+      "font_name": "Tiro Devanagari Sanskrit",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "This is clearly a serif font (likely transitional or old-style) with pronounced thick/thin stroke contrast visible in the 'Contrast Strip' and letters like 'A' and 'Q'. It is not a geometric sans-serif - the 'O' and '0' are oval rather than perfect circles, and stroke variation is high, not low. Regarding legibility pairs for coding: the 'O0' pair shows nearly identical oval shapes without distinguishing marks (no slash in the zero, no significant proportion differences), making them easily confused. The 'il1I' pair shows some distinction but the zero/oh confusion disqualifies it as a coding font with clear 0/O distinctions.",
+      "latency_sec": 18.76
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Comforter Brush",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "This font is a decorative script/calligraphy typeface characterized by flowing cursive strokes, high stroke variation (thick-thin contrast visible in the 'Contrast Strip' and letterforms), and ornate swashes on uppercase letters. The 'Legibility Pairs' section shows il1I with distinct script forms, O0 as oval shapes rather than perfect circles, and connected letter pairs demonstrating its handwritten nature. Query 1 requests a geometric sans with perfect circles and low stroke variation\u2014this font is organic/cursive, not geometric, and exhibits high stroke contrast. Query 2 requests a classic typewriter font which would be monospaced, mechanical, and uniform\u2014this font is proportional, fluid, and calligraphic. Query 3 requests a western style slab serif with heavy block serifs\u2014this font lacks serifs entirely and is purely script-based.",
+      "latency_sec": 13.57
+    },
+    {
+      "query_id": "cq_029",
+      "query_text": "classic typewriter font",
+      "font_name": "Comforter Brush",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "This font is a decorative script/calligraphy typeface characterized by flowing cursive strokes, high stroke variation (thick-thin contrast visible in the 'Contrast Strip' and letterforms), and ornate swashes on uppercase letters. The 'Legibility Pairs' section shows il1I with distinct script forms, O0 as oval shapes rather than perfect circles, and connected letter pairs demonstrating its handwritten nature. Query 1 requests a geometric sans with perfect circles and low stroke variation\u2014this font is organic/cursive, not geometric, and exhibits high stroke contrast. Query 2 requests a classic typewriter font which would be monospaced, mechanical, and uniform\u2014this font is proportional, fluid, and calligraphic. Query 3 requests a western style slab serif with heavy block serifs\u2014this font lacks serifs entirely and is purely script-based.",
+      "latency_sec": 13.57
+    },
+    {
+      "query_id": "cq_030",
+      "query_text": "western style slab serif",
+      "font_name": "Comforter Brush",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "This font is a decorative script/calligraphy typeface characterized by flowing cursive strokes, high stroke variation (thick-thin contrast visible in the 'Contrast Strip' and letterforms), and ornate swashes on uppercase letters. The 'Legibility Pairs' section shows il1I with distinct script forms, O0 as oval shapes rather than perfect circles, and connected letter pairs demonstrating its handwritten nature. Query 1 requests a geometric sans with perfect circles and low stroke variation\u2014this font is organic/cursive, not geometric, and exhibits high stroke contrast. Query 2 requests a classic typewriter font which would be monospaced, mechanical, and uniform\u2014this font is proportional, fluid, and calligraphic. Query 3 requests a western style slab serif with heavy block serifs\u2014this font lacks serifs entirely and is purely script-based.",
+      "latency_sec": 13.57
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Encode Sans Expanded",
+      "human_match": 1,
+      "ai_match": 1,
+      "thought": "The specimen shows a sans-serif typeface with distinct geometric characteristics: the uppercase O and zero appear as perfect circles, bowls in b/d/p/q are circular with straight vertical stems, and the stroke weight is monolinear (confirmed by the uniform contrast strip). The legibility pairs (il1I, O0, rn/m) demonstrate clear differentiation between potentially confusable characters. However, the font completely lacks serifs, which disqualifies it from being a serif typeface. The geometric construction, circular forms, and low stroke variation align perfectly with query 1, while the absence of serifs makes query 2 impossible.",
+      "latency_sec": 14.36
+    },
+    {
+      "query_id": "cq_032",
+      "query_text": "legible serif for long-form editorial reading",
+      "font_name": "Encode Sans Expanded",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The specimen shows a sans-serif typeface with distinct geometric characteristics: the uppercase O and zero appear as perfect circles, bowls in b/d/p/q are circular with straight vertical stems, and the stroke weight is monolinear (confirmed by the uniform contrast strip). The legibility pairs (il1I, O0, rn/m) demonstrate clear differentiation between potentially confusable characters. However, the font completely lacks serifs, which disqualifies it from being a serif typeface. The geometric construction, circular forms, and low stroke variation align perfectly with query 1, while the absence of serifs makes query 2 impossible.",
+      "latency_sec": 14.36
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Geom",
+      "human_match": 1,
+      "ai_match": 1,
+      "thought": "The font specimen shows a geometric sans-serif typeface with circular letterforms (the 'O', 'C', 'G', and 'Q' are based on perfect circles), uniform stroke weight (evident in the contrast strip showing consistent vertical line thickness), and minimal stroke variation. The uppercase 'A' has a sharp geometric apex, and the 'g' is a single-story form typical of geometric sans fonts. The legibility pairs show 'O0' as nearly identical circles. This is not a calligraphic hand (no stroke variation, no serifs, no handwritten quality) and not an 8-bit font (smooth vector curves, no pixelation).",
+      "latency_sec": 81.06
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Geom",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The font specimen shows a geometric sans-serif typeface with circular letterforms (the 'O', 'C', 'G', and 'Q' are based on perfect circles), uniform stroke weight (evident in the contrast strip showing consistent vertical line thickness), and minimal stroke variation. The uppercase 'A' has a sharp geometric apex, and the 'g' is a single-story form typical of geometric sans fonts. The legibility pairs show 'O0' as nearly identical circles. This is not a calligraphic hand (no stroke variation, no serifs, no handwritten quality) and not an 8-bit font (smooth vector curves, no pixelation).",
+      "latency_sec": 81.06
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "font_name": "Geom",
+      "human_match": 0,
+      "ai_match": 0,
+      "thought": "The font specimen shows a geometric sans-serif typeface with circular letterforms (the 'O', 'C', 'G', and 'Q' are based on perfect circles), uniform stroke weight (evident in the contrast strip showing consistent vertical line thickness), and minimal stroke variation. The uppercase 'A' has a sharp geometric apex, and the 'g' is a single-story form typical of geometric sans fonts. The legibility pairs show 'O0' as nearly identical circles. This is not a calligraphic hand (no stroke variation, no serifs, no handwritten quality) and not an 8-bit font (smooth vector curves, no pixelation).",
+      "latency_sec": 81.06
+    }
+  ]
+}
