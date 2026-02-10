@@ -1,0 +1,45 @@
+{
+  "agreement": 0.6667,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "counts": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "tn": 1,
+    "total": 3
+  },
+  "details": [
+    {
+      "query_id": "cq_016",
+      "font_name": "Actor",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The query explicitly requests a 'serif', but the visual specimen shows a sans-serif typeface; note the lack of decorative feet or terminals on the stems of letters like 'i', 'l', 'H', and 'T'.",
+      "thought": "The font is a humanist sans-serif designed for legibility and functional clarity, characterized by open apertures and low contrast. It does not possess the structural characteristics (serifs) or the stylistic vibe (high contrast, traditional elegance) typically required for luxury serif branding. | The query explicitly requests a 'serif', but the visual specimen shows a sans-serif typeface; note the lack of decorative feet or terminals on the stems of letters like 'i', 'l', 'H', and 'T'.",
+      "ai_match_gated": 0,
+      "human_match": 0
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Alata",
+      "ai_match": 1,
+      "confidence": 1.0,
+      "evidence": "The 'O', 'Q', '0', and the bowls of 'b/d/p/q' are constructed as near-perfect circles. The contrast strip and character set show uniform stroke thickness (monolinear) with no visible modulation.",
+      "thought": "The font is a quintessential geometric sans-serif, defined by its construction from basic shapes like near-perfect circles and straight lines. It features a single-story 'a' and 'g', sharp vertices on 'M' and 'N', and very low stroke contrast, placing it firmly in the lineage of typefaces like Futura or Century Gothic. | The 'O', 'Q', '0', and the bowls of 'b/d/p/q' are constructed as near-perfect circles. The contrast strip and character set show uniform stroke thickness (monolinear) with no visible modulation.",
+      "ai_match_gated": 1,
+      "human_match": 1
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Alata",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is a functional, utilitarian geometric sans rather than a decorative display face. It lacks specific Art Deco mannerisms such as high-waisted crossbars, exaggerated stroke contrast, or ornamental details.",
+      "thought": "The font is a quintessential geometric sans-serif, defined by its construction from basic shapes like near-perfect circles and straight lines. It features a single-story 'a' and 'g', sharp vertices on 'M' and 'N', and very low stroke contrast, placing it firmly in the lineage of typefaces like Futura or Century Gothic. | The font is a functional, utilitarian geometric sans rather than a decorative display face. It lacks specific Art Deco mannerisms such as high-waisted crossbars, exaggerated stroke contrast, or ornamental details.",
+      "ai_match_gated": 0,
+      "human_match": 2
+    }
+  ]
+}

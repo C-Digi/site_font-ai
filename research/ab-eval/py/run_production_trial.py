@@ -3,6 +3,7 @@ import json
 import base64
 import time
 import argparse
+import re
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
 import requests
@@ -18,23 +19,88 @@ load_env()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+def load_api_keys(keys_file: str = "") -> List[str]:
+    keys: List[str] = []
+
+    if GEMINI_API_KEY:
+        keys.append(GEMINI_API_KEY)
+
+    if keys_file:
+        p = Path(keys_file)
+        if p.exists():
+            raw = p.read_text(encoding="utf-8")
+            for line in raw.splitlines():
+                # Support markdown/backtick-wrapped keys and plain text keys
+                m = re.search(r"AIza[0-9A-Za-z_\-]{30,}", line)
+                if m:
+                    keys.append(m.group(0))
+
+    # de-duplicate while preserving order
+    unique: List[str] = []
+    seen = set()
+    for k in keys:
+        if k not in seen:
+            unique.append(k)
+            seen.add(k)
+
+    return unique
+
 def image_to_base64(image_path: Path) -> str:
     if not image_path.exists():
         return ""
     return base64.b64encode(image_path.read_bytes()).decode("utf-8")
 
-def call_gemini_v3(queries: List[str], images: List[Path], model: str) -> Dict[str, Any]:
-    if not GEMINI_API_KEY:
-        raise RuntimeError("GEMINI_API_KEY is not set")
-        
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
+def call_gemini_v3(
+    queries: List[str],
+    images: List[Path],
+    model: str,
+    prompt_type: str = "v3",
+    api_keys: List[str] = None,
+) -> Dict[str, Any]:
+    if api_keys is None:
+        api_keys = []
+    if not api_keys:
+        raise RuntimeError("No GEMINI_API_KEY available (env or keys file)")
+
     headers = {
         "Content-Type": "application/json",
     }
     
     queries_formatted = "\n".join([f"{i+1}. \"{q}\"" for i, q in enumerate(queries)])
     
-    prompt = f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+    if prompt_type == "v4":
+        prompt = f"""You are a master typography auditor (V4 - Intent Aware). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+
+### DECISION RUBRIC
+1. **Technical Alignment**: If a query uses definitive technical terms (e.g., 'Monospace', 'Serif', 'Geometric', 'Condensed'), the font MUST strictly adhere to these.
+2. **Intent & Mood**: For descriptive queries (e.g., 'friendly', 'futuristic', 'professional', 'warm'), evaluate the holistic 'intent'. Do not be over-pedantic with minor technicalities if the font clearly serves the intended use case and vibe.
+3. **Match (1)**: Satisfies all strict technical constraints AND aligns with the core intent/vibe.
+4. **No Match (0)**: Fails a technical constraint OR lacks the required mood/intent.
+
+### EVIDENCE REQUIREMENT
+For EACH query, you must provide a short specific visual evidence snippet from the specimen justifying your decision.
+
+### QUERIES
+{queries_formatted}
+
+### RESPONSE FORMAT
+Return STRICT JSON only:
+{{
+  "audit_reasoning": "Overall evaluation of font family characteristics",
+  "results": [
+    {{
+      "query_index": 1,
+      "match": 1 or 0,
+      "confidence": 0.0-1.0,
+      "evidence": "Specific visual detail justifying this score",
+      "counter_evidence": "Any visual detail that almost disqualified it (or empty)"
+    }},
+    ...
+  ]
+}}
+"""
+    else: # v3
+        prompt = f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
 ### DECISION RUBRIC
 For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints (e.g., if it says "geometric", it must have geometric forms) and the core "vibe" or "intent" described.
@@ -83,23 +149,31 @@ Return STRICT JSON only:
     }
     
     t0 = time.time()
-    for attempt in range(5):
+    last_error = ""
+    max_attempts = max(5, len(api_keys) * 2)
+    for attempt in range(max_attempts):
+        active_key = api_keys[attempt % len(api_keys)]
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={active_key}"
         try:
             resp = requests.post(url, headers=headers, json=payload, timeout=180)
             if resp.status_code == 429:
-                time.sleep(15)
+                last_error = f"429 RESOURCE_EXHAUSTED: {resp.text[:300]}"
+                time.sleep(1)
                 continue
             if resp.status_code == 503:
-                time.sleep(20)
+                last_error = f"503 UNAVAILABLE: {resp.text[:300]}"
+                time.sleep(5)
                 continue
             if not resp.ok:
-                time.sleep(10)
+                last_error = f"HTTP {resp.status_code}: {resp.text[:300]}"
+                time.sleep(1)
                 continue
             break
-        except Exception:
-            time.sleep(10)
+        except Exception as e:
+            last_error = f"Exception: {str(e)}"
+            time.sleep(1)
     else:
-        return {"error": "Failed after 5 attempts"}
+        return {"error": f"Failed after {max_attempts} attempts ({last_error})"}
         
     latency = time.time() - t0
     try:
@@ -154,9 +228,21 @@ def calculate_metrics(results: List[Dict[str, Any]], ssot_map: Dict[Tuple[str, s
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="gemini-3-flash-preview")
+    parser.add_argument("--model", default="gemini-3-pro-preview")
+    parser.add_argument("--prompt", choices=["v3", "v4"], default="v3")
     parser.add_argument("--gate", type=float, default=0.9)
+    parser.add_argument("--spec-dir", default="specimens_v3", help="Subdirectory in out/ containing specimens")
+    parser.add_argument("--output", help="Optional custom output filename")
+    parser.add_argument("--cache-output", default="", help="Optional cache filename for resumable raw rows")
+    parser.add_argument("--max-fonts", type=int, default=0, help="Limit number of fonts to process for smoke tests")
+    parser.add_argument("--keys-file", default="", help="Optional file containing multiple Gemini API keys to cycle")
     args = parser.parse_args()
+
+    api_keys = load_api_keys(args.keys_file)
+    if not api_keys:
+        raise RuntimeError("No API keys found. Set GEMINI_API_KEY or pass --keys-file")
+
+    print(f"Loaded {len(api_keys)} Gemini API key(s)")
 
     out_dir = Path("research/ab-eval/out")
     data_dir = Path("research/ab-eval/data")
@@ -185,15 +271,25 @@ def main():
     query_text_map = {q['id']: q['text'] for q in queries_json}
 
     results = []
-    spec_v3_dir = out_dir / "specimens_v3"
+    spec_v3_dir = out_dir / args.spec_dir
     
-    print(f"Executing Production Trial: Model={args.model} | Specimen=V3 | Prompt=V3 | Gate={args.gate}")
+    print(f"Executing Production Trial: Model={args.model} | Specimen={args.spec_dir} | Prompt={args.prompt} | Gate={args.gate}")
     
     processed_count = 0
     font_names = sorted(list(font_to_queries.keys()))
+
+    if args.max_fonts and args.max_fonts > 0:
+        font_names = font_names[:args.max_fonts]
     
     # Check for existing cache to resume
-    cache_path = out_dir / "g3_v3_gated_raw.json"
+    if args.cache_output:
+        cache_name = args.cache_output
+    elif args.output:
+        cache_name = f"{Path(args.output).stem}_raw.json"
+    else:
+        cache_name = f"g3_pro_{args.prompt}_gated_raw.json"
+
+    cache_path = out_dir / cache_name
     if cache_path.exists():
         with open(cache_path, 'r') as f:
             results = json.load(f)
@@ -225,7 +321,7 @@ def main():
                 batch_texts = q_texts[i:i+10]
                 batch_ids = q_ids[i:i+10]
                 
-                resp = call_gemini_v3(batch_texts, images, args.model)
+                resp = call_gemini_v3(batch_texts, images, args.model, args.prompt, api_keys)
                 if "error" in resp:
                     print(f" ERROR: {resp['error']}")
                     continue
@@ -265,7 +361,7 @@ def main():
     metrics = calculate_metrics(results, ssot_map, args.gate)
     
     # Save final results
-    final_path = out_dir / "g3_v3_gated_results.json"
+    final_path = out_dir / (args.output if args.output else f"g3_pro_{args.prompt}_gated_results.json")
     with open(final_path, 'w') as f:
         json.dump(metrics, f, indent=2)
         

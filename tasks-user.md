@@ -87,26 +87,37 @@ Kick off a broad research session, local and online, to find out more potential 
 ---
 ---
 
-add to rules-project to always use GEMINI_API_KEY and gemini provider for all gemini models. dont use openrouter for gemini, but do use openrouter for all else
+
+
+
+
+
+
+
+do HITL check of latest test data
+- use a match/no-match/ignore scoring method. i will choose to 'ignore' some edge cases where i can see decisions going either way acceptably
+
+
+review lib-researcher session, it did well
+
+check that subagents dont use yaml outputs
+
+see if ccr has same issues as claudish - incomplete/no output
+- what was claudish benefit, gemini api key?
+
+
 
 test google/gemini-2.5-flash, ensure use of gemini api provider not openrouter
 
 
+## research\ab-eval\REPORT_PHASE3B_ONLINE_RESEARCH.md
+`Human-in-the-Loop (HITL) & Active Learning`
+4. Prioritized Experiment Roadmap
+Top 3 "Run Next" Plan
 
 
+check that actual metadata that is relevant and known to be true gets into RAG input
 
-
-
-check that actual metadata that is relevant (e.g. display/monospace etc) gets into RAG input
-
-
-## see results from a deep-research session:
-@https://chatgpt.com/share/698828b2-523c-8010-9df3-7be45bb217cc 
-@https://gemini.google.com/share/4225fb7670fd
-
-what do you recommend?
-we are in no rush to get to production. 
-please prioritize improving and validating core-functionality quality through targeted experimentation
 
 
 

@@ -1,0 +1,14 @@
+{
+  "agreement": 0,
+  "precision": 0,
+  "recall": 0,
+  "f1": 0,
+  "counts": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "total": 0
+  },
+  "details": []
+}

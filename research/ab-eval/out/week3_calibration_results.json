@@ -1,0 +1,78 @@
+{
+  "baseline": {
+    "agreement": 0.6761,
+    "precision": 0.8158,
+    "recall": 0.6889,
+    "f1": 0.747,
+    "tp": 31,
+    "fp": 7,
+    "fn": 14,
+    "tn": 136,
+    "total": 247,
+    "coverage": 0.1538
+  },
+  "global_best": {
+    "agreement": 0.6761,
+    "precision": 0.8158,
+    "recall": 0.6889,
+    "f1": 0.747,
+    "tp": 31,
+    "fp": 7,
+    "fn": 14,
+    "tn": 136,
+    "total": 247,
+    "coverage": 0.1538,
+    "threshold": 0.0
+  },
+  "group_policies": {
+    "Subjective": {
+      "threshold": 0.0,
+      "accuracy": 0.9071428571428571
+    },
+    "Technical": {
+      "threshold": 0.0,
+      "accuracy": 0.8333333333333334
+    }
+  },
+  "cv_final": {
+    "agreement": 0.6725,
+    "precision": 0.7762,
+    "recall": 0.6719,
+    "f1": 0.7007,
+    "tp": 5.8,
+    "fp": 1.4,
+    "fn": 3.2,
+    "tn": 27.2,
+    "total": 49.4,
+    "coverage": 0.1501
+  },
+  "final_policy": {
+    "agreement": 0.6761,
+    "precision": 0.8158,
+    "recall": 0.6889,
+    "f1": 0.747,
+    "tp": 31,
+    "fp": 7,
+    "fn": 14,
+    "tn": 136,
+    "total": 247,
+    "coverage": 0.1538
+  },
+  "calibration": [
+    {
+      "conf": 0.9,
+      "accuracy": 0.6667,
+      "count": 6
+    },
+    {
+      "conf": 0.95,
+      "accuracy": 0.75,
+      "count": 4
+    },
+    {
+      "conf": 1.0,
+      "accuracy": 0.8571,
+      "count": 28
+    }
+  ]
+}

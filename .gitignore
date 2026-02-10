@@ -21,3 +21,4 @@ research/ab-eval/out/fonts/
 logs/claudish*.log
 .venv-ab-eval/
 *.png
+key.md

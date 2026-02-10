@@ -19,6 +19,13 @@
 - [x] Quantify Agreement gains (+1.1% on G2)
 - [x] Execute G3 Production-Like Trial (V3 Policy + 0.9 Gating)
   - [x] Precision boost (+13.9%), Agreement (+3.2%)
+- [x] Week 1 Prompt A/B completed (G3 Pro, Prompt V3 control vs Prompt V4 treatment)
+  - [x] Outcome: keep Prompt V3 as champion (V4 reduced Agreement/Precision under current gate policy)
+- [x] Week 2 Specimen Validation completed (V3.1 validated, improved Recall)
+- [x] Week 3 Dynamic Threshold Calibration completed (Agreement-focused tuning)
+  - [x] Implemented global and group-aware calibration (Technical vs Subjective)
+  - [x] Validated via 5-fold CV by query
+  - [x] Outcome: 0.9 gate confirmed safe; T=0.0 optimal for Agreement but 0.9 preferred for Precision/Noise floor.
 - [ ] Roll out Prompt V3 to JIT Seeding path
 
 ---
