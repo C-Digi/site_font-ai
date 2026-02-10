@@ -65,6 +65,7 @@
 - **Font Hosting:** Continue external font hosting (Google/Fontsource/Fontshare). Do not self-host binary font files by default.
 - **Worker Reliability:** Use retry policy and max attempts for failed queue jobs; log `last_error` for triage.
 - **API Keys / Env:** Requires `GEMINI_API_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY`; plus embedding/queue config such as `VL_EMBEDDING_ENDPOINT`, `VL_EMBEDDING_API_KEY`, and queue controls.
+- **LLM Provider Policy:** ALWAYS use `GEMINI_API_KEY` and the gemini provider for all gemini models. NEVER use OpenRouter for Gemini. Use OpenRouter (`OPENROUTER_API_KEY`) for all other models.
 - **Offline A/B Eval Env (Python harness):**
   - Variant A (text) requires `OPENROUTER_API_KEY` (typically from `.env.local`).
   - Local VL eval scripts (`research/ab-eval/py/*`) do **not** require `VL_EMBEDDING_ENDPOINT` / `VL_EMBEDDING_API_KEY`.
