@@ -50,36 +50,36 @@ delegate a task right now for architect to generate a visual, interactive human-
 
 ## SSoT 
 
-*compare VL models against human and determine if and which VL can be used as top level visual reviewer*
+*find best VL model for SSoT validations*
 
 
 
+complete these tasks, phased/delegated appropriately:
 
-now do a spot-check test comparing qwen/qwen-vl-plus (newest VL model) to 235b
+---
+assuming these v3 images below are the latest specimens, see the issues I found - i only spot-checked a few so there may be other issues present as well.
 
-first, update the test script to:
-- batch LLM requests by combining up to 10 decisions per request - for the same font, but different queries
-- since its outputting a description already for each request, it does this for each (most) fonts multiple times
-- within a single LLM request, it can easily handle a single font-render and determine 0/1 for 10 queries.
+content cropped on right side (present on all spot checked):
+@/research/ab-eval/out/specimens_v3/Red_Hat_Mono_bottom.png @/research/ab-eval/out/specimens_v3/Red_Hat_Mono_top.png 
 
-then regenerate the html for human review
-- enable json export 
-- put Casey + 235b + vl-plus (remove 8b) side-by-side for human review, selection, and export
-- show only the decisions that are conflicting from Casey 
+content with a vertical overlap:
+@/research/ab-eval/out/specimens_v3/Playwrite_BE_WAL_Guides_bottom.png @/research/ab-eval/out/specimens_v3/Playwrite_BE_WAL_Guides_top.png 
 
+- fix these issues
+- have the developer manually read_file / view some specimens as a spot check, including the new versions of those above
+- fully retest using the same gemini 3 flash model and ensure no major regression
 
+---
 
+do a test using these models to compare against the current gemini 3 flash model
+- openrouter/pony-alpha (stealth model - first verify it is multimodal)
+- google/gemini-3-pro-preview
+- openai/gpt-5.2
 
-/research/ab-eval/out/full_set_review_export_1770612809775.json 
-has been populated with final SSoT data from user - some previous user-inputs were ammended. 
-- first:
-  - use gemini api key (already in .env) to test google/gemini-2.5-flash-lite-preview-09-2025 comprehensively on the same dataset
-  - the full_comparison.py did not get the batch-processing upgrade that run_spot_check_alignment_models.py did - implement this in the full_comparison script BEFORE rerunning it with 2.5 flash lite
-- add 2.5 flash lite to the metrics calculation / comparison
-- use this data to rerun the metrics against the existing LLM responses
-- report updated metrics using:
-  - ammended SSoT from human in review_export json
-  - added flash lite model responses
+---
+
+Kick off a broad research session, local and online, to find out more potential paths to improvement.
+
 
 
 
@@ -87,11 +87,9 @@ has been populated with final SSoT data from user - some previous user-inputs we
 ---
 ---
 
-some of the font 'specimens' have visually overlapping content
-- example: research\ab-eval\out\specimens_v2_medium_nobias\Playwrite_BE_WAL_Guides.png
+add to rules-project to always use GEMINI_API_KEY and gemini provider for all gemini models. dont use openrouter for gemini, but do use openrouter for all else
 
-
-
+test google/gemini-2.5-flash, ensure use of gemini api provider not openrouter
 
 
 

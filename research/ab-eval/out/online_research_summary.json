@@ -1,0 +1,62 @@
+{
+  "phase": "3B",
+  "title": "Online Research Synthesis: Font Decision Quality",
+  "date": "2026-02-10",
+  "kpi_recommendation": {
+    "primary": "Youden's J Statistic",
+    "secondary": "Balanced Accuracy",
+    "rationale": "Mitigates prevalence bias in imbalanced SSoT sets (ArXiv 2025)."
+  },
+  "top_interventions": [
+    {
+      "id": "METRIC_PIVOT",
+      "name": "KPI Pivot to Youden's J",
+      "impact": "High",
+      "effort": "Small",
+      "type": "Metric"
+    },
+    {
+      "id": "GHOST_THRESHOLD",
+      "name": "GHOST Threshold Tuning",
+      "impact": "High",
+      "effort": "Medium",
+      "type": "Calibration"
+    },
+    {
+      "id": "MSVP_SPECIMEN",
+      "name": "Multi-Scale Visual Specimen (V3.1)",
+      "impact": "Medium",
+      "effort": "Medium",
+      "type": "Visual Strategy"
+    },
+    {
+      "id": "ALL_AT_ONCE_PROMPT",
+      "name": "All-at-Once Description Prompt (V4)",
+      "impact": "High",
+      "effort": "Large",
+      "type": "Prompt Engineering"
+    },
+    {
+      "id": "DISAGREEMENT_AL",
+      "name": "Disagreement-Aware Active Learning",
+      "impact": "High",
+      "effort": "Medium",
+      "type": "HITL"
+    }
+  ],
+  "roadmap": {
+    "run_next": [
+      "KPI Pivot & GHOST Tuning",
+      "Specimen V3.1 (il1I/8pt blocks)",
+      "Prompt V4 (All-at-Once)"
+    ],
+    "backlog_count": 10
+  },
+  "citation_anchors": [
+    "FontCLIP (2024)",
+    "Font-Agent (2025)",
+    "Youden-25 (ArXiv)",
+    "Qwen-VL-FineGrained (2025)",
+    "GHOST (2025)"
+  ]
+}
