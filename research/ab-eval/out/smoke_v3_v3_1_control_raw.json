@@ -1,0 +1,546 @@
+[
+  {
+    "query_id": "cq_016",
+    "font_name": "Actor",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif design, evident in the straight, unadorned terminals of the 'l', 'h', and 'n' in the 'Contrast & Rhythm Strip', failing the explicit technical requirement for a 'serif'.",
+    "thought": "The font is a clean, geometric-leaning sans-serif with single-story 'a' and 'g' forms. It prioritizes legibility and modern simplicity rather than the ornamental characteristics associated with traditional luxury serifs. | The font is a sans-serif design, evident in the straight, unadorned terminals of the 'l', 'h', and 'n' in the 'Contrast & Rhythm Strip', failing the explicit technical requirement for a 'serif'."
+  },
+  {
+    "query_id": "cq_002",
+    "font_name": "Alata",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The 'O' and 'o' in the 'Critical Distinction' section are rendered as perfect circles. The 'Contrast & Rhythm Strip' confirms the stroke width is uniform without modulation.",
+    "thought": "The typeface is a quintessential geometric sans-serif. It features construction based on simple geometric forms, such as near-perfect circles for bowls and straight, uniform strokes for stems. The design includes a single-story 'a' and 'g', splayed legs on the 'M', and sharp vertices on the 'N' and 'W'. The stroke contrast is extremely low, maintaining a monolinear appearance. It aligns closely with the modernist geometric style (similar to Futura) rather than decorative styles. | The 'O' and 'o' in the 'Critical Distinction' section are rendered as perfect circles. The 'Contrast & Rhythm Strip' confirms the stroke width is uniform without modulation."
+  },
+  {
+    "query_id": "cq_025",
+    "font_name": "Alata",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a functional, utilitarian geometric sans rather than a decorative display face. It lacks specific Art Deco mannerisms such as high-waisted crossbars, extreme stroke contrast, or ornamental details.",
+    "thought": "The typeface is a quintessential geometric sans-serif. It features construction based on simple geometric forms, such as near-perfect circles for bowls and straight, uniform strokes for stems. The design includes a single-story 'a' and 'g', splayed legs on the 'M', and sharp vertices on the 'N' and 'W'. The stroke contrast is extremely low, maintaining a monolinear appearance. It aligns closely with the modernist geometric style (similar to Futura) rather than decorative styles. | The font is a functional, utilitarian geometric sans rather than a decorative display face. It lacks specific Art Deco mannerisms such as high-waisted crossbars, extreme stroke contrast, or ornamental details."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query explicitly requests a 'serif' font, but the specimen shows a sans-serif design with no serifs on characters like 'A', 'b', or 'T'.",
+    "thought": "The typeface is a modern geometric sans-serif characterized by uniform stroke widths, a single-story 'a' and 'g', and open apertures. It follows a proportional spacing model rather than a fixed-width grid. | The query explicitly requests a 'serif' font, but the specimen shows a sans-serif design with no serifs on characters like 'A', 'b', or 'T'."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a low-contrast geometric sans-serif (seen in the uniform thickness of the 'O' and 'S'), failing the requirement for a sophisticated serif.",
+    "thought": "The typeface is a modern geometric sans-serif characterized by uniform stroke widths, a single-story 'a' and 'g', and open apertures. It follows a proportional spacing model rather than a fixed-width grid. | The font is a low-contrast geometric sans-serif (seen in the uniform thickness of the 'O' and 'S'), failing the requirement for a sophisticated serif."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is proportional, not monospace; the 'rn/m' comparison shows the 'm' is significantly wider than the 'n' or 'r', and the 'ill100' section shows the '1' is much narrower than the '0'.",
+    "thought": "The typeface is a modern geometric sans-serif characterized by uniform stroke widths, a single-story 'a' and 'g', and open apertures. It follows a proportional spacing model rather than a fixed-width grid. | The font is proportional, not monospace; the 'rn/m' comparison shows the 'm' is significantly wider than the 'n' or 'r', and the 'ill100' section shows the '1' is much narrower than the '0'."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Amaranth",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font uses proportional spacing where characters like 'm' are significantly wider than 'i' or 'l' (visible in the 'Legibility Pairs' section), whereas a classic typewriter font is strictly monospaced.",
+    "thought": "The font is a humanist sans-serif with proportional spacing, characterized by modulated stroke widths and organic forms (like the double-story 'g' and curved 'l'). It completely lacks the defining mechanical features of a classic typewriter font, which are strictly monospaced (fixed-width) and typically feature slab serifs. | The font uses proportional spacing where characters like 'm' are significantly wider than 'i' or 'l' (visible in the 'Legibility Pairs' section), whereas a classic typewriter font is strictly monospaced."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Anek Latin",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "In the lowercase alphabet sequence, the letter 'i' is visibly much narrower than the letter 'm', and the text sample 'The quick brown fox' displays proportional spacing rather than the fixed-width grid required for a monospace font.",
+    "thought": "The font is a proportional sans-serif, not a monospace font. This is immediately evident from the varying character widths, where letters like 'i' and 'l' take up significantly less horizontal space than 'm' or 'w'. Additionally, the numeral '0' lacks a slash or dot to clearly distinguish it from the uppercase 'O', which is a common requirement for data-centric typefaces. | In the lowercase alphabet sequence, the letter 'i' is visibly much narrower than the letter 'm', and the text sample 'The quick brown fox' displays proportional spacing rather than the fixed-width grid required for a monospace font."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Anonymous Pro",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font features a strict monospaced grid and uniform stroke width (visible in the 'Contrast & Rhythm Strip'), lacking the high contrast, variable widths, and decorative ornamentation required for a Victorian display serif.",
+    "thought": "The typeface is a modern, functional monospaced slab serif designed specifically for coding and technical legibility. Its key features\u2014such as the slashed zero, single-story 'a' and 'g', and large x-height\u2014prioritize screen readability and character distinction (e.g., l vs 1) over historical accuracy or ornamental aesthetics. | The font features a strict monospaced grid and uniform stroke width (visible in the 'Contrast & Rhythm Strip'), lacking the high contrast, variable widths, and decorative ornamentation required for a Victorian display serif."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Anonymous Pro",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The prominent slashed zero (shown in 'Critical Distinction') and single-story 'a' and 'g' are hallmarks of modern coding fonts, diverging from the unslashed zero and double-story glyphs found in classic mechanical typewriter faces like Courier.",
+    "thought": "The typeface is a modern, functional monospaced slab serif designed specifically for coding and technical legibility. Its key features\u2014such as the slashed zero, single-story 'a' and 'g', and large x-height\u2014prioritize screen readability and character distinction (e.g., l vs 1) over historical accuracy or ornamental aesthetics. | The prominent slashed zero (shown in 'Critical Distinction') and single-story 'a' and 'g' are hallmarks of modern coding fonts, diverging from the unslashed zero and double-story glyphs found in classic mechanical typewriter faces like Courier."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Antic Slab",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The font features a strict monospaced grid (confirmed by the 'Contrast & Rhythm Strip') and heavy slab serifs on the 'I', 'l', and '1', perfectly mimicking the mechanical impression of a manual typewriter.",
+    "thought": "The font is a traditional monospaced slab serif, closely resembling the Courier family. It is designed to mimic mechanical typewriting with uniform character widths and heavy, unbracketed serifs. While it functions perfectly as a typewriter face, its lack of specific legibility features (like a slashed zero) and its utilitarian aesthetic limit its application for coding or decorative Western themes. | The font features a strict monospaced grid (confirmed by the 'Contrast & Rhythm Strip') and heavy slab serifs on the 'I', 'l', and '1', perfectly mimicking the mechanical impression of a manual typewriter."
+  },
+  {
+    "query_id": "cq_030",
+    "font_name": "Antic Slab",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "While the font possesses slab serifs, the uniform stroke width and monospaced structure create a bureaucratic, technical aesthetic rather than the decorative, high-contrast, or wide-set look associated with 'Western' display typography.",
+    "thought": "The font is a traditional monospaced slab serif, closely resembling the Courier family. It is designed to mimic mechanical typewriting with uniform character widths and heavy, unbracketed serifs. While it functions perfectly as a typewriter face, its lack of specific legibility features (like a slashed zero) and its utilitarian aesthetic limit its application for coding or decorative Western themes. | While the font possesses slab serifs, the uniform stroke width and monospaced structure create a bureaucratic, technical aesthetic rather than the decorative, high-contrast, or wide-set look associated with 'Western' display typography."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Antic Slab",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "In the 'Critical Distinction (Macro)' section, the zero ('0') and capital 'O' are rendered as nearly identical ovals without a slash, dot, or significant shape variation to distinguish them, failing the specific legibility requirement.",
+    "thought": "The font is a traditional monospaced slab serif, closely resembling the Courier family. It is designed to mimic mechanical typewriting with uniform character widths and heavy, unbracketed serifs. While it functions perfectly as a typewriter face, its lack of specific legibility features (like a slashed zero) and its utilitarian aesthetic limit its application for coding or decorative Western themes. | In the 'Critical Distinction (Macro)' section, the zero ('0') and capital 'O' are rendered as nearly identical ovals without a slash, dot, or significant shape variation to distinguish them, failing the specific legibility requirement."
+  },
+  {
+    "query_id": "cq_011",
+    "font_name": "Artifika",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font features distressed, irregular edges (visible in the shaky stems of 'M' and 'W') and a somber, historical tone. While 'quirky' due to its roughness, it lacks the bounce, bold weight, or cheerful geometry required for a 'playful' candy shop display.",
+    "thought": "The typeface is a historical revival of 17th-century Old Style types (specifically the 'Fell' types), characterized by a distinct 'rough' or 'printed' texture with irregular outlines, soft edges, and a humanist axis. Its aesthetic is antique, literary, and rustic/distressed. While it possesses character, it lacks the geometric precision for luxury, the specific ornamentation of Victorian display faces, the technical features for coding, or the cheerful geometry typically associated with playful retail display. | The font features distressed, irregular edges (visible in the shaky stems of 'M' and 'W') and a somber, historical tone. While 'quirky' due to its roughness, it lacks the bounce, bold weight, or cheerful geometry required for a 'playful' candy shop display."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Artifika",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The outlines are intentionally uneven and 'clumsy' (see the lopsided serifs on 'T' or the rough curve of 'g'), creating a rustic, aged aesthetic that directly contradicts the sharp, pristine refinement and high contrast typically required for 'sophisticated luxury' branding.",
+    "thought": "The typeface is a historical revival of 17th-century Old Style types (specifically the 'Fell' types), characterized by a distinct 'rough' or 'printed' texture with irregular outlines, soft edges, and a humanist axis. Its aesthetic is antique, literary, and rustic/distressed. While it possesses character, it lacks the geometric precision for luxury, the specific ornamentation of Victorian display faces, the technical features for coding, or the cheerful geometry typically associated with playful retail display. | The outlines are intentionally uneven and 'clumsy' (see the lopsided serifs on 'T' or the rough curve of 'g'), creating a rustic, aged aesthetic that directly contradicts the sharp, pristine refinement and high contrast typically required for 'sophisticated luxury' branding."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Artifika",
+    "ai_match": 0,
+    "confidence": 0.85,
+    "evidence": "This is a text-weight Old Style serif (17th-century Dutch/English influence) with moderate contrast and bracketed serifs. It lacks the defining characteristics of 'Victorian display' typography, such as extreme contrast (Fat Face), heavy slab serifs, or decorative ornamentation.",
+    "thought": "The typeface is a historical revival of 17th-century Old Style types (specifically the 'Fell' types), characterized by a distinct 'rough' or 'printed' texture with irregular outlines, soft edges, and a humanist axis. Its aesthetic is antique, literary, and rustic/distressed. While it possesses character, it lacks the geometric precision for luxury, the specific ornamentation of Victorian display faces, the technical features for coding, or the cheerful geometry typically associated with playful retail display. | This is a text-weight Old Style serif (17th-century Dutch/English influence) with moderate contrast and bracketed serifs. It lacks the defining characteristics of 'Victorian display' typography, such as extreme contrast (Fat Face), heavy slab serifs, or decorative ornamentation."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Artifika",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is proportional, not monospaced. Crucially, the 'Critical Distinction' macro shows the zero '0' and capital 'O' as nearly identical ovals without any differentiating features like a slash or dot, failing the primary technical constraint for coding.",
+    "thought": "The typeface is a historical revival of 17th-century Old Style types (specifically the 'Fell' types), characterized by a distinct 'rough' or 'printed' texture with irregular outlines, soft edges, and a humanist axis. Its aesthetic is antique, literary, and rustic/distressed. While it possesses character, it lacks the geometric precision for luxury, the specific ornamentation of Victorian display faces, the technical features for coding, or the cheerful geometry typically associated with playful retail display. | The font is proportional, not monospaced. Crucially, the 'Critical Distinction' macro shows the zero '0' and capital 'O' as nearly identical ovals without any differentiating features like a slash or dot, failing the primary technical constraint for coding."
+  },
+  {
+    "query_id": "cq_009",
+    "font_name": "Atma",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The terminals on the 'l' and 'i' in the 'Critical Distinction' section are visibly rounded, and the soft, organic shapes of the 'a' and 'g' in 'Abg' create a friendly, approachable aesthetic suitable for children.",
+    "thought": "The font is a casual, handwritten sans-serif with monolinear strokes and rounded terminals. It features a bouncy baseline, irregular rhythm, and organic letterforms (like the single-story 'a' and 'g') that convey warmth and informality. These characteristics align well with youth-oriented, playful, or friendly branding contexts. | The terminals on the 'l' and 'i' in the 'Critical Distinction' section are visibly rounded, and the soft, organic shapes of the 'a' and 'g' in 'Abg' create a friendly, approachable aesthetic suitable for children."
+  },
+  {
+    "query_id": "cq_011",
+    "font_name": "Atma",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The 'Q' in the 'Style Identifiers' row features a quirky, detached tail, and the 'Abg' sample demonstrates a bouncy, uneven baseline that creates the playful energy requested.",
+    "thought": "The font is a casual, handwritten sans-serif with monolinear strokes and rounded terminals. It features a bouncy baseline, irregular rhythm, and organic letterforms (like the single-story 'a' and 'g') that convey warmth and informality. These characteristics align well with youth-oriented, playful, or friendly branding contexts. | The 'Q' in the 'Style Identifiers' row features a quirky, detached tail, and the 'Abg' sample demonstrates a bouncy, uneven baseline that creates the playful energy requested."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "B612 Mono",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The alphabet specimen shows characters like 'A', 'B', 'T', 'n', and 'h' with straight, unadorned terminals, identifying this strictly as a sans-serif typeface rather than a serif.",
+    "thought": "The font is a humanist sans-serif designed for high legibility (likely for coding or UI), characterized by monolinear strokes and open apertures. It fundamentally differs from the serif classification. | The alphabet specimen shows characters like 'A', 'B', 'T', 'n', and 'h' with straight, unadorned terminals, identifying this strictly as a sans-serif typeface rather than a serif."
+  },
+  {
+    "query_id": "cq_038",
+    "font_name": "Babylonica",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The macro view of glyphs like 'i', 'l', and 'O' reveals a harsh, dry-brush texture with jagged, scratchy edges rather than smooth curves.",
+    "thought": "The font is a script, but it features a distinct dry-brush aesthetic with rough, jagged edges and a raw, energetic stroke quality. This texture creates a chaotic or expressive vibe that directly contradicts the descriptor 'gentle', which implies smoothness, softness, and flow typically associated with traditional wedding calligraphy. | The macro view of glyphs like 'i', 'l', and 'O' reveals a harsh, dry-brush texture with jagged, scratchy edges rather than smooth curves."
+  },
+  {
+    "query_id": "cq_009",
+    "font_name": "Baloo Paaji 2",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The font features distinct rounded terminals on the 'l', 'i', and 't', combined with a friendly single-story 'a' and 'g' that perfectly matches the soft, approachable vibe needed for a children's brand.",
+    "thought": "The font is a geometric rounded sans-serif. It features monolinear strokes with soft, rounded terminals and simplified letterforms, such as a single-story 'a' and 'g'. The aesthetic is clean, approachable, and informal. | The font features distinct rounded terminals on the 'l', 'i', and 't', combined with a friendly single-story 'a' and 'g' that perfectly matches the soft, approachable vibe needed for a children's brand."
+  },
+  {
+    "query_id": "cq_032",
+    "font_name": "Baloo Paaji 2",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The specimen shows a sans-serif design with no serifs on the stems of 'n', 'l', or 'i', which fails the primary technical constraint for a 'serif' font.",
+    "thought": "The font is a geometric rounded sans-serif. It features monolinear strokes with soft, rounded terminals and simplified letterforms, such as a single-story 'a' and 'g'. The aesthetic is clean, approachable, and informal. | The specimen shows a sans-serif design with no serifs on the stems of 'n', 'l', or 'i', which fails the primary technical constraint for a 'serif' font."
+  },
+  {
+    "query_id": "cq_039",
+    "font_name": "Basic",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The double-story 'g' and 'a' feature smooth, humanist curves and modulated strokes that convey elegance and clarity rather than rugged durability.",
+    "thought": "The font is a refined humanist sans-serif (similar to FF Meta) characterized by open counters, distinct stroke modulation, and elegant curves. It prioritizes legibility and a friendly, professional tone over the roughness, boldness, or industrial strength typically required for a 'rugged' aesthetic. | The double-story 'g' and 'a' feature smooth, humanist curves and modulated strokes that convey elegance and clarity rather than rugged durability."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Baskervville SC",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The 'Critical Distinction' section demonstrates proportional spacing (e.g., 'l' is significantly narrower than 'O'), and the numeric line in the first image displays a plain oval zero '0' indistinguishable from the capital 'O' in a coding context.",
+    "thought": "The font is a proportional serif typeface with high contrast and ball terminals, designed for editorial text rather than programming. It is not monospaced, which is a fundamental requirement for a 'coding font'. Furthermore, the zero '0' shown in the character set is a standard oval shape without a slash or dot, making it difficult to distinguish from the uppercase 'O', failing the specific legibility constraint of the query. | The 'Critical Distinction' section demonstrates proportional spacing (e.g., 'l' is significantly narrower than 'O'), and the numeric line in the first image displays a plain oval zero '0' indistinguishable from the capital 'O' in a coding context."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Bentham",
+    "ai_match": 0,
+    "confidence": 0.8,
+    "evidence": "The font features refined ball terminals on the 'y', 'f', and 'r' and sharp hairline serifs typical of the Didot/Bodoni style. While used in the 19th century, this clean 'Fashion' aesthetic lacks the decorative ornamentation, heavy slab features, or 'Fat Face' weight necessary to constitute a 'Victorian style' display match.",
+    "thought": "The font is a high-contrast Modern (Didone) serif, characterized by vertical stress, unbracketed hairline serifs, and ball terminals (visible on 'a', 'c', 'f', 'y', '3', '5'). This style originated in the late 18th century and is synonymous with high-end editorial fashion or classical literature, rather than the ornamental, eclectic, or heavy wood-type aesthetics typically classified as 'Victorian'. Furthermore, it is a proportional typeface with varying character widths, disqualifying it from technical coding applications. | The font features refined ball terminals on the 'y', 'f', and 'r' and sharp hairline serifs typical of the Didot/Bodoni style. While used in the 19th century, this clean 'Fashion' aesthetic lacks the decorative ornamentation, heavy slab features, or 'Fat Face' weight necessary to constitute a 'Victorian style' display match."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Bentham",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The 'Contrast & Rhythm Strip' at the bottom and the 'il1IoO' comparison clearly show variable character widths (proportional spacing), which fails the primary technical constraint of a coding font (monospacing).",
+    "thought": "The font is a high-contrast Modern (Didone) serif, characterized by vertical stress, unbracketed hairline serifs, and ball terminals (visible on 'a', 'c', 'f', 'y', '3', '5'). This style originated in the late 18th century and is synonymous with high-end editorial fashion or classical literature, rather than the ornamental, eclectic, or heavy wood-type aesthetics typically classified as 'Victorian'. Furthermore, it is a proportional typeface with varying character widths, disqualifying it from technical coding applications. | The 'Contrast & Rhythm Strip' at the bottom and the 'il1IoO' comparison clearly show variable character widths (proportional spacing), which fails the primary technical constraint of a coding font (monospacing)."
+  },
+  {
+    "query_id": "cq_008",
+    "font_name": "Big Shoulders",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The specimen shows a sans-serif alphabet (e.g., the 'a', 'b', 'c' sequence) with straight, unornamented strokes, whereas a blackletter style requires fractured, calligraphic forms.",
+    "thought": "The font is a condensed sans-serif with a geometric, modular structure. It features uniform stroke widths and clean, modern lines. It completely lacks the calligraphic broken strokes, high contrast, and ornamental terminals that define the Blackletter (or Old English) classification requested in the query. | The specimen shows a sans-serif alphabet (e.g., the 'a', 'b', 'c' sequence) with straight, unornamented strokes, whereas a blackletter style requires fractured, calligraphic forms."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Bubblegum Sans",
+    "ai_match": 0,
+    "confidence": 0.0,
+    "evidence": "The font is a sans-serif with rounded, casual terminals (visible in the 'A', 'b', and 'g' glyphs), whereas the query explicitly demands a 'serif'.",
+    "thought": "The font is a casual, hand-drawn sans-serif with a playful, bouncy rhythm and irregular stroke widths, resembling marker lettering or comic book styles. It completely lacks serifs and the formal structure required for traditional text setting or historical emulations. | The font is a sans-serif with rounded, casual terminals (visible in the 'A', 'b', and 'g' glyphs), whereas the query explicitly demands a 'serif'."
+  },
+  {
+    "query_id": "cq_032",
+    "font_name": "Bubblegum Sans",
+    "ai_match": 0,
+    "confidence": 0.0,
+    "evidence": "The font is a sans-serif (see 'i', 'l', '1') and features a bouncy, irregular baseline and character shape (visible in the 'Body 24pt' sentence), which violates the stability and serif requirement for long-form editorial reading.",
+    "thought": "The font is a casual, hand-drawn sans-serif with a playful, bouncy rhythm and irregular stroke widths, resembling marker lettering or comic book styles. It completely lacks serifs and the formal structure required for traditional text setting or historical emulations. | The font is a sans-serif (see 'i', 'l', '1') and features a bouncy, irregular baseline and character shape (visible in the 'Body 24pt' sentence), which violates the stability and serif requirement for long-form editorial reading."
+  },
+  {
+    "query_id": "cq_025",
+    "font_name": "Bungee Inline",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font features uniform stroke thickness and rounded outer corners (visible in 'A', 'B', 'G'), lacking the high stroke contrast, sharp angles, and vertical stress characteristic of Art Deco typography.",
+    "thought": "The font is a heavy, geometric display sans-serif characterized by a consistent stroke width, rounded terminals, and a distinctive central inline (outline effect). Its aesthetic is strongly reminiscent of 1970s industrial design, retro sports typography, or neon tube lettering. While it possesses a bold weight, the rounded 'tubular' construction and decorative inline lean more towards a retro-pop or athletic vibe than rugged nature or classical Art Deco. Technically, it is a proportional typeface, as evidenced by varying glyph widths. | The font features uniform stroke thickness and rounded outer corners (visible in 'A', 'B', 'G'), lacking the high stroke contrast, sharp angles, and vertical stress characteristic of Art Deco typography."
+  },
+  {
+    "query_id": "cq_039",
+    "font_name": "Bungee Inline",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The rounded terminals and decorative inline striping (seen clearly in the 'S' and 'O') create a 'bubbly' or 'sports jersey' aesthetic that contradicts the textured, aggressive, or utilitarian vibe typically required for 'rugged' outdoor branding.",
+    "thought": "The font is a heavy, geometric display sans-serif characterized by a consistent stroke width, rounded terminals, and a distinctive central inline (outline effect). Its aesthetic is strongly reminiscent of 1970s industrial design, retro sports typography, or neon tube lettering. While it possesses a bold weight, the rounded 'tubular' construction and decorative inline lean more towards a retro-pop or athletic vibe than rugged nature or classical Art Deco. Technically, it is a proportional typeface, as evidenced by varying glyph widths. | The rounded terminals and decorative inline striping (seen clearly in the 'S' and 'O') create a 'bubbly' or 'sports jersey' aesthetic that contradicts the textured, aggressive, or utilitarian vibe typically required for 'rugged' outdoor branding."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Bungee Inline",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "In the 'LEGIBILITY PAIRS' section, the glyph 'M' is visibly much wider than the 'N', and the 'W' is wider than the 'V', proving the font is proportional and not a monospace suitable for data tables.",
+    "thought": "The font is a heavy, geometric display sans-serif characterized by a consistent stroke width, rounded terminals, and a distinctive central inline (outline effect). Its aesthetic is strongly reminiscent of 1970s industrial design, retro sports typography, or neon tube lettering. While it possesses a bold weight, the rounded 'tubular' construction and decorative inline lean more towards a retro-pop or athletic vibe than rugged nature or classical Art Deco. Technically, it is a proportional typeface, as evidenced by varying glyph widths. | In the 'LEGIBILITY PAIRS' section, the glyph 'M' is visibly much wider than the 'N', and the 'W' is wider than the 'V', proving the font is proportional and not a monospace suitable for data tables."
+  },
+  {
+    "query_id": "cq_011",
+    "font_name": "Bungee Shade",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The font features a heavy, cartoon-style 3D extrusion (visible in the large 'A', 'B', 'G') and rounded block letterforms that evoke the fun, high-energy aesthetic typical of confectionery branding.",
+    "thought": "The font is a bold, 3D-extruded display typeface with a comic-book or retro aesthetic. Its heavy weight, distinct drop shadows, and blocky yet rounded character shapes make it highly decorative and attention-grabbing, suitable for high-impact headlines. | The font features a heavy, cartoon-style 3D extrusion (visible in the large 'A', 'B', 'G') and rounded block letterforms that evoke the fun, high-energy aesthetic typical of confectionery branding."
+  },
+  {
+    "query_id": "cq_039",
+    "font_name": "Cairo",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The smooth, refined contours of the single-story 'a' and the delicate double-story 'g' create a corporate or digital interface aesthetic rather than a rugged outdoor look.",
+    "thought": "The font is a clean, neutral, and highly legible sans-serif designed primarily for utility and body text (evidenced by the 'Body 12pt' sample). It features smooth, uniform strokes and a standard humanist/geometric structure (single-story 'a', double-story 'g'). It completely lacks the 'rugged' characteristics\u2014such as distressed textures, heavy weights, slab serifs, or stencil elements\u2014typically required for an outdoor camping display aesthetic. | The smooth, refined contours of the single-story 'a' and the delicate double-story 'g' create a corporate or digital interface aesthetic rather than a rugged outdoor look."
+  },
+  {
+    "query_id": "cq_019",
+    "font_name": "Calistoga",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The massive weight and soft, bracketed serifs visible in the 'A', 'b', and 'g', combined with the ball terminals on the 'f' and 'y', perfectly replicate the bold advertising typography style prevalent in 1920s posters.",
+    "thought": "The font is a heavy, high-contrast serif (specifically a 'Fat Face' or heavy advertising serif style) characterized by thick stems, soft bracketed serifs, and ball terminals. This aesthetic is historically aligned with early 20th-century advertising and poster design, particularly the 1920s trend toward friendly, bold types like Cooper Black and Goudy Heavyface. Its high impact and ornamental details make it an ideal display choice for vintage applications. | The massive weight and soft, bracketed serifs visible in the 'A', 'b', and 'g', combined with the ball terminals on the 'f' and 'y', perfectly replicate the bold advertising typography style prevalent in 1920s posters."
+  },
+  {
+    "query_id": "cq_011",
+    "font_name": "Calligraffitti",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font's strokes are consistently thin and skeletal, as seen in the 'Contrast & Rhythm Strip' and the lightweight lowercase 'w', lacking the bold, plump, or 'bubbly' volume typically essential for candy shop branding to evoke sweetness and indulgence.",
+    "thought": "The font is a thin, casual monolinear script with a handwritten, slightly messy aesthetic. It features a bouncy baseline, exaggerated loops on ascenders and descenders, and a loose, informal rhythm that mimics quick penmanship. | The font's strokes are consistently thin and skeletal, as seen in the 'Contrast & Rhythm Strip' and the lightweight lowercase 'w', lacking the bold, plump, or 'bubbly' volume typically essential for candy shop branding to evoke sweetness and indulgence."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Chivo Mono",
+    "ai_match": 0,
+    "confidence": 0.95,
+    "evidence": "The 'Contrast & Rhythm Strip' at the bottom and the 'Critical Distinction' line show strict monospacing, with the 'i' and 'l' possessing exaggerated horizontal serifs to fill the fixed character width.",
+    "thought": "The font is a monospaced slab serif, designed primarily for coding or technical documentation. While it is a serif font, the fixed-width spacing (where narrow letters like 'i' are stretched with long serifs and wide letters like 'm' are compressed) creates a 'draft' or 'typewriter' aesthetic. This contradicts the 'authoritative' and 'stern' polish typically required for law firm branding, which favors proportional Transitional or Didone serifs. The presence of coding-oriented features, such as the slashed zero in the character set, further distances it from traditional professional services identity. | The 'Contrast & Rhythm Strip' at the bottom and the 'Critical Distinction' line show strict monospacing, with the 'i' and 'l' possessing exaggerated horizontal serifs to fill the fixed character width."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Cormorant",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a proportional serif (evident in the variable widths of 'i' vs 'm' in the legibility pairs), whereas coding fonts must be monospaced.",
+    "thought": "The typeface is a high-contrast, proportional serif design (likely a transitional style similar to Baskerville), intended for editorial or body text use. It lacks the monospacing and specific legibility features (like slashed zeros) required for coding environments. | The font is a proportional serif (evident in the variable widths of 'i' vs 'm' in the legibility pairs), whereas coding fonts must be monospaced."
+  },
+  {
+    "query_id": "cq_015",
+    "font_name": "Courier Prime",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The prominent slab serifs on glyphs like 'I' and '1', combined with the humanist double-story 'g', create a warm, retro-mechanical vibe rather than a cold, sterile digital aesthetic.",
+    "thought": "The font is a classic slab-serif monospace, strongly resembling the Courier family. It is defined by its fixed-width spacing, uniform stroke weight, and heavy slab serifs. The design features traditional typewriter characteristics, such as a double-story 'g', a distinct flag on the '1', and curved tails on the 'l' and 't'. While highly legible and functional, its aesthetic is inherently mechanical and retro, evoking mid-20th-century bureaucracy rather than modern digital interfaces or high-contrast luxury. | The prominent slab serifs on glyphs like 'I' and '1', combined with the humanist double-story 'g', create a warm, retro-mechanical vibe rather than a cold, sterile digital aesthetic."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Courier Prime",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The rigid monospaced rhythm, demonstrated in the 'Contrast & Rhythm Strip', prevents the refined kerning and variable letter spacing necessary for elegant luxury branding.",
+    "thought": "The font is a classic slab-serif monospace, strongly resembling the Courier family. It is defined by its fixed-width spacing, uniform stroke weight, and heavy slab serifs. The design features traditional typewriter characteristics, such as a double-story 'g', a distinct flag on the '1', and curved tails on the 'l' and 't'. While highly legible and functional, its aesthetic is inherently mechanical and retro, evoking mid-20th-century bureaucracy rather than modern digital interfaces or high-contrast luxury. | The rigid monospaced rhythm, demonstrated in the 'Contrast & Rhythm Strip', prevents the refined kerning and variable letter spacing necessary for elegant luxury branding."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Courier Prime",
+    "ai_match": 0,
+    "confidence": 0.85,
+    "evidence": "The uniform stroke width and utilitarian construction lack the high contrast, decorative swashes, or ornamental complexity required for a 19th-century Victorian display face.",
+    "thought": "The font is a classic slab-serif monospace, strongly resembling the Courier family. It is defined by its fixed-width spacing, uniform stroke weight, and heavy slab serifs. The design features traditional typewriter characteristics, such as a double-story 'g', a distinct flag on the '1', and curved tails on the 'l' and 't'. While highly legible and functional, its aesthetic is inherently mechanical and retro, evoking mid-20th-century bureaucracy rather than modern digital interfaces or high-contrast luxury. | The uniform stroke width and utilitarian construction lack the high contrast, decorative swashes, or ornamental complexity required for a 19th-century Victorian display face."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Courier Prime",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The font exhibits all definitive traits of a classic typewriter face: monospacing, heavy slab serifs, and specific glyph shapes like the curved tail on the 'l' and the double-story 'a' and 'g'.",
+    "thought": "The font is a classic slab-serif monospace, strongly resembling the Courier family. It is defined by its fixed-width spacing, uniform stroke weight, and heavy slab serifs. The design features traditional typewriter characteristics, such as a double-story 'g', a distinct flag on the '1', and curved tails on the 'l' and 't'. While highly legible and functional, its aesthetic is inherently mechanical and retro, evoking mid-20th-century bureaucracy rather than modern digital interfaces or high-contrast luxury. | The font exhibits all definitive traits of a classic typewriter face: monospacing, heavy slab serifs, and specific glyph shapes like the curved tail on the 'l' and the double-story 'a' and 'g'."
+  },
+  {
+    "query_id": "cq_032",
+    "font_name": "Cousine",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The sample shows a sans-serif design (e.g., 'A', 'b', 'n', 'm' have no serifs) with fixed width spacing suitable for code, not the proportional serif style required for editorial reading.",
+    "thought": "The font is a monospaced sans-serif designed primarily for coding or technical applications. It features equal character widths and lacks the stroke modulation and terminal feet characteristic of serif typefaces intended for editorial use. | The sample shows a sans-serif design (e.g., 'A', 'b', 'n', 'm' have no serifs) with fixed width spacing suitable for code, not the proportional serif style required for editorial reading."
+  },
+  {
+    "query_id": "cq_009",
+    "font_name": "Delius Swash Caps",
+    "ai_match": 0,
+    "confidence": 0.95,
+    "evidence": "The uppercase letters (e.g., 'S', 'G', 'O', 'L' in the Style Identifiers) feature prominent decorative spiral terminals and loops, and lowercase letters like 'k' and 'f' include cursive loops, defining this as a decorative handwritten font rather than a standard rounded sans.",
+    "thought": "The typeface is a monolinear, handwritten script with rounded terminals. While it captures the 'friendly' and 'children's brand' aesthetic perfectly, it fails the technical classification of a 'sans' typeface due to the pervasive decorative loops and curls found throughout the character set, particularly in the uppercase. | The uppercase letters (e.g., 'S', 'G', 'O', 'L' in the Style Identifiers) feature prominent decorative spiral terminals and loops, and lowercase letters like 'k' and 'f' include cursive loops, defining this as a decorative handwritten font rather than a standard rounded sans."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Doppio One",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is proportional rather than monospaced, as seen in the 'Legibility Pairs' where 'm' is significantly wider than 'n' or 'i'. Furthermore, the 'Critical Distinction' line shows the '0' and 'O' as nearly identical open ovals without a slash or dot to differentiate them.",
+    "thought": "The font is a proportional humanist sans-serif, lacking the fixed-width character grid required for a functional coding font. Additionally, it fails the specific legibility requirement for distinguishing similar characters. | The font is proportional rather than monospaced, as seen in the 'Legibility Pairs' where 'm' is significantly wider than 'n' or 'i'. Furthermore, the 'Critical Distinction' line shows the '0' and 'O' as nearly identical open ovals without a slash or dot to differentiate them."
+  },
+  {
+    "query_id": "cq_038",
+    "font_name": "Edu NSW ACT Foundation",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The specimen shows disconnected, upright hand-printing (visible in the 'abcdefg' sequence) and simple block capitals (like the 'A' and 'B'), rather than the flowing, connected cursive style required for wedding invitations.",
+    "thought": "The font is a casual, disconnected handwriting typeface with a monolinear marker aesthetic. While it is 'gentle' in terms of rounded terminals, it completely lacks the elegance, connectivity, and calligraphic flourishes (swashes, variable stroke contrast) typically defined as 'script' for the context of wedding invitations. It is too informal and resembles comic lettering rather than formal stationery. | The specimen shows disconnected, upright hand-printing (visible in the 'abcdefg' sequence) and simple block capitals (like the 'A' and 'B'), rather than the flowing, connected cursive style required for wedding invitations."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Edu NSW ACT Hand Pre",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a thin, informal handwriting style with rounded terminals (visible in the 'l' and 'i') and completely lacks the serifs and rigid, authoritative structure required for a law firm.",
+    "thought": "The font is a casual, monolinear handwritten typeface that mimics the look of a felt-tip pen. It features rounded terminals, organic irregularities in baseline and stroke, and a mix of block capitals with semi-connected lowercase forms. It is informal and friendly, lacking the mechanical structure of typewriters, the formality of serifs, or the elegance of traditional scripts. | The font is a thin, informal handwriting style with rounded terminals (visible in the 'l' and 'i') and completely lacks the serifs and rigid, authoritative structure required for a law firm."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Edu NSW ACT Hand Pre",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The characters exhibit organic, hand-drawn irregularities (such as the slanted 'A' and curved 'y' tail) rather than the mechanical, rectangular slab-serif structure inherent to a classic typewriter font.",
+    "thought": "The font is a casual, monolinear handwritten typeface that mimics the look of a felt-tip pen. It features rounded terminals, organic irregularities in baseline and stroke, and a mix of block capitals with semi-connected lowercase forms. It is informal and friendly, lacking the mechanical structure of typewriters, the formality of serifs, or the elegance of traditional scripts. | The characters exhibit organic, hand-drawn irregularities (such as the slanted 'A' and curved 'y' tail) rather than the mechanical, rectangular slab-serif structure inherent to a classic typewriter font."
+  },
+  {
+    "query_id": "cq_038",
+    "font_name": "Edu NSW ACT Hand Pre",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a disconnected hand-printing style (seen clearly in the separated 'a', 'b', 'c' and block capitals) rather than the flowing, elegant connected script typically associated with wedding invitations.",
+    "thought": "The font is a casual, monolinear handwritten typeface that mimics the look of a felt-tip pen. It features rounded terminals, organic irregularities in baseline and stroke, and a mix of block capitals with semi-connected lowercase forms. It is informal and friendly, lacking the mechanical structure of typewriters, the formality of serifs, or the elegance of traditional scripts. | The font is a disconnected hand-printing style (seen clearly in the separated 'a', 'b', 'c' and block capitals) rather than the flowing, elegant connected script typically associated with wedding invitations."
+  },
+  {
+    "query_id": "cq_010",
+    "font_name": "Edu VIC WA NT Beginner",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The 'Contrast & Rhythm Strip' and characters like 'O' and 'l' demonstrate a completely uniform, monoline stroke width, failing the specific requirement for 'varying line weight' inherent to traditional calligraphy.",
+    "thought": "The typeface is a casual, monoline handwritten script with a distinct lack of stroke contrast. It mimics the aesthetic of a felt-tip pen or marker with consistent line width throughout. The forms are informal and relaxed, lacking the structural discipline of traditional calligraphy or the refined architecture of formal serif typefaces. | The 'Contrast & Rhythm Strip' and characters like 'O' and 'l' demonstrate a completely uniform, monoline stroke width, failing the specific requirement for 'varying line weight' inherent to traditional calligraphy."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Edu VIC WA NT Beginner",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a casual handwritten script (seen in the informal loops of 'g' and 'y') rather than a formal serif, and it lacks the high contrast and precise geometry required for 'elegant' luxury branding.",
+    "thought": "The typeface is a casual, monoline handwritten script with a distinct lack of stroke contrast. It mimics the aesthetic of a felt-tip pen or marker with consistent line width throughout. The forms are informal and relaxed, lacking the structural discipline of traditional calligraphy or the refined architecture of formal serif typefaces. | The font is a casual handwritten script (seen in the informal loops of 'g' and 'y') rather than a formal serif, and it lacks the high contrast and precise geometry required for 'elegant' luxury branding."
+  },
+  {
+    "query_id": "cq_019",
+    "font_name": "Edu VIC WA NT Hand Pre",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font features a casual, monolinear marker style (seen in the looped 'g' and 'y') which is distinctly modern and informal, lacking the geometric Art Deco structure or formal calligraphic weight required for a 1920s poster.",
+    "thought": "The font is a casual, monolinear handwritten typeface with a slanted, italic stance. It features a mix of simple hand-printed uppercase letters and semi-connected lowercase script forms. The aesthetic is informal, modern, and friendly, resembling marker or pen writing rather than historical display typography. | The font features a casual, monolinear marker style (seen in the looped 'g' and 'y') which is distinctly modern and informal, lacking the geometric Art Deco structure or formal calligraphic weight required for a 1920s poster."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Edu VIC WA NT Hand Pre",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query requests a 'serif' font with Victorian styling, but this specimen is a handwritten script/sans hybrid with rounded terminals and consistent stroke width, completely lacking the ornamental serifs and high contrast typical of the 19th century.",
+    "thought": "The font is a casual, monolinear handwritten typeface with a slanted, italic stance. It features a mix of simple hand-printed uppercase letters and semi-connected lowercase script forms. The aesthetic is informal, modern, and friendly, resembling marker or pen writing rather than historical display typography. | The query requests a 'serif' font with Victorian styling, but this specimen is a handwritten script/sans hybrid with rounded terminals and consistent stroke width, completely lacking the ornamental serifs and high contrast typical of the 19th century."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Elsie Swash Caps",
+    "ai_match": 0,
+    "confidence": 0.0,
+    "evidence": "The decorative swash on the 'A' and the whimsical, curled ear on the 'g' create a playful, romantic tone that contradicts the requirement for a stern, authoritative aesthetic.",
+    "thought": "The font is a highly ornamental, high-contrast serif characterized by romantic and whimsical details. It features prominent ball terminals, decorative swashes (notably on capitals like 'A' and 'Q'), and unique curled details on lowercase letters like 'g' and 'y'. These traits place it firmly in the category of decorative display typography, reminiscent of the Romantic or Victorian eras, rather than sober text faces. | The decorative swash on the 'A' and the whimsical, curled ear on the 'g' create a playful, romantic tone that contradicts the requirement for a stern, authoritative aesthetic."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Elsie Swash Caps",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The high contrast, prominent ball terminals on 'a', 'c', and 'r', and the ornamental flourishes on the 'A' and 'Q' align perfectly with the decorative excess typical of 19th-century Victorian display typography.",
+    "thought": "The font is a highly ornamental, high-contrast serif characterized by romantic and whimsical details. It features prominent ball terminals, decorative swashes (notably on capitals like 'A' and 'Q'), and unique curled details on lowercase letters like 'g' and 'y'. These traits place it firmly in the category of decorative display typography, reminiscent of the Romantic or Victorian eras, rather than sober text faces. | The high contrast, prominent ball terminals on 'a', 'c', and 'r', and the ornamental flourishes on the 'A' and 'Q' align perfectly with the decorative excess typical of 19th-century Victorian display typography."
+  },
+  {
+    "query_id": "cq_003",
+    "font_name": "Encode Sans Condensed",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The alphabet specimen displays significantly narrowed letterforms (compare the width of the uppercase 'H' and 'O' to their height) and a uniform stroke weight, which are defining characteristics of a condensed industrial sans.",
+    "thought": "The typeface is a condensed sans-serif with grotesque characteristics, featuring a double-story 'a' and 'g', and a distinct curved tail on the lowercase 'l'. Its narrow proportions and uniform stroke width give it a utilitarian, technical appearance designed for high legibility and space efficiency. | The alphabet specimen displays significantly narrowed letterforms (compare the width of the uppercase 'H' and 'O' to their height) and a uniform stroke weight, which are defining characteristics of a condensed industrial sans."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Encode Sans Condensed",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif, as evidenced by the clean, unadorned terminals on characters like 'T', 'E', and 'l', failing the primary technical constraint for a serif font.",
+    "thought": "The typeface is a condensed sans-serif with grotesque characteristics, featuring a double-story 'a' and 'g', and a distinct curved tail on the lowercase 'l'. Its narrow proportions and uniform stroke width give it a utilitarian, technical appearance designed for high legibility and space efficiency. | The font is a sans-serif, as evidenced by the clean, unadorned terminals on characters like 'T', 'E', and 'l', failing the primary technical constraint for a serif font."
+  },
+  {
+    "query_id": "cq_032",
+    "font_name": "Encode Sans Expanded",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The stroke endings on characters such as 'n', 'h', 'i', and 'l' are clean and cut without any serif structures.",
+    "thought": "The typeface is a humanist sans-serif. It features open apertures, a double-story 'a' and 'g', and distinct letterforms (like the tail on the 'l'), but it completely lacks the structural serifs required by the query. | The stroke endings on characters such as 'n', 'h', 'i', and 'l' are clean and cut without any serif structures."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Esteban",
+    "ai_match": 1,
+    "confidence": 0.95,
+    "evidence": "The sturdy, bracketed serifs visible on the capital 'M' and the traditional, grounded structure of the double-story 'g' convey the stability and established authority required for a law firm.",
+    "thought": "The font is a classic serif with Transitional influences, characterized by moderate contrast, bracketed serifs, and sturdy construction. It features traditional forms like a double-story 'g' and a crossed 'W', conveying a sense of history, stability, and academic rigor rather than high-fashion delicacy. | The sturdy, bracketed serifs visible on the capital 'M' and the traditional, grounded structure of the double-story 'g' convey the stability and established authority required for a law firm."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Esteban",
+    "ai_match": 0,
+    "confidence": 0.85,
+    "evidence": "The contrast shown in the 'Contrast & Rhythm Strip' is moderate and functional rather than high-drama. The serifs are robust and bracketed (see 'l' and 'i'), lacking the sharp, hairline refinement typically associated with high-end luxury branding.",
+    "thought": "The font is a classic serif with Transitional influences, characterized by moderate contrast, bracketed serifs, and sturdy construction. It features traditional forms like a double-story 'g' and a crossed 'W', conveying a sense of history, stability, and academic rigor rather than high-fashion delicacy. | The contrast shown in the 'Contrast & Rhythm Strip' is moderate and functional rather than high-drama. The serifs are robust and bracketed (see 'l' and 'i'), lacking the sharp, hairline refinement typically associated with high-end luxury branding."
+  },
+  {
+    "query_id": "cq_002",
+    "font_name": "Farro",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The letterforms 'O', '0', and the bowls of 'b'/'d' are vertically condensed ovals rather than perfect circles. Additionally, the 'g' is a double-story humanist shape, not a geometric single-story form.",
+    "thought": "The font is a condensed sans-serif with humanist characteristics, featuring a double-story 'a' and 'g', noticeable stroke modulation (contrast between thick and thin lines), and narrow proportions. It lacks the structural geometry of a geometric sans and the calligraphic ornamentation of a blackletter. | The letterforms 'O', '0', and the bowls of 'b'/'d' are vertically condensed ovals rather than perfect circles. Additionally, the 'g' is a double-story humanist shape, not a geometric single-story form."
+  },
+  {
+    "query_id": "cq_008",
+    "font_name": "Farro",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The specimen displays a clean, legible sans-serif with smooth curves (seen in 'S', 'C', 'O') and no fractured strokes, angular stress, or dense texture required for a blackletter style.",
+    "thought": "The font is a condensed sans-serif with humanist characteristics, featuring a double-story 'a' and 'g', noticeable stroke modulation (contrast between thick and thin lines), and narrow proportions. It lacks the structural geometry of a geometric sans and the calligraphic ornamentation of a blackletter. | The specimen displays a clean, legible sans-serif with smooth curves (seen in 'S', 'C', 'O') and no fractured strokes, angular stress, or dense texture required for a blackletter style."
+  },
+  {
+    "query_id": "cq_011",
+    "font_name": "Faster One",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The horizontal motion lines attached to the left side of glyphs like 'A', 'B', and 'G' create a distinct 'racing' or 'speed' effect.",
+    "thought": "The font is a heavy, italicized display typeface defined by horizontal 'speed lines' trailing to the left of each character. This design creates a strong sensation of rapid motion, velocity, and aggression, which is archetypal for sports, racing, or automotive branding. It lacks the rounded, bubbly, or whimsical characteristics typically associated with 'playful' or 'quirky' candy shop typography. | The horizontal motion lines attached to the left side of glyphs like 'A', 'B', and 'G' create a distinct 'racing' or 'speed' effect."
+  },
+  {
+    "query_id": "cq_019",
+    "font_name": "Federant",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The uncial-style 'A' and organic, flowing forms of the 'm' and 'g' are characteristic of the Art Nouveau period (1890\u20131910), not the geometric Art Deco style typical of 1920s posters.",
+    "thought": "The typeface is a stylized display font with strong Art Nouveau and Celtic/Uncial influences, characterized by organic, rounded letterforms (like the 'A' and 'm') and flared terminals. While it shares some geometric traits with the Secessionist movement, its overall aesthetic is rooted in the turn-of-the-century (1890s\u20131910s) Arts & Crafts style rather than the industrial geometry of the 1920s or the functional legibility of text serifs. | The uncial-style 'A' and organic, flowing forms of the 'm' and 'g' are characteristic of the Art Nouveau period (1890\u20131910), not the geometric Art Deco style typical of 1920s posters."
+  },
+  {
+    "query_id": "cq_025",
+    "font_name": "Federant",
+    "ai_match": 0,
+    "confidence": 0.85,
+    "evidence": "Although the 'S' features a geometric diagonal, the predominant character shapes (like the rounded 'A', 'b', and 'y') are organic and fluid, contradicting the streamlined, mechanical aesthetic required for an Art Deco match.",
+    "thought": "The typeface is a stylized display font with strong Art Nouveau and Celtic/Uncial influences, characterized by organic, rounded letterforms (like the 'A' and 'm') and flared terminals. While it shares some geometric traits with the Secessionist movement, its overall aesthetic is rooted in the turn-of-the-century (1890s\u20131910s) Arts & Crafts style rather than the industrial geometry of the 1920s or the functional legibility of text serifs. | Although the 'S' features a geometric diagonal, the predominant character shapes (like the rounded 'A', 'b', and 'y') are organic and fluid, contradicting the streamlined, mechanical aesthetic required for an Art Deco match."
+  },
+  {
+    "query_id": "cq_032",
+    "font_name": "Federant",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a display face with idiosyncratic letterforms (such as the uncial 'A' and stylized 'm') and tight spacing, which would severely compromise legibility in long-form editorial reading.",
+    "thought": "The typeface is a stylized display font with strong Art Nouveau and Celtic/Uncial influences, characterized by organic, rounded letterforms (like the 'A' and 'm') and flared terminals. While it shares some geometric traits with the Secessionist movement, its overall aesthetic is rooted in the turn-of-the-century (1890s\u20131910s) Arts & Crafts style rather than the industrial geometry of the 1920s or the functional legibility of text serifs. | The font is a display face with idiosyncratic letterforms (such as the uncial 'A' and stylized 'm') and tight spacing, which would severely compromise legibility in long-form editorial reading."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Fira Mono",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "In the 'Legibility Pairs' section, the glyph 'm' is visibly wider than 'n', and 'w' is wider than 'v', demonstrating that this is a proportional font, whereas a classic typewriter font must be strictly monospaced.",
+    "thought": "The typeface is a proportional sans-serif designed with high legibility features (likely for coding or user interfaces), characterized by a dotted zero and distinct letterforms. It does not fit the 'classic typewriter' classification because it lacks the two defining features of that genre: strict monospacing and a consistent slab-serif structure. | In the 'Legibility Pairs' section, the glyph 'm' is visibly wider than 'n', and 'w' is wider than 'v', demonstrating that this is a proportional font, whereas a classic typewriter font must be strictly monospaced."
+  }
+]

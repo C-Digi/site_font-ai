@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "control_path": "research/ab-eval/out/smoke_v3_v3_1_control.json",
+    "treatment_path": "research/ab-eval/out/smoke_v3_3_v3_1_treatment.json",
+    "common_coverage": 68,
+    "control_total": 68,
+    "treatment_total": 68
+  },
+  "variants": {
+    "A": {
+      "agreement": 0.8824,
+      "precision": 0.5455,
+      "recall": 0.6667,
+      "f1": 0.6,
+      "counts": {
+        "tp": 6,
+        "fp": 5,
+        "fn": 3,
+        "tn": 54,
+        "considered_binary": 68,
+        "total": 68
+      }
+    },
+    "B": {
+      "agreement": 0.8088,
+      "precision": 0.375,
+      "recall": 0.6667,
+      "f1": 0.48,
+      "counts": {
+        "tp": 6,
+        "fp": 10,
+        "fn": 3,
+        "tn": 49,
+        "considered_binary": 68,
+        "total": 68
+      }
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 1,
+    "hurts_count": 6,
+    "net": -5
+  },
+  "control_metrics_common": {
+    "agreement": 0.8824,
+    "precision": 0.5455,
+    "recall": 0.6667,
+    "f1": 0.6,
+    "counts": {
+      "tp": 6,
+      "fp": 5,
+      "fn": 3,
+      "tn": 54,
+      "considered_binary": 68,
+      "total": 68
+    }
+  },
+  "treatment_metrics_common": {
+    "agreement": 0.8088,
+    "precision": 0.375,
+    "recall": 0.6667,
+    "f1": 0.48,
+    "counts": {
+      "tp": 6,
+      "fp": 10,
+      "fn": 3,
+      "tn": 49,
+      "considered_binary": 68,
+      "total": 68
+    }
+  },
+  "delta_treatment_minus_control": {
+    "agreement": -0.0736,
+    "precision": -0.1705,
+    "recall": 0.0,
+    "f1": -0.12
+  },
+  "helps_count": 1,
+  "hurts_count": 6,
+  "net_help": -5,
+  "helps": [
+    {
+      "query_id": "cq_025",
+      "font_name": "Federant",
+      "human": 1,
+      "control_pred": 0,
+      "treatment_pred": 1
+    }
+  ],
+  "hurts": [
+    {
+      "query_id": "cq_009",
+      "font_name": "Baloo Paaji 2",
+      "human": 1,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Delius Swash Caps",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Calligraffitti",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Federant",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Bentham",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Bungee Inline",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    }
+  ]
+}
