@@ -6,51 +6,129 @@
     "control_total": 68,
     "treatment_total": 68
   },
+  "variants": {
+    "A": {
+      "agreement": 0.7941,
+      "precision": 0.3529,
+      "recall": 0.6667,
+      "f1": 0.4615,
+      "counts": {
+        "tp": 6,
+        "fp": 11,
+        "fn": 3,
+        "tn": 48,
+        "considered_binary": 68,
+        "total": 68
+      }
+    },
+    "B": {
+      "agreement": 0.8382,
+      "precision": 0.4286,
+      "recall": 0.6667,
+      "f1": 0.5217,
+      "counts": {
+        "tp": 6,
+        "fp": 8,
+        "fn": 3,
+        "tn": 51,
+        "considered_binary": 68,
+        "total": 68
+      }
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 5,
+    "hurts_count": 2,
+    "net": 3
+  },
   "control_metrics_common": {
-    "agreement": 0.6029,
-    "precision": 0.6667,
+    "agreement": 0.7941,
+    "precision": 0.3529,
     "recall": 0.6667,
-    "f1": 0.6667,
+    "f1": 0.4615,
     "counts": {
       "tp": 6,
-      "fp": 3,
+      "fp": 11,
       "fn": 3,
-      "tn": 35,
-      "considered_binary": 47,
+      "tn": 48,
+      "considered_binary": 68,
       "total": 68
     }
   },
   "treatment_metrics_common": {
-    "agreement": 0.6176,
-    "precision": 0.75,
+    "agreement": 0.8382,
+    "precision": 0.4286,
     "recall": 0.6667,
-    "f1": 0.7059,
+    "f1": 0.5217,
     "counts": {
       "tp": 6,
-      "fp": 2,
+      "fp": 8,
       "fn": 3,
-      "tn": 36,
-      "considered_binary": 47,
+      "tn": 51,
+      "considered_binary": 68,
       "total": 68
     }
   },
   "delta_treatment_minus_control": {
-    "agreement": 0.0147,
-    "precision": 0.0833,
+    "agreement": 0.0441,
+    "precision": 0.0757,
     "recall": 0.0,
-    "f1": 0.0392
+    "f1": 0.0602
   },
-  "helps_count": 1,
-  "hurts_count": 0,
-  "net_help": 1,
+  "helps_count": 5,
+  "hurts_count": 2,
+  "net_help": 3,
   "helps": [
+    {
+      "query_id": "cq_009",
+      "font_name": "Atma",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Courier Prime",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Federant",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
     {
       "query_id": "cq_021",
       "font_name": "Artifika",
       "human": 0,
       "control_pred": 1,
       "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Fira Mono",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
     }
   ],
-  "hurts": []
+  "hurts": [
+    {
+      "query_id": "cq_009",
+      "font_name": "Delius Swash Caps",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Calligraffitti",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    }
+  ]
 }
