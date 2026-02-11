@@ -1,0 +1,85 @@
+{
+  "agreement": 0.8571,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "counts": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "tn": 5,
+    "total": 7
+  },
+  "details": [
+    {
+      "query_id": "cq_016",
+      "font_name": "Actor",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif design with plain terminals (visible on the 'A', 'b', and 'l'), failing the primary technical constraint of the query which explicitly requests a 'serif'.",
+      "thought": "The font is a humanist sans-serif typeface characterized by open apertures, slight stroke modulation, and a double-story 'g'. It prioritizes legibility and functionality rather than the ornamental characteristics associated with luxury serif typography. | The font is a sans-serif design with plain terminals (visible on the 'A', 'b', and 'l'), failing the primary technical constraint of the query which explicitly requests a 'serif'.",
+      "ai_match_gated": 0,
+      "human_match": 0
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Alata",
+      "ai_match": 1,
+      "confidence": 1.0,
+      "evidence": "The 'O', 'o', and 'Q' exhibit perfectly circular bowls, and the single-story 'a' and 'g' confirm the geometric classification with minimal stroke contrast shown in the rhythm strip.",
+      "thought": "The font is a classic geometric sans-serif characterized by near-perfect circular bowls, single-story 'a' and 'g' forms, and uniform stroke width. It prioritizes functional geometry over decorative flair. | The 'O', 'o', and 'Q' exhibit perfectly circular bowls, and the single-story 'a' and 'g' confirm the geometric classification with minimal stroke contrast shown in the rhythm strip.",
+      "ai_match_gated": 1,
+      "human_match": 1
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Alata",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font is a functional geometric sans rather than a decorative display face; it lacks the high waists, variable contrast, or ornamental stylization required for an Art Deco classification.",
+      "thought": "The font is a classic geometric sans-serif characterized by near-perfect circular bowls, single-story 'a' and 'g' forms, and uniform stroke width. It prioritizes functional geometry over decorative flair. | The font is a functional geometric sans rather than a decorative display face; it lacks the high waists, variable contrast, or ornamental stylization required for an Art Deco classification.",
+      "ai_match_gated": 0,
+      "human_match": 2
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Albert Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The query explicitly requests a serif font, but the specimen shows a sans-serif design with clean, unadorned terminals on letters like 'T', 'E', and 'l'.",
+      "thought": "The font is a geometric sans-serif characterized by a single-story 'a' and 'g', uniform stroke width, and proportional spacing. It does not possess serif features or fixed-width metrics required by the queries. | The query explicitly requests a serif font, but the specimen shows a sans-serif design with clean, unadorned terminals on letters like 'T', 'E', and 'l'.",
+      "ai_match_gated": 0,
+      "human_match": 0
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Albert Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a low-contrast geometric sans-serif (visible in the uniform thickness of the 'O' and single-story 'a'), whereas the query demands a serif with sophisticated contrast.",
+      "thought": "The font is a geometric sans-serif characterized by a single-story 'a' and 'g', uniform stroke width, and proportional spacing. It does not possess serif features or fixed-width metrics required by the queries. | The font is a low-contrast geometric sans-serif (visible in the uniform thickness of the 'O' and single-story 'a'), whereas the query demands a serif with sophisticated contrast.",
+      "ai_match_gated": 0,
+      "human_match": 0
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Albert Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font uses proportional spacing, evident in the 'Legibility Pairs' where the 'm' is significantly wider than the 'i' or 'l', making it unsuitable for data tables requiring monospace alignment.",
+      "thought": "The font is a geometric sans-serif characterized by a single-story 'a' and 'g', uniform stroke width, and proportional spacing. It does not possess serif features or fixed-width metrics required by the queries. | The font uses proportional spacing, evident in the 'Legibility Pairs' where the 'm' is significantly wider than the 'i' or 'l', making it unsuitable for data tables requiring monospace alignment.",
+      "ai_match_gated": 0,
+      "human_match": 0
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Amaranth",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is proportional rather than monospaced, clearly visible in the 'Legibility Pairs' where the 'm' is significantly wider than the 'i' or 'l'. Additionally, it is a sans-serif design, whereas classic typewriter fonts are almost exclusively slab serifs.",
+      "thought": "The font is a proportional humanist sans-serif with modulated stroke widths and a friendly, informal character. It lacks the fundamental technical and aesthetic characteristics of a classic typewriter font, which are defined by fixed-width (monospaced) spacing and typically feature slab serifs. | The font is proportional rather than monospaced, clearly visible in the 'Legibility Pairs' where the 'm' is significantly wider than the 'i' or 'l'. Additionally, it is a sans-serif design, whereas classic typewriter fonts are almost exclusively slab serifs.",
+      "ai_match_gated": 0,
+      "human_match": 0
+    }
+  ]
+}

@@ -1,29 +1,21 @@
-# Instruction Feedback - Governance Gate Pipeline Drift Investigation
+# Instruction Feedback
 
-## Instruction Ambiguities
-- "governance gate pipeline drift": The exact nature of the drift isn't specified, but the task implies it relates to inconsistencies between `EVALUATION_CONTRACT.md` and the implementation scripts/artifacts.
-- "reproduce current behavior": Determined to be `python research/ab-eval/py/validate_gates.py research/ab-eval/out/governance_gate_ready_v3.json --out research/ab-eval/out/governance_gate_results_v3.json`.
+## Ambiguities
+- The task says "work only in research/ab-eval outputs/reports plus .temp/instruction-feedback.md"; interpreted as allowing command execution that reads existing runner scripts but limiting file writes to `research/ab-eval/` report/output artifacts and `.temp/instruction-feedback.md` only.
+- "Adjust names if needed" is open-ended; interpreted as preserving suggested filenames unless blocked by script argument constraints.
+- "Early directional read for G1/G3 risk" with smoke sample is non-promotional; interpreted as trend-only and not gate-pass evidence.
 
 ## Missing Inputs
-- None.
+- No explicit required sample size was mandated beyond small max-fonts; selected `--max-fonts 8` from suggested command.
+- No fixed output directory override argument was provided; assumed runner defaults or provided filenames under `research/ab-eval/out` are valid.
+- No explicit timeout/retry policy was specified for smoke runs; will use script defaults.
 
 ## Conflicts
-- `EVALUATION_CONTRACT.md` Table says G2 is "Precision Delta >= -2.0%".
-- `validate_gates.py` uses `PRECISION_DELTA_MIN = -0.02`. This is numerically equivalent (-2% = -0.02), but the table says `Precision Delta >= -2.0%` (which usually means -0.02) while the script logic checks `delta_p >= -0.02`. However, the contract header for the table says `Precision Delta` but the value is `>= -2.0%`.
-- Actually, -2.0% is -0.02.
-- Wait, the contract says "G2 | Precision Delta | >= -2.0%".
-- If the delta is -1.75%, that is >= -2.0%. So PASS is correct.
+- Generic governance emphasizes promotion gates, while this task explicitly requests a low-cost smoke and states informational only.
+- Scope restriction avoids broad reruns, but acceptance still expects comparison artifact; resolved by running exactly two small arms plus one compare command.
 
-## Resolution Decisions
-- Phase 1: Reproduced behavior. Observed FAIL on G1 and G3.
-- Phase 2: Comparison reveals:
-    - G1: 0.0000 < 0.01 (FAIL) - Correct according to contract.
-    - G2: -0.0175 >= -0.02 (PASS) - Correct according to contract (though naming in script says "Delta" but value is absolute delta).
-    - G3: 0 > 0 (FAIL) - Correct according to contract.
-    - G4: PASS - Correct according to manual evidence.
-- The "drift" might be in the terminology or derivation logic.
-- Hypothesis 1: `derive_governance_artifact.py` doesn't include the treatment name in a way `validate_gates.py` prefers, but it works because of fallbacks.
-- Hypothesis 2: G2 naming in `EVALUATION_CONTRACT.md` (Table) says "Precision Delta" but value is a percentage. Script uses decimal. This is fine.
-- Hypothesis 3: The `governance_gate_results_v3.json` was already present and matched my reproduction. So where is the drift?
-- Maybe the provenance has fabricated values? Let's check `comp['delta_treatment_minus_control']['agreement']` in `week2_specimen_v3_1_comparison.json`. It is `0.0`. `derive_governance_artifact.py` maps it.
-- Wait, I see one issue: `G2` in `EVALUATION_CONTRACT.md` says `Precision Delta >= -2.0%`. In `validate_gates.py`, it prints `G2 (Precision Delta)`.
+## Resolution Choices
+- Run exactly two production trial commands with identical model/gate/max-fonts and differing prompt (`v3` vs `v3_2`).
+- Use `week1_`-prefixed artifact names as required naming convention.
+- Generate comparison artifact only if both arms succeed; otherwise record blocker in report.
+- Create concise smoke report with commands, coverage, metric deltas, caveats, and explicit GO/NO-GO statement set to informational-only (non-promotional).

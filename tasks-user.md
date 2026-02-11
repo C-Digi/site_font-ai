@@ -98,13 +98,6 @@ do HITL check of latest test data
 - use a match/no-match/ignore scoring method. i will choose to 'ignore' some edge cases where i can see decisions going either way acceptably
 
 
-review lib-researcher session, it did well
-
-check that subagents dont use yaml outputs
-
-see if ccr has same issues as claudish - incomplete/no output
-- what was claudish benefit, gemini api key?
-
 
 
 test google/gemini-2.5-flash, ensure use of gemini api provider not openrouter

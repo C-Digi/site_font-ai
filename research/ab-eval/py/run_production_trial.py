@@ -99,6 +99,47 @@ Return STRICT JSON only:
   ]
 }}
 """
+    elif prompt_type == "v3_2":
+        prompt = f"""You are a master typography auditor (V3.2 - Calibration Guardrails). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+
+### DECISION RUBRIC
+For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
+Partial matches or "almost matches" should be scored as NO MATCH (0) unless the query is broad.
+
+### SPECIMEN INTERPRETATION GUARDRAILS
+1. **Diagnostic Neutrality (Critical Distinction block)**
+   - The Critical Distinction block appears on ALL specimens and is diagnostic-only.
+   - Do NOT treat this block as category proof (e.g., monospace/coding) by itself.
+   - For technical classification, verify evidence in body text/alphabet first (e.g., width consistency across letters, overall construction patterns).
+2. **Geometric Inclusivity**
+   - Geometric classification can still be valid when core geometric evidence is strong (e.g., round/simple construction in key glyphs like o/p/b), even if minor humanist traits are present.
+   - Minor humanist cues alone must NOT override strong core geometric evidence.
+3. **Luxury Anchor (Stricter High-End Requirement)**
+   - Assign luxury/high-end serif only with stronger high-end signals (e.g., pronounced contrast and distinctive refined flourishes such as swash Q, teardrop terminals, couture-like detailing).
+   - Do NOT elevate standard editorial/book serifs to luxury without those stronger signals.
+
+### EVIDENCE REQUIREMENT
+For EACH query, provide a short specific visual evidence snippet from the specimen.
+
+### QUERIES
+{queries_formatted}
+
+### RESPONSE FORMAT
+Return STRICT JSON only:
+{{
+  "audit_reasoning": "Overall evaluation of font family characteristics",
+  "results": [
+    {{
+      "query_index": 1,
+      "match": 1 or 0,
+      "confidence": 0.0-1.0,
+      "evidence": "Specific visual detail justifying this score",
+      "counter_evidence": "Any visual detail that almost disqualified it (or empty)"
+    }},
+    ...
+  ]
+}}
+"""
     else: # v3
         prompt = f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
@@ -229,7 +270,7 @@ def calculate_metrics(results: List[Dict[str, Any]], ssot_map: Dict[Tuple[str, s
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="gemini-3-pro-preview")
-    parser.add_argument("--prompt", choices=["v3", "v4"], default="v3")
+    parser.add_argument("--prompt", choices=["v3", "v3_2", "v4"], default="v3")
     parser.add_argument("--gate", type=float, default=0.9)
     parser.add_argument("--spec-dir", default="specimens_v3", help="Subdirectory in out/ containing specimens")
     parser.add_argument("--output", help="Optional custom output filename")
