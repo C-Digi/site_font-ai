@@ -1,0 +1,25 @@
+{
+  "success": false,
+  "gates": {
+    "G1 (Agreement Delta)": {
+      "status": "FAIL",
+      "value": 0.0,
+      "threshold": ">= 0.01"
+    },
+    "G2 (Precision Regression)": {
+      "status": "PASS",
+      "value": -0.01750000000000007,
+      "threshold": "<= -0.02"
+    },
+    "G3 (Helps/Hurts Net)": {
+      "status": "FAIL",
+      "value": 0,
+      "threshold": "> 0"
+    },
+    "G4 (Visual QA)": {
+      "status": "PENDING",
+      "value": "Manual",
+      "threshold": "Zero clipping/overlap"
+    }
+  }
+}

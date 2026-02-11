@@ -1,3 +1,12 @@
+"""
+Governance Gate Validator
+Aligns with research/ab-eval/EVALUATION_CONTRACT.md
+
+Policies:
+1. Label Remapping: Input reports MUST have remapped labels (2 -> 0) before metric computation.
+2. Tie-break Order: Agreement -> Recall@10 -> Precision@10 -> MRR@10.
+3. Strict Gates: No proxy metrics for G1 (Agreement).
+"""
 import json
 import argparse
 import sys
@@ -13,12 +22,13 @@ def load_report(path: Path):
 def validate_gates(report, baseline=None):
     # Thresholds from EVALUATION_CONTRACT.md
     AGREEMENT_DELTA_MIN = 0.01
-    PRECISION_REGRESSION_CAP = -0.02
+    PRECISION_DELTA_MIN = -0.02
     
     gates = {
         "G1 (Agreement Delta)": {"status": "FAIL", "value": 0.0, "threshold": f">= {AGREEMENT_DELTA_MIN}"},
-        "G2 (Precision Regression)": {"status": "FAIL", "value": 0.0, "threshold": f"<= {PRECISION_REGRESSION_CAP}"},
-        "G3 (Helps/Hurts Net)": {"status": "FAIL", "value": 0, "threshold": "> 0"}
+        "G2 (Precision Delta)": {"status": "FAIL", "value": 0.0, "threshold": f">= {PRECISION_DELTA_MIN}"},
+        "G3 (Helps/Hurts Net)": {"status": "FAIL", "value": 0, "threshold": "> 0"},
+        "G4 (Visual QA)": {"status": "PENDING", "value": "Manual", "threshold": "Zero clipping/overlap"}
     }
 
     # Extract metrics for treatment (usually B2 or C)
@@ -45,8 +55,7 @@ def validate_gates(report, baseline=None):
         baseline_metrics = baseline.get("variants", {}).get("A", baseline_metrics)
 
     # G1: Agreement Delta
-    # Note: If agreement is not in report, we check Recall@10 as proxy if requested, 
-    # but contract says Agreement. If missing, we mark as Fail.
+    # Note: Contract strictly requires Agreement. No proxies (like Recall) allowed.
     treatment_agreement = treatment.get("agreement") or treatment.get("Agreement")
     baseline_agreement = baseline_metrics.get("agreement") or baseline_metrics.get("Agreement")
     
@@ -56,19 +65,19 @@ def validate_gates(report, baseline=None):
         if delta >= AGREEMENT_DELTA_MIN:
             gates["G1 (Agreement Delta)"]["status"] = "PASS"
     else:
-        gates["G1 (Agreement Delta)"]["status"] = "SKIP (Missing Metric)"
+        gates["G1 (Agreement Delta)"]["status"] = "FAIL (Missing Agreement Metric)"
 
-    # G2: Precision Regression
+    # G2: Precision Delta
     treatment_prec = treatment.get("precision") or treatment.get("Precision@10")
     baseline_prec = baseline_metrics.get("precision") or baseline_metrics.get("Precision@10")
     
     if treatment_prec is not None and baseline_prec is not None:
-        regression = treatment_prec - baseline_prec
-        gates["G2 (Precision Regression)"]["value"] = regression
-        if regression >= PRECISION_REGRESSION_CAP:
-            gates["G2 (Precision Regression)"]["status"] = "PASS"
+        delta_p = treatment_prec - baseline_prec
+        gates["G2 (Precision Delta)"]["value"] = delta_p
+        if delta_p >= PRECISION_DELTA_MIN:
+            gates["G2 (Precision Delta)"]["status"] = "PASS"
     else:
-        gates["G2 (Precision Regression)"]["status"] = "SKIP (Missing Metric)"
+        gates["G2 (Precision Delta)"]["status"] = "SKIP (Missing Metric)"
 
     # G3: Helps/Hurts Net
     helps = report.get("helps_hurts", {}).get("helps_count", 0)
@@ -80,12 +89,18 @@ def validate_gates(report, baseline=None):
     elif "helps_hurts" not in report:
         gates["G3 (Helps/Hurts Net)"]["status"] = "SKIP (Missing Data)"
 
+    # G4: Visual QA (Manual input from report metadata/results)
+    manual_g4 = report.get("visual_qa", {}).get("status")
+    if manual_g4:
+        gates["G4 (Visual QA)"]["status"] = manual_g4
+        gates["G4 (Visual QA)"]["value"] = report.get("visual_qa", {}).get("evidence", "Manual")
+
     # Final decision
-    all_pass = all(g["status"] in ["PASS", "SKIP (Missing Metric)", "SKIP (Missing Data)"] for g in gates.values())
-    # But at least one must be a real PASS for a true "GO"
-    any_pass = any(g["status"] == "PASS" for g in gates.values())
+    # STRICT POLICY: PENDING status (like G4) MUST block a programmatic "GO".
+    # All gates must be explicitly "PASS" for a "GO" decision.
+    all_pass = all(g["status"] == "PASS" for g in gates.values())
     
-    return all_pass and any_pass, gates
+    return all_pass, gates
 
 def main():
     parser = argparse.ArgumentParser(description="Validate report against governance gates.")

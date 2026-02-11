@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "run_id": "governance_derivation_v3",
+    "timestamp": "2026-02-11T06:06:45Z",
+    "source_artifact": "research/ab-eval/out/week2_specimen_v3_1_comparison.json",
+    "variants": [
+      "A (Control/V2)",
+      "B2_V3_1 (Treatment/V3.1)"
+    ]
+  },
+  "variants": {
+    "A": {
+      "Agreement": 0.6761,
+      "Precision@10": 0.8333,
+      "Recall@10": 0.6667
+    },
+    "B2_V3_1": {
+      "Agreement": 0.6761,
+      "Precision@10": 0.8158,
+      "Recall@10": 0.6889
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 4,
+    "hurts_count": 4,
+    "net": 0
+  },
+  "visual_qa": {
+    "status": "PASS",
+    "evidence": "research/ab-eval/QA_SPECIMEN_V3_1.md"
+  },
+  "provenance": {
+    "G1": "Delta from treatment_metrics_common.agreement - control_metrics_common.agreement (cross-check: delta_treatment_minus_control.agreement)",
+    "G2": "Delta from treatment_metrics_common.precision - control_metrics_common.precision (cross-check: delta_treatment_minus_control.precision)",
+    "G3": "Net from helps_count - hurts_count (cross-check: net_help)",
+    "G4": "Status from QA_SPECIMEN_V3_1.md Conclusion"
+  }
+}

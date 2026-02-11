@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "run_id": "governance_derivation_2026-02-11",
+    "timestamp": "2026-02-11T05:50:00Z",
+    "variants": [
+      "A",
+      "B2_V3_1"
+    ]
+  },
+  "variants": {
+    "A": {
+      "Agreement": 0.521,
+      "Precision@10": 0.12141233766233765,
+      "Recall@10": 0.12141233766233765
+    },
+    "B2_V3_1": {
+      "Agreement": 0.6761,
+      "Precision@10": 0.8158,
+      "Recall@10": 0.6889
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 45,
+    "hurts_count": 12,
+    "net": 33
+  }
+}

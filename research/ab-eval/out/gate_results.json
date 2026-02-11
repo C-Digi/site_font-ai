@@ -1,0 +1,25 @@
+{
+  "success": false,
+  "gates": {
+    "G1 (Agreement Delta)": {
+      "status": "FAIL (Missing Agreement Metric)",
+      "value": 0.0,
+      "threshold": ">= 0.01"
+    },
+    "G2 (Precision Regression)": {
+      "status": "SKIP (Missing Metric)",
+      "value": 0.0,
+      "threshold": "<= -0.02"
+    },
+    "G3 (Helps/Hurts Net)": {
+      "status": "SKIP (Missing Data)",
+      "value": 0,
+      "threshold": "> 0"
+    },
+    "G4 (Visual QA)": {
+      "status": "PENDING",
+      "value": "Manual",
+      "threshold": "Zero clipping/overlap"
+    }
+  }
+}

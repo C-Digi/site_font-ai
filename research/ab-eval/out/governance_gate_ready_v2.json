@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "run_id": "governance_derivation_v2_2026-02-11",
+    "timestamp": "2026-02-11T06:00:00Z",
+    "source_artifact": "week2_specimen_v3_1_comparison.json",
+    "variants": [
+      "A (Control/V2)",
+      "B2_V3_1 (Treatment/V3.1)"
+    ]
+  },
+  "variants": {
+    "A": {
+      "Agreement": 0.6761,
+      "Precision@10": 0.8333,
+      "Recall@10": 0.6667
+    },
+    "B2_V3_1": {
+      "Agreement": 0.6761,
+      "Precision@10": 0.8158,
+      "Recall@10": 0.6889
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 4,
+    "hurts_count": 4,
+    "net": 0
+  }
+}

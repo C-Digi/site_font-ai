@@ -25,9 +25,9 @@ Before a model or retrieval strategy is promoted to production:
 | Gate | Metric | Threshold |
 | :--- | :--- | :--- |
 | **G1** | Agreement Delta | >= +1.0% |
-| **G2** | Precision Regression | <= -2.0% |
+| **G2** | Precision Delta | >= -2.0% |
 | **G3** | Helps/Hurts Net | > 0 |
-| **G4** | Visual QA | Zero clipping/overlap in sample (Manual) |
+| **G4** | Visual QA | Zero clipping/overlap (Manual) |
 
 ## 5. Reporting Protocol Ordering
 Reports must follow this section order:
