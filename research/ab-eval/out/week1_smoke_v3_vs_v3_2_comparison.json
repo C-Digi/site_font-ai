@@ -1,37 +1,37 @@
 {
   "metadata": {
-    "control_path": "research/ab-eval/out/week1_smoke_v3_control_results.json",
-    "treatment_path": "research/ab-eval/out/week1_smoke_v3_2_treatment_results.json",
-    "common_coverage": 0,
-    "control_total": 7,
-    "treatment_total": 0
+    "control_path": "research/ab-eval/out/week1_smoke_v3_control_results_rerun.json",
+    "treatment_path": "research/ab-eval/out/week1_smoke_v3_2_treatment_results_rerun.json",
+    "common_coverage": 10,
+    "control_total": 10,
+    "treatment_total": 10
   },
   "control_metrics_common": {
-    "agreement": 0.0,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
+    "agreement": 0.8,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
     "counts": {
-      "tp": 0,
+      "tp": 1,
       "fp": 0,
       "fn": 0,
-      "tn": 0,
-      "considered_binary": 0,
-      "total": 0
+      "tn": 7,
+      "considered_binary": 8,
+      "total": 10
     }
   },
   "treatment_metrics_common": {
-    "agreement": 0.0,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
+    "agreement": 0.8,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
     "counts": {
-      "tp": 0,
+      "tp": 1,
       "fp": 0,
       "fn": 0,
-      "tn": 0,
-      "considered_binary": 0,
-      "total": 0
+      "tn": 7,
+      "considered_binary": 8,
+      "total": 10
     }
   },
   "delta_treatment_minus_control": {

@@ -1,0 +1,82 @@
+[
+  {
+    "query_id": "cq_016",
+    "font_name": "Actor",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif design; letters such as 'A', 'b', 'i', and 'l' have plain terminals without any serifs, directly contradicting the user's request for a 'serif'.",
+    "thought": "The font is a humanist sans-serif typeface characterized by open apertures, organic curves, and consistent stroke width. It features a double-story 'g' and 'a', and old-style figures. It completely lacks the structural features of a serif typeface. | The font is a sans-serif design; letters such as 'A', 'b', 'i', and 'l' have plain terminals without any serifs, directly contradicting the user's request for a 'serif'."
+  },
+  {
+    "query_id": "cq_002",
+    "font_name": "Alata",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The 'O', 'o', and 'Q' are rendered as perfect geometric circles, and the 'a' is a simple circle-and-stick construction. The 'Contrast & Rhythm Strip' confirms the stroke width is uniform without visible modulation.",
+    "thought": "The font is a quintessential geometric sans-serif. It features single-story construction for the lowercase 'a' and 'g', near-perfect circular bowls, and very low stroke contrast. The design is functional and clean, closely resembling classics like Futura or Avant Garde, prioritizing geometric purity over decorative flair. | The 'O', 'o', and 'Q' are rendered as perfect geometric circles, and the 'a' is a simple circle-and-stick construction. The 'Contrast & Rhythm Strip' confirms the stroke width is uniform without visible modulation."
+  },
+  {
+    "query_id": "cq_025",
+    "font_name": "Alata",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a functional geometric sans rather than a decorative display face. It lacks characteristic Art Deco mannerisms such as high-waisted crossbars, extreme stroke contrast, or ornamental details.",
+    "thought": "The font is a quintessential geometric sans-serif. It features single-story construction for the lowercase 'a' and 'g', near-perfect circular bowls, and very low stroke contrast. The design is functional and clean, closely resembling classics like Futura or Avant Garde, prioritizing geometric purity over decorative flair. | The font is a functional geometric sans rather than a decorative display face. It lacks characteristic Art Deco mannerisms such as high-waisted crossbars, extreme stroke contrast, or ornamental details."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query explicitly requests a 'serif', but the specimen shows a sans-serif font with straight terminals and no serifs on characters like 'A', 'B', or 'l'.",
+    "thought": "The font is a geometric sans-serif characterized by uniform stroke widths, a single-story 'a' and 'g', and open apertures. It features proportional spacing and a clean, modern aesthetic typical of neo-grotesque or geometric styles. | The query explicitly requests a 'serif', but the specimen shows a sans-serif font with straight terminals and no serifs on characters like 'A', 'B', or 'l'."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query requests a 'serif' with high contrast for luxury; this font is a low-contrast sans-serif with geometric forms (e.g., the circular 'O' and single-story 'a').",
+    "thought": "The font is a geometric sans-serif characterized by uniform stroke widths, a single-story 'a' and 'g', and open apertures. It features proportional spacing and a clean, modern aesthetic typical of neo-grotesque or geometric styles. | The query requests a 'serif' with high contrast for luxury; this font is a low-contrast sans-serif with geometric forms (e.g., the circular 'O' and single-story 'a')."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query requests a 'monospace', but the 'Legibility Pairs' section demonstrates proportional spacing, where the 'm' is significantly wider than the 'i' or 'l'.",
+    "thought": "The font is a geometric sans-serif characterized by uniform stroke widths, a single-story 'a' and 'g', and open apertures. It features proportional spacing and a clean, modern aesthetic typical of neo-grotesque or geometric styles. | The query requests a 'monospace', but the 'Legibility Pairs' section demonstrates proportional spacing, where the 'm' is significantly wider than the 'i' or 'l'."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Amaranth",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font uses proportional spacing (the 'm' is significantly wider than the 'i' in the legibility pairs) and features a humanist sans-serif design with a double-story 'g', whereas a classic typewriter font is strictly monospaced and typically features slab serifs.",
+    "thought": "The font is a proportional humanist sans-serif with modulated stroke widths and organic curves. It completely lacks the defining technical characteristics of a classic typewriter font, such as monospacing, slab serifs, and a mechanical, uniform aesthetic. | The font uses proportional spacing (the 'm' is significantly wider than the 'i' in the legibility pairs) and features a humanist sans-serif design with a double-story 'g', whereas a classic typewriter font is strictly monospaced and typically features slab serifs."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Anek Latin",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "In the lowercase alphabet display, the character 'm' is visibly much wider than the character 'i', and 'w' is wider than 't', proving this is a proportional font rather than a fixed-width monospace font.",
+    "thought": "The typeface is a clean, legible sans-serif with humanistic traits (double-story 'a' and 'g'). While it has excellent legibility features for data (distinct '1', 'l', 'I'), it is fundamentally a proportional typeface, not a monospace one, as evidenced by the varying character widths. | In the lowercase alphabet display, the character 'm' is visibly much wider than the character 'i', and 'w' is wider than 't', proving this is a proportional font rather than a fixed-width monospace font."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Anonymous Pro",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The 'Contrast & Rhythm Strip' demonstrates a strictly uniform stroke width and monospaced alignment, lacking the high contrast and decorative flourishes required for Victorian display typography.",
+    "thought": "The font is a monospaced slab serif with a uniform stroke width and mechanical structure, designed for legibility in coding or technical contexts. It features distinct characters for clarity (slashed zero, serifs on 'I'/'l') and lacks the stroke contrast or ornamentation associated with historical display faces. | The 'Contrast & Rhythm Strip' demonstrates a strictly uniform stroke width and monospaced alignment, lacking the high contrast and decorative flourishes required for Victorian display typography."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Anonymous Pro",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The font features the defining characteristics of the genre: a fixed-width (monospaced) structure and prominent slab serifs on characters like 'i', 'l', and 'r' (visible in 'Legibility Pairs'), creating the mechanical aesthetic of a typewriter.",
+    "thought": "The font is a monospaced slab serif with a uniform stroke width and mechanical structure, designed for legibility in coding or technical contexts. It features distinct characters for clarity (slashed zero, serifs on 'I'/'l') and lacks the stroke contrast or ornamentation associated with historical display faces. | The font features the defining characteristics of the genre: a fixed-width (monospaced) structure and prominent slab serifs on characters like 'i', 'l', and 'r' (visible in 'Legibility Pairs'), creating the mechanical aesthetic of a typewriter."
+  }
+]

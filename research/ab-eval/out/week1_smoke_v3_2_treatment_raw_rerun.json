@@ -1,0 +1,82 @@
+[
+  {
+    "query_id": "cq_016",
+    "font_name": "Actor",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query explicitly requests a 'serif', but the specimen is a sans-serif font; the 'Abg' sample and all alphabet glyphs (e.g., 'A', 'l', 'i') feature plain terminals with absolutely no serifs.",
+    "thought": "The typeface is a humanist sans-serif characterized by modulated strokes, a double-story 'a' and 'g', and open apertures (resembling the Lucida Sans family). It completely lacks the structural features of a serif typeface. | The query explicitly requests a 'serif', but the specimen is a sans-serif font; the 'Abg' sample and all alphabet glyphs (e.g., 'A', 'l', 'i') feature plain terminals with absolutely no serifs."
+  },
+  {
+    "query_id": "cq_002",
+    "font_name": "Alata",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The glyphs 'O', 'o', and the bowls of 'b'/'d' are rendered as mathematically perfect circles, and the Contrast & Rhythm Strip demonstrates uniform stroke thickness with no visible modulation.",
+    "thought": "The font is a quintessential geometric sans-serif, defined by its construction from basic geometric shapes. It features near-perfect circular bowls (visible in 'o', 'b', 'd', 'p', 'q'), a single-story 'a' and 'g', and sharp vertices on capital letters like 'A', 'M', and 'N'. The stroke width is optically mono-linear with negligible contrast, adhering strictly to modernist design principles similar to Futura or Avant Garde. | The glyphs 'O', 'o', and the bowls of 'b'/'d' are rendered as mathematically perfect circles, and the Contrast & Rhythm Strip demonstrates uniform stroke thickness with no visible modulation."
+  },
+  {
+    "query_id": "cq_025",
+    "font_name": "Alata",
+    "ai_match": 0,
+    "confidence": 0.0,
+    "evidence": "The font is a functional modernist sans-serif rather than a decorative display face; it lacks specific Art Deco mannerisms such as high-waisted crossbars, extreme stroke contrast, or ornamental detailing.",
+    "thought": "The font is a quintessential geometric sans-serif, defined by its construction from basic geometric shapes. It features near-perfect circular bowls (visible in 'o', 'b', 'd', 'p', 'q'), a single-story 'a' and 'g', and sharp vertices on capital letters like 'A', 'M', and 'N'. The stroke width is optically mono-linear with negligible contrast, adhering strictly to modernist design principles similar to Futura or Avant Garde. | The font is a functional modernist sans-serif rather than a decorative display face; it lacks specific Art Deco mannerisms such as high-waisted crossbars, extreme stroke contrast, or ornamental detailing."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query explicitly requests a serif typeface, but the specimen is a geometric sans-serif (e.g., no serifs on 'T', 'h', or 'n').",
+    "thought": "The typeface is a geometric sans-serif with clean, circular construction (visible in 'o', 'b', 'p') and single-story 'a' and 'g'. It includes specific legibility features like a tailed 'l' and serifed capital 'I', but the overall stroke width is uniform and low-contrast. The spacing is clearly proportional, as evidenced by the varying widths of characters in the alphabet block. | The query explicitly requests a serif typeface, but the specimen is a geometric sans-serif (e.g., no serifs on 'T', 'h', or 'n')."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font lacks the serif structure and high-contrast stroke modulation required for the requested luxury serif aesthetic, presenting instead as a uniform-width sans-serif.",
+    "thought": "The typeface is a geometric sans-serif with clean, circular construction (visible in 'o', 'b', 'p') and single-story 'a' and 'g'. It includes specific legibility features like a tailed 'l' and serifed capital 'I', but the overall stroke width is uniform and low-contrast. The spacing is clearly proportional, as evidenced by the varying widths of characters in the alphabet block. | The font lacks the serif structure and high-contrast stroke modulation required for the requested luxury serif aesthetic, presenting instead as a uniform-width sans-serif."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is proportional, not monospace; the letter 'm' is significantly wider than the letter 'i' in the alphabet sequence, disqualifying it for data tables requiring fixed-width alignment.",
+    "thought": "The typeface is a geometric sans-serif with clean, circular construction (visible in 'o', 'b', 'p') and single-story 'a' and 'g'. It includes specific legibility features like a tailed 'l' and serifed capital 'I', but the overall stroke width is uniform and low-contrast. The spacing is clearly proportional, as evidenced by the varying widths of characters in the alphabet block. | The font is proportional, not monospace; the letter 'm' is significantly wider than the letter 'i' in the alphabet sequence, disqualifying it for data tables requiring fixed-width alignment."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Amaranth",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The alphabet preview confirms proportional spacing (e.g., 'm' and 'W' are significantly wider than 'i' or 'l'), whereas a classic typewriter font must be monospaced.",
+    "thought": "The font is a humanist sans-serif with distinct calligraphic influences, modulated stroke widths, and proportional spacing. It lacks the mechanical rigidity, slab serifs, and fixed-width (monospaced) grid that define the classic typewriter genre. | The alphabet preview confirms proportional spacing (e.g., 'm' and 'W' are significantly wider than 'i' or 'l'), whereas a classic typewriter font must be monospaced."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Anek Latin",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font fails the monospace constraint; in the lowercase alphabet and body text, the letter 'm' is significantly wider than the letter 'i' or 'l', confirming proportional spacing rather than the fixed grid required for data tables.",
+    "thought": "The font is a proportional humanist sans-serif, characterized by variable character widths and a double-story 'g'. It does not possess the fixed-width structure required for a monospace classification. | The font fails the monospace constraint; in the lowercase alphabet and body text, the letter 'm' is significantly wider than the letter 'i' or 'l', confirming proportional spacing rather than the fixed grid required for data tables."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Anonymous Pro",
+    "ai_match": 0,
+    "confidence": 0.0,
+    "evidence": "The specimen displays a sans-serif alphabet (see 'A', 'b', 'g') with uniform stroke width, completely lacking the high contrast, decorative swashes, and heavy serifs required for a 19th-century Victorian display style.",
+    "thought": "The font is a clean, modern monospace sans-serif designed for technical legibility (coding), evidenced by the slashed zero and distinct disambiguation between 'I', 'l', and '1'. It features consistent stroke widths and a geometric-mechanical construction, lacking both the ornamental contrast of Victorian styles and the slab-serif structure of classic typewriter faces. | The specimen displays a sans-serif alphabet (see 'A', 'b', 'g') with uniform stroke width, completely lacking the high contrast, decorative swashes, and heavy serifs required for a 19th-century Victorian display style."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Anonymous Pro",
+    "ai_match": 0,
+    "confidence": 0.0,
+    "evidence": "While the font is monospace, it is a linear sans-serif (see the clean strokes on 'k', 'v', 'w') rather than the slab-serif design (like Courier) that defines the 'classic typewriter' aesthetic.",
+    "thought": "The font is a clean, modern monospace sans-serif designed for technical legibility (coding), evidenced by the slashed zero and distinct disambiguation between 'I', 'l', and '1'. It features consistent stroke widths and a geometric-mechanical construction, lacking both the ornamental contrast of Victorian styles and the slab-serif structure of classic typewriter faces. | While the font is monospace, it is a linear sans-serif (see the clean strokes on 'k', 'v', 'w') rather than the slab-serif design (like Courier) that defines the 'classic typewriter' aesthetic."
+  }
+]
