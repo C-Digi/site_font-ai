@@ -4,6 +4,15 @@ from pathlib import Path
 from typing import Dict, Any, Tuple
 
 
+def remap_casey_label(label: Any) -> int:
+    """
+    Governance policy: non-binary label 2 is treated as 0 for primary metrics.
+    """
+    if label == 2:
+        return 0
+    return 1 if label == 1 else 0
+
+
 def load_json(path: Path) -> Dict[str, Any]:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -14,7 +23,7 @@ def extract_case_map(results: Dict[str, Any]) -> Dict[Tuple[str, str], Dict[str,
     for r in results.get("details", []):
         key = (r["query_id"], r["font_name"])
         out[key] = {
-            "human": r.get("human_match", 0),
+            "human": remap_casey_label(r.get("human_match", 0)),
             "ai": r.get("ai_match_gated", 0),
             "confidence": r.get("confidence", 0.0),
             "evidence": r.get("evidence", ""),
@@ -27,7 +36,7 @@ def compute_metrics(cases: Dict[Tuple[str, str], Dict[str, Any]]) -> Dict[str, A
     tp = fp = fn = tn = 0
     considered = 0
     for _, c in cases.items():
-        h = c["human"]
+        h = remap_casey_label(c["human"])
         a = c["ai"]
 
         # Keep parity with production-trial scorer: only binary human labels
@@ -90,7 +99,7 @@ def main():
     for k in common_keys:
         c = c_common[k]
         t = t_common[k]
-        h = c["human"]
+        h = remap_casey_label(c["human"])
         c_ok = c["ai"] == h
         t_ok = t["ai"] == h
 
@@ -121,6 +130,15 @@ def main():
             "common_coverage": len(common_keys),
             "control_total": len(c_map),
             "treatment_total": len(t_map),
+        },
+        "variants": {
+            "A": control_metrics,
+            "B": treatment_metrics,
+        },
+        "helps_hurts": {
+            "helps_count": len(helps),
+            "hurts_count": len(hurts),
+            "net": len(helps) - len(hurts),
         },
         "control_metrics_common": control_metrics,
         "treatment_metrics_common": treatment_metrics,

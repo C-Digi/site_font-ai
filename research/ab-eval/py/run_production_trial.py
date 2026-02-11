@@ -19,6 +19,15 @@ load_env()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+
+def remap_casey_label(label: Any) -> int:
+    """
+    Governance policy: non-binary label 2 is treated as 0 for primary metrics.
+    """
+    if label == 2:
+        return 0
+    return 1 if label == 1 else 0
+
 def load_api_keys(keys_file: str = "") -> List[str]:
     keys: List[str] = []
 
@@ -279,7 +288,7 @@ def calculate_metrics(results: List[Dict[str, Any]], ssot_map: Dict[Tuple[str, s
         if key not in ssot_map:
             continue
             
-        h = ssot_map[key]
+        h = remap_casey_label(ssot_map[key])
         
         # Apply confidence gating
         raw_match = r.get("ai_match", 0)
@@ -339,7 +348,7 @@ def main():
     
     ssot_map = {}
     for d in ssot_data['decisions']:
-        ssot_map[(d['query_id'], d['font_name'])] = d['casey_label']
+        ssot_map[(d['query_id'], d['font_name'])] = remap_casey_label(d.get('casey_label', 0))
         
     # 2. Get Population from SSoT
     font_to_queries = {}
