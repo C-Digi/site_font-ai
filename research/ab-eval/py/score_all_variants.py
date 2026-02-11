@@ -254,6 +254,36 @@ def main():
 
     final_report["per_query_top10"] = per_variant_top10
 
+    # Helps/Hurts Analysis (B2 vs A)
+    if "A" in variants and "B2" in variants:
+        helps = []
+        hurts = []
+        for q_id in query_ids:
+            if q_id not in labels: continue
+            
+            # Re-calculate recall for this query
+            ground_truth = labels[q_id]
+            
+            def get_recall10(var_name):
+                top_k = [r[0] for r in per_variant_top10[var_name][q_id][:10]]
+                hits = len(set(top_k) & set(ground_truth))
+                return hits / len(ground_truth) if ground_truth else 0
+            
+            r_a = get_recall10("A")
+            r_b = get_recall10("B2")
+            
+            if r_b > r_a:
+                helps.append(q_id)
+            elif r_b < r_a:
+                hurts.append(q_id)
+        
+        final_report["helps_hurts"] = {
+            "helps_count": len(helps),
+            "hurts_count": len(hurts),
+            "helps": helps,
+            "hurts": hurts
+        }
+
     # 6. Save Reports
     with open(args.out_json, 'w') as f:
         json.dump(final_report, f, indent=2)
@@ -268,6 +298,20 @@ def main():
         for var_name, metrics in final_report["variants"].items():
             f.write(f"| {var_name} | {metrics['Recall@10']:.4f} | {metrics['Recall@20']:.4f} | {metrics['MRR@10']:.4f} |\n")
         
+        if "helps_hurts" in final_report:
+            hh = final_report["helps_hurts"]
+            f.write("\n## Helps/Hurts Analysis (B2 vs A)\n")
+            f.write(f"- **Helps**: {hh['helps_count']}\n")
+            f.write(f"- **Hurts**: {hh['hurts_count']}\n")
+            f.write(f"- **Net**: {hh['helps_count'] - hh['hurts_count']}\n")
+
+        if "helps_hurts" in final_report:
+            hh = final_report["helps_hurts"]
+            f.write("\n## Helps/Hurts Analysis (B2 vs A)\n")
+            f.write(f"- **Helps**: {hh['helps_count']}\n")
+            f.write(f"- **Hurts**: {hh['hurts_count']}\n")
+            f.write(f"- **Net**: {hh['helps_count'] - hh['hurts_count']}\n")
+
         # Class Breakdown Tables
         if query_id_to_class:
             f.write("\n## Per-Class Breakdown\n")

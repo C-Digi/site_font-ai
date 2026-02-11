@@ -63,3 +63,9 @@
   - [x] Deliver policy recommendation
 - [ ] Step D — Targeted Quality Validation
 - [ ] Step E — Retrieval Rerun
+
+### Governance Upgrades
+- [x] Lock Canonical Evaluation Contract (`EVALUATION_CONTRACT.md`)
+- [x] Implement Hard Acceptance Gates (G1-G4)
+- [x] Standardize Reproducibility & Quota Handling
+- [x] Link Governance to LightSpec

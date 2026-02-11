@@ -10,6 +10,8 @@ This runbook defines the **offline** evaluation procedures, dataset definitions,
 
 Authoritative plan references:
 
+- [**EVALUATION_CONTRACT.md**](research/ab-eval/EVALUATION_CONTRACT.md) (Governance & Gating)
+- [**REPRODUCIBILITY.md**](research/ab-eval/REPRODUCIBILITY.md) (Determinism & Quotas)
 - [`_05_guides/2026-02-05_offline-ab-eval-plan_qwen3-vl.md`](_05_guides/2026-02-05_offline-ab-eval-plan_qwen3-vl.md)
 - [`_05_guides/2026-02-04_qwen3-vl-embedding_assessment.md`](_05_guides/2026-02-04_qwen3-vl-embedding_assessment.md)
 

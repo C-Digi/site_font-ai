@@ -33,6 +33,8 @@ Request-time search does not block on embedding generation; missing/unseeded rec
 - [DEC-20260206-01-production-b2-migration](./decisions/DEC-20260206-01-production-b2-migration.md)
 - [DEC-20260209-01-ai-vs-human-alignment-spotcheck](./decisions/DEC-20260209-01-ai-vs-human-alignment-spotcheck.md)
 
+- [DEC-20260211-01-evaluation-governance-lock](./decisions/DEC-20260211-01-evaluation-governance-lock.md)
+
 ## Scenarios
 - A user submits a complex visual-shape query and receives B2-ranked results without waiting for any new embeddings to be generated inline.
 - A recommendation references an unseeded font; the response returns immediately and a background job is queued for seeding.

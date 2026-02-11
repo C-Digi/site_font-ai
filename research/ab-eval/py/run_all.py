@@ -30,6 +30,8 @@ def main():
     parser.add_argument("--corpus", help="Path to corpus file")
     parser.add_argument("--queries", help="Path to queries file")
     parser.add_argument("--labels", help="Path to labels file")
+    parser.add_argument("--seed", type=int, default=42, help="Fixed seed for reproducibility")
+    parser.add_argument("--repeats", type=int, default=1, help="Number of times to repeat stochastic steps")
     args = parser.parse_args()
 
     # Set defaults based on dataset preset if provided

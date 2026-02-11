@@ -88,6 +88,7 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Append optional fallback model IDs to --models if not already present.",
     )
+    parser.add_argument("--seed", type=int, default=42, help="Seed for reproducibility.")
     return parser.parse_args()
 
 
