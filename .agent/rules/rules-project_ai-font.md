@@ -115,12 +115,49 @@
 ## 9. Testing & Validation Guidelines
 
 - No formal test suite established yet; verify API and UI manually.
-- **Offline A/B canonical artifacts:** prefer `research/ab-eval/out/report_all.md` + `research/ab-eval/out/report_all.json` as source-of-truth for completed runs.
+- **Evaluation Governance (Canonical):** follow `research/ab-eval/EVALUATION_CONTRACT.md` for all offline A/B promotion decisions.
+- **Offline A/B canonical artifacts:**
+  - Primary baseline: `research/ab-eval/out/report_medium_human_v1.json`
+  - Secondary baseline (Complex v1): `research/ab-eval/out/report_all.json`
+- **Amended Human SSoT (current eval source):** `research/ab-eval/out/full_set_review_export_1770612809775.json`
 - **Partial artifact caveat:** `report_complex.*` may exist as interrupted/stale outputs; do not use as final decision inputs unless explicitly designated as canonical for a run.
 - **Visual Spot-Check**: After benchmarks/AB tests, generate a compact HTML grid (see `research/ab-eval/out/visual-spot-check.html`).
   - Use `@font-face` to load CDN binaries and render "Abg" or "Sphinx" glyphs.
   - Prioritize extreme vertical density for rapid human review of retrieval variants.
 - **Visual Test Artifacts (Human Review)**: Intern reviewers validate visual outputs from grids, screenshots, or HTML artifacts. Add concise review/validation instructions directly inside the HTML artifact guide so anyone can follow it without external docs.
+
+### 9.1 Promotion Gates (Required)
+
+- Promotion decisions must pass all gates from `research/ab-eval/EVALUATION_CONTRACT.md`:
+  - **G1 Agreement Delta:** `>= +1.0%`
+  - **G2 Precision Regression:** `<= -2.0%`
+  - **G3 Helps/Hurts Net:** `> 0`
+  - **G4 Visual QA:** zero clipping/overlap on required specimen checks.
+- **Non-binary label policy:** eval label `2` must be remapped to `0` for primary promotion metrics.
+- **Tie-break order:** Agreement -> Recall@10 -> Precision@10 -> MRR@10.
+
+### 9.2 Reproducibility & Quota Standards (Required)
+
+- Follow `research/ab-eval/REPRODUCIBILITY.md` for all eval runs.
+- **Default seed:** `42`
+- **Repeat policy:**
+  - `repeats=1` for standard deterministic retrieval runs.
+  - `repeats=3` for new model/prompt probes.
+- **Quota strategy:** use retry/backoff + resumable runs; for long Gemini runs, apply documented key-rotation workflow.
+- **Artifact naming contract:**
+  - `week1_` = prompt/model probes
+  - `week2_` = specimen/visual changes
+  - `week3_` = calibration/fusion/tuning
+
+### 9.3 Specimen Renderer Regression Safeguard
+
+- Any change to specimen rendering requires manual visual QA before promotion.
+- Required regression files to inspect (latest regenerated versions):
+  - `research/ab-eval/out/specimens_v3_1/Red_Hat_Mono_top.png`
+  - `research/ab-eval/out/specimens_v3_1/Red_Hat_Mono_bottom.png`
+  - `research/ab-eval/out/specimens_v3_1/Playwrite_BE_WAL_Guides_top.png`
+  - `research/ab-eval/out/specimens_v3_1/Playwrite_BE_WAL_Guides_bottom.png`
+- Also inspect at least 8 additional edge-case font families and report explicit pass/fail findings.
 
 ## 10. General Dos and Don'ts
 
@@ -148,3 +185,5 @@
 - **Retrieval Path:** Semantic cache -> Vector Search -> LLM.
 - **Evaluation:** B2 significantly outperforms text-only baseline (Variant A). See [DEC-20260207-01-complex-eval-b2-promotion.md](.lightspec/decisions/DEC-20260207-01-complex-eval-b2-promotion.md).
 - **Research Gate:** Quality-first experiment sequence (specimen v2, schema v2) is required before further production default changes. See [DEC-20260208-03-quality-first-experiment-plan.md](.lightspec/decisions/DEC-20260208-03-quality-first-experiment-plan.md).
+- **Evaluation Governance Lock:** Canonical contract/gates/reproducibility are mandatory for promotion decisions. See [DEC-20260211-01-evaluation-governance-lock.md](.lightspec/decisions/DEC-20260211-01-evaluation-governance-lock.md).
+- **Specimen/Prompt governance path:** Specimen V3.1 + Prompt V3 were validated in the quality optimization cycle; follow contract gates for any replacement.
