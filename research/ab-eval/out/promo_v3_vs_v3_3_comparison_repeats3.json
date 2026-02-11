@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "run_id": "promo_v3_vs_v3_3_repeats3_20260211",
+    "timestamp": "2026-02-11T22:37:08Z",
+    "repeats": 3,
+    "model": "gemini-3-pro-preview",
+    "prompt_control": "v3",
+    "prompt_treatment": "v3_3",
+    "gate": 0.9,
+    "spec_dir": "specimens_v3",
+    "artifact_refs": {
+      "control_results": [
+        "research/ab-eval/out/promo_v3_control_r1_results.json",
+        "research/ab-eval/out/promo_v3_control_r2_results.json",
+        "research/ab-eval/out/promo_v3_control_r3_results.json"
+      ],
+      "treatment_results": [
+        "research/ab-eval/out/promo_v3_3_treatment_r1_results.json",
+        "research/ab-eval/out/promo_v3_3_treatment_r2_results.json",
+        "research/ab-eval/out/promo_v3_3_treatment_r3_results.json"
+      ],
+      "repeat_comparisons": [
+        "research/ab-eval/out/promo_v3_vs_v3_3_r1_comparison.json",
+        "research/ab-eval/out/promo_v3_vs_v3_3_r2_comparison.json",
+        "research/ab-eval/out/promo_v3_vs_v3_3_r3_comparison.json"
+      ],
+      "manual_visual_qa_source": "research/ab-eval/QA_SPECIMEN_V3_1.md"
+    },
+    "coverage": {
+      "r1_common": 247,
+      "r2_common": 247,
+      "r3_common": 247,
+      "min_common": 247,
+      "max_common": 247,
+      "near_zero_detected": false,
+      "valid_repeats": 3
+    }
+  },
+  "variants": {
+    "A": {
+      "agreement": 0.8677,
+      "precision": 0.6253,
+      "recall": 0.6889,
+      "f1": 0.6551
+    },
+    "B": {
+      "agreement": 0.8718,
+      "precision": 0.6379,
+      "recall": 0.6963,
+      "f1": 0.6654
+    }
+  },
+  "delta_treatment_minus_control": {
+    "agreement": 0.0041,
+    "precision": 0.0126,
+    "recall": 0.0074,
+    "f1": 0.0103
+  },
+  "helps_hurts": {
+    "helps_count": 23,
+    "hurts_count": 20,
+    "net": 3
+  },
+  "visual_qa": {
+    "status": "FAIL",
+    "evidence": "research/ab-eval/QA_SPECIMEN_V3_1.md",
+    "notes": "Manual QA source is for Specimen V3.1, while this paired rerun used spec_dir=specimens_v3. Evidence does not clearly establish a PASS for this exact run context."
+  },
+  "provenance": {
+    "metric_aggregation": "Simple arithmetic mean across r1/r2/r3 comparison artifacts for agreement, precision, recall, f1.",
+    "g1_source": "variants.B.agreement - variants.A.agreement",
+    "g2_source": "variants.B.precision - variants.A.precision",
+    "g3_source": "sum(helps_hurts.net) across per-repeat comparisons",
+    "g4_source": "Manual status from QA_SPECIMEN_V3_1.md with run-context applicability check"
+  }
+}
