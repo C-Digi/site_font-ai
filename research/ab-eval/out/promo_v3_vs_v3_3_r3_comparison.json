@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "control_path": "research/ab-eval/out/promo_v3_control_r3_results.json",
+    "treatment_path": "research/ab-eval/out/promo_v3_3_treatment_r3_results.json",
+    "common_coverage": 247,
+    "control_total": 247,
+    "treatment_total": 247
+  },
+  "variants": {
+    "A": {
+      "agreement": 0.8745,
+      "precision": 0.6522,
+      "recall": 0.6667,
+      "f1": 0.6593,
+      "counts": {
+        "tp": 30,
+        "fp": 16,
+        "fn": 15,
+        "tn": 186,
+        "considered_binary": 247,
+        "total": 247
+      }
+    },
+    "B": {
+      "agreement": 0.8583,
+      "precision": 0.6,
+      "recall": 0.6667,
+      "f1": 0.6316,
+      "counts": {
+        "tp": 30,
+        "fp": 20,
+        "fn": 15,
+        "tn": 182,
+        "considered_binary": 247,
+        "total": 247
+      }
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 6,
+    "hurts_count": 10,
+    "net": -4
+  },
+  "control_metrics_common": {
+    "agreement": 0.8745,
+    "precision": 0.6522,
+    "recall": 0.6667,
+    "f1": 0.6593,
+    "counts": {
+      "tp": 30,
+      "fp": 16,
+      "fn": 15,
+      "tn": 186,
+      "considered_binary": 247,
+      "total": 247
+    }
+  },
+  "treatment_metrics_common": {
+    "agreement": 0.8583,
+    "precision": 0.6,
+    "recall": 0.6667,
+    "f1": 0.6316,
+    "counts": {
+      "tp": 30,
+      "fp": 20,
+      "fn": 15,
+      "tn": 182,
+      "considered_binary": 247,
+      "total": 247
+    }
+  },
+  "delta_treatment_minus_control": {
+    "agreement": -0.0162,
+    "precision": -0.0522,
+    "recall": 0.0,
+    "f1": -0.0277
+  },
+  "helps_count": 6,
+  "hurts_count": 10,
+  "net_help": -4,
+  "helps": [
+    {
+      "query_id": "cq_002",
+      "font_name": "Golos Text",
+      "human": 1,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Artifika",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Noto Serif Lao",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Federant",
+      "human": 1,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Anonymous Pro",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Anek Latin",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    }
+  ],
+  "hurts": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Encode Sans Condensed",
+      "human": 1,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Atma",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Ga Maamli",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "IM Fell French Canon",
+      "human": 1,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Saira Extra Condensed",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Kumar One",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Kurale",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Tienne",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Bungee Inline",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Cairo",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    }
+  ]
+}
