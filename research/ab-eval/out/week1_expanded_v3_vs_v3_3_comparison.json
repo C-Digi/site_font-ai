@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "control_path": "research/ab-eval/out/week1_expanded_v3_control_results.json",
+    "treatment_path": "research/ab-eval/out/week1_expanded_v3_3_treatment_results.json",
+    "common_coverage": 68,
+    "control_total": 68,
+    "treatment_total": 68
+  },
+  "control_metrics_common": {
+    "agreement": 0.6029,
+    "precision": 0.6667,
+    "recall": 0.6667,
+    "f1": 0.6667,
+    "counts": {
+      "tp": 6,
+      "fp": 3,
+      "fn": 3,
+      "tn": 35,
+      "considered_binary": 47,
+      "total": 68
+    }
+  },
+  "treatment_metrics_common": {
+    "agreement": 0.6176,
+    "precision": 0.75,
+    "recall": 0.6667,
+    "f1": 0.7059,
+    "counts": {
+      "tp": 6,
+      "fp": 2,
+      "fn": 3,
+      "tn": 36,
+      "considered_binary": 47,
+      "total": 68
+    }
+  },
+  "delta_treatment_minus_control": {
+    "agreement": 0.0147,
+    "precision": 0.0833,
+    "recall": 0.0,
+    "f1": 0.0392
+  },
+  "helps_count": 1,
+  "hurts_count": 0,
+  "net_help": 1,
+  "helps": [
+    {
+      "query_id": "cq_021",
+      "font_name": "Artifika",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    }
+  ],
+  "hurts": []
+}
