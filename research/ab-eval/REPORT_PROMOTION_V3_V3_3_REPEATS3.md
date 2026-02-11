@@ -142,3 +142,51 @@
 
 - Promotion report:
   - `research/ab-eval/REPORT_PROMOTION_V3_V3_3_REPEATS3.md`
+
+## Corrective Smoke (Context-Aligned `specimens_v3_1`) — `v3` vs `v3_3`
+- Purpose:
+  - Re-test directionality after suspected context mismatch (`specimens_v3` vs `v3_3` guardrails expecting V3.1 cues).
+
+- Run settings (identical A/B):
+  - model: `gemini-3-pro-preview`
+  - gate: `0.9`
+  - spec_dir: `specimens_v3_1`
+  - keys-file: `key.md`
+  - max-fonts: `40` (smoke)
+
+- Artifacts:
+  - `research/ab-eval/out/smoke_v3_v3_1_control.json`
+  - `research/ab-eval/out/smoke_v3_v3_1_control_raw.json`
+  - `research/ab-eval/out/smoke_v3_3_v3_1_treatment.json`
+  - `research/ab-eval/out/smoke_v3_3_v3_1_treatment_raw.json`
+  - `research/ab-eval/out/smoke_v3_vs_v3_3_v3_1_comparison.json`
+  - `research/ab-eval/out/smoke_v3_vs_v3_3_v3_1_gate_results.json`
+
+- Coverage + guardrail check:
+  - common_coverage: `68`
+  - control_total: `68`
+  - treatment_total: `68`
+  - near-zero coverage condition: **not triggered**
+  - insufficient-signal condition (`common_coverage < 20`): **not triggered**
+
+- Metrics (treatment minus control):
+  - agreement: `-0.0736`
+  - precision: `-0.1705`
+  - recall: `+0.0000`
+  - f1: `-0.1200`
+  - helps/hurts/net: `1 / 6 / -5`
+
+- Direction vs prior promotion aggregate (`specimens_v3`, repeats=3):
+  - Prior delta agreement: `+0.0041` → smoke delta agreement: `-0.0736` (**worse direction**)
+  - Prior net helps/hurts: `+3` → smoke net: `-5` (**worse direction**)
+
+- Gate outcome (`validate_gates.py`):
+  - G1: **FAIL** (`-0.0736`, threshold `>= +0.0100`)
+  - G2: **FAIL** (`-0.1705`, threshold `>= -0.0200`)
+  - G3: **FAIL** (`-5`, threshold `> 0`)
+  - G4: **PENDING** (manual visual QA)
+  - Overall: **FAIL / NO-GO**
+
+- Corrective-smoke recommendation:
+  - Context alignment to `specimens_v3_1` did **not** improve G1/G3 direction in this smoke; it regressed materially vs control.
+  - Keep `v3` as control baseline for promotion decisions; do not promote `v3_3` from this smoke evidence.
