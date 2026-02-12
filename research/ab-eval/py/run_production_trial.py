@@ -193,6 +193,54 @@ Return STRICT JSON only:
   ]
 }}
 """
+    elif prompt_type == "v3_4":
+        prompt = f"""You are a master typography auditor (V3.4 - Category/Architecture Consistency). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+
+### DECISION RUBRIC
+For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
+Partial matches or "almost matches" should be scored as NO MATCH (0) unless the query is broad.
+
+### SPECIMEN INTERPRETATION GUARDRAILS
+1. **Diagnostic Neutrality (Critical Distinction block)**
+   - The Critical Distinction block appears on ALL specimens and is diagnostic-only.
+   - Do NOT treat this block as category proof (e.g., monospace/coding) by itself.
+   - For technical classification, verify evidence in body text/alphabet first (e.g., width consistency across letters, overall construction patterns).
+2. **Geometric Inclusivity**
+   - Geometric classification can still be valid when core geometric evidence is strong (e.g., round/simple construction in key glyphs like o/p/b), even if minor humanist traits are present.
+   - Minor humanist cues alone must NOT override strong core geometric evidence.
+3. **Luxury Anchor (Stricter High-End Requirement)**
+   - Assign luxury/high-end serif only with stronger high-end signals (e.g., pronounced contrast and distinctive refined flourishes such as swash Q, teardrop terminals, couture-like detailing).
+   - Do NOT elevate standard editorial/book serifs to luxury without those stronger signals.
+4. **Vibe Over-extension (Display/Mood queries)**
+   - For playful/whimsical/quirky/themed mood queries, require explicit structural novelty (e.g., irregular baseline, varying rhythm/width behavior, novelty stroke endings, asymmetrical construction).
+   - Do NOT classify as playful based only on minor flourish details if the underlying architecture is formal/traditional.
+5. **Category/Architecture Consistency (Structural Guardrail)**
+   - Mood or style cues MUST NOT override explicit or implicit architectural category constraints (e.g., a formal serif cannot match a 'handwritten' query just because it feels 'personal').
+   - Architectural category (sans, serif, slab, script, mono) is the primary filter; mood is the secondary filter.
+   - Only override this if the user intent clearly prioritizes a 'look' that transcends category (e.g., 'something that looks like a chalkboard' might allow a non-script if it has chalky texture).
+
+### EVIDENCE REQUIREMENT
+For EACH query, provide a short specific visual evidence snippet from the specimen.
+
+### QUERIES
+{queries_formatted}
+
+### RESPONSE FORMAT
+Return STRICT JSON only:
+{{
+  "audit_reasoning": "Overall evaluation of font family characteristics",
+  "results": [
+    {{
+      "query_index": 1,
+      "match": 1 or 0,
+      "confidence": 0.0-1.0,
+      "evidence": "Specific visual detail justifying this score",
+      "counter_evidence": "Any visual detail that almost disqualified it (or empty)"
+    }},
+    ...
+  ]
+}}
+"""
     else: # v3
         prompt = f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
@@ -323,7 +371,7 @@ def calculate_metrics(results: List[Dict[str, Any]], ssot_map: Dict[Tuple[str, s
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="gemini-3-pro-preview")
-    parser.add_argument("--prompt", choices=["v3", "v3_2", "v3_3", "v4"], default="v3")
+    parser.add_argument("--prompt", choices=["v3", "v3_2", "v3_3", "v3_4", "v4"], default="v3")
     parser.add_argument("--gate", type=float, default=0.9)
     parser.add_argument("--spec-dir", default="specimens_v3", help="Subdirectory in out/ containing specimens")
     parser.add_argument("--output", help="Optional custom output filename")
