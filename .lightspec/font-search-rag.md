@@ -14,6 +14,12 @@ Use binary grading (0/1) for `labels.medium.human.v1` to optimize reviewer throu
 ### Hybrid Retrieval as Explicit Opt-In
 Hybrid strategies (C/D) must remain behind an explicit feature flag and disabled by default until they demonstrate stable global quality gains over B2. See [DEC-20260207-01-complex-eval-b2-promotion](./decisions/DEC-20260207-01-complex-eval-b2-promotion.md).
 
+### Segmented Gating Experiment (v4_1)
+The system supports experimental segmented routing for LLM auditing:
+- **Strict Path (v3_4)**: Applied to `monospace`, `sans-serif`, and `serif` categories.
+- **Relaxed Path (v3)**: Applied to `display`, `handwriting`, and unknown categories.
+*Status: Evaluation complete. Significant regression observed in Stage 1; NO-GO for production promotion.* See [DEC-20260212-01-v4-1-segmented-gating-experiment](./decisions/DEC-20260212-01-v4-1-segmented-gating-experiment.md).
+
 ## Completed
 
 ### Production Retrieval Default Uses B2
@@ -34,6 +40,7 @@ Request-time search does not block on embedding generation; missing/unseeded rec
 - [DEC-20260209-01-ai-vs-human-alignment-spotcheck](./decisions/DEC-20260209-01-ai-vs-human-alignment-spotcheck.md)
 
 - [DEC-20260211-01-evaluation-governance-lock](./decisions/DEC-20260211-01-evaluation-governance-lock.md)
+- [DEC-20260212-01-v4-1-segmented-gating-experiment](./decisions/DEC-20260212-01-v4-1-segmented-gating-experiment.md)
 
 ## Scenarios
 - A user submits a complex visual-shape query and receives B2-ranked results without waiting for any new embeddings to be generated inline.
