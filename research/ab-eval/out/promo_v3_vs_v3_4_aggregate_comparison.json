@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "A": {
+      "agreement": 0.8664,
+      "precision": 0.625,
+      "recall": 0.6666666666666666,
+      "f1": 0.6452
+    },
+    "v3_4": {
+      "agreement": 0.8583333333333334,
+      "precision": 0.6,
+      "recall": 0.6741,
+      "f1": 0.6346333333333333
+    }
+  },
+  "details": {
+    "control_runs": [
+      "promo_v3_control_v3_1_r1_results.json",
+      "promo_v3_control_v3_1_r2_results.json",
+      "promo_v3_control_v3_1_r3_results.json"
+    ],
+    "treatment_runs": [
+      "promo_v3_4_r1_results.json",
+      "promo_v3_4_treatment_v3_1_r2_results.json",
+      "promo_v3_4_treatment_v3_1_r3_results.json"
+    ]
+  },
+  "helps_hurts": {
+    "helps_count": 0,
+    "hurts_count": 0
+  },
+  "visual_qa": {
+    "status": "PASS",
+    "evidence": "specimens_v3_1 validated in directional"
+  }
+}
