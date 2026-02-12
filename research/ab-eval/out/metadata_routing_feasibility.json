@@ -1,0 +1,51 @@
+{
+  "status": "GO",
+  "champion_reference": "v3_control_r2",
+  "segment_metrics": {
+    "monospace|Google Fonts": {
+      "precision": 0.778,
+      "recall": 0.875,
+      "sample_size": 62
+    },
+    "sans-serif|Google Fonts": {
+      "precision": 0.75,
+      "recall": 0.6,
+      "sample_size": 49
+    },
+    "serif|Google Fonts": {
+      "precision": 0.583,
+      "recall": 0.875,
+      "sample_size": 50
+    },
+    "display|Google Fonts": {
+      "precision": 0.3,
+      "recall": 0.333,
+      "sample_size": 46
+    },
+    "handwriting|Google Fonts": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "sample_size": 40
+    }
+  },
+  "candidate_policies": [
+    {
+      "id": "POL_01",
+      "name": "Monospace Strict",
+      "confidence": "High",
+      "risk": "Low"
+    },
+    {
+      "id": "POL_02",
+      "name": "Display Bypass",
+      "confidence": "Medium",
+      "risk": "High"
+    },
+    {
+      "id": "POL_03",
+      "name": "Handwriting Recovery",
+      "confidence": "Low",
+      "risk": "Medium"
+    }
+  ]
+}

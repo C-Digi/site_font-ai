@@ -257,8 +257,10 @@ Return STRICT JSON only:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--exp", choices=["prompt_v3", "prompt_v3_2", "prompt_v3_3", "prompt_v3_4", "render_v3", "full_v3", "full_v3_2", "full_v3_3", "full_v3_4", "baseline_v2"], required=True)
+    parser.add_argument("--exp", choices=["prompt_v3", "prompt_v3_2", "prompt_v3_3", "prompt_v3_4", "render_v3", "full_v3", "full_v3_2", "full_v3_3", "full_v3_4", "baseline_v2", "segmented_v4_1"], required=True)
     parser.add_argument("--model", default="google/gemini-2.0-flash-001")
+    parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--specimen_dir", default="specimens_v3")
     args = parser.parse_args()
 
     out_dir = Path("research/ab-eval/out")
@@ -277,6 +279,14 @@ def main():
         queries_data = json.load(f)
     query_map = {q['id']: q['text'] for q in queries_data}
 
+    # Load Corpus for categories (v4_1)
+    font_category_map = {}
+    corpus_path = data_dir / "corpus.200.json"
+    if corpus_path.exists():
+        with open(corpus_path, 'r') as f:
+            corpus_data = json.load(f)
+        font_category_map = {f['name']: f.get('category', 'unknown') for f in corpus_data}
+
     # Group pairs by font
     font_to_queries = {}
     for p in pairs:
@@ -292,15 +302,19 @@ def main():
     if not spec_v2_dir.exists():
         spec_v2_dir = out_dir / "specimens_v2"
         
-    spec_v3_dir = out_dir / "specimens_v3"
+    spec_v3_dir = out_dir / args.specimen_dir
 
-    prompt_type = "v3_4" if "v3_4" in args.exp else ("v3_3" if "v3_3" in args.exp else ("v3_2" if "v3_2" in args.exp else ("v3" if "prompt" in args.exp or "full" in args.exp else "v2")))
-    render_v3 = "render" in args.exp or "full" in args.exp
+    prompt_type = "v3_4" if "v3_4" in args.exp else ("v3_3" if "v3_3" in args.exp else ("v3_2" if "v3_2" in args.exp else ("v3" if "prompt" in args.exp or "full" in args.exp or "segmented_v4_1" in args.exp else "v2")))
+    render_v3 = "render" in args.exp or "full" in args.exp or "segmented_v4_1" in args.exp
 
     print(f"Running Experiment: {args.exp} | Prompt: {prompt_type} | Render V3: {render_v3}")
     
     processed_count = 0
-    for fname, font_pairs in font_to_queries.items():
+    font_items = list(font_to_queries.items())
+    if args.limit:
+        font_items = font_items[:args.limit]
+
+    for fname, font_pairs in font_items:
         safe_fname = fname.replace(" ", "_")
         
         if render_v3:
@@ -315,9 +329,20 @@ def main():
 
         q_texts = [query_map[p['query_id']] for p in font_pairs]
         
-        print(f"[{processed_count}/{len(font_to_queries)}] Processing {fname} ({len(q_texts)} queries)...")
+        print(f"[{processed_count}/{len(font_items)}] Processing {fname} ({len(q_texts)} queries)...")
         
-        response = call_openrouter_batched(q_texts, images, prompt_type, args.model)
+        current_prompt_type = prompt_type
+        if args.exp == "segmented_v4_1":
+            cat = font_category_map.get(fname, "unknown")
+            # strict path = v3_4 for categories: monospace, sans-serif, serif
+            # relaxed path = v3 for categories: display, handwriting, unknown/unclassified
+            if cat in ["monospace", "sans-serif", "serif"]:
+                current_prompt_type = "v3_4"
+            else:
+                current_prompt_type = "v3"
+            print(f"  Routing {fname} (category: {cat}) to {current_prompt_type}")
+
+        response = call_openrouter_batched(q_texts, images, current_prompt_type, args.model)
         
         if "error" in response:
             print(f"  Error: {response['error']}")
