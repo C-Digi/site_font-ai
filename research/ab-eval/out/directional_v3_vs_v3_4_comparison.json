@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "A": {
+      "agreement": 0.7037,
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.3333
+    },
+    "v3_4": {
+      "agreement": 0.8148,
+      "precision": 0.2857,
+      "recall": 1.0,
+      "f1": 0.4444
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 3,
+    "hurts_count": 0
+  },
+  "visual_qa": {
+    "status": "PASS",
+    "evidence": "specimens_v3_1 fixed context used"
+  }
+}

@@ -89,6 +89,11 @@ Kick off a broad research session, local and online, to find out more potential 
 
 
 
+then investigate a new improvement concept:
+check font metadata available by OEM
+check results from champion 
+see if any type of metadata categorization/breakpoints (e.g. display vs handwriting fonts) provide a valid separation of results to enable metadata-based gating for improved results. for example use prompt3.1+llm-B if display font, use prompt3.4+llm-A if handwriting, etc.
+(rough concept, adapt)
 
 
 

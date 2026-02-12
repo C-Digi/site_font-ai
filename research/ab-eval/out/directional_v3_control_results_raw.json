@@ -1,0 +1,218 @@
+[
+  {
+    "query_id": "cq_016",
+    "font_name": "Actor",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif design with straight stroke endings (visible in the 'l', 'i', and 'h'), which directly contradicts the user's explicit request for a 'serif' typeface.",
+    "thought": "The typeface is a humanist sans-serif characterized by open apertures, a double-story 'a' and 'g', and moderate stroke contrast. It lacks the structural features (serifs) required by the query. | The font is a sans-serif design with straight stroke endings (visible in the 'l', 'i', and 'h'), which directly contradicts the user's explicit request for a 'serif' typeface."
+  },
+  {
+    "query_id": "cq_002",
+    "font_name": "Alata",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The 'Critical Distinction' macro view shows the 'O' and '0' as perfect geometric circles. The 'Contrast & Rhythm Strip' confirms a consistent, low-variation stroke width across the character set.",
+    "thought": "The font is a classic geometric sans-serif characterized by monolinear strokes and construction based on simple geometric forms. It features a single-story 'a' and 'g', and circular bowls. The design prioritizes clarity and neutrality, lacking the decorative or high-contrast elements typically associated with stylized display genres. | The 'Critical Distinction' macro view shows the 'O' and '0' as perfect geometric circles. The 'Contrast & Rhythm Strip' confirms a consistent, low-variation stroke width across the character set."
+  },
+  {
+    "query_id": "cq_025",
+    "font_name": "Alata",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a utilitarian sans-serif legible down to 8pt (as shown in the body text samples), lacking the decorative flair, high-waisted crossbars, or variable stroke contrast required for an Art Deco display aesthetic.",
+    "thought": "The font is a classic geometric sans-serif characterized by monolinear strokes and construction based on simple geometric forms. It features a single-story 'a' and 'g', and circular bowls. The design prioritizes clarity and neutrality, lacking the decorative or high-contrast elements typically associated with stylized display genres. | The font is a utilitarian sans-serif legible down to 8pt (as shown in the body text samples), lacking the decorative flair, high-waisted crossbars, or variable stroke contrast required for an Art Deco display aesthetic."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The query explicitly requests a 'serif', but the specimen shows a sans-serif design with clean, unadorned terminals on letters like 'A', 'b', and 'g'.",
+    "thought": "The typeface is a clean, geometric sans-serif featuring a single-story 'a' and 'g', uniform stroke width, and neutral shaping. It is a proportional font, not a monospace. Consequently, it fails all three queries due to fundamental classification mismatches: the first two queries require a serif design, and the third requires a fixed-width (monospace) structure. | The query explicitly requests a 'serif', but the specimen shows a sans-serif design with clean, unadorned terminals on letters like 'A', 'b', and 'g'."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif (evident in the straight strokes of 'H', 'I', 'L' without feet), failing the primary constraint for a 'serif' font.",
+    "thought": "The typeface is a clean, geometric sans-serif featuring a single-story 'a' and 'g', uniform stroke width, and neutral shaping. It is a proportional font, not a monospace. Consequently, it fails all three queries due to fundamental classification mismatches: the first two queries require a serif design, and the third requires a fixed-width (monospace) structure. | The font is a sans-serif (evident in the straight strokes of 'H', 'I', 'L' without feet), failing the primary constraint for a 'serif' font."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Albert Sans",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is proportional, not monospace. In the 'Critical Distinction' section, the character 'O' is visibly much wider than the characters 'i' and 'l'.",
+    "thought": "The typeface is a clean, geometric sans-serif featuring a single-story 'a' and 'g', uniform stroke width, and neutral shaping. It is a proportional font, not a monospace. Consequently, it fails all three queries due to fundamental classification mismatches: the first two queries require a serif design, and the third requires a fixed-width (monospace) structure. | The font is proportional, not monospace. In the 'Critical Distinction' section, the character 'O' is visibly much wider than the characters 'i' and 'l'."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Amaranth",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font uses proportional spacing (the 'm' is significantly wider than the 'i' or 'n') and is a clean sans-serif, whereas a classic typewriter font is strictly monospaced and typically features slab serifs.",
+    "thought": "The font is a modern humanist sans-serif featuring proportional spacing, modulated stroke widths, and open apertures. It completely lacks the mechanical monospacing and slab-serif structure that define a classic typewriter font. | The font uses proportional spacing (the 'm' is significantly wider than the 'i' or 'n') and is a clean sans-serif, whereas a classic typewriter font is strictly monospaced and typically features slab serifs."
+  },
+  {
+    "query_id": "cq_040",
+    "font_name": "Anek Latin",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is not monospace, as evidenced by the varying widths of characters in the provided specimen.",
+    "thought": "Evaluating the font's suitability for data tables based on monospace characteristics and distinguishability. | The font is not monospace, as evidenced by the varying widths of characters in the provided specimen."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Anonymous Pro",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif, not a serif. The letterforms are geometric and modern, not Victorian.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen images against the given queries. | The font is a sans-serif, not a serif. The letterforms are geometric and modern, not Victorian."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Anonymous Pro",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif, not a monospaced typewriter font. The letterforms are not designed to mimic typewriter characteristics.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen images against the given queries. | The font is a sans-serif, not a monospaced typewriter font. The letterforms are not designed to mimic typewriter characteristics."
+  },
+  {
+    "query_id": "cq_029",
+    "font_name": "Antic Slab",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a slab serif, not a typewriter font. The serifs are blocky, not monospaced.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen. | The font is a slab serif, not a typewriter font. The serifs are blocky, not monospaced."
+  },
+  {
+    "query_id": "cq_030",
+    "font_name": "Antic Slab",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The font is a slab serif with strong, blocky serifs, fitting the western style.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen. | The font is a slab serif with strong, blocky serifs, fitting the western style."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Antic Slab",
+    "ai_match": 1,
+    "confidence": 1.0,
+    "evidence": "The specimen clearly shows distinct forms for '0' and 'O'.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen. | The specimen clearly shows distinct forms for '0' and 'O'."
+  },
+  {
+    "query_id": "cq_011",
+    "font_name": "Artifika",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a serif, which is not typically associated with 'playful' or 'quirky'. The forms are not particularly unusual or stylized.",
+    "thought": "Evaluation of font specimens against user queries, considering technical constraints and intended 'vibe'. | The font is a serif, which is not typically associated with 'playful' or 'quirky'. The forms are not particularly unusual or stylized."
+  },
+  {
+    "query_id": "cq_016",
+    "font_name": "Artifika",
+    "ai_match": 0,
+    "confidence": 0.8,
+    "evidence": "The font is a serif, but the forms are too simple and lack the elegance and sophistication typically associated with luxury branding. The serifs are not particularly refined.",
+    "thought": "Evaluation of font specimens against user queries, considering technical constraints and intended 'vibe'. | The font is a serif, but the forms are too simple and lack the elegance and sophistication typically associated with luxury branding. The serifs are not particularly refined."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Artifika",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a serif, but it lacks the ornate details and specific characteristics of 19th-century Victorian typefaces. The serifs are not bracketed or highly stylized.",
+    "thought": "Evaluation of font specimens against user queries, considering technical constraints and intended 'vibe'. | The font is a serif, but it lacks the ornate details and specific characteristics of 19th-century Victorian typefaces. The serifs are not bracketed or highly stylized."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Artifika",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The specimen shows clear distinction between '0' and 'O'.",
+    "thought": "Evaluation of font specimens against user queries, considering technical constraints and intended 'vibe'. | The specimen shows clear distinction between '0' and 'O'."
+  },
+  {
+    "query_id": "cq_009",
+    "font_name": "Atma",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The font's rounded terminals and overall soft appearance, as seen in the 'a', 'b', and 'g' characters, align with the 'soft rounded' requirement. The handwritten style also contributes to a friendly vibe.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen and user queries. | The font's rounded terminals and overall soft appearance, as seen in the 'a', 'b', and 'g' characters, align with the 'soft rounded' requirement. The handwritten style also contributes to a friendly vibe."
+  },
+  {
+    "query_id": "cq_011",
+    "font_name": "Atma",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The font's handwritten style and slightly irregular shapes, as seen in the 'A' and 'g' characters, give it a playful and quirky feel. This is suitable for a candy shop.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen and user queries. | The font's handwritten style and slightly irregular shapes, as seen in the 'A' and 'g' characters, give it a playful and quirky feel. This is suitable for a candy shop."
+  },
+  {
+    "query_id": "cq_012",
+    "font_name": "B612 Mono",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The font is a sans-serif, not a serif. The lack of serifs immediately disqualifies it from matching the query.",
+    "thought": "Evaluating the font's suitability based on the provided specimen and the query's requirements. | The font is a sans-serif, not a serif. The lack of serifs immediately disqualifies it from matching the query."
+  },
+  {
+    "query_id": "cq_038",
+    "font_name": "Babylonica",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The font's cursive style and delicate strokes are well-suited for wedding invitations. The 'A' and 'g' characters demonstrate the flowing, elegant style.",
+    "thought": "Evaluation of font suitability based on query criteria. | The font's cursive style and delicate strokes are well-suited for wedding invitations. The 'A' and 'g' characters demonstrate the flowing, elegant style."
+  },
+  {
+    "query_id": "cq_009",
+    "font_name": "Baloo Paaji 2",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The rounded terminals of the 'a', 'b', and 'g' in the specimen's uppercase and lowercase letters, along with the overall sans-serif design, suggest a soft and friendly aesthetic suitable for a children's brand.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen and the given queries. | The rounded terminals of the 'a', 'b', and 'g' in the specimen's uppercase and lowercase letters, along with the overall sans-serif design, suggest a soft and friendly aesthetic suitable for a children's brand."
+  },
+  {
+    "query_id": "cq_032",
+    "font_name": "Baloo Paaji 2",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a sans-serif, lacking serifs. This immediately disqualifies it from being a legible serif font.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen and the given queries. | The font is a sans-serif, lacking serifs. This immediately disqualifies it from being a legible serif font."
+  },
+  {
+    "query_id": "cq_039",
+    "font_name": "Basic",
+    "ai_match": 0,
+    "confidence": 0.9,
+    "evidence": "The font is a clean, geometric sans-serif. It lacks the ruggedness or visual characteristics associated with outdoor gear.",
+    "thought": "Evaluation of the font's suitability for a rugged outdoor display font for camping gear. | The font is a clean, geometric sans-serif. It lacks the ruggedness or visual characteristics associated with outdoor gear."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Baskervville SC",
+    "ai_match": 0,
+    "confidence": 1.0,
+    "evidence": "The provided specimen shows that the zero (0) and the capital letter O are very similar, making them difficult to distinguish at a glance. This is not ideal for a coding font.",
+    "thought": "Evaluating the font's suitability for coding based on the clarity of 0 and O. | The provided specimen shows that the zero (0) and the capital letter O are very similar, making them difficult to distinguish at a glance. This is not ideal for a coding font."
+  },
+  {
+    "query_id": "cq_021",
+    "font_name": "Bentham",
+    "ai_match": 1,
+    "confidence": 0.9,
+    "evidence": "The font's serifs, thick and thin strokes, and overall structure align with the Victorian style. The uppercase letters have a display-oriented appearance.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen images. | The font's serifs, thick and thin strokes, and overall structure align with the Victorian style. The uppercase letters have a display-oriented appearance."
+  },
+  {
+    "query_id": "cq_033",
+    "font_name": "Bentham",
+    "ai_match": 1,
+    "confidence": 0.95,
+    "evidence": "The specimen clearly shows distinct forms for '0' and 'O', which is a critical requirement for coding fonts. The 'i', 'l', and '1' are also clearly differentiated.",
+    "thought": "Evaluation of font family characteristics based on the provided specimen images. | The specimen clearly shows distinct forms for '0' and 'O', which is a critical requirement for coding fonts. The 'i', 'l', and '1' are also clearly differentiated."
+  }
+]
