@@ -1,0 +1,412 @@
+{
+  "details": [
+    {
+      "query_id": "cq_002",
+      "font_name": "Alata",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'O' and 'o' are perfect circles, and the stroke weight is consistent across the glyphs.",
+      "thought": "The font is a geometric sans-serif with consistent stroke weight and circular forms. It does not exhibit any Art Deco characteristics. | The 'O' and 'o' are perfect circles, and the stroke weight is consistent across the glyphs."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Alata",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the characteristic geometric shapes, stepped forms, and stylized ornamentation associated with Art Deco.",
+      "thought": "The font is a geometric sans-serif with consistent stroke weight and circular forms. It does not exhibit any Art Deco characteristics. | The font lacks the characteristic geometric shapes, stepped forms, and stylized ornamentation associated with Art Deco."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Farro",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'o' and 'g' are nearly perfect circles, and the stroke weight is consistent throughout the glyphs.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any blackletter characteristics. | The 'o' and 'g' are nearly perfect circles, and the stroke weight is consistent throughout the glyphs."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Farro",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, lacking the characteristic angular strokes and dense texture of blackletter styles.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any blackletter characteristics. | The font is a sans-serif, lacking the characteristic angular strokes and dense texture of blackletter styles."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Geom",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'o' and '0' glyphs are perfect circles, and the stroke width is consistent across the glyphs.",
+      "thought": "The font is a geometric sans-serif with circular forms and minimal stroke variation, fitting the query requirements. | The 'o' and '0' glyphs are perfect circles, and the stroke width is consistent across the glyphs."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Golos Text",
+      "ai_match": 1,
+      "confidence": 1.0,
+      "evidence": "The 'o' and 'g' exhibit near-perfect circular forms, and the stroke width is consistent across the glyphs.",
+      "thought": "The font is a geometric sans-serif with circular forms and minimal stroke variation, fulfilling all requirements of the query. | The 'o' and 'g' exhibit near-perfect circular forms, and the stroke width is consistent across the glyphs."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Holtwood One SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a slab serif, not a sans-serif. The 'O' is not a perfect circle, and there is significant stroke variation.",
+      "thought": "The font is a slab serif with very heavy weight and blocky appearance. It does not match either of the queries. | The font is a slab serif, not a sans-serif. The 'O' is not a perfect circle, and there is significant stroke variation."
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Holtwood One SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font does not resemble an 8-bit computer font. It lacks the pixelated or monospace characteristics typically associated with that style.",
+      "thought": "The font is a slab serif with very heavy weight and blocky appearance. It does not match either of the queries. | The font does not resemble an 8-bit computer font. It lacks the pixelated or monospace characteristics typically associated with that style."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "JetBrains Mono",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The uppercase 'O' and lowercase 'o' are perfect circles. The stroke variation is minimal across all glyphs.",
+      "thought": "The font is a geometric sans with low stroke variation and monospace characteristics. The 'Critical Distinction' block is diagnostic-only and does not automatically qualify the font as monospace. The alphabet display and body text confirm the geometric sans and monospace characteristics. | The uppercase 'O' and lowercase 'o' are perfect circles. The stroke variation is minimal across all glyphs."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "JetBrains Mono",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The font is monospace, as evidenced by the consistent width of the characters in the alphabet display. The 'Critical Distinction' block also shows clear differentiation between similar characters like 'I', 'l', and '1'.",
+      "thought": "The font is a geometric sans with low stroke variation and monospace characteristics. The 'Critical Distinction' block is diagnostic-only and does not automatically qualify the font as monospace. The alphabet display and body text confirm the geometric sans and monospace characteristics. | The font is monospace, as evidenced by the consistent width of the characters in the alphabet display. The 'Critical Distinction' block also shows clear differentiation between similar characters like 'I', 'l', and '1'."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Kumbh Sans",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'o' and 'g' are nearly perfect circles, and the stroke weight is consistent throughout the alphabet.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not appear condensed, nor does it have the stern or authoritative look of a law firm serif. It also lacks the distinctive features of Art Deco. | The 'o' and 'g' are nearly perfect circles, and the stroke weight is consistent throughout the alphabet."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not condensed; the letterforms are relatively wide.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not appear condensed, nor does it have the stern or authoritative look of a law firm serif. It also lacks the distinctive features of Art Deco. | The font is not condensed; the letterforms are relatively wide."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "This is a sans-serif font, not a serif. It also lacks the stern or authoritative characteristics typically associated with law firms.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not appear condensed, nor does it have the stern or authoritative look of a law firm serif. It also lacks the distinctive features of Art Deco. | This is a sans-serif font, not a serif. It also lacks the stern or authoritative characteristics typically associated with law firms."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Kumbh Sans",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the characteristic geometric and stylized features of Art Deco fonts.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not appear condensed, nor does it have the stern or authoritative look of a law firm serif. It also lacks the distinctive features of Art Deco. | The font lacks the characteristic geometric and stylized features of Art Deco fonts."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "LXGW WenKai Mono TC",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'o' and 'g' are near perfect circles, and the stroke variation is minimal.",
+      "thought": "The font is a rounded geometric sans-serif with low stroke variation. It has a friendly and approachable feel, making it suitable for children's brands. | The 'o' and 'g' are near perfect circles, and the stroke variation is minimal."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "LXGW WenKai Mono TC",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The rounded terminals and soft appearance of the letters give it a friendly feel.",
+      "thought": "The font is a rounded geometric sans-serif with low stroke variation. It has a friendly and approachable feel, making it suitable for children's brands. | The rounded terminals and soft appearance of the letters give it a friendly feel."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Lalezar",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'o' and 'g' are nearly perfect circles, and the stroke weight is very consistent throughout the alphabet.",
+      "thought": "The font is a geometric sans-serif with a consistent stroke weight and rounded forms. It lacks the specific characteristics required for the other queries. | The 'o' and 'g' are nearly perfect circles, and the stroke weight is very consistent throughout the alphabet."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Lalezar",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not monospace; the width of the letters varies.",
+      "thought": "The font is a geometric sans-serif with a consistent stroke weight and rounded forms. It lacks the specific characteristics required for the other queries. | The font is not monospace; the width of the letters varies."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Lalezar",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, not a serif.",
+      "thought": "The font is a geometric sans-serif with a consistent stroke weight and rounded forms. It lacks the specific characteristics required for the other queries. | The font is a sans-serif, not a serif."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Lalezar",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a sans-serif, not a slab serif.",
+      "thought": "The font is a geometric sans-serif with a consistent stroke weight and rounded forms. It lacks the specific characteristics required for the other queries. | The font is a sans-serif, not a slab serif."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Ovo",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a serif, not a sans-serif.",
+      "thought": "The font is a serif font with moderate contrast. It does not have geometric sans characteristics or western slab serif characteristics. | The font is a serif, not a sans-serif."
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Ovo",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a serif, but it does not have the characteristics of a western slab serif.",
+      "thought": "The font is a serif font with moderate contrast. It does not have geometric sans characteristics or western slab serif characteristics. | The font is a serif, but it does not have the characteristics of a western slab serif."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Sometype Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The 'o' and 'g' are near-perfect circles, and the stroke variation is minimal throughout the alphabet.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation and rounded terminals. It has good legibility and a clean, modern appearance. | The 'o' and 'g' are near-perfect circles, and the stroke variation is minimal throughout the alphabet."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Sometype Mono",
+      "ai_match": 1,
+      "confidence": 0.8,
+      "evidence": "The rounded terminals on letters like 'a', 'b', and 'g' give it a friendly and approachable feel, suitable for a children's brand.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation and rounded terminals. It has good legibility and a clean, modern appearance. | The rounded terminals on letters like 'a', 'b', and 'g' give it a friendly and approachable feel, suitable for a children's brand."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Sometype Mono",
+      "ai_match": 0,
+      "confidence": 0.2,
+      "evidence": "The font lacks the strong serifs and high contrast typically associated with authoritative fonts for law firms.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation and rounded terminals. It has good legibility and a clean, modern appearance. | The font lacks the strong serifs and high contrast typically associated with authoritative fonts for law firms."
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Sometype Mono",
+      "ai_match": 0,
+      "confidence": 0.3,
+      "evidence": "While the Critical Distinction block shows distinguishable characters, the main alphabet display does not confirm monospace. The width of 'i' and 'm' are different.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation and rounded terminals. It has good legibility and a clean, modern appearance. | While the Critical Distinction block shows distinguishable characters, the main alphabet display does not confirm monospace. The width of 'i' and 'm' are different."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "TASA Orbiter",
+      "ai_match": 1,
+      "confidence": 0.95,
+      "evidence": "The 'o' and '0' are perfect circles, and the stroke variation is minimal across all glyphs.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any art deco or rugged outdoor display characteristics. | The 'o' and '0' are perfect circles, and the stroke variation is minimal across all glyphs."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "TASA Orbiter",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks any of the characteristic features of Art Deco, such as strong geometric shapes, stylized forms, or decorative elements.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any art deco or rugged outdoor display characteristics. | The font lacks any of the characteristic features of Art Deco, such as strong geometric shapes, stylized forms, or decorative elements."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "TASA Orbiter",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is too clean and lacks the rugged, distressed, or textured appearance typically associated with outdoor or camping-themed fonts.",
+      "thought": "The font is a geometric sans-serif with minimal stroke variation. It does not have any art deco or rugged outdoor display characteristics. | The font is too clean and lacks the rugged, distressed, or textured appearance typically associated with outdoor or camping-themed fonts."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Encode Sans Condensed",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is condensed, sans-serif, and has a clean, industrial aesthetic suitable for headlines.",
+      "thought": "The font is a condensed sans-serif. It has a clean, industrial feel. It lacks the high contrast and refined details needed for luxury branding. | The font is condensed, sans-serif, and has a clean, industrial aesthetic suitable for headlines."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Encode Sans Condensed",
+      "ai_match": 0,
+      "confidence": 0.9,
+      "evidence": "The font lacks the high contrast and refined details needed for luxury branding.",
+      "thought": "The font is a condensed sans-serif. It has a clean, industrial feel. It lacks the high contrast and refined details needed for luxury branding. | The font lacks the high contrast and refined details needed for luxury branding."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Goblin One",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is condensed, has a slab serif design, and evokes an industrial aesthetic, suitable for tight headlines.",
+      "thought": "This font is a condensed slab serif with a strong industrial feel. It has clear distinctions between characters, but is not a typewriter or coding font. It lacks the ruggedness needed for outdoor display. | The font is condensed, has a slab serif design, and evokes an industrial aesthetic, suitable for tight headlines."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 0.0,
+      "evidence": "The font is a slab serif, not a blackletter style.",
+      "thought": "This font is a condensed slab serif with a strong industrial feel. It has clear distinctions between characters, but is not a typewriter or coding font. It lacks the ruggedness needed for outdoor display. | The font is a slab serif, not a blackletter style."
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 0.0,
+      "evidence": "The font lacks the monospaced characteristic and specific glyph shapes of a classic typewriter font.",
+      "thought": "This font is a condensed slab serif with a strong industrial feel. It has clear distinctions between characters, but is not a typewriter or coding font. It lacks the ruggedness needed for outdoor display. | The font lacks the monospaced characteristic and specific glyph shapes of a classic typewriter font."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 0.6,
+      "evidence": "The 'Critical Distinction' block shows clear differentiation between '0' and 'O'.",
+      "thought": "This font is a condensed slab serif with a strong industrial feel. It has clear distinctions between characters, but is not a typewriter or coding font. It lacks the ruggedness needed for outdoor display. | The 'Critical Distinction' block shows clear differentiation between '0' and 'O'."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Goblin One",
+      "ai_match": 0,
+      "confidence": 0.3,
+      "evidence": "The font has a bold, sturdy appearance.",
+      "thought": "This font is a condensed slab serif with a strong industrial feel. It has clear distinctions between characters, but is not a typewriter or coding font. It lacks the ruggedness needed for outdoor display. | The font has a bold, sturdy appearance."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Londrina Sketch",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not condensed, as seen in the regular width of the letters. It also has a hand-drawn style, not an industrial one.",
+      "thought": "The font is a sans-serif with a hand-drawn aesthetic. It is not condensed and does not have an industrial feel. | The font is not condensed, as seen in the regular width of the letters. It also has a hand-drawn style, not an industrial one."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Major Mono Display",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not condensed. The letterforms are wide and open.",
+      "thought": "The font is a geometric sans with a very specific, almost stencil-like design. It is not condensed, nor does it evoke a rugged outdoor feel. | The font is not condensed. The letterforms are wide and open."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Major Mono Display",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font's geometric and stencil-like design does not convey a rugged outdoor aesthetic.",
+      "thought": "The font is a geometric sans with a very specific, almost stencil-like design. It is not condensed, nor does it evoke a rugged outdoor feel. | The font's geometric and stencil-like design does not convey a rugged outdoor aesthetic."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Marcellus SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a serif, not a sans-serif, and it is not condensed.",
+      "thought": "The font is a serif with moderate contrast. It is not condensed or industrial, and lacks the high-end refinement needed for luxury branding. | The font is a serif, not a sans-serif, and it is not condensed."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Marcellus SC",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font lacks the pronounced contrast and refined details (e.g., swashes, teardrop terminals) typically associated with luxury branding.",
+      "thought": "The font is a serif with moderate contrast. It is not condensed or industrial, and lacks the high-end refinement needed for luxury branding. | The font lacks the pronounced contrast and refined details (e.g., swashes, teardrop terminals) typically associated with luxury branding."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Nova Mono",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is condensed, has a geometric sans-serif construction, and appears suitable for headlines.",
+      "thought": "The font is a condensed sans-serif with rounded terminals. It has an industrial feel due to its geometric construction and narrow proportions. It is legible enough for headlines and body text. | The font is condensed, has a geometric sans-serif construction, and appears suitable for headlines."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Nova Mono",
+      "ai_match": 1,
+      "confidence": 0.8,
+      "evidence": "The rounded terminals and simple geometric shapes give it a friendly, approachable feel suitable for a children's brand.",
+      "thought": "The font is a condensed sans-serif with rounded terminals. It has an industrial feel due to its geometric construction and narrow proportions. It is legible enough for headlines and body text. | The rounded terminals and simple geometric shapes give it a friendly, approachable feel suitable for a children's brand."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Nova Mono",
+      "ai_match": 0,
+      "confidence": 0.2,
+      "evidence": "The font is a sans-serif, not a serif.",
+      "thought": "The font is a condensed sans-serif with rounded terminals. It has an industrial feel due to its geometric construction and narrow proportions. It is legible enough for headlines and body text. | The font is a sans-serif, not a serif."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a sans-serif.",
+      "thought": "The font is a cursive script, with a focus on legibility and clear letterforms. It is not suitable for any of the queries provided. | The font is a cursive script, not a sans-serif."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a blackletter style.",
+      "thought": "The font is a cursive script, with a focus on legibility and clear letterforms. It is not suitable for any of the queries provided. | The font is a cursive script, not a blackletter style."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a playful display font.",
+      "thought": "The font is a cursive script, with a focus on legibility and clear letterforms. It is not suitable for any of the queries provided. | The font is a cursive script, not a playful display font."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a vintage display font.",
+      "thought": "The font is a cursive script, with a focus on legibility and clear letterforms. It is not suitable for any of the queries provided. | The font is a cursive script, not a vintage display font."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Playwrite CL Guides",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is a cursive script, not a coding font.",
+      "thought": "The font is a cursive script, with a focus on legibility and clear letterforms. It is not suitable for any of the queries provided. | The font is a cursive script, not a coding font."
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Rancho",
+      "ai_match": 0,
+      "confidence": 1.0,
+      "evidence": "The font is not condensed, industrial, or a sans-serif.",
+      "thought": "The font is a script style with rounded terminals. It is not condensed or industrial, and it is suitable for wedding invitations. | The font is not condensed, industrial, or a sans-serif."
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Rancho",
+      "ai_match": 1,
+      "confidence": 0.9,
+      "evidence": "The font is a gentle script with rounded terminals, suitable for wedding invitations.",
+      "thought": "The font is a script style with rounded terminals. It is not condensed or industrial, and it is suitable for wedding invitations. | The font is a gentle script with rounded terminals, suitable for wedding invitations."
+    }
+  ]
+}

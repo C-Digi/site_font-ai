@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "A": {
+      "agreement": 0.8235,
+      "precision": 0.7059,
+      "recall": 0.75,
+      "f1": 0.7273,
+      "counts": {
+        "tp": 12,
+        "fp": 5,
+        "fn": 4,
+        "tn": 30,
+        "total": 51
+      }
+    },
+    "v4_2": {
+      "agreement": 0.7647,
+      "precision": 0.6111,
+      "recall": 0.6875,
+      "f1": 0.6471,
+      "counts": {
+        "tp": 11,
+        "fp": 7,
+        "fn": 5,
+        "tn": 28,
+        "total": 51
+      }
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 3,
+    "hurts_count": 6
+  },
+  "visual_qa": {
+    "status": "PASS",
+    "evidence": "specimens_v3_1 used for both"
+  }
+}
