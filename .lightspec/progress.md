@@ -28,6 +28,19 @@
   - [x] Outcome: 0.9 gate confirmed safe; T=0.0 optimal for Agreement but 0.9 preferred for Precision/Noise floor.
 - [ ] Roll out Prompt V3 to JIT Seeding path
 
+### Phase 4: Refinement & Orthogonal Probes (Feb 13 – Feb 19)
+- [x] Week 4: P1 Diagnostic Neutrality Probe (`v5_1`)
+  - [x] Implementation and directional run (`n=20`)
+  - [x] Decision: NO-GO / ITERATE (Zero delta observed)
+- [x] Part A: Full-Set Failure Localization (v3 Champion)
+  - [x] Analyzed 243 rows; localized 52 mismatches (21.4% rate)
+  - [x] Identified 5 ranked failure buckets (Geometric Trap, Monospace Hallucination, Calligraphy, Era/Vintage, Texture)
+- [x] Part B: P2 OEM Augmentation Plan (Fontshare)
+  - [x] Designed 10-family high-signal extension plan (ITF/Fontshare)
+  - [x] Defined acceptance criteria and effort estimate
+- [ ] Execute Fontshare Seeding & v5.1 Baseline (Next Step)
+- [ ] Roll out Prompt V3 to JIT Seeding path
+
 ---
 
 ## Offline A/B Evaluation

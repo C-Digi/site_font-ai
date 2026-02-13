@@ -1,0 +1,67 @@
+{
+  "timestamp": "2026-02-13T03:38:00Z",
+  "total_aligned_rows": 243,
+  "total_mismatches": 52,
+  "mismatch_rate": 0.214,
+  "ranked_buckets": [
+    {
+      "name": "Geometric Trap (Excessive Lenience)",
+      "count": 14,
+      "share": 0.269,
+      "description": "Model identifies 'perfect circles' in fonts that are close but not strictly geometric or have minor flares that SSoT rejects.",
+      "exemplars": [
+        { "query_id": "cq_002", "font": "Farro", "ssot": 0, "ai": 1 },
+        { "query_id": "cq_002", "font": "JetBrains Mono", "ssot": 0, "ai": 1 },
+        { "query_id": "cq_002", "font": "LXGW WenKai Mono TC", "ssot": 0, "ai": 1 }
+      ],
+      "v5_1_directional_addressability": "Yes (via stricter prompt rubrics)"
+    },
+    {
+      "name": "Monospace Hallucination",
+      "count": 12,
+      "share": 0.231,
+      "description": "Model misidentifies proportional fonts as monospaced or fails to recognize genuine monospace fonts due to specimen artifacts.",
+      "exemplars": [
+        { "query_id": "cq_015", "font": "Sixtyfour", "ssot": 0, "ai": 1 },
+        { "query_id": "cq_015", "font": "Source Code Pro", "ssot": 1, "ai": 0 },
+        { "query_id": "cq_040", "font": "Roboto Mono", "ssot": 1, "ai": 0 }
+      ],
+      "v5_1_directional_addressability": "Yes (via micro-tells and alignment check)"
+    },
+    {
+      "name": "Calligraphy vs. Casual Script",
+      "count": 10,
+      "share": 0.192,
+      "description": "Model confuses casual handwriting/brush scripts with 'traditional calligraphic' forms due to line weight variation.",
+      "exemplars": [
+        { "query_id": "cq_010", "font": "Ga Maamli", "ssot": 0, "ai": 1 },
+        { "query_id": "cq_010", "font": "Ms Madi", "ssot": 0, "ai": 1 },
+        { "query_id": "cq_010", "font": "Send Flowers", "ssot": 0, "ai": 1 }
+      ],
+      "v5_1_directional_addressability": "Uncertain (highly semantic)"
+    },
+    {
+      "name": "Vintage/Era Hallucination",
+      "count": 8,
+      "share": 0.154,
+      "description": "Model attributes specific historical eras (1920s, 19th century) to modern fonts based on contrast or serifs.",
+      "exemplars": [
+        { "query_id": "cq_019", "font": "Calistoga", "ssot": 0, "ai": 1 },
+        { "query_id": "cq_019", "font": "Federant", "ssot": 0, "ai": 1 },
+        { "query_id": "cq_021", "font": "Bentham", "ssot": 0, "ai": 1 }
+      ],
+      "v5_1_directional_addressability": "No (requires metadata)"
+    },
+    {
+      "name": "Texture/Inline Neglect",
+      "count": 8,
+      "share": 0.154,
+      "description": "Model ignores structural modifiers like 'Inline' or 'Sketch' when they conflict with a structural judgment.",
+      "exemplars": [
+        { "query_id": "cq_025", "font": "Bungee Inline", "ssot": 1, "ai": 0 },
+        { "query_id": "cq_003", "font": "Londrina Sketch", "ssot": 1, "ai": 0 }
+      ],
+      "v5_1_directional_addressability": "Yes (via explicit texture check)"
+    }
+  ]
+}

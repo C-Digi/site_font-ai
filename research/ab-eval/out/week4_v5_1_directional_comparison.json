@@ -1,0 +1,227 @@
+{
+  "variants": {
+    "A": {
+      "agreement": 0.95,
+      "precision": 0.875,
+      "recall": 1.0,
+      "f1": 0.9333333333333333
+    },
+    "v5_1": {
+      "agreement": 0.95,
+      "precision": 0.875,
+      "recall": 1.0,
+      "f1": 0.9333333333333333
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 0,
+    "hurts_count": 0,
+    "net": 0
+  },
+  "visual_qa": {
+    "status": "PASS",
+    "evidence": "specimens_v3_1 validated context used"
+  },
+  "details": [
+    {
+      "query_id": "cq_019",
+      "font_name": "Workbench",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font suitability based on visual characteristics and query intent.",
+      "v5_1_thought": "Evaluation of font characteristics against the query requirements."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Baskervville SC",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 1,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of the font's suitability for luxury branding based on elegance, sophistication, and serif characteristics.",
+      "v5_1_thought": "Evaluation of the font's suitability for luxury branding based on its elegance, sophistication, and technical characteristics."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Merienda",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "The font is a script font, which does not align with the stern and authoritative requirements.",
+      "v5_1_thought": "Evaluation of the font's suitability for a law firm based on its characteristics."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Overlock SC",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of the font's suitability for a 1920s poster, considering its nostalgic and vintage qualities.",
+      "v5_1_thought": "Evaluation of font family characteristics against the provided query."
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Goblin One",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 1,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font suitability for a rugged outdoor display font for camping gear.",
+      "v5_1_thought": "Evaluation of the font's suitability for a rugged outdoor display font, considering its visual characteristics and potential for conveying the intended vibe."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Tai Heritage Pro",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font characteristics against user queries.",
+      "v5_1_thought": "Evaluation of font characteristics against the provided query."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Madimi One",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 1,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font family characteristics based on the provided specimen and the user query.",
+      "v5_1_thought": "Evaluation of font characteristics against user queries."
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Iceberg",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font family characteristics against user queries.",
+      "v5_1_thought": "Evaluation of font characteristics against the provided query."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Reddit Mono",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 1,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font family characteristics based on the provided specimen and the user query.",
+      "v5_1_thought": "Evaluation of font characteristics against user queries, considering technical constraints and intended vibe."
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Bungee Shade",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 1,
+      "status": "NEUTRAL",
+      "v3_thought": "The font's characteristics are evaluated against the query's requirements for a playful and quirky display font suitable for a candy shop.",
+      "v5_1_thought": "The font's playful and quirky nature is evident in its 3D effect and rounded letterforms, making it suitable for a candy shop. The display nature is also confirmed by the large letterforms."
+    },
+    {
+      "query_id": "cq_032",
+      "font_name": "Source Code Pro",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of the font's suitability for long-form editorial reading based on legibility and serif characteristics.",
+      "v5_1_thought": "Evaluation of the font's suitability for long-form editorial reading based on legibility and serif characteristics."
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Playwrite FR Trad",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "The font is a script font and does not meet the criteria for a geometric sans-serif font.",
+      "v5_1_thought": "The font is a script font, not a geometric sans. The query specifies a geometric sans with perfect circles and low stroke variation, which this font does not exhibit."
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Belleza",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of the font's suitability for a terminal interface based on monospace, cold/sterile aesthetic.",
+      "v5_1_thought": "The font is not monospace, and the style is not cold or sterile."
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "IBM Plex Mono",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 1,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font family characteristics based on the provided specimen images.",
+      "v5_1_thought": "Evaluation of font family characteristics based on the provided specimen and user queries."
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Noto Sans Nag Mundari",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font family characteristics based on the provided specimen and the user queries.",
+      "v5_1_thought": "Evaluation of font characteristics against user queries."
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Noto Sans Nag Mundari",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of font family characteristics based on the provided specimen and the user queries.",
+      "v5_1_thought": "Evaluation of font characteristics against user queries."
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Londrina Sketch",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of the font's suitability based on the provided specimen and the query's requirements.",
+      "v5_1_thought": "Evaluation of font characteristics against user queries."
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Manuale",
+      "v3_ai": 1,
+      "v5_1_ai": 1,
+      "human": 1,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluation of the font's suitability for a law firm based on its characteristics.",
+      "v5_1_thought": "Evaluation of the font's suitability for a law firm based on its characteristics."
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Bentham",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluating the font's suitability based on the provided specimen and the query's requirements.",
+      "v5_1_thought": "Evaluation of font family characteristics against the provided query."
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Roboto Flex",
+      "v3_ai": 0,
+      "v5_1_ai": 0,
+      "human": 0,
+      "status": "NEUTRAL",
+      "v3_thought": "Evaluating the font's suitability based on the provided queries and the specimen images.",
+      "v5_1_thought": "Evaluation of font characteristics against user queries."
+    }
+  ]
+}

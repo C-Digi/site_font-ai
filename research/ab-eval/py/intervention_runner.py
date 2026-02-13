@@ -236,6 +236,39 @@ Return STRICT JSON only:
   ]
 }}
 """
+    elif prompt_type == "v5_1":
+        prompt = f"""You are a master typography auditor (V5.1 - Diagnostic Neutrality). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+
+### DECISION RUBRIC
+For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
+Partial matches or "almost matches" should be scored as NO MATCH (0) unless the query is broad.
+
+### SPECIMEN INTERPRETATION GUARDRAILS
+1. **Diagnostic Neutrality (Critical Distinction block)**
+   - Critical Distinction block is diagnostic-only; do not treat it as category proof by itself; verify category/technical classification primarily from body/alphabet evidence.
+
+### EVIDENCE REQUIREMENT
+For EACH query, you must provide a short specific visual evidence snippet from the specimen.
+
+### QUERIES
+{queries_formatted}
+
+### RESPONSE FORMAT
+Return STRICT JSON only:
+{{
+  "audit_reasoning": "Overall evaluation of font family characteristics",
+  "results": [
+    {{
+      "query_index": 1,
+      "match": 1 or 0,
+      "confidence": 0.0-1.0,
+      "evidence": "Specific visual detail justifying this score",
+      "counter_evidence": "Any visual detail that almost disqualified it (or empty)"
+    }},
+    ...
+  ]
+}}
+"""
     else: # v3
         prompt = f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
@@ -270,174 +303,209 @@ Return STRICT JSON only:
     for img_path in images:
         data_url = image_to_data_url(img_path)
         if data_url:
-            content.append({"type": "image_url", "image_url": {"url": data_url}})
-    
+            content.append({
+                "type": "image_url",
+                "image_url": {"url": data_url}
+            })
+            
     payload = {
         "model": model,
-        "temperature": 0.1,
-        "messages": [{"role": "user", "content": content}],
-        "response_format": {"type": "json_object"}
+        "temperature": 0.0, # Strict for auditing
+        "messages": [
+            {
+                "role": "user",
+                "content": content,
+            },
+        ],
+        "response_format": { "type": "json_object" }
     }
     
+    t0 = time.time()
     for attempt in range(3):
         try:
             resp = requests.post(url, headers=headers, json=payload, timeout=180)
             if resp.status_code == 429:
+                print(f"  Rate limited. Sleeping 10s...")
                 time.sleep(10)
                 continue
             if not resp.ok:
+                print(f"  OpenRouter Error {resp.status_code}: {resp.text}")
                 time.sleep(5)
                 continue
             break
-        except Exception:
+        except Exception as e:
+            print(f"  Attempt {attempt+1} failed: {e}")
             time.sleep(5)
     else:
-        return {"error": "Failed after 3 attempts"}
+        raise RuntimeError(f"Failed to call OpenRouter after 3 attempts")
         
+    latency = time.time() - t0
+    
+    body = resp.json()
+    choices = body.get('choices', [])
+    if not choices:
+        raise RuntimeError("OpenRouter returned no choices")
+        
+    content_str = choices[0].get('message', {}).get('content', '').strip()
+    
     try:
-        res = resp.json()
-        content_str = res['choices'][0]['message']['content']
-        return json.loads(content_str)
-    except Exception as e:
-        return {"error": f"JSON parse error: {str(e)}", "raw": content_str if 'content_str' in locals() else ""}
+        data = json.loads(content_str)
+        data['latency_sec'] = round(latency, 2)
+        return data
+    except json.JSONDecodeError:
+        return {
+            "audit_reasoning": f"Failed to parse JSON. Raw content: {content_str}",
+            "results": [{"query_index": i+1, "match": 0, "confidence": 0, "evidence": "PARSE FAILURE"} for i in range(len(queries))],
+            "latency_sec": round(latency, 2)
+        }
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--exp", choices=["prompt_v3", "prompt_v3_2", "prompt_v3_3", "prompt_v3_4", "render_v3", "full_v3", "full_v3_2", "full_v3_3", "full_v3_4", "baseline_v2", "segmented_v4_1", "prompt_v4_2"], required=True)
-    parser.add_argument("--model", default="google/gemini-2.0-flash-001")
-    parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--model", default="google/gemini-2.0-flash-lite-preview-02-05:free")
+    parser.add_argument("--exp", choices=["prompt_v3", "prompt_v3_2", "prompt_v3_3", "prompt_v3_4", "render_v3", "full_v3", "full_v3_2", "full_v3_3", "full_v3_4", "baseline_v2", "segmented_v4_1", "prompt_v4_2", "prompt_v5_1"], required=True)
+    parser.add_argument("--n", type=int, default=0, help="Number of pairs to run (0 for all)")
+    parser.add_argument("--output", required=True)
     parser.add_argument("--specimen_dir", default="specimens_v3")
     args = parser.parse_args()
 
-    out_dir = Path("research/ab-eval/out")
     data_dir = Path("research/ab-eval/data")
+    out_dir = Path("research/ab-eval/out")
+    spec_v3_dir = out_dir / args.specimen_dir
     
-    # 1. Load Ground Truth to get the pairs
-    ssot_path = out_dir / "full_set_review_export_1770612809775.json"
-    with open(ssot_path, 'r') as f:
-        ssot = json.load(f)
+    # Intervention Logic
+    prompt_type = "v5_1" if "v5_1" in args.exp else ("v4_2" if "v4_2" in args.exp else ("v3_4" if "v3_4" in args.exp else ("v3_3" if "v3_3" in args.exp else ("v3_2" if "v3_2" in args.exp else ("v3" if "prompt" in args.exp or "full" in args.exp or "segmented_v4_1" in args.exp else "v2")))))
+    render_v3 = "render" in args.exp or "full" in args.exp or "segmented_v4_1" in args.exp or "v4_2" in args.exp or "v3" in args.specimen_dir
     
-    pairs = ssot['decisions']
-    
-    # Load Queries
-    queries_path = data_dir / "queries.medium.human.v1.json"
-    with open(queries_path, 'r') as f:
-        queries_data = json.load(f)
-    query_map = {q['id']: q['text'] for q in queries_data}
+    print(f"Running Experiment: {args.exp} | Prompt: {prompt_type} | Render V3: {render_v3}")
 
-    # Load Corpus for categories (v4_1)
-    font_category_map = {}
-    corpus_path = data_dir / "corpus.200.json"
-    if corpus_path.exists():
-        with open(corpus_path, 'r') as f:
-            corpus_data = json.load(f)
-        font_category_map = {f['name']: f.get('category', 'unknown') for f in corpus_data}
+    # Load labels for G2 calculation
+    with open(data_dir / "labels.medium.human.v1.json", "r") as f:
+        labels_v1 = json.load(f)
+    
+    # Load queries
+    with open(data_dir / "queries.medium.human.v1.json", "r") as f:
+        queries = json.load(f)
+    query_map = {q["id"]: q["text"] for q in queries}
 
-    # Group pairs by font
-    font_to_queries = {}
-    for p in pairs:
-        fname = p['font_name']
-        if fname not in font_to_queries:
-            font_to_queries[fname] = []
-        font_to_queries[fname].append(p)
+    # Load candidate pool
+    with open(data_dir / "candidate_pool.medium.v1.json", "r") as f:
+        pool = json.load(f)
+
+    # Flatten pool into pairs
+    pairs = []
+    for qid, font_list in pool.items():
+        for font in font_list:
+            pairs.append((qid, font))
+    
+    if args.n > 0:
+        # Use fixed seed for reproducibility
+        import random
+        random.seed(42)
+        random.shuffle(pairs)
+        pairs = pairs[:args.n]
 
     results = []
     
-    # Setup paths
-    spec_v2_dir = out_dir / "specimens_v2_medium_nobias" # Assuming this is where the baseline images are
-    if not spec_v2_dir.exists():
-        spec_v2_dir = out_dir / "specimens_v2"
-        
-    spec_v3_dir = out_dir / args.specimen_dir
+    # Group by font to save on image loading/batches
+    font_to_qids = {}
+    for qid, font in pairs:
+        if font not in font_to_qids:
+            font_to_qids[font] = []
+        font_to_qids[font].append(qid)
 
-    prompt_type = "v4_2" if "v4_2" in args.exp else ("v3_4" if "v3_4" in args.exp else ("v3_3" if "v3_3" in args.exp else ("v3_2" if "v3_2" in args.exp else ("v3" if "prompt" in args.exp or "full" in args.exp or "segmented_v4_1" in args.exp else "v2"))))
-    render_v3 = "render" in args.exp or "full" in args.exp or "segmented_v4_1" in args.exp or "v4_2" in args.exp or "v3" in args.specimen_dir
-
-    print(f"Running Experiment: {args.exp} | Prompt: {prompt_type} | Render V3: {render_v3}")
-    
-    processed_count = 0
-    font_items = list(font_to_queries.items())
-    if args.limit:
-        font_items = font_items[:args.limit]
-
-    for fname, font_pairs in font_items:
-        safe_fname = fname.replace(" ", "_")
-        
+    for font_name, qids in font_to_qids.items():
+        safe_fname = font_name.replace(" ", "_")
+        images = []
         if render_v3:
             images = [
                 spec_v3_dir / f"{safe_fname}_top.png",
                 spec_v3_dir / f"{safe_fname}_bottom.png"
             ]
         else:
-            images = [spec_v2_dir / f"{fname}.png"] # Baseline uses .png with spaces often
-            if not images[0].exists():
-                images = [spec_v2_dir / f"{safe_fname}.png"]
-
-        q_texts = [query_map[p['query_id']] for p in font_pairs]
+            images = [out_dir / "specimens_v2_medium_nobias" / f"{safe_fname}.png"]
         
-        print(f"[{processed_count}/{len(font_items)}] Processing {fname} ({len(q_texts)} queries)...")
-        
-        current_prompt_type = prompt_type
-        if args.exp == "segmented_v4_1":
-            cat = font_category_map.get(fname, "unknown")
-            # strict path = v3_4 for categories: monospace, sans-serif, serif
-            # relaxed path = v3 for categories: display, handwriting, unknown/unclassified
-            if cat in ["monospace", "sans-serif", "serif"]:
-                current_prompt_type = "v3_4"
-            else:
-                current_prompt_type = "v3"
-            print(f"  Routing {fname} (category: {cat}) to {current_prompt_type}")
-
-        response = call_openrouter_batched(q_texts, images, current_prompt_type, args.model)
-        
-        if "error" in response:
-            print(f"  Error: {response['error']}")
+        # Check if images exist
+        if not all(img.exists() for img in images):
+            print(f"  Skipping {font_name}: Missing specimens")
             continue
 
-        # Map back to results
-        if prompt_type == "v2":
-            matches = response.get("matches", [])
-            thought = response.get("thought", "")
-            for i, p in enumerate(font_pairs):
-                match_val = 0
-                for m in matches:
-                    if m.get("query_index") == i + 1:
-                        match_val = m.get("match", 0)
-                        break
+        print(f"  Auditing {font_name} ({len(qids)} queries)...", end="", flush=True)
+        
+        # Split into batches of 5 to avoid context limit / timeout
+        for i in range(0, len(qids), 5):
+            batch_qids = qids[i:i+5]
+            batch_texts = [query_map[qid] for qid in batch_qids]
+            
+            current_prompt_type = prompt_type
+            if args.exp == "segmented_v4_1":
+                # placeholder for segmentation logic if needed
+                # strict path = v3_4 for categories: monospace, sans-serif, serif
+                # relaxed path = v3 for categories: display, handwriting, unknown/unclassified
+                # For now just use v3_4 as treatment in segmented
+                current_prompt_type = "v3_4"
+            
+            resp = call_openrouter_batched(batch_texts, images, current_prompt_type, args.model)
+            
+            res_map = {r['query_index']: r for r in resp.get('results', [])}
+            
+            for idx, qid in enumerate(batch_qids):
+                ai_res = res_map.get(idx + 1, {"match": 0, "confidence": 0, "evidence": "MISSING"})
+                human_match = 1 if font_name in labels_v1.get(qid, []) else 0
+                
                 results.append({
-                    "query_id": p['query_id'],
-                    "font_name": fname,
-                    "ai_match": match_val,
-                    "thought": thought
-                })
-        else: # v3
-            matches = response.get("results", [])
-            reasoning = response.get("audit_reasoning", "")
-            for i, p in enumerate(font_pairs):
-                match_info = {}
-                for m in matches:
-                    if m.get("query_index") == i + 1:
-                        match_info = m
-                        break
-                results.append({
-                    "query_id": p['query_id'],
-                    "font_name": fname,
-                    "ai_match": match_info.get("match", 0),
-                    "confidence": match_info.get("confidence", 0.5),
-                    "evidence": match_info.get("evidence", ""),
-                    "thought": reasoning + " | " + match_info.get("evidence", "")
+                    "query_id": qid,
+                    "query_text": query_map[qid],
+                    "font_name": font_name,
+                    "human_match": human_match,
+                    "ai_match": ai_res.get("match", 0),
+                    "confidence": ai_res.get("confidence", 0),
+                    "evidence": ai_res.get("evidence", ""),
+                    "counter_evidence": ai_res.get("counter_evidence", ""),
+                    "thought": resp.get("audit_reasoning", ""),
+                    "latency_sec": resp.get("latency_sec", 0)
                 })
         
-        processed_count += 1
-        # To avoid rate limits on some models
-        time.sleep(1)
+        print(" Done")
 
-    # Save results
-    output_path = out_dir / f"intervention_{args.exp}_results.json"
-    with open(output_path, 'w') as f:
-        json.dump({"details": results}, f, indent=2)
+    # Calculate metrics
+    tp = fp = fn = tn = 0
+    for r in results:
+        h = r["human_match"]
+        a = r["ai_match"]
+        if h == 1 and a == 1: tp += 1
+        elif h == 0 and a == 1: fp += 1
+        elif h == 1 and a == 0: fn += 1
+        elif h == 0 and a == 0: tn += 1
     
-    print(f"Saved results to {output_path}")
+    total = len(results)
+    agreement = (tp + tn) / total if total > 0 else 0
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+
+    final_output = {
+        "exp": args.exp,
+        "prompt_type": prompt_type,
+        "render_v3": render_v3,
+        "agreement": agreement,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
+        "counts": {"tp": tp, "fp": fp, "fn": fn, "tn": tn, "total": total},
+        "details": results
+    }
+
+    with open(out_dir / args.output, "w") as f:
+        json.dump(final_output, f, indent=2)
+    
+    print("\n" + "="*40)
+    print(f"RESULTS: {args.exp}")
+    print("="*40)
+    print(f"Agreement: {agreement:.4f}")
+    print(f"Precision: {precision:.4f}")
+    print(f"Recall:    {recall:.4f}")
+    print(f"F1:        {f1:.4f}")
+    print(f"Output saved to {out_dir / args.output}")
 
 if __name__ == "__main__":
     main()

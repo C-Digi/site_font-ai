@@ -1,0 +1,25 @@
+{
+  "success": false,
+  "gates": {
+    "G1 (Agreement Delta)": {
+      "status": "FAIL",
+      "value": 0.0,
+      "threshold": ">= 0.01"
+    },
+    "G2 (Precision Delta)": {
+      "status": "PASS",
+      "value": 0.0,
+      "threshold": ">= -0.02"
+    },
+    "G3 (Helps/Hurts Net)": {
+      "status": "FAIL",
+      "value": 0,
+      "threshold": "> 0"
+    },
+    "G4 (Visual QA)": {
+      "status": "PASS",
+      "value": "specimens_v3_1 validated context used",
+      "threshold": "Zero clipping/overlap"
+    }
+  }
+}

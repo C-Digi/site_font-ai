@@ -1,0 +1,31 @@
+{
+  "oem_source": "Fontshare (ITF)",
+  "target_families": 10,
+  "categories": ["sans", "serif", "display", "mono", "rounded"],
+  "shortlist": [
+    { "family": "Satoshi", "category": "sans", "target_query": "cq_002", "reason": "Premier geometric sans; test for 'perfect circle' strictness." },
+    { "family": "General Sans", "category": "sans", "target_query": "cq_018", "reason": "High-quality Neo-Grotesque; test for 'modern minimal' intent." },
+    { "family": "Sentient", "category": "serif", "target_query": "cq_016", "reason": "Elegant, high-contrast serif; test for 'luxury branding'." },
+    { "family": "Zodiak", "category": "serif", "target_query": "cq_001", "reason": "Extreme contrast serif; test for 'ultra-thin hairline'." },
+    { "family": "Expose", "category": "display", "target_query": "cq_003", "reason": "Condensed, aggressive design; test for 'industrial' feel." },
+    { "family": "Cabinet Grotesk", "category": "display", "target_query": "cq_011", "reason": "Variable width display; test for 'quirky/playful' intent." },
+    { "family": "Vela Mono", "category": "mono", "target_query": "cq_015", "reason": "Clean, functional monospace; test for 'cold/sterile' terminal feel." },
+    { "family": "Telma", "category": "rounded", "target_query": "cq_009", "reason": "Soft rounded sans; test for 'friendly children brand'." },
+    { "family": "Chillax", "category": "display", "target_query": "cq_011", "reason": "Relaxed, quirky sans; test for 'candy shop' vibe." },
+    { "family": "Papiard", "category": "serif", "target_query": "cq_012", "reason": "Stern, sharp serif; test for 'law firm' authority." }
+  ],
+  "effort_estimate": {
+    "annotation_hours": 1.5,
+    "reviewer_burden": "low",
+    "required_reviewer": "Casey (SSoT Author)"
+  },
+  "acceptance_criteria": {
+    "routing_value_present": "Agreement >= 0.70; model demonstrates ability to classify ITF designs with same or higher precision than Google Fonts.",
+    "routing_value_absent": "Agreement < 0.60; model fails to generalize to non-Google specimens or exhibits bias toward Google Fonts training data."
+  },
+  "risk_controls": {
+    "metadata_consistency": "Use Fontshare's official classification where possible.",
+    "licensing": "ITF Free fonts only; ensure specimen legality.",
+    "source_drift": "Validate that Fontshare CDN links are stable for specimen rendering."
+  }
+}
