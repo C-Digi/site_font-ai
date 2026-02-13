@@ -1,0 +1,58 @@
+{
+  "status": "BLOCKED",
+  "reason": "Incomplete human labels for OEM pairs",
+  "missing_count": 20,
+  "missing_examples": [
+    {
+      "query_id": "cq_001",
+      "font_name": "Satoshi",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Satoshi",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "General Sans",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "General Sans",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Sentient",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Sentient",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Zodiak",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Zodiak",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Expose",
+      "reason": "Query missing from labels file"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Expose",
+      "reason": "Query missing from labels file"
+    }
+  ],
+  "timestamp": "2026-02-13T04:27:28.487616+00:00"
+}

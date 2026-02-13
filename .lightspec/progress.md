@@ -39,6 +39,10 @@
   - [x] Designed 10-family high-signal extension plan (ITF/Fontshare)
   - [x] Defined acceptance criteria and effort estimate
 - [x] Execute Fontshare Seeding & v5.1 Baseline
+- [x] Adjudication support package + deterministic gating path
+  - [x] Implemented `gen_oem_labeling_ui.py` (HTML artifact)
+  - [x] Implemented `run_oem_gating.py` (Acceptance gate runner)
+  - [x] Validated coverage block (20/100 pairs pending human review)
 - [ ] Roll out Prompt V3 to JIT Seeding path
 
 ---
@@ -56,7 +60,7 @@
 - [x] Human labeling session (Reviewer: casey)
 - [x] Generate `labels.medium.human.v1.json`
 - [x] Validation + Adjudication Waiver (Single Reviewer)
-- [ ] P2 OEM Extension labeling (100 pairs)
+- [ ] P2 OEM Extension labeling (100 pairs) - BLOCKED: Human Review Pending
 - **Reference:** [DEC-20260208-01-human-label-medium-v1-workflow](./decisions/DEC-20260208-01-human-label-medium-v1-workflow.md)
 
 ### Quality-First Track

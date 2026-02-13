@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OEM Adjudication (Week 4 P2) | AI Font Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        :root {
+            --bg: #020617;
+            --card: #0f172a;
+            --accent: #6366f1;
+            --border: #1e293b;
+        }
+        body {
+            background-color: var(--bg);
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.01em;
+        }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid var(--border); padding: 1rem; text-align: left; vertical-align: top; }
+        th { background: #1e293b; position: sticky; top: 0; z-index: 10; }
+        tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+        .match-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .match-1 { background: #065f46; color: #a7f3d0; }
+        .match-0 { background: #7f1d1d; color: #fecaca; }
+        .diff { background: rgba(234, 179, 8, 0.1); border-left: 4px solid #eab308; }
+        .id-cell { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #94a3b8; }
+    </style>
+</head>
+<body class="p-8">
+    <header class="mb-8">
+        <h1 class="text-3xl font-extrabold mb-2">OEM Adjudication Package</h1>
+        <p class="text-slate-400">Week 4 Phase 2: Systematic alignment review for 100 OEM pairs.</p>
+        <div class="mt-4 flex gap-4 text-sm">
+            <span class="flex items-center gap-2"><div class="w-3 h-3 bg-yellow-500 rounded-sm"></div> AI Disagreement</span>
+        </div>
+    </header>
+
+    <div class="table-container bg-slate-900/50 rounded-xl border border-slate-800">
+        <table>
+            <thead>
+                <tr>
+                    <th class="w-16">ID</th>
+                    <th class="w-1/4">Query / Font</th>
+                    <th class="w-1/3">Variant V3 (Baseline)</th>
+                    <th class="w-1/3">Variant V5.1 (Treatment)</th>
+                </tr>
+            </thead>
+            <tbody id="pairs-body">
+                
+                <tr class="">
+                    <td class="id-cell">1</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, not a serif. The stroke weight is consistent, not hairline."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif, not a hairline serif."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">2</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the specimen is a perfect circle. The stroke variation is low, as seen in the 'a' and 'g'."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the Critical Distinction block shows a perfect circle. The stroke variation is low, as seen in the 'i' and 'l'."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">3</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. The stroke weight is consistent, not industrial."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. The letterforms are wide."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">4</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not rounded. The font is not soft."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not rounded. The terminals are straight."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">5</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, not a calligraphic hand. There is no varying line weight."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif, not a calligraphic hand."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">6</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's clean, geometric forms do not convey a playful or quirky aesthetic."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">7</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is not suitable for a stern and authoritative serif."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, lacking the serifs required for a serif font."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">8</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace, which is a requirement for a terminal interface."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace; the letter widths vary."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">9</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is not suitable for an elegant and sophisticated serif."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's geometric design is not elegant or sophisticated."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">10</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Satoshi</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a modern and minimal sans-serif, suitable for a tech startup."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean, modern sans-serif, suitable for a tech startup."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="diff">
+                    <td class="id-cell">11</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'Abg' in the specimen shows ultra-thin hairlines and high contrast between thick and thin strokes."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has serifs, but the contrast is not high enough to be considered ultra-thin hairline. The serifs are also not particularly delicate."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="diff">
+                    <td class="id-cell">12</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. The circles are not perfectly circular."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the Critical Distinction block is a perfect circle. The stroke variation is minimal, as seen in the 'i' and 'l'."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">13</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. It is a serif, not an industrial sans."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. The letterforms are relatively wide."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">14</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a rounded sans. The serifs and sharp angles do not convey a friendly vibe."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not rounded. The terminals are straight and the overall design is geometric."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">15</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a calligraphic hand. The line weight is consistent, not varying."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font does not exhibit varying line weight. The stroke weight is consistent throughout the characters."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">16</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's clean, geometric forms do not convey a playful or quirky aesthetic."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean sans-serif, lacking the playful or quirky characteristics needed for a candy shop. The 'g' is a single-story, which is not playful."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">17</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a sans-serif font, and therefore unsuitable for a serif-based query."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is the opposite of the serif requirement for a law firm. The lack of serifs makes it unsuitable."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">18</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace, which is a requirement for a terminal interface."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace. The characters have varying widths, which is not suitable for a terminal interface."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">19</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a sans-serif font, and therefore unsuitable for a serif-based query."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, lacking the elegance and sophistication typically associated with serifs used in luxury branding."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">20</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">General Sans</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's clean, geometric forms and minimal design align with the modern and minimal aesthetic requested."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean, modern sans-serif. The minimal design aligns with the 'modern and minimal' requirement for a tech startup. The 'a' and 'g' are simple and clean."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">21</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The serifs are present, but the stroke weight is not ultra-thin, and the contrast is not particularly high."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The specimen shows a serif font, but the serifs are not ultra-thin hairline. The contrast is high, but the overall weight is not thin."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">22</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. The forms are not geometric."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a geometric sans. The 'O' in the Critical Distinction block is not a perfect circle."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">23</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed, and it is a serif, not an industrial sans."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. It is not condensed."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">24</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a rounded sans-serif. The forms are not soft or friendly."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a rounded sans. The serifs and sharp angles do not convey a friendly vibe."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">25</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a calligraphic hand. There is no evidence of varying line weight."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a calligraphic hand. The line weight is consistent, not varying."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">26</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are not particularly whimsical."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, which is not typically associated with playful or quirky designs."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">27</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif with a strong, authoritative presence. The serifs are pronounced, and the overall design conveys a sense of formality and trustworthiness."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif with a strong, authoritative appearance, as seen in the uppercase letters and the overall structure."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">28</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a serif font, not a monospace font. Monospace fonts are required for terminal interfaces."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a monospace font."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="diff">
+                    <td class="id-cell">29</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has an elegant and sophisticated feel due to its classic serif design and balanced proportions. The serifs contribute to a sense of refinement."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "While the font is a serif, the overall design is not particularly elegant or sophisticated. The serifs are not delicate."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">30</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Sentient</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, which is not typically used for modern and minimal designs. Sans-serif fonts are preferred for this aesthetic."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif, and therefore does not fit the modern and minimal description."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">31</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'A' and 'g' in the specimen show ultra-thin hairlines and high contrast between thick and thin strokes."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'Abg' in the specimen shows a high contrast between thick and thin strokes, and the serifs are hairline."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">32</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. The letterforms are not geometric."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the Critical Distinction block is round, but the overall design is not geometric sans."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">33</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed, and it is a serif, not an industrial sans."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed, and the serifs are not industrial."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">34</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a rounded sans. The serifs and sharp angles do not convey a friendly vibe."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has serifs and high contrast, which is not consistent with a soft rounded sans."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">35</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a calligraphic hand. The line weight variation is present, but not in a calligraphic style."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has serifs and high contrast, which is not consistent with a calligraphic hand."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">36</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are classic and not particularly whimsical."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, which is not inherently playful or quirky. The uppercase 'A' and 'g' show a more formal structure."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">37</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif with a classic, authoritative feel. The serifs are sharp and the overall design conveys a sense of formality."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif with a strong, defined structure. The uppercase letters, such as 'A', 'B', and 'G', exhibit a formal and authoritative appearance. The 'Critical Distinction' block further confirms the serif classification."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">38</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a serif font, not a monospace font. Monospace fonts are required for terminal interfaces."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a monospace. The letterforms have varying widths, which is not characteristic of monospace fonts."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">39</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's elegant serifs and high contrast suggest sophistication, suitable for luxury branding."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's serifs and overall structure suggest elegance and sophistication. The uppercase letters and the 'g' in the specimen exhibit a refined aesthetic suitable for luxury branding."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">40</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Zodiak</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. Sans-serif fonts are generally preferred for modern and minimal designs."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. The presence of serifs disqualifies it from being a modern and minimal sans-serif."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">41</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a bold sans-serif, lacking the thin hairlines and high contrast of a serif font."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The specimen is a geometric sans-serif, not a hairline serif."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">42</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the specimen is a perfect circle, and the stroke variation is minimal, fitting the geometric sans description."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'o' in the specimen is a perfect circle, and the stroke variation is low."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="diff">
+                    <td class="id-cell">43</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is condensed and has a strong, industrial feel, suitable for headlines."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">44</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a bold sans-serif, not soft or rounded."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has sharp corners and is not rounded."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">45</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, not a calligraphic hand with varying line weight."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif, not a calligraphic hand."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">46</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's geometric sans-serif style lacks the playful or quirky characteristics needed for a candy shop."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">47</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which does not align with the serif requirement for a law firm's stern and authoritative branding."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is the opposite of the serif style requested. It lacks the stern or authoritative feel."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">48</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace, failing to meet the technical requirement for a terminal interface."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace. The letterforms are not equally spaced, which is a key requirement for terminal interfaces."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">49</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is not suitable for elegant and sophisticated luxury branding that typically uses serifs."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is not elegant or sophisticated. It lacks the serifs that are typical of luxury branding."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">50</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Expose</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a modern and minimal sans-serif, suitable for a tech startup."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's clean, geometric sans-serif design is well-suited for a modern and minimal aesthetic, fitting the tech startup description."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="diff">
+                    <td class="id-cell">51</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is ultra-thin, but it is a sans-serif, not a serif. The contrast is high."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'Critical Distinction' block shows ultra-thin hairlines and high contrast. The 'i' and 'l' are very thin."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="diff">
+                    <td class="id-cell">52</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'o' in the specimen is a perfect circle. The stroke variation is very low."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the 'Critical Distinction' block appears to be a perfect circle, but the stroke variation is not low."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">53</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. It is a very thin, open sans-serif."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. The letterforms are not particularly industrial in appearance."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">54</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not rounded. It has sharp, geometric terminals."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, but the letterforms are not particularly soft or rounded. The 'g' has a sharp curve."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">55</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif. It does not have a calligraphic style or varying line weight."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not calligraphic. It lacks the varying line weight and traditional calligraphic forms."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">56</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's clean, geometric forms do not convey playfulness or quirkiness."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">57</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is the opposite of the serif requirement for a law firm."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, lacking the serifs required for a serif font. It does not convey authority."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">58</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace, which is a core requirement for a terminal interface."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace. The letterforms are not equally spaced."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">59</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which is the opposite of the serif requirement for luxury branding. It also lacks the elegance."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's geometric and minimal design does not convey elegance or sophistication."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">60</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Cabinet Grotesk</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean, modern sans-serif, suitable for a tech startup. The minimal design aligns with the query."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's clean, geometric design and lack of ornamentation align with the modern and minimal aesthetic often associated with tech startups. The 'a' and 'g' are good examples of the minimal design."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">61</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has serifs, but the stroke weight is not ultra-thin, and the contrast is not particularly high."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has serifs, but they are not ultra-thin hairline. The contrast is high, but the overall style is not a hairline serif."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">62</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not geometric, and the stroke variation is high."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'o' in the Critical Distinction block is circular, but the overall style is not geometric sans. The stroke variation is high."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">63</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed, and it is not industrial."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed, and it is not industrial sans."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">64</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not a sans-serif, and it is not rounded."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not a soft rounded sans. It is a calligraphic font."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">65</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a calligraphic hand with varying line weight, as seen in the 'A' and 'g' characters."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a calligraphic hand with varying line weight, as seen in the uppercase and lowercase alphabets."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">66</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a script, but the style is not quirky or playful. The curves are too elegant."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's cursive style is not quirky enough for a candy shop."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">67</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a script, not a serif. The style is not stern or authoritative."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a cursive serif, which is not stern or authoritative."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">68</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace. It is a script."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">69</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a script, which can be elegant and sophisticated. The curves and style are appropriate for luxury branding."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's cursive style and elegant serifs are suitable for luxury branding."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">70</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Telma</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not a sans-serif. It is a script."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not a sans-serif."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">71</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is ultra-thin, but it is a sans-serif, not a serif. The contrast is high."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is sans-serif, not serif. The stroke weight is not ultra-thin."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">72</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'g' and 'o' characters demonstrate the use of perfect circles. The stroke variation is very low."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'o' in the Critical Distinction block and the 'g' in the uppercase alphabet show near-perfect circles. The stroke variation is minimal."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">73</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. It is a very thin, open sans-serif."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. The letterforms are relatively wide."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="diff">
+                    <td class="id-cell">74</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, but it is not soft or rounded. It has sharp, geometric forms."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The rounded terminals of letters like 'a', 'g', and 'y' in the Style Identifiers section suggest a friendly aesthetic. The overall form is soft."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">75</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif, not a calligraphic hand. There is no variation in line weight."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif, not a calligraphic hand. There is no evidence of varying line weight."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">76</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's clean, geometric forms do not convey a playful or quirky aesthetic. The 'g' is a closed form, which is not quirky."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's geometric sans-serif style lacks the playful or quirky characteristics suitable for a candy shop. The 'g' is a closed loop, which is not quirky."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">77</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a sans-serif font. The query requests a serif font. The font's clean lines and lack of serifs are the opposite of stern and authoritative."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, lacking the serifs necessary for a stern and authoritative feel. The overall design is too clean and modern."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">78</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is not a monospace font. The letterforms have varying widths, which is not suitable for a terminal interface."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace. The letterforms have varying widths, which is not suitable for a terminal interface."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">79</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a sans-serif font. The query requests a serif font. The font's clean lines and lack of serifs are not elegant or sophisticated."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, lacking the serifs and elegance associated with luxury branding. The design is too minimal."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">80</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Chillax</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a modern sans-serif with a minimal design. The clean lines and geometric forms are suitable for a tech startup."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a modern and minimal sans-serif, suitable for a tech startup. The clean lines and geometric forms align with the query."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">81</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'Abg' in the specimen shows high contrast and thin serifs."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'Abg' in the specimen shows a high contrast serif with thin hairlines."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">82</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has serifs, and the forms are not perfectly geometric."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The specimen's serifs and stroke variations do not align with a geometric sans."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">83</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed, and the serifs do not fit the industrial aesthetic."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed, and the serifs do not align with an industrial aesthetic."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">84</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has serifs, which do not fit the soft rounded sans criteria."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The serifs and high contrast are not characteristic of a soft, rounded sans-serif."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">85</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a calligraphic hand."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The specimen is a serif font, not a calligraphic hand with varying line weight."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">86</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are also quite formal."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are formal."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">87</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif with a strong, authoritative presence. The thick strokes and defined serifs convey a sense of formality and trustworthiness."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif with a strong, authoritative presence, as seen in the uppercase 'A' and 'g'. The serifs are sharp and defined."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">88</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a monospace font. Monospace fonts are required for terminal interfaces."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a monospace font. The letterforms have varying widths, which is not suitable for a terminal interface."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">89</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's elegant serifs and overall design suggest sophistication, suitable for luxury branding."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font's serifs and overall structure suggest elegance and sophistication, as seen in the 'Abg' and the uppercase letters."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">90</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Gambarino</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. Sans-serif fonts are generally preferred for modern and minimal designs."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a serif, not a sans-serif. The serifs and contrast are not minimal."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">91</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_001</div>
+                        <div class="font-bold text-lg mb-2">ultra-thin hairline serif with high contrast</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font lacks serifs and the stroke weight is not ultra-thin."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font lacks serifs and high contrast."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">92</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_002</div>
+                        <div class="font-bold text-lg mb-2">geometric sans with perfect circles and low stroke variation</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the specimen is a perfect circle, and the stroke variation appears low."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The 'O' in the Critical Distinction block and the lowercase 'o' in the body text show near-perfect circles. Stroke variation is minimal."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">93</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_003</div>
+                        <div class="font-bold text-lg mb-2">condensed industrial sans for tight headlines</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not condensed. It is a wider sans-serif."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">94</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_009</div>
+                        <div class="font-bold text-lg mb-2">soft rounded sans for a friendly children's brand</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not rounded."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font has sharp corners and lacks the soft, rounded characteristics."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">95</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_010</div>
+                        <div class="font-bold text-lg mb-2">traditional calligraphic hand with varying line weight</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif, not a calligraphic hand."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a geometric sans-serif, not a calligraphic hand."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">96</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_011</div>
+                        <div class="font-bold text-lg mb-2">playful and quirky display font for a candy shop</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop. The letterforms are too rigid."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif with a geometric structure, lacking the playful or quirky characteristics suitable for a candy shop. The 'g' has a closed loop, which is not particularly playful."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">97</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_012</div>
+                        <div class="font-bold text-lg mb-2">stern and authoritative serif for a law firm</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a sans-serif font. Serifs are a core requirement for this query. The font's clean lines are the opposite of stern."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, which does not align with the serif requirement for a law firm. The lack of serifs makes it unsuitable for conveying authority."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">98</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_015</div>
+                        <div class="font-bold text-lg mb-2">cold and sterile monospace for a terminal interface</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace. Monospace is a core requirement for a terminal interface. The font's clean lines are the opposite of cold."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is not monospace. The characters have varying widths, which is not suitable for a terminal interface. The 'i' and 'l' are clearly different widths."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">99</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_016</div>
+                        <div class="font-bold text-lg mb-2">elegant and sophisticated serif for luxury branding</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "This is a sans-serif font. Serifs are a core requirement for this query. The font's clean lines are the opposite of elegant and sophisticated."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-0">NO MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a sans-serif, not a serif. It lacks the elegance and sophistication typically associated with luxury branding. The 'g' is closed, which is not elegant."
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="">
+                    <td class="id-cell">100</td>
+                    <td>
+                        <div class="text-xs text-slate-500 mono mb-1">cq_018</div>
+                        <div class="font-bold text-lg mb-2">modern and minimal sans for a tech startup</div>
+                        <div class="text-accent font-semibold">Clash Display</div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a clean, modern sans-serif. The letterforms are minimal and legible, fitting the description of a tech startup."
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mb-2"><span class="match-badge match-1">MATCH</span></div>
+                        <div class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-3">
+                            "The font is a modern, minimal sans-serif. The geometric structure and clean lines are suitable for a tech startup. The 'a' and 'g' are simple and modern."
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="mt-12 text-slate-500 text-sm border-t border-slate-800 pt-8 pb-12">
+        <p>Generated for deterministic gating path. Adjudicate labels in <code class="bg-slate-800 px-1 rounded">labels.medium.human.v1.json</code>.</p>
+    </footer>
+</body>
+</html>
