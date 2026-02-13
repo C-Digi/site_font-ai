@@ -54,6 +54,28 @@
   - [x] Pause prompt-only `v5_x` iteration pending stronger motif concentration
 - [ ] Roll out Prompt V3 to JIT Seeding path
 
+### Next-Phase: Productization & Scale (Feb 20+)
+- **Strategic Direction:** Non-prompt pivot (structural quality) and foundational product build-out.
+- **Champion State:** `v3` remains production champion; `v5.x` iterations paused.
+- [ ] **Retrieval Quality Hardening**
+  - [ ] Implement post-retrieval reranking / calibration logic
+  - [ ] Perform hard-negative curation (Geometric Trap, Era/Vintage)
+  - [ ] Scale eval dataset to Complex v2 (Human SSoT)
+- [ ] **VL Embedding Re-evaluation**
+  - [ ] Benchmarking image+text (B2) vs text-only baseline (using VL-enriched descriptions)
+  - [ ] **Promotion Gate:** Must pass canonical `EVALUATION_CONTRACT.md` gates before switching production default
+- [ ] **User-Facing AI Improvements**
+  - [ ] Multi-turn chat context refinement
+  - [ ] Enhanced font comparison/explanation generation
+- [ ] **UI/UX Build-up**
+  - [ ] Advanced filtering & specimen interaction
+  - [ ] Responsive design & accessibility audit
+- [ ] **Foundational Tracks**
+  - [ ] **Auth:** User accounts, saved fonts, search history
+  - [ ] **Payments:** Subscription tiers / Monetization strategy
+  - [ ] **Ops:** Observability, error tracking, and release readiness
+  - [ ] **Reliability:** Queue worker hardening and DLQ management
+
 ---
 
 ## Offline A/B Evaluation

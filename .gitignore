@@ -22,3 +22,5 @@ logs/claudish*.log
 .venv-ab-eval/
 *.png
 key.md
+research/ab-eval/keys.txt
+research/ab-eval/.keys

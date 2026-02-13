@@ -31,6 +31,14 @@ def remap_casey_label(label: Any) -> int:
 def load_api_keys(keys_file: str = "") -> List[str]:
     keys: List[str] = []
 
+    # If no keys_file specified, try to load default .keys file from research/ab-eval/
+    if not keys_file:
+        root_project = Path(__file__).resolve().parents[3]
+        default_keys = root_project / "research/ab-eval/.keys"
+        if default_keys.exists():
+            keys_file = str(default_keys)
+            print(f"Using default keys file: {keys_file}")
+
     if GEMINI_API_KEY:
         keys.append(GEMINI_API_KEY)
 

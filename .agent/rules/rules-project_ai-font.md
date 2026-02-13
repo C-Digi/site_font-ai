@@ -188,13 +188,25 @@
 - **DON'T:** Block user search requests on embedding generation or enrichment tasks.
 - **DON'T:** Assume a local dev GPU machine is a 24/7 production dependency.
 
-## 11. LightSpec Source of Truth (SSoT)
+## 11. LightSpec Source of Truth (SSoT) & Planning
 
-- **Core capability spec:** `.lightspec/font-search-rag.md`
+- **Canonical Planning Stack:**
+  - **Day-to-day execution/status:** `.lightspec/progress.md`
+  - **Core capability/requirements:** `.lightspec/font-search-rag.md`
+  - **Major architectural decisions:** `.lightspec/decisions/`
+  - **Evaluation governance:** `research/ab-eval/EVALUATION_CONTRACT.md`
+  - **Run procedure/Automation:** `research/ab-eval/RUNBOOK.md`
 - **Usage rule:** For new features or significant changes, define/update requirements in `.lightspec/*.md` before implementation and record major decisions as ADRs in `.lightspec/decisions/`.
 - **Legacy Migration:** All active decisions and specs previously in `research/prod-rollout/` and `research/ab-eval/` have been migrated to `.lightspec/`.
 
-## 12. Core Decisions to Preserve (SSoT: .lightspec/decisions/)
+## 12. Next-Phase Planning (Roadmap)
+
+- **Non-Prompt Pivot:** Shift focus from single-variable prompt iteration to structural improvements: reranking, calibration, and hard-negative curation.
+- **VL Embedding Re-evaluation:** Perform a formal head-to-head evaluation of the current B2 (image+text) embedding vs. a text-only embedding baseline using the latest VL LLM preprocessing outputs.
+- **Promotion Gate:** Any production-default change (including embedding model shifts) must pass the canonical gates in `EVALUATION_CONTRACT.md`.
+- **Implementation Tracks:** Prioritize retrieval quality, user-facing AI (chat experience), UI/UX build-up, and foundational product features (Auth, Payments).
+
+## 13. Core Decisions to Preserve (SSoT: .lightspec/decisions/)
 
 - **Production Default:** B2 (`Qwen/Qwen3-VL-Embedding-8B`) with 4096-dimensional vectors. See [DEC-20260206-01-production-b2-migration.md](.lightspec/decisions/DEC-20260206-01-production-b2-migration.md).
 - **JIT Seeding:** Queue-based and non-blocking.
