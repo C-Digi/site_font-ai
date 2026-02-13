@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "control_path": "research/ab-eval/out/promo_v3_control_r1_results.json",
+    "treatment_path": "research/ab-eval/out/week4_v5_1_fullset_results.json",
+    "common_coverage": 247,
+    "control_total": 247,
+    "treatment_total": 247
+  },
+  "variants": {
+    "A": {
+      "agreement": 0.8583,
+      "precision": 0.5962,
+      "recall": 0.6889,
+      "f1": 0.6392,
+      "counts": {
+        "tp": 31,
+        "fp": 21,
+        "fn": 14,
+        "tn": 181,
+        "considered_binary": 247,
+        "total": 247
+      }
+    },
+    "B": {
+      "agreement": 0.8623,
+      "precision": 0.6122,
+      "recall": 0.6667,
+      "f1": 0.6383,
+      "counts": {
+        "tp": 30,
+        "fp": 19,
+        "fn": 15,
+        "tn": 183,
+        "considered_binary": 247,
+        "total": 247
+      }
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 8,
+    "hurts_count": 7,
+    "net": 1
+  },
+  "control_metrics_common": {
+    "agreement": 0.8583,
+    "precision": 0.5962,
+    "recall": 0.6889,
+    "f1": 0.6392,
+    "counts": {
+      "tp": 31,
+      "fp": 21,
+      "fn": 14,
+      "tn": 181,
+      "considered_binary": 247,
+      "total": 247
+    }
+  },
+  "treatment_metrics_common": {
+    "agreement": 0.8623,
+    "precision": 0.6122,
+    "recall": 0.6667,
+    "f1": 0.6383,
+    "counts": {
+      "tp": 30,
+      "fp": 19,
+      "fn": 15,
+      "tn": 183,
+      "considered_binary": 247,
+      "total": 247
+    }
+  },
+  "delta_treatment_minus_control": {
+    "agreement": 0.004,
+    "precision": 0.016,
+    "recall": -0.0222,
+    "f1": -0.0009
+  },
+  "helps_count": 8,
+  "hurts_count": 7,
+  "net_help": 1,
+  "helps": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Nova Mono",
+      "human": 1,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Bungee Shade",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Playwrite BR Guides",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Noto Serif Lao",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Fira Mono",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_033",
+      "font_name": "Metrophobic",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Bungee Inline",
+      "human": 0,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Goblin One",
+      "human": 1,
+      "control_pred": 0,
+      "treatment_pred": 1
+    }
+  ],
+  "hurts": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Encode Sans Condensed",
+      "human": 1,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "LXGW WenKai Mono TC",
+      "human": 1,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Ga Maamli",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Esteban",
+      "human": 1,
+      "control_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Suravaram",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Reem Kufi Fun",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Bentham",
+      "human": 0,
+      "control_pred": 0,
+      "treatment_pred": 1
+    }
+  ]
+}
