@@ -1,0 +1,105 @@
+{
+    "run_id":  "week4_p3_hurts_rootcause",
+    "timestamp":  "2026-02-13T07:30:00Z",
+    "hurts_count":  7,
+    "decision":  "NO_ACTIONABLE_SINGLE_VARIABLE",
+    "top_motif_share":  0.29,
+    "dominant_motif_threshold":  0.5,
+    "motifs":  [
+                   {
+                       "share":  0.29,
+                       "name":  "Over-strict semantic interpretation",
+                       "addressability":  "Relax guardrails",
+                       "count":  2
+                   },
+                   {
+                       "share":  0.29,
+                       "name":  "Vintage/Era Hallucination",
+                       "addressability":  "Strengthen evidence",
+                       "count":  2
+                   },
+                   {
+                       "share":  0.14,
+                       "name":  "Monospace Hallucination",
+                       "addressability":  "Micro-tells check",
+                       "count":  1
+                   },
+                   {
+                       "share":  0.14,
+                       "name":  "Calligraphy vs. Casual Script",
+                       "addressability":  "Uncertain (semantic)",
+                       "count":  1
+                   },
+                   {
+                       "share":  0.14,
+                       "name":  "Questionable human label",
+                       "addressability":  "N/A (data issue)",
+                       "count":  1
+                   }
+               ],
+    "hurts":  [
+                  {
+                      "human":  1,
+                      "font":  "Encode Sans Condensed",
+                      "query_id":  "cq_003",
+                      "loss_type":  "TP_LOST",
+                      "motif":  "Over-strict semantic interpretation",
+                      "treatment":  0,
+                      "control":  1
+                  },
+                  {
+                      "human":  1,
+                      "font":  "LXGW WenKai Mono TC",
+                      "query_id":  "cq_009",
+                      "loss_type":  "TP_LOST",
+                      "motif":  "Questionable human label",
+                      "treatment":  0,
+                      "control":  1
+                  },
+                  {
+                      "human":  0,
+                      "font":  "Ga Maamli",
+                      "query_id":  "cq_010",
+                      "loss_type":  "FP_INTRODUCED",
+                      "motif":  "Calligraphy vs. Casual Script",
+                      "treatment":  1,
+                      "control":  0
+                  },
+                  {
+                      "human":  1,
+                      "font":  "Esteban",
+                      "query_id":  "cq_012",
+                      "loss_type":  "TP_LOST",
+                      "motif":  "Over-strict semantic interpretation",
+                      "treatment":  0,
+                      "control":  1
+                  },
+                  {
+                      "human":  0,
+                      "font":  "Suravaram",
+                      "query_id":  "cq_015",
+                      "loss_type":  "FP_INTRODUCED",
+                      "motif":  "Monospace Hallucination",
+                      "treatment":  1,
+                      "control":  0
+                  },
+                  {
+                      "human":  0,
+                      "font":  "Reem Kufi Fun",
+                      "query_id":  "cq_019",
+                      "loss_type":  "FP_INTRODUCED",
+                      "motif":  "Vintage/Era Hallucination",
+                      "treatment":  1,
+                      "control":  0
+                  },
+                  {
+                      "human":  0,
+                      "font":  "Bentham",
+                      "query_id":  "cq_021",
+                      "loss_type":  "FP_INTRODUCED",
+                      "motif":  "Vintage/Era Hallucination",
+                      "treatment":  1,
+                      "control":  0
+                  }
+              ]
+}
