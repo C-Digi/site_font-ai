@@ -17,6 +17,13 @@ def load_env():
 load_env()
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+def image_to_base64(image_path: Path) -> str:
+    if not image_path.exists():
+        return ""
+    b = image_path.read_bytes()
+    return base64.b64encode(b).decode("utf-8")
 
 def image_to_data_url(image_path: Path) -> str:
     if not image_path.exists():
@@ -25,20 +32,9 @@ def image_to_data_url(image_path: Path) -> str:
     b64 = base64.b64encode(b).decode("utf-8")
     return f"data:image/png;base64,{b64}"
 
-def call_openrouter_batched(queries: List[str], images: List[Path], prompt_type: str, model: str) -> Dict[str, Any]:
-    if not OPENROUTER_API_KEY:
-        raise RuntimeError("OPENROUTER_API_KEY is not set")
-        
-    url = "https://openrouter.ai/api/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    
-    queries_formatted = "\n".join([f"{i+1}. \"{q}\"" for i, q in enumerate(queries)])
-    
+def get_prompt(prompt_type: str, queries_formatted: str) -> str:
     if prompt_type == "v2":
-        prompt = f"""You are a typography expert judging font relevance to multiple queries.
+        return f"""You are a typography expert judging font relevance to multiple queries.
 
 Analyze the provided specimen image(s) for this font. 
 Pay close attention to the "Legibility Pairs" (il1I, O0, etc.) and character forms.
@@ -58,7 +54,7 @@ Return STRICT JSON only (no markdown blocks, no prose):
 }}
 """
     elif prompt_type == "v3_2":
-        prompt = f"""You are a master typography auditor (V3.2 - Calibration Guardrails). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+        return f"""You are a master typography auditor (V3.2 - Calibration Guardrails). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
 ### DECISION RUBRIC
 For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
@@ -99,7 +95,7 @@ Return STRICT JSON only:
 }}
 """
     elif prompt_type == "v3_3":
-        prompt = f"""You are a master typography auditor (V3.3 - Calibration + Vibe Over-extension Guardrails). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+        return f"""You are a master typography auditor (V3.3 - Calibration + Vibe Over-extension Guardrails). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
 ### DECISION RUBRIC
 For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
@@ -143,7 +139,7 @@ Return STRICT JSON only:
 }}
 """
     elif prompt_type == "v3_4":
-        prompt = f"""You are a master typography auditor (V3.4 - Category/Architecture Consistency). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+        return f"""You are a master typography auditor (V3.4 - Category/Architecture Consistency). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
 ### DECISION RUBRIC
 For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
@@ -191,7 +187,7 @@ Return STRICT JSON only:
 }}
 """
     elif prompt_type == "v4_2":
-        prompt = f"""You are a master typography auditor (V4.2 - Technical Modifier Precedence). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+        return f"""You are a master typography auditor (V4.2 - Technical Modifier Precedence). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
 ### DECISION RUBRIC
 For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
@@ -237,7 +233,7 @@ Return STRICT JSON only:
 }}
 """
     elif prompt_type == "v5_1":
-        prompt = f"""You are a master typography auditor (V5.1 - Diagnostic Neutrality). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+        return f"""You are a master typography auditor (V5.1 - Diagnostic Neutrality). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
 ### DECISION RUBRIC
 For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
@@ -270,7 +266,7 @@ Return STRICT JSON only:
 }}
 """
     else: # v3
-        prompt = f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+        return f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
 ### DECISION RUBRIC
 For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints (e.g., if it says "geometric", it must have geometric forms) and the core "vibe" or "intent" described.
@@ -298,6 +294,19 @@ Return STRICT JSON only:
   ]
 }}
 """
+
+def call_openrouter_batched(queries: List[str], images: List[Path], prompt_type: str, model: str) -> Dict[str, Any]:
+    if not OPENROUTER_API_KEY:
+        raise RuntimeError("OPENROUTER_API_KEY is not set")
+        
+    url = "https://openrouter.ai/api/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    
+    queries_formatted = "\n".join([f"{i+1}. \"{q}\"" for i, q in enumerate(queries)])
+    prompt = get_prompt(prompt_type, queries_formatted)
     
     content = [{"type": "text", "text": prompt}]
     for img_path in images:
@@ -359,6 +368,87 @@ Return STRICT JSON only:
             "latency_sec": round(latency, 2)
         }
 
+def call_gemini_direct(queries: List[str], images: List[Path], prompt_type: str, model: str) -> Dict[str, Any]:
+    if not GEMINI_API_KEY:
+        raise RuntimeError("GEMINI_API_KEY is not set")
+        
+    # Standardize model name for Google API
+    google_model = model
+    if google_model.startswith("google/"):
+        google_model = google_model.replace("google/", "")
+    if google_model.endswith(":free"):
+        google_model = google_model.replace(":free", "")
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{google_model}:generateContent?key={GEMINI_API_KEY}"
+    headers = {
+        "Content-Type": "application/json",
+    }
+    
+    queries_formatted = "\n".join([f"{i+1}. \"{q}\"" for i, q in enumerate(queries)])
+    prompt = get_prompt(prompt_type, queries_formatted)
+    
+    parts = [{"text": prompt}]
+    for img_path in images:
+        b64 = image_to_base64(img_path)
+        if b64:
+            parts.append({
+                "inline_data": {
+                    "mime_type": "image/png",
+                    "data": b64
+                }
+            })
+    
+    payload = {
+        "contents": [{"parts": parts}],
+        "generationConfig": {
+            "temperature": 0.0,
+            "response_mime_type": "application/json"
+        }
+    }
+    
+    t0 = time.time()
+    for attempt in range(5):
+        try:
+            resp = requests.post(url, headers=headers, json=payload, timeout=180)
+            if resp.status_code == 429:
+                print(f"  Rate limited (Google). Sleeping 15s...")
+                time.sleep(15)
+                continue
+            if resp.status_code == 503:
+                time.sleep(20)
+                continue
+            if not resp.ok:
+                print(f"  Google Error {resp.status_code}: {resp.text}")
+                time.sleep(10)
+                continue
+            
+            res = resp.json()
+            if 'candidates' not in res or not res['candidates']:
+                print(f"  No candidates in response: {res}")
+                time.sleep(5)
+                continue
+                
+            content_str = res['candidates'][0]['content']['parts'][0]['text'].strip()
+            break
+        except Exception as e:
+            print(f"  Attempt {attempt+1} failed: {e}")
+            time.sleep(5)
+    else:
+        raise RuntimeError(f"Failed to call Gemini after 5 attempts")
+
+    latency = time.time() - t0
+    
+    try:
+        data = json.loads(content_str)
+        data['latency_sec'] = round(latency, 2)
+        return data
+    except json.JSONDecodeError:
+        return {
+            "audit_reasoning": f"Failed to parse JSON. Raw content: {content_str}",
+            "results": [{"query_index": i+1, "match": 0, "confidence": 0, "evidence": "PARSE FAILURE"} for i in range(len(queries))],
+            "latency_sec": round(latency, 2)
+        }
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="google/gemini-2.0-flash-lite-preview-02-05:free")
@@ -366,6 +456,7 @@ def main():
     parser.add_argument("--n", type=int, default=0, help="Number of pairs to run (0 for all)")
     parser.add_argument("--output", required=True)
     parser.add_argument("--specimen_dir", default="specimens_v3")
+    parser.add_argument("--pool", default="candidate_pool.medium.v1.json")
     args = parser.parse_args()
 
     data_dir = Path("research/ab-eval/data")
@@ -388,7 +479,7 @@ def main():
     query_map = {q["id"]: q["text"] for q in queries}
 
     # Load candidate pool
-    with open(data_dir / "candidate_pool.medium.v1.json", "r") as f:
+    with open(data_dir / args.pool, "r") as f:
         pool = json.load(f)
 
     # Flatten pool into pairs
@@ -438,13 +529,12 @@ def main():
             
             current_prompt_type = prompt_type
             if args.exp == "segmented_v4_1":
-                # placeholder for segmentation logic if needed
-                # strict path = v3_4 for categories: monospace, sans-serif, serif
-                # relaxed path = v3 for categories: display, handwriting, unknown/unclassified
-                # For now just use v3_4 as treatment in segmented
                 current_prompt_type = "v3_4"
             
-            resp = call_openrouter_batched(batch_texts, images, current_prompt_type, args.model)
+            if args.model.startswith("gemini") or "google/" in args.model:
+                resp = call_gemini_direct(batch_texts, images, current_prompt_type, args.model)
+            else:
+                resp = call_openrouter_batched(batch_texts, images, current_prompt_type, args.model)
             
             res_map = {r['query_index']: r for r in resp.get('results', [])}
             

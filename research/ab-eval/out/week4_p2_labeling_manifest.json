@@ -1,0 +1,905 @@
+{
+  "total_pairs": 100,
+  "pairs": [
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, not a serif. The stroke weight is consistent, not hairline.",
+      "v5_1_evidence": "The font is a geometric sans-serif, not a hairline serif."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Satoshi",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The 'O' in the specimen is a perfect circle. The stroke variation is low, as seen in the 'a' and 'g'.",
+      "v5_1_evidence": "The 'O' in the Critical Distinction block shows a perfect circle. The stroke variation is low, as seen in the 'i' and 'l'."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed. The stroke weight is consistent, not industrial.",
+      "v5_1_evidence": "The font is not condensed. The letterforms are wide."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not rounded. The font is not soft.",
+      "v5_1_evidence": "The font is not rounded. The terminals are straight."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, not a calligraphic hand. There is no varying line weight.",
+      "v5_1_evidence": "The font is a geometric sans-serif, not a calligraphic hand."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop.",
+      "v5_1_evidence": "The font's clean, geometric forms do not convey a playful or quirky aesthetic."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, which is not suitable for a stern and authoritative serif.",
+      "v5_1_evidence": "The font is a sans-serif, lacking the serifs required for a serif font."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not monospace, which is a requirement for a terminal interface.",
+      "v5_1_evidence": "The font is not monospace; the letter widths vary."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Satoshi",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, which is not suitable for an elegant and sophisticated serif.",
+      "v5_1_evidence": "The font's geometric design is not elegant or sophisticated."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Satoshi",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a modern and minimal sans-serif, suitable for a tech startup.",
+      "v5_1_evidence": "The font is a clean, modern sans-serif, suitable for a tech startup."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "General Sans",
+      "v3_match": 1,
+      "v5_1_match": 0,
+      "v3_evidence": "The 'Abg' in the specimen shows ultra-thin hairlines and high contrast between thick and thin strokes.",
+      "v5_1_evidence": "The font has serifs, but the contrast is not high enough to be considered ultra-thin hairline. The serifs are also not particularly delicate."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a serif, not a sans-serif. The circles are not perfectly circular.",
+      "v5_1_evidence": "The 'O' in the Critical Distinction block is a perfect circle. The stroke variation is minimal, as seen in the 'i' and 'l'."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed. It is a serif, not an industrial sans.",
+      "v5_1_evidence": "The font is not condensed. The letterforms are relatively wide."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a rounded sans. The serifs and sharp angles do not convey a friendly vibe.",
+      "v5_1_evidence": "The font is not rounded. The terminals are straight and the overall design is geometric."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a calligraphic hand. The line weight is consistent, not varying.",
+      "v5_1_evidence": "The font does not exhibit varying line weight. The stroke weight is consistent throughout the characters."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font's clean, geometric forms do not convey a playful or quirky aesthetic.",
+      "v5_1_evidence": "The font is a clean sans-serif, lacking the playful or quirky characteristics needed for a candy shop. The 'g' is a single-story, which is not playful."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a sans-serif font, and therefore unsuitable for a serif-based query.",
+      "v5_1_evidence": "The font is a sans-serif, which is the opposite of the serif requirement for a law firm. The lack of serifs makes it unsuitable."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not monospace, which is a requirement for a terminal interface.",
+      "v5_1_evidence": "The font is not monospace. The characters have varying widths, which is not suitable for a terminal interface."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "General Sans",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a sans-serif font, and therefore unsuitable for a serif-based query.",
+      "v5_1_evidence": "The font is a sans-serif, lacking the elegance and sophistication typically associated with serifs used in luxury branding."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "General Sans",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font's clean, geometric forms and minimal design align with the modern and minimal aesthetic requested.",
+      "v5_1_evidence": "The font is a clean, modern sans-serif. The minimal design aligns with the 'modern and minimal' requirement for a tech startup. The 'a' and 'g' are simple and clean."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The serifs are present, but the stroke weight is not ultra-thin, and the contrast is not particularly high.",
+      "v5_1_evidence": "The specimen shows a serif font, but the serifs are not ultra-thin hairline. The contrast is high, but the overall weight is not thin."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a sans-serif. The forms are not geometric.",
+      "v5_1_evidence": "The font is a serif, not a geometric sans. The 'O' in the Critical Distinction block is not a perfect circle."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed, and it is a serif, not an industrial sans.",
+      "v5_1_evidence": "The font is a serif, not a sans-serif. It is not condensed."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a rounded sans-serif. The forms are not soft or friendly.",
+      "v5_1_evidence": "The font is a serif, not a rounded sans. The serifs and sharp angles do not convey a friendly vibe."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a calligraphic hand. There is no evidence of varying line weight.",
+      "v5_1_evidence": "The font is a serif, not a calligraphic hand. The line weight is consistent, not varying."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are not particularly whimsical.",
+      "v5_1_evidence": "The font is a serif, which is not typically associated with playful or quirky designs."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Sentient",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a serif with a strong, authoritative presence. The serifs are pronounced, and the overall design conveys a sense of formality and trustworthiness.",
+      "v5_1_evidence": "The font is a serif with a strong, authoritative appearance, as seen in the uppercase letters and the overall structure."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a serif font, not a monospace font. Monospace fonts are required for terminal interfaces.",
+      "v5_1_evidence": "The font is a serif, not a monospace font."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Sentient",
+      "v3_match": 1,
+      "v5_1_match": 0,
+      "v3_evidence": "The font has an elegant and sophisticated feel due to its classic serif design and balanced proportions. The serifs contribute to a sense of refinement.",
+      "v5_1_evidence": "While the font is a serif, the overall design is not particularly elegant or sophisticated. The serifs are not delicate."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Sentient",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, which is not typically used for modern and minimal designs. Sans-serif fonts are preferred for this aesthetic.",
+      "v5_1_evidence": "The font is a serif, not a sans-serif, and therefore does not fit the modern and minimal description."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Zodiak",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The 'A' and 'g' in the specimen show ultra-thin hairlines and high contrast between thick and thin strokes.",
+      "v5_1_evidence": "The 'Abg' in the specimen shows a high contrast between thick and thin strokes, and the serifs are hairline."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Zodiak",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a sans-serif. The letterforms are not geometric.",
+      "v5_1_evidence": "The 'O' in the Critical Distinction block is round, but the overall design is not geometric sans."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Zodiak",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed, and it is a serif, not an industrial sans.",
+      "v5_1_evidence": "The font is not condensed, and the serifs are not industrial."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Zodiak",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a rounded sans. The serifs and sharp angles do not convey a friendly vibe.",
+      "v5_1_evidence": "The font has serifs and high contrast, which is not consistent with a soft rounded sans."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Zodiak",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a calligraphic hand. The line weight variation is present, but not in a calligraphic style.",
+      "v5_1_evidence": "The font has serifs and high contrast, which is not consistent with a calligraphic hand."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Zodiak",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are classic and not particularly whimsical.",
+      "v5_1_evidence": "The font is a serif, which is not inherently playful or quirky. The uppercase 'A' and 'g' show a more formal structure."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Zodiak",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a serif with a classic, authoritative feel. The serifs are sharp and the overall design conveys a sense of formality.",
+      "v5_1_evidence": "The font is a serif with a strong, defined structure. The uppercase letters, such as 'A', 'B', and 'G', exhibit a formal and authoritative appearance. The 'Critical Distinction' block further confirms the serif classification."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Zodiak",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a serif font, not a monospace font. Monospace fonts are required for terminal interfaces.",
+      "v5_1_evidence": "The font is a serif, not a monospace. The letterforms have varying widths, which is not characteristic of monospace fonts."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Zodiak",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font's elegant serifs and high contrast suggest sophistication, suitable for luxury branding.",
+      "v5_1_evidence": "The font's serifs and overall structure suggest elegance and sophistication. The uppercase letters and the 'g' in the specimen exhibit a refined aesthetic suitable for luxury branding."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Zodiak",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a sans-serif. Sans-serif fonts are generally preferred for modern and minimal designs.",
+      "v5_1_evidence": "The font is a serif, not a sans-serif. The presence of serifs disqualifies it from being a modern and minimal sans-serif."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Expose",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a bold sans-serif, lacking the thin hairlines and high contrast of a serif font.",
+      "v5_1_evidence": "The specimen is a geometric sans-serif, not a hairline serif."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Expose",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The 'O' in the specimen is a perfect circle, and the stroke variation is minimal, fitting the geometric sans description.",
+      "v5_1_evidence": "The 'o' in the specimen is a perfect circle, and the stroke variation is low."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Expose",
+      "v3_match": 1,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is condensed and has a strong, industrial feel, suitable for headlines.",
+      "v5_1_evidence": "The font is not condensed."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Expose",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a bold sans-serif, not soft or rounded.",
+      "v5_1_evidence": "The font has sharp corners and is not rounded."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Expose",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, not a calligraphic hand with varying line weight.",
+      "v5_1_evidence": "The font is a geometric sans-serif, not a calligraphic hand."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Expose",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop.",
+      "v5_1_evidence": "The font's geometric sans-serif style lacks the playful or quirky characteristics needed for a candy shop."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Expose",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, which does not align with the serif requirement for a law firm's stern and authoritative branding.",
+      "v5_1_evidence": "The font is a sans-serif, which is the opposite of the serif style requested. It lacks the stern or authoritative feel."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Expose",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not monospace, failing to meet the technical requirement for a terminal interface.",
+      "v5_1_evidence": "The font is not monospace. The letterforms are not equally spaced, which is a key requirement for terminal interfaces."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Expose",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, which is not suitable for elegant and sophisticated luxury branding that typically uses serifs.",
+      "v5_1_evidence": "The font is a sans-serif, which is not elegant or sophisticated. It lacks the serifs that are typical of luxury branding."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Expose",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a modern and minimal sans-serif, suitable for a tech startup.",
+      "v5_1_evidence": "The font's clean, geometric sans-serif design is well-suited for a modern and minimal aesthetic, fitting the tech startup description."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is ultra-thin, but it is a sans-serif, not a serif. The contrast is high.",
+      "v5_1_evidence": "The 'Critical Distinction' block shows ultra-thin hairlines and high contrast. The 'i' and 'l' are very thin."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 1,
+      "v5_1_match": 0,
+      "v3_evidence": "The 'o' in the specimen is a perfect circle. The stroke variation is very low.",
+      "v5_1_evidence": "The 'O' in the 'Critical Distinction' block appears to be a perfect circle, but the stroke variation is not low."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed. It is a very thin, open sans-serif.",
+      "v5_1_evidence": "The font is not condensed. The letterforms are not particularly industrial in appearance."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not rounded. It has sharp, geometric terminals.",
+      "v5_1_evidence": "The font is a sans-serif, but the letterforms are not particularly soft or rounded. The 'g' has a sharp curve."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a geometric sans-serif. It does not have a calligraphic style or varying line weight.",
+      "v5_1_evidence": "The font is not calligraphic. It lacks the varying line weight and traditional calligraphic forms."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop.",
+      "v5_1_evidence": "The font's clean, geometric forms do not convey playfulness or quirkiness."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, which is the opposite of the serif requirement for a law firm.",
+      "v5_1_evidence": "The font is a sans-serif, lacking the serifs required for a serif font. It does not convey authority."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not monospace, which is a core requirement for a terminal interface.",
+      "v5_1_evidence": "The font is not monospace. The letterforms are not equally spaced."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a sans-serif, which is the opposite of the serif requirement for luxury branding. It also lacks the elegance.",
+      "v5_1_evidence": "The font's geometric and minimal design does not convey elegance or sophistication."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Cabinet Grotesk",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a clean, modern sans-serif, suitable for a tech startup. The minimal design aligns with the query.",
+      "v5_1_evidence": "The font's clean, geometric design and lack of ornamentation align with the modern and minimal aesthetic often associated with tech startups. The 'a' and 'g' are good examples of the minimal design."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font has serifs, but the stroke weight is not ultra-thin, and the contrast is not particularly high.",
+      "v5_1_evidence": "The font has serifs, but they are not ultra-thin hairline. The contrast is high, but the overall style is not a hairline serif."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not geometric, and the stroke variation is high.",
+      "v5_1_evidence": "The 'o' in the Critical Distinction block is circular, but the overall style is not geometric sans. The stroke variation is high."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed, and it is not industrial.",
+      "v5_1_evidence": "The font is not condensed, and it is not industrial sans."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not a sans-serif, and it is not rounded.",
+      "v5_1_evidence": "The font is not a soft rounded sans. It is a calligraphic font."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Telma",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a calligraphic hand with varying line weight, as seen in the 'A' and 'g' characters.",
+      "v5_1_evidence": "The font is a calligraphic hand with varying line weight, as seen in the uppercase and lowercase alphabets."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a script, but the style is not quirky or playful. The curves are too elegant.",
+      "v5_1_evidence": "The font's cursive style is not quirky enough for a candy shop."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a script, not a serif. The style is not stern or authoritative.",
+      "v5_1_evidence": "The font is a cursive serif, which is not stern or authoritative."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not monospace. It is a script.",
+      "v5_1_evidence": "The font is not monospace."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Telma",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a script, which can be elegant and sophisticated. The curves and style are appropriate for luxury branding.",
+      "v5_1_evidence": "The font's cursive style and elegant serifs are suitable for luxury branding."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Telma",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not a sans-serif. It is a script.",
+      "v5_1_evidence": "The font is not a sans-serif."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is ultra-thin, but it is a sans-serif, not a serif. The contrast is high.",
+      "v5_1_evidence": "The font is sans-serif, not serif. The stroke weight is not ultra-thin."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Chillax",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The 'g' and 'o' characters demonstrate the use of perfect circles. The stroke variation is very low.",
+      "v5_1_evidence": "The 'o' in the Critical Distinction block and the 'g' in the uppercase alphabet show near-perfect circles. The stroke variation is minimal."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed. It is a very thin, open sans-serif.",
+      "v5_1_evidence": "The font is not condensed. The letterforms are relatively wide."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a sans-serif, but it is not soft or rounded. It has sharp, geometric forms.",
+      "v5_1_evidence": "The rounded terminals of letters like 'a', 'g', and 'y' in the Style Identifiers section suggest a friendly aesthetic. The overall form is soft."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a geometric sans-serif, not a calligraphic hand. There is no variation in line weight.",
+      "v5_1_evidence": "The font is a geometric sans-serif, not a calligraphic hand. There is no evidence of varying line weight."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font's clean, geometric forms do not convey a playful or quirky aesthetic. The 'g' is a closed form, which is not quirky.",
+      "v5_1_evidence": "The font's geometric sans-serif style lacks the playful or quirky characteristics suitable for a candy shop. The 'g' is a closed loop, which is not quirky."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a sans-serif font. The query requests a serif font. The font's clean lines and lack of serifs are the opposite of stern and authoritative.",
+      "v5_1_evidence": "The font is a sans-serif, lacking the serifs necessary for a stern and authoritative feel. The overall design is too clean and modern."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is not a monospace font. The letterforms have varying widths, which is not suitable for a terminal interface.",
+      "v5_1_evidence": "The font is not monospace. The letterforms have varying widths, which is not suitable for a terminal interface."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Chillax",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a sans-serif font. The query requests a serif font. The font's clean lines and lack of serifs are not elegant or sophisticated.",
+      "v5_1_evidence": "The font is a sans-serif, lacking the serifs and elegance associated with luxury branding. The design is too minimal."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Chillax",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a modern sans-serif with a minimal design. The clean lines and geometric forms are suitable for a tech startup.",
+      "v5_1_evidence": "The font is a modern and minimal sans-serif, suitable for a tech startup. The clean lines and geometric forms align with the query."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Gambarino",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The 'Abg' in the specimen shows high contrast and thin serifs.",
+      "v5_1_evidence": "The 'Abg' in the specimen shows a high contrast serif with thin hairlines."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Gambarino",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font has serifs, and the forms are not perfectly geometric.",
+      "v5_1_evidence": "The specimen's serifs and stroke variations do not align with a geometric sans."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Gambarino",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed, and the serifs do not fit the industrial aesthetic.",
+      "v5_1_evidence": "The font is not condensed, and the serifs do not align with an industrial aesthetic."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Gambarino",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font has serifs, which do not fit the soft rounded sans criteria.",
+      "v5_1_evidence": "The serifs and high contrast are not characteristic of a soft, rounded sans-serif."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Gambarino",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a calligraphic hand.",
+      "v5_1_evidence": "The specimen is a serif font, not a calligraphic hand with varying line weight."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Gambarino",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are also quite formal.",
+      "v5_1_evidence": "The font is a serif, which is not typically associated with playful or quirky designs. The serifs are formal."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Gambarino",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a serif with a strong, authoritative presence. The thick strokes and defined serifs convey a sense of formality and trustworthiness.",
+      "v5_1_evidence": "The font is a serif with a strong, authoritative presence, as seen in the uppercase 'A' and 'g'. The serifs are sharp and defined."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Gambarino",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a monospace font. Monospace fonts are required for terminal interfaces.",
+      "v5_1_evidence": "The font is a serif, not a monospace font. The letterforms have varying widths, which is not suitable for a terminal interface."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Gambarino",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font's elegant serifs and overall design suggest sophistication, suitable for luxury branding.",
+      "v5_1_evidence": "The font's serifs and overall structure suggest elegance and sophistication, as seen in the 'Abg' and the uppercase letters."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Gambarino",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a serif, not a sans-serif. Sans-serif fonts are generally preferred for modern and minimal designs.",
+      "v5_1_evidence": "The font is a serif, not a sans-serif. The serifs and contrast are not minimal."
+    },
+    {
+      "query_id": "cq_001",
+      "query_text": "ultra-thin hairline serif with high contrast",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font lacks serifs and the stroke weight is not ultra-thin.",
+      "v5_1_evidence": "The font lacks serifs and high contrast."
+    },
+    {
+      "query_id": "cq_002",
+      "query_text": "geometric sans with perfect circles and low stroke variation",
+      "font_name": "Clash Display",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The 'O' in the specimen is a perfect circle, and the stroke variation appears low.",
+      "v5_1_evidence": "The 'O' in the Critical Distinction block and the lowercase 'o' in the body text show near-perfect circles. Stroke variation is minimal."
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not condensed.",
+      "v5_1_evidence": "The font is not condensed. It is a wider sans-serif."
+    },
+    {
+      "query_id": "cq_009",
+      "query_text": "soft rounded sans for a friendly children's brand",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not rounded.",
+      "v5_1_evidence": "The font has sharp corners and lacks the soft, rounded characteristics."
+    },
+    {
+      "query_id": "cq_010",
+      "query_text": "traditional calligraphic hand with varying line weight",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a geometric sans-serif, not a calligraphic hand.",
+      "v5_1_evidence": "The font is a geometric sans-serif, not a calligraphic hand."
+    },
+    {
+      "query_id": "cq_011",
+      "query_text": "playful and quirky display font for a candy shop",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is a clean sans-serif, lacking the quirky or playful characteristics needed for a candy shop. The letterforms are too rigid.",
+      "v5_1_evidence": "The font is a sans-serif with a geometric structure, lacking the playful or quirky characteristics suitable for a candy shop. The 'g' has a closed loop, which is not particularly playful."
+    },
+    {
+      "query_id": "cq_012",
+      "query_text": "stern and authoritative serif for a law firm",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a sans-serif font. Serifs are a core requirement for this query. The font's clean lines are the opposite of stern.",
+      "v5_1_evidence": "The font is a sans-serif, which does not align with the serif requirement for a law firm. The lack of serifs makes it unsuitable for conveying authority."
+    },
+    {
+      "query_id": "cq_015",
+      "query_text": "cold and sterile monospace for a terminal interface",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "The font is not monospace. Monospace is a core requirement for a terminal interface. The font's clean lines are the opposite of cold.",
+      "v5_1_evidence": "The font is not monospace. The characters have varying widths, which is not suitable for a terminal interface. The 'i' and 'l' are clearly different widths."
+    },
+    {
+      "query_id": "cq_016",
+      "query_text": "elegant and sophisticated serif for luxury branding",
+      "font_name": "Clash Display",
+      "v3_match": 0,
+      "v5_1_match": 0,
+      "v3_evidence": "This is a sans-serif font. Serifs are a core requirement for this query. The font's clean lines are the opposite of elegant and sophisticated.",
+      "v5_1_evidence": "The font is a sans-serif, not a serif. It lacks the elegance and sophistication typically associated with luxury branding. The 'g' is closed, which is not elegant."
+    },
+    {
+      "query_id": "cq_018",
+      "query_text": "modern and minimal sans for a tech startup",
+      "font_name": "Clash Display",
+      "v3_match": 1,
+      "v5_1_match": 1,
+      "v3_evidence": "The font is a clean, modern sans-serif. The letterforms are minimal and legible, fitting the description of a tech startup.",
+      "v5_1_evidence": "The font is a modern, minimal sans-serif. The geometric structure and clean lines are suitable for a tech startup. The 'a' and 'g' are simple and modern."
+    }
+  ]
+}
