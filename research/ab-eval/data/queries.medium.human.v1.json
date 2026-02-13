@@ -1,5 +1,10 @@
 [
   {
+    "id": "cq_001",
+    "text": "ultra-thin hairline serif with high contrast",
+    "class": "visual_shape"
+  },
+  {
     "id": "cq_002",
     "text": "geometric sans with perfect circles and low stroke variation",
     "class": "visual_shape"
@@ -42,6 +47,11 @@
   {
     "id": "cq_016",
     "text": "elegant and sophisticated serif for luxury branding",
+    "class": "semantic_mood"
+  },
+  {
+    "id": "cq_018",
+    "text": "modern and minimal sans for a tech startup",
     "class": "semantic_mood"
   },
   {

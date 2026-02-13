@@ -127,18 +127,15 @@ async function seed() {
   // 3. Manual Fontshare List
   const fontshareFonts: RawFont[] = [
     { name: 'Satoshi', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/satoshi" } },
-    { name: 'Clash Display', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/clash-display" } },
     { name: 'General Sans', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/general-sans" } },
-    { name: 'Ranade', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/ranade" } },
+    { name: 'Sentient', category: 'serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/sentient" } },
     { name: 'Zodiak', category: 'serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/zodiak" } },
+    { name: 'Expose', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/expose" } },
     { name: 'Cabinet Grotesk', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/cabinet-grotesk" } },
     { name: 'Telma', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/telma" } },
-    { name: 'Synne', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/synne" } },
     { name: 'Chillax', category: 'sans-serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/chillax" } },
-    { name: 'Expose', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/expose" } },
-    { name: 'Melodrama', category: 'serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/melodrama" } },
-    { name: 'Papiere', category: 'handwriting', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/papiere" } },
-    { name: 'Britney', category: 'handwriting', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/britney" } }
+    { name: 'Gambarino', category: 'serif', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/gambarino" } },
+    { name: 'Clash Display', category: 'display', source: 'Fontshare', files: { "400": "https://api.fontshare.com/v2/fonts/download/clash-display" } }
   ];
   const uniqueFontshare = fontshareFonts.filter(f => !rawFonts.find(rf => rf.name === f.name));
   rawFonts = [...rawFonts, ...uniqueFontshare];

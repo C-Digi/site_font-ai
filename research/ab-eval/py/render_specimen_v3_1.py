@@ -199,8 +199,23 @@ def main():
             resp = requests.get(url, timeout=10)
             resp.raise_for_status()
             
+            content = resp.content
+            if content.startswith(b'PK\x03\x04'):
+                import zipfile, io
+                with zipfile.ZipFile(io.BytesIO(content)) as z:
+                    # Find first ttf or otf, preferring regular/400 if possible
+                    font_files = [f for f in z.namelist() if f.lower().endswith(('.ttf', '.otf'))]
+                    if not font_files:
+                        print(f"  No font found in ZIP for {name}")
+                        continue
+                    
+                    # Try to find a 'Regular' or '400' one
+                    regular_files = [f for f in font_files if 'regular' in f.lower() or '400' in f.lower()]
+                    target_file = regular_files[0] if regular_files else font_files[0]
+                    content = z.read(target_file)
+
             with tempfile.NamedTemporaryFile(suffix=".ttf", delete=False) as tmp:
-                tmp.write(resp.content)
+                tmp.write(content)
                 tmp_path = tmp.name
             
             safe_name = name.replace(" ", "_")

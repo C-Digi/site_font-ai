@@ -1,4 +1,16 @@
 {
+  "cq_001": [
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
+  ],
   "cq_002": [
     "Grand Hotel",
     "Ovo",
@@ -29,7 +41,17 @@
     "Albert Sans",
     "Tiro Tamil",
     "Libertinus Mono",
-    "Ms Madi"
+    "Ms Madi",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_003": [
     "Goblin One",
@@ -60,7 +82,17 @@
     "Bodoni Moda SC",
     "Artifika",
     "Hanalei Fill",
-    "Rancho"
+    "Rancho",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_008": [
     "Londrina Sketch",
@@ -118,7 +150,17 @@
     "Marko One",
     "Goblin One",
     "Spectral SC",
-    "Quattrocento"
+    "Quattrocento",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_010": [
     "Martian Mono",
@@ -150,7 +192,17 @@
     "Patrick Hand",
     "Roboto Flex",
     "Ga Maamli",
-    "Tiro Tamil"
+    "Tiro Tamil",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_011": [
     "Artifika",
@@ -181,7 +233,17 @@
     "Fasthand",
     "Noto Sans Balinese",
     "Bubblegum Sans",
-    "Doppio One"
+    "Doppio One",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_012": [
     "Seaweed Script",
@@ -213,7 +275,17 @@
     "Merienda",
     "B612 Mono",
     "Cormorant",
-    "Passions Conflict"
+    "Passions Conflict",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_015": [
     "IBM Plex Mono",
@@ -244,7 +316,17 @@
     "Federant",
     "Playwrite CA",
     "Grand Hotel",
-    "Source Serif Pro"
+    "Source Serif Pro",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_016": [
     "Encode Sans Condensed",
@@ -276,7 +358,29 @@
     "Manuale",
     "Playwrite FR Trad",
     "Love Ya Like A Sister",
-    "Esteban"
+    "Esteban",
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
+  ],
+  "cq_018": [
+    "Satoshi",
+    "General Sans",
+    "Sentient",
+    "Zodiak",
+    "Expose",
+    "Cabinet Grotesk",
+    "Telma",
+    "Chillax",
+    "Gambarino",
+    "Clash Display"
   ],
   "cq_019": [
     "Grand Hotel",

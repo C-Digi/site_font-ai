@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Satoshi",
+    "category": "sans-serif",
+    "source": "Fontshare",
+    "tags": ["geometric", "sans-serif"],
+    "description": "Premier geometric sans; test for 'perfect circle' strictness.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/satoshi" }
+  },
+  {
+    "name": "General Sans",
+    "category": "sans-serif",
+    "source": "Fontshare",
+    "tags": ["neo-grotesque", "sans-serif"],
+    "description": "High-quality Neo-Grotesque; test for 'modern minimal' intent.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/general-sans" }
+  },
+  {
+    "name": "Sentient",
+    "category": "serif",
+    "source": "Fontshare",
+    "tags": ["high-contrast", "serif"],
+    "description": "Elegant, high-contrast serif; test for 'luxury branding'.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/sentient" }
+  },
+  {
+    "name": "Zodiak",
+    "category": "serif",
+    "source": "Fontshare",
+    "tags": ["extreme-contrast", "serif"],
+    "description": "Extreme contrast serif; test for 'ultra-thin hairline'.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/zodiak" }
+  },
+  {
+    "name": "Expose",
+    "category": "display",
+    "source": "Fontshare",
+    "tags": ["condensed", "industrial", "display"],
+    "description": "Condensed, aggressive design; test for 'industrial' feel.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/expose" }
+  },
+  {
+    "name": "Cabinet Grotesk",
+    "category": "display",
+    "source": "Fontshare",
+    "tags": ["variable-width", "quirky", "display"],
+    "description": "Variable width display; test for 'quirky/playful' intent.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/cabinet-grotesk" }
+  },
+  {
+    "name": "Telma",
+    "category": "display",
+    "source": "Fontshare",
+    "tags": ["rounded", "friendly", "display"],
+    "description": "Soft rounded sans; test for 'friendly children brand'.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/telma" }
+  },
+  {
+    "name": "Chillax",
+    "category": "display",
+    "source": "Fontshare",
+    "tags": ["relaxed", "quirky", "display"],
+    "description": "Relaxed, quirky sans; test for 'candy shop' vibe.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/chillax" }
+  },
+  {
+    "name": "Gambarino",
+    "category": "serif",
+    "source": "Fontshare",
+    "tags": ["serif", "elegant"],
+    "description": "Elegant serif with unique character.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/gambarino" }
+  },
+  {
+    "name": "Clash Display",
+    "category": "display",
+    "source": "Fontshare",
+    "tags": ["display", "modern"],
+    "description": "Modern high-contrast display font.",
+    "files": { "400": "https://api.fontshare.com/v2/fonts/download/clash-display" }
+  }
+]
