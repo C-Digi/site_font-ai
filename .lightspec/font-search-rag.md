@@ -20,6 +20,9 @@ The system supports experimental segmented routing for LLM auditing:
 - **Relaxed Path (v3)**: Applied to `display`, `handwriting`, and unknown categories.
 *Status: Evaluation complete. Significant regression observed in Stage 1; NO-GO for production promotion.* See [DEC-20260212-01-v4-1-segmented-gating-experiment](./decisions/DEC-20260212-01-v4-1-segmented-gating-experiment.md).
 
+### Promotion Representativeness Gate
+Targeted slice wins (for example OEM-only slices) are directional signals, not sufficient promotion evidence for global production-default changes. Any prompt/policy promotion must pass canonical full-set governance gates before rollout. See [DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go](./decisions/DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md).
+
 ## Completed
 
 ### Production Retrieval Default Uses B2
@@ -41,6 +44,7 @@ Request-time search does not block on embedding generation; missing/unseeded rec
 
 - [DEC-20260211-01-evaluation-governance-lock](./decisions/DEC-20260211-01-evaluation-governance-lock.md)
 - [DEC-20260212-01-v4-1-segmented-gating-experiment](./decisions/DEC-20260212-01-v4-1-segmented-gating-experiment.md)
+- [DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go](./decisions/DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md)
 
 ## Scenarios
 - A user submits a complex visual-shape query and receives B2-ranked results without waiting for any new embeddings to be generated inline.

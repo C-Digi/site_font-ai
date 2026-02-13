@@ -43,6 +43,15 @@
   - [x] Implemented `gen_oem_labeling_ui.py` (HTML artifact)
   - [x] Implemented `run_oem_gating.py` (Acceptance gate runner)
   - [x] Validated coverage block (20/100 pairs pending human review)
+  - [x] Completed human adjudication and unblocked deterministic gating
+  - [x] Week 4 P2 OEM gating result: targeted GO (`v3` vs `v5_1`)
+- [x] Week 4 P3 full-set validation (`v3` vs `v5_1`)
+  - [x] Result: NO-GO for global promotion (G1 +0.40%, below +1.0% threshold)
+- [x] Week 4 P3 hurts root-cause analysis
+  - [x] Decision: `NO_ACTIONABLE_SINGLE_VARIABLE` (no dominant >50% actionable motif)
+- [x] Week 4 governance decision finalized
+  - [x] Keep `v3` champion; OEM-slice GO treated as directional, not sufficient for global promotion
+  - [x] Pause prompt-only `v5_x` iteration pending stronger motif concentration
 - [ ] Roll out Prompt V3 to JIT Seeding path
 
 ---
@@ -60,7 +69,7 @@
 - [x] Human labeling session (Reviewer: casey)
 - [x] Generate `labels.medium.human.v1.json`
 - [x] Validation + Adjudication Waiver (Single Reviewer)
-- [ ] P2 OEM Extension labeling (100 pairs) - BLOCKED: Human Review Pending
+- [x] P2 OEM Extension labeling (100 pairs) completed
 - **Reference:** [DEC-20260208-01-human-label-medium-v1-workflow](./decisions/DEC-20260208-01-human-label-medium-v1-workflow.md)
 
 ### Quality-First Track

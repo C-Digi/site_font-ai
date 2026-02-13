@@ -88,6 +88,8 @@
 - **Queue Health Command:** `npx tsx scripts/queue-health.ts`
 - **Offline A/B Eval Interpreter (GPU):** use `\.venv-ab-eval\Scripts\python` for evaluation runs.
 - **Complex Round Command (canonical):** `.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_all.py --dataset complex --variant all`
+- **OEM Adjudication UI Command:** `.\.venv-ab-eval\Scripts\python research/ab-eval/py/gen_oem_labeling_ui.py`
+- **OEM Gate Runner Command:** `.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_oem_gating.py`
 - **GPU/Env readiness reference:** `research/ab-eval/READY_STATE_GPU_ENV_2026-02-07.md`
 
 ## 8. API Conventions
@@ -159,6 +161,20 @@
   - `research/ab-eval/out/specimens_v3_1/Playwrite_BE_WAL_Guides_bottom.png`
 - Also inspect at least 8 additional edge-case font families and report explicit pass/fail findings.
 
+### 9.4 Current Week 4 Governance Snapshot (Onboarding/Frequent Reference)
+
+- **Current champion remains:** `v3`.
+- **`v5_1` status:**
+  - OEM slice (`week4_p2`) produced a **targeted GO**.
+  - Full-set validation (`week4_p3`) produced **NO-GO** due to G1 shortfall (`+0.40%`, threshold `>= +1.0%`).
+- **Promotion rule clarification:** OEM-slice wins are valid directional signals, but are **not sufficient alone** for production-default promotion.
+- **Latest prompt-line decision:** Pause `v5_x` single-variable prompt iteration unless a dominant (>50%) actionable failure motif emerges.
+- **Primary Week 4 references:**
+  - `research/ab-eval/REPORT_WEEK4_P2_OEM_GATING.md`
+  - `research/ab-eval/REPORT_WEEK4_P3_V5_1_FULLSET.md`
+  - `research/ab-eval/REPORT_WEEK4_P3_HURTS_ROOTCAUSE.md`
+  - `.lightspec/decisions/DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md`
+
 ## 10. General Dos and Don'ts
 
 - **DO:** Co-locate component-specific logic where possible.
@@ -187,3 +203,4 @@
 - **Research Gate:** Quality-first experiment sequence (specimen v2, schema v2) is required before further production default changes. See [DEC-20260208-03-quality-first-experiment-plan.md](.lightspec/decisions/DEC-20260208-03-quality-first-experiment-plan.md).
 - **Evaluation Governance Lock:** Canonical contract/gates/reproducibility are mandatory for promotion decisions. See [DEC-20260211-01-evaluation-governance-lock.md](.lightspec/decisions/DEC-20260211-01-evaluation-governance-lock.md).
 - **Specimen/Prompt governance path:** Specimen V3.1 + Prompt V3 were validated in the quality optimization cycle; follow contract gates for any replacement.
+- **Week 4 Prompt-Line Decision:** `v5_1` is **not promotion-ready** globally despite OEM-slice GO; keep `v3` champion and pause prompt-only `v5_x` iterations pending stronger motif concentration. See [DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md](.lightspec/decisions/DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md).

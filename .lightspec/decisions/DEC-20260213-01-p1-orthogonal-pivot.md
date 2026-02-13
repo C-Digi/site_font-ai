@@ -1,7 +1,7 @@
 # DEC-20260213-01-p1-orthogonal-pivot
 
 ## Status
-Rejected / Iterate (Feb 13 directional run showed zero delta)
+Superseded (Feb 13 directional run showed zero delta)
 
 ## Context
 Following the Week 1-3 optimization cycles, we have established a solid baseline with Prompt V3 and Specimen V3.1. However, "Bucket 1" errors (Diagnostic Neutrality) remain a primary source of misalignment where the LLM over-relies on its own internal "Critical Distinction" blocks rather than the provided specimen evidence.
@@ -27,3 +27,6 @@ We will implement and evaluate `v5_1` as a P1 directional cycle.
 - If directional gates pass (G1-G3 positive, no fragile signal), we will escalate to P3 promotion-grade runs (`n=100`, `repeats=3`).
 - If gates fail, we iterate on the guardrail text or re-evaluate the hypothesis.
 - No changes will be made to the production runtime during this cycle.
+
+## Superseded By
+- [DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go](./DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md)
