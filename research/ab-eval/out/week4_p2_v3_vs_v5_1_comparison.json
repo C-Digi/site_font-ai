@@ -1,0 +1,835 @@
+{
+  "metadata": {
+    "run_id": "week4_p2_oem_gating",
+    "timestamp": "2026-02-13T04:49:55.272418+00:00"
+  },
+  "variants": {
+    "v3": {
+      "tp": 8,
+      "fp": 15,
+      "fn": 0,
+      "tn": 77,
+      "total": 100,
+      "agreement": 0.85,
+      "precision": 0.34782608695652173,
+      "recall": 1.0
+    },
+    "v5_1": {
+      "tp": 8,
+      "fp": 14,
+      "fn": 0,
+      "tn": 78,
+      "total": 100,
+      "agreement": 0.86,
+      "precision": 0.36363636363636365,
+      "recall": 1.0
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 4,
+    "hurts_count": 3,
+    "net": 1
+  },
+  "details": [
+    {
+      "query_id": "cq_001",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Satoshi",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Satoshi",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 0,
+      "status": "HELP"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 1,
+      "status": "HURT"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "General Sans",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "General Sans",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 0,
+      "status": "HELP"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Sentient",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Zodiak",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Zodiak",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 0,
+      "status": "HELP"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Expose",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Expose",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 1,
+      "status": "HURT"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 0,
+      "status": "HELP"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Cabinet Grotesk",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Cabinet Grotesk",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Telma",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 1,
+      "status": "HURT"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Chillax",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Chillax",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Gambarino",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Gambarino",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_001",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_002",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Clash Display",
+      "human": 0,
+      "v3": 0,
+      "v5_1": 0,
+      "status": "SAME"
+    },
+    {
+      "query_id": "cq_018",
+      "font_name": "Clash Display",
+      "human": 1,
+      "v3": 1,
+      "v5_1": 1,
+      "status": "SAME"
+    }
+  ]
+}

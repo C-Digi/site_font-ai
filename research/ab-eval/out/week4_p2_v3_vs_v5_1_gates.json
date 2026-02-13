@@ -1,0 +1,20 @@
+{
+  "summary": "GO",
+  "gates": {
+    "G1 (Agreement Delta)": {
+      "status": "PASS",
+      "value": 0.010000000000000009,
+      "threshold": ">= 0.01"
+    },
+    "G2 (Precision Delta)": {
+      "status": "PASS",
+      "value": 0.015810276679841917,
+      "threshold": ">= -0.02"
+    },
+    "G3 (Helps/Hurts Net)": {
+      "status": "PASS",
+      "value": 1,
+      "threshold": "> 0"
+    }
+  }
+}
