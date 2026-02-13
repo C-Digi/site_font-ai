@@ -1,4 +1,8 @@
 {
+  "cq_001": [
+    "Zodiak",
+    "Gambarino"
+  ],
   "cq_003": [
     "Kumbh Sans",
     "Encode Sans Condensed",
@@ -100,6 +104,14 @@
     "Quattrocento",
     "Manuale",
     "Esteban"
+  ],
+  "cq_018": [
+    "Satoshi",
+    "General Sans",
+    "Expose",
+    "Cabinet Grotesk",
+    "Chillax",
+    "Clash Display"
   ],
   "cq_019": [
     "Grand Hotel",
