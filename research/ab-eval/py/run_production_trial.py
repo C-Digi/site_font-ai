@@ -241,6 +241,39 @@ Return STRICT JSON only:
   ]
 }}
 """
+    elif prompt_type == "v5_1":
+        prompt = f"""You are a master typography auditor (V5.1 - Diagnostic Neutrality). Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
+
+### DECISION RUBRIC
+For a query to be a MATCH (1), the font must satisfy ALL primary technical constraints and the core vibe/intent described.
+Partial matches or "almost matches" should be scored as NO MATCH (0) unless the query is broad.
+
+### SPECIMEN INTERPRETATION GUARDRAILS
+1. **Diagnostic Neutrality (Critical Distinction block)**
+   - Critical Distinction block is diagnostic-only; do not treat it as category proof by itself; verify category/technical classification primarily from body/alphabet evidence.
+
+### EVIDENCE REQUIREMENT
+For EACH query, you must provide a short specific visual evidence snippet from the specimen.
+
+### QUERIES
+{queries_formatted}
+
+### RESPONSE FORMAT
+Return STRICT JSON only:
+{{
+  "audit_reasoning": "Overall evaluation of font family characteristics",
+  "results": [
+    {{
+      "query_index": 1,
+      "match": 1 or 0,
+      "confidence": 0.0-1.0,
+      "evidence": "Specific visual detail justifying this score",
+      "counter_evidence": "Any visual detail that almost disqualified it (or empty)"
+    }},
+    ...
+  ]
+}}
+"""
     else: # v3
         prompt = f"""You are a master typography auditor. Your task is to perform a rigorous evaluation of a font's relevance to specific user queries.
 
@@ -371,7 +404,7 @@ def calculate_metrics(results: List[Dict[str, Any]], ssot_map: Dict[Tuple[str, s
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="gemini-3-pro-preview")
-    parser.add_argument("--prompt", choices=["v3", "v3_2", "v3_3", "v3_4", "v4"], default="v3")
+    parser.add_argument("--prompt", choices=["v3", "v3_2", "v3_3", "v3_4", "v4", "v5_1"], default="v3")
     parser.add_argument("--gate", type=float, default=0.9)
     parser.add_argument("--spec-dir", default="specimens_v3", help="Subdirectory in out/ containing specimens")
     parser.add_argument("--output", help="Optional custom output filename")
