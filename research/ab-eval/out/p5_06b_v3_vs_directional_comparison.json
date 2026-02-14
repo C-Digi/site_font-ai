@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "run_id": "v3_vs_p5_06b_directional_candidate",
+    "variant_id": "p5_06b_directional_candidate",
+    "baseline": "v3",
+    "seed": 42,
+    "repeats": 1,
+    "label_policy": "2->0",
+    "pair_count": 12,
+    "gating_scope": "directional_slice_only",
+    "governance_semantics_changed": false,
+    "directional_not_global_promotion": true,
+    "p5_06b_rank_scaling": true
+  },
+  "variants": {
+    "v3": {
+      "agreement": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.0,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 12,
+        "fn": 0,
+        "tn": 0,
+        "total": 12
+      }
+    },
+    "p5_06b_directional_candidate": {
+      "agreement": 0.25,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.25,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 9,
+        "fn": 0,
+        "tn": 3,
+        "total": 12
+      }
+    },
+    "A": {
+      "agreement": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.0,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 12,
+        "fn": 0,
+        "tn": 0,
+        "total": 12
+      }
+    },
+    "B2": {
+      "agreement": 0.25,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.25,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 9,
+        "fn": 0,
+        "tn": 3,
+        "total": 12
+      }
+    }
+  },
+  "delta_treatment_minus_baseline": {
+    "agreement": 0.25,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  "helps_hurts": {
+    "helps_count": 3,
+    "hurts_count": 0,
+    "net": 3
+  },
+  "per_query_class_breakdown": {
+    "visual_shape": {
+      "pairs": 6,
+      "helps": 3,
+      "hurts": 0
+    },
+    "historical_context": {
+      "pairs": 6,
+      "helps": 0,
+      "hurts": 0
+    }
+  },
+  "selected_motif_counts": {
+    "over_strict_semantic": 6,
+    "vintage_era": 6
+  },
+  "helps": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Goblin One",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Major Mono Display",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Marcellus SC",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    }
+  ],
+  "hurts": [],
+  "p5_06b_boundary_flips": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Goblin One",
+      "flip_type": "exited_top10",
+      "baseline_rank": 2,
+      "treatment_rank": 13,
+      "penalty_applied": 0.396,
+      "adjusted_score": 0.604
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Major Mono Display",
+      "flip_type": "exited_top10",
+      "baseline_rank": 4,
+      "treatment_rank": 12,
+      "penalty_applied": 0.34199999999999997,
+      "adjusted_score": 0.658
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Marcellus SC",
+      "flip_type": "exited_top10",
+      "baseline_rank": 5,
+      "treatment_rank": 11,
+      "penalty_applied": 0.315,
+      "adjusted_score": 0.685
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Rancho",
+      "flip_type": "entered_top10",
+      "baseline_rank": 11,
+      "treatment_rank": 4,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.77
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tektur",
+      "flip_type": "entered_top10",
+      "baseline_rank": 12,
+      "treatment_rank": 5,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.77
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Sixtyfour",
+      "flip_type": "entered_top10",
+      "baseline_rank": 13,
+      "treatment_rank": 9,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.72
+    }
+  ]
+}

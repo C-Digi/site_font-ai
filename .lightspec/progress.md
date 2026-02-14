@@ -101,6 +101,15 @@
   - [x] Finding: Penalty magnitudes insufficient to produce boundary flips on saturated baseline confidence
   - [x] Artifacts: `REPORT_P5_06A_DIRECTIONAL.md`, variant/comparison/gates JSON
   - [x] Governance semantics unchanged (directional evidence only; not global promotion proof)
+- [x] P5-06B-R2: Directional Intervention Rerun (Rank-Boundary-Aware Scaling)
+  - [x] Implemented rank-boundary-aware penalty scaling formula
+  - [x] Pre-run flip-feasibility check passed (6 candidates with margin <= 0.08)
+  - [x] Deterministic controls: seed=42, repeats=1, base penalties (vintage=0.20, strict=0.18)
+  - [x] Result: DIRECTIONAL GO (G1 +25%, G2 pass, G3 net +3, G4 pending)
+  - [x] Boundary flips: 6 total (3 hard-negatives demoted, 3 replacements entered)
+  - [x] Finding: Rank-scaling effective for `over_strict_semantic` motif; `vintage_era` remained neutral
+  - [x] Artifacts: `REPORT_P5_06B_DIRECTIONAL.md`, variant/comparison/gates JSON
+  - [x] Governance semantics unchanged (directional evidence only; not global promotion proof)
 - [ ] P5-03: Domain-Specific Reranker Training (pending)
 
 ### Next-Phase: Productization & Scale (Feb 20+)

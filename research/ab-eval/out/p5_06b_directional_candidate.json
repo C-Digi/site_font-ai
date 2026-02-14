@@ -1,0 +1,453 @@
+{
+  "metadata": {
+    "run_id": "p5_06b_directional_candidate",
+    "variant_id": "p5_06b_directional_candidate",
+    "seed": 42,
+    "repeats": 1,
+    "timestamp_utc": "2026-02-14T07:39:31.605953+00:00",
+    "continue_mode": "CONTINUE_SAFE",
+    "status": "READY",
+    "confidence": 0.85,
+    "risk_level": "low",
+    "governance_semantics_changed": false
+  },
+  "preflight": {
+    "inputs_checked": [
+      "research/ab-eval/out/full_set_review_export_1770612809775.json",
+      "research/ab-eval/out/g3_v3_gated_results.json",
+      "research/ab-eval/data/queries.medium.human.v1.json",
+      "research/ab-eval/data/corpus.200.json",
+      "research/ab-eval/out/week4_p3_hurts_rootcause.json"
+    ],
+    "blockers": [],
+    "assumptions_applied": [
+      "Used confidence in g3_v3_gated_results.json as ranking proxy (higher confidence => higher rank).",
+      "Joined font metadata from corpus.200.json by font name for penalty checks.",
+      "Used standard English stopword list for over_strict_semantic token-miss checks."
+    ],
+    "rootcause_context": {
+      "decision": "NO_ACTIONABLE_SINGLE_VARIABLE",
+      "top_motif_share": 0.29
+    }
+  },
+  "selection": {
+    "hard_negative_definition": "human==0 (after remap) AND baseline v3 rank<=10",
+    "motifs": [
+      "over_strict_semantic",
+      "vintage_era"
+    ],
+    "target_total": 12,
+    "target_per_motif": 6,
+    "pool_counts": {
+      "vintage_era": 32,
+      "over_strict_semantic": 17,
+      "total": 49
+    },
+    "selected_counts": {
+      "over_strict_semantic": 6,
+      "vintage_era": 6
+    },
+    "selected_total": 12,
+    "quota_fill_notes": [],
+    "sort_policy": "confidence desc, tie query_id asc, then font_name asc"
+  },
+  "selected_pairs": [
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Goblin One",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 2,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 0,
+      "treatment_rank": 13,
+      "treatment_score": 0.604,
+      "penalty_applied": 0.396,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Major Mono Display",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 4,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 0,
+      "treatment_rank": 12,
+      "treatment_score": 0.658,
+      "penalty_applied": 0.342,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Marcellus SC",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 5,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 0,
+      "treatment_rank": 11,
+      "treatment_score": 0.685,
+      "penalty_applied": 0.315,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Playwrite CL Guides",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 6,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 10,
+      "treatment_score": 0.712,
+      "penalty_applied": 0.288,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Tai Heritage Pro",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 7,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 8,
+      "treatment_score": 0.739,
+      "penalty_applied": 0.261,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Tienne",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 8,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 6,
+      "treatment_score": 0.766,
+      "penalty_applied": 0.234,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "query_class": "historical_context",
+      "font_name": "Holtwood One SC",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 1,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 7,
+      "treatment_score": 0.53,
+      "penalty_applied": 0.47,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "query_class": "historical_context",
+      "font_name": "Pangolin",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 3,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 5,
+      "treatment_score": 0.59,
+      "penalty_applied": 0.41,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "query_class": "historical_context",
+      "font_name": "Passion One",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 4,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 2,
+      "treatment_score": 0.62,
+      "penalty_applied": 0.38,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "query_class": "historical_context",
+      "font_name": "Noto Sans Nag Mundari",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 1,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 10,
+      "treatment_score": 0.53,
+      "penalty_applied": 0.47,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "query_class": "historical_context",
+      "font_name": "Reddit Mono",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 2,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 9,
+      "treatment_score": 0.56,
+      "penalty_applied": 0.44,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "query_class": "historical_context",
+      "font_name": "Roboto Flex",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 3,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 8,
+      "treatment_score": 0.59,
+      "penalty_applied": 0.41,
+      "penalty_reason": "vintage_term_absent"
+    }
+  ],
+  "intervention": {
+    "variant_id": "p5_06b_directional_candidate",
+    "vintage_penalty": 0.2,
+    "strict_penalty": 0.18,
+    "rank_scaling_enabled": true,
+    "rank_scaling_factor": 0.15,
+    "score_floor": 0.0,
+    "rerank_tie_break": "adjusted_score desc, then baseline_confidence desc, then font_name asc",
+    "query_rankings": {
+      "cq_003": {
+        "query_text": "condensed industrial sans for tight headlines",
+        "motif": "over_strict_semantic",
+        "baseline_top10": [
+          "Encode Sans Condensed",
+          "Goblin One",
+          "Kumbh Sans",
+          "Major Mono Display",
+          "Marcellus SC",
+          "Playwrite CL Guides",
+          "Tai Heritage Pro",
+          "Tienne",
+          "Londrina Sketch",
+          "Nova Mono"
+        ],
+        "treatment_top10": [
+          "Encode Sans Condensed",
+          "Kumbh Sans",
+          "Nova Mono",
+          "Rancho",
+          "Tektur",
+          "Tienne",
+          "Londrina Sketch",
+          "Tai Heritage Pro",
+          "Sixtyfour",
+          "Playwrite CL Guides"
+        ],
+        "penalized_count": 11
+      },
+      "cq_024": {
+        "query_text": "retro 8-bit computer font from the 80s",
+        "motif": "vintage_era",
+        "baseline_top10": [
+          "Holtwood One SC",
+          "Jersey 20",
+          "Pangolin",
+          "Passion One",
+          "Material Symbols",
+          "Syne Mono",
+          "Rubik Storm"
+        ],
+        "treatment_top10": [
+          "Syne Mono",
+          "Passion One",
+          "Rubik Storm",
+          "Material Symbols",
+          "Pangolin",
+          "Jersey 20",
+          "Holtwood One SC"
+        ],
+        "penalized_count": 7
+      },
+      "cq_025": {
+        "query_text": "art deco inspired display font",
+        "motif": "vintage_era",
+        "baseline_top10": [
+          "Noto Sans Nag Mundari",
+          "Reddit Mono",
+          "Roboto Flex",
+          "TASA Orbiter",
+          "Federant",
+          "Iceberg",
+          "Alata",
+          "Bungee Inline",
+          "Kumbh Sans",
+          "Kumar One"
+        ],
+        "treatment_top10": [
+          "Kumbh Sans",
+          "Kumar One",
+          "Bungee Inline",
+          "Iceberg",
+          "TASA Orbiter",
+          "Alata",
+          "Federant",
+          "Roboto Flex",
+          "Reddit Mono",
+          "Noto Sans Nag Mundari"
+        ],
+        "penalized_count": 10
+      }
+    }
+  },
+  "p5_06b_diagnostics": {
+    "flip_feasibility_check": true,
+    "flip_feasibility_threshold": 0.08,
+    "flip_feasibility_passed": true,
+    "boundary_candidates_count": 6,
+    "boundary_candidates": [
+      {
+        "query_id": "cq_003",
+        "font_name": "Goblin One",
+        "baseline_rank": 2,
+        "margin_to_boundary": 0.0,
+        "rank_10_score": 0.95,
+        "rank_11_score": 0.95
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Major Mono Display",
+        "baseline_rank": 4,
+        "margin_to_boundary": 0.0,
+        "rank_10_score": 0.95,
+        "rank_11_score": 0.95
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Marcellus SC",
+        "baseline_rank": 5,
+        "margin_to_boundary": 0.0,
+        "rank_10_score": 0.95,
+        "rank_11_score": 0.95
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Playwrite CL Guides",
+        "baseline_rank": 6,
+        "margin_to_boundary": 0.0,
+        "rank_10_score": 0.95,
+        "rank_11_score": 0.95
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Tai Heritage Pro",
+        "baseline_rank": 7,
+        "margin_to_boundary": 0.0,
+        "rank_10_score": 0.95,
+        "rank_11_score": 0.95
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Tienne",
+        "baseline_rank": 8,
+        "margin_to_boundary": 0.0,
+        "rank_10_score": 0.95,
+        "rank_11_score": 0.95
+      }
+    ],
+    "boundary_flip_diagnostics": [
+      {
+        "query_id": "cq_003",
+        "font_name": "Goblin One",
+        "flip_type": "exited_top10",
+        "baseline_rank": 2,
+        "treatment_rank": 13,
+        "penalty_applied": 0.396,
+        "adjusted_score": 0.604
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Major Mono Display",
+        "flip_type": "exited_top10",
+        "baseline_rank": 4,
+        "treatment_rank": 12,
+        "penalty_applied": 0.34199999999999997,
+        "adjusted_score": 0.658
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Marcellus SC",
+        "flip_type": "exited_top10",
+        "baseline_rank": 5,
+        "treatment_rank": 11,
+        "penalty_applied": 0.315,
+        "adjusted_score": 0.685
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Rancho",
+        "flip_type": "entered_top10",
+        "baseline_rank": 11,
+        "treatment_rank": 4,
+        "penalty_applied": 0.18,
+        "adjusted_score": 0.77
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Tektur",
+        "flip_type": "entered_top10",
+        "baseline_rank": 12,
+        "treatment_rank": 5,
+        "penalty_applied": 0.18,
+        "adjusted_score": 0.77
+      },
+      {
+        "query_id": "cq_003",
+        "font_name": "Sixtyfour",
+        "flip_type": "entered_top10",
+        "baseline_rank": 13,
+        "treatment_rank": 9,
+        "penalty_applied": 0.18,
+        "adjusted_score": 0.72
+      }
+    ],
+    "boundary_flips_occurred": 6
+  }
+}
