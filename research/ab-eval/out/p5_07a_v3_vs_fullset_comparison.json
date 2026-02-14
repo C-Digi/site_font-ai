@@ -1,0 +1,733 @@
+{
+  "metadata": {
+    "run_id": "v3_vs_p5_07a_fullset_candidate",
+    "variant_id": "p5_07a_fullset_candidate",
+    "baseline": "v3",
+    "seed": 42,
+    "repeats": 1,
+    "label_policy": "2->0",
+    "pair_count": 247,
+    "gating_scope": "full_set",
+    "governance_semantics_changed": false,
+    "directional_not_global_promotion": false,
+    "p5_06b_rank_scaling": true
+  },
+  "variants": {
+    "v3": {
+      "agreement": 0.2955,
+      "precision": 0.1623,
+      "recall": 0.6889,
+      "f1": 0.2627,
+      "Agreement": 0.2955,
+      "Precision@10": 0.1623,
+      "counts": {
+        "tp": 31,
+        "fp": 160,
+        "fn": 14,
+        "tn": 42,
+        "total": 247
+      }
+    },
+    "p5_07a_fullset_candidate": {
+      "agreement": 0.3279,
+      "precision": 0.1832,
+      "recall": 0.7778,
+      "f1": 0.2966,
+      "Agreement": 0.3279,
+      "Precision@10": 0.1832,
+      "counts": {
+        "tp": 35,
+        "fp": 156,
+        "fn": 10,
+        "tn": 46,
+        "total": 247
+      }
+    },
+    "A": {
+      "agreement": 0.2955,
+      "precision": 0.1623,
+      "recall": 0.6889,
+      "f1": 0.2627,
+      "Agreement": 0.2955,
+      "Precision@10": 0.1623,
+      "counts": {
+        "tp": 31,
+        "fp": 160,
+        "fn": 14,
+        "tn": 42,
+        "total": 247
+      }
+    },
+    "B2": {
+      "agreement": 0.3279,
+      "precision": 0.1832,
+      "recall": 0.7778,
+      "f1": 0.2966,
+      "Agreement": 0.3279,
+      "Precision@10": 0.1832,
+      "counts": {
+        "tp": 35,
+        "fp": 156,
+        "fn": 10,
+        "tn": 46,
+        "total": 247
+      }
+    }
+  },
+  "delta_treatment_minus_baseline": {
+    "agreement": 0.0324,
+    "precision": 0.0209,
+    "recall": 0.0889,
+    "f1": 0.0339
+  },
+  "helps_hurts": {
+    "helps_count": 21,
+    "hurts_count": 13,
+    "net": 8
+  },
+  "per_query_class_breakdown": {
+    "visual_shape": {
+      "pairs": 58,
+      "helps": 4,
+      "hurts": 2
+    },
+    "semantic_mood": {
+      "pairs": 66,
+      "helps": 11,
+      "hurts": 5
+    },
+    "historical_context": {
+      "pairs": 58,
+      "helps": 6,
+      "hurts": 6
+    },
+    "functional_pair": {
+      "pairs": 65,
+      "helps": 0,
+      "hurts": 0
+    }
+  },
+  "selected_motif_counts": {
+    "over_strict_semantic": 29,
+    "vintage_era": 48,
+    "none": 170
+  },
+  "helps": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Goblin One",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Major Mono Display",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Marcellus SC",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tektur",
+      "human": 1,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Albert Sans",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "B612 Mono",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Esteban",
+      "human": 1,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "IM Fell French Canon",
+      "human": 1,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Kumbh Sans",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Metrophobic",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Playwrite NZ Basic Guides",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Source Serif Pro",
+      "human": 1,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Calistoga",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Amaranth",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Anonymous Pro",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Goblin One",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Macondo",
+      "human": 0,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Yuji Syuku",
+      "human": 1,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    }
+  ],
+  "hurts": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Rancho",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Sixtyfour",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "visual_shape"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Chivo Mono",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Elsie Swash Caps",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Merienda",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "over_strict_semantic",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Reem Kufi Fun",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Tienne",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "semantic_mood"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Antic Slab",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Courier Prime",
+      "human": 1,
+      "v3_pred": 1,
+      "treatment_pred": 0,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Kurale",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Sixtyfour",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Tienne",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Xanh Mono",
+      "human": 0,
+      "v3_pred": 0,
+      "treatment_pred": 1,
+      "motif": "vintage_era",
+      "query_class": "historical_context"
+    }
+  ],
+  "p5_06b_boundary_flips": [
+    {
+      "query_id": "cq_003",
+      "font_name": "Marcellus SC",
+      "flip_type": "exited_top10",
+      "baseline_rank": 5,
+      "treatment_rank": 11,
+      "penalty_applied": 0.315,
+      "adjusted_score": 0.685
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Major Mono Display",
+      "flip_type": "exited_top10",
+      "baseline_rank": 4,
+      "treatment_rank": 12,
+      "penalty_applied": 0.34199999999999997,
+      "adjusted_score": 0.658
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Goblin One",
+      "flip_type": "exited_top10",
+      "baseline_rank": 2,
+      "treatment_rank": 13,
+      "penalty_applied": 0.396,
+      "adjusted_score": 0.604
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Sixtyfour",
+      "flip_type": "entered_top10",
+      "baseline_rank": 13,
+      "treatment_rank": 9,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.72
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Tektur",
+      "flip_type": "entered_top10",
+      "baseline_rank": 12,
+      "treatment_rank": 5,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.77
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Rancho",
+      "flip_type": "entered_top10",
+      "baseline_rank": 11,
+      "treatment_rank": 4,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.77
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Albert Sans",
+      "flip_type": "exited_top10",
+      "baseline_rank": 1,
+      "treatment_rank": 16,
+      "penalty_applied": 0.42299999999999993,
+      "adjusted_score": 0.5770000000000001
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Metrophobic",
+      "flip_type": "exited_top10",
+      "baseline_rank": 5,
+      "treatment_rank": 12,
+      "penalty_applied": 0.315,
+      "adjusted_score": 0.685
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Kumbh Sans",
+      "flip_type": "exited_top10",
+      "baseline_rank": 4,
+      "treatment_rank": 13,
+      "penalty_applied": 0.34199999999999997,
+      "adjusted_score": 0.658
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "B612 Mono",
+      "flip_type": "exited_top10",
+      "baseline_rank": 2,
+      "treatment_rank": 15,
+      "penalty_applied": 0.396,
+      "adjusted_score": 0.604
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "flip_type": "exited_top10",
+      "baseline_rank": 3,
+      "treatment_rank": 14,
+      "penalty_applied": 0.36899999999999994,
+      "adjusted_score": 0.631
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Playwrite NZ Basic Guides",
+      "flip_type": "exited_top10",
+      "baseline_rank": 6,
+      "treatment_rank": 11,
+      "penalty_applied": 0.288,
+      "adjusted_score": 0.712
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Source Serif Pro",
+      "flip_type": "entered_top10",
+      "baseline_rank": 15,
+      "treatment_rank": 2,
+      "penalty_applied": 0.0,
+      "adjusted_score": 0.95
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Chivo Mono",
+      "flip_type": "entered_top10",
+      "baseline_rank": 11,
+      "treatment_rank": 6,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.77
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Merienda",
+      "flip_type": "entered_top10",
+      "baseline_rank": 14,
+      "treatment_rank": 8,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.77
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Esteban",
+      "flip_type": "entered_top10",
+      "baseline_rank": 16,
+      "treatment_rank": 3,
+      "penalty_applied": 0.0,
+      "adjusted_score": 0.9
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "IM Fell French Canon",
+      "flip_type": "entered_top10",
+      "baseline_rank": 13,
+      "treatment_rank": 1,
+      "penalty_applied": 0.0,
+      "adjusted_score": 0.95
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Elsie Swash Caps",
+      "flip_type": "entered_top10",
+      "baseline_rank": 12,
+      "treatment_rank": 7,
+      "penalty_applied": 0.18,
+      "adjusted_score": 0.77
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Edu VIC WA NT Hand Pre",
+      "flip_type": "exited_top10",
+      "baseline_rank": 2,
+      "treatment_rank": 12,
+      "penalty_applied": 0.44000000000000006,
+      "adjusted_score": 0.45999999999999996
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Calistoga",
+      "flip_type": "exited_top10",
+      "baseline_rank": 1,
+      "treatment_rank": 11,
+      "penalty_applied": 0.47,
+      "adjusted_score": 0.48
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Tienne",
+      "flip_type": "entered_top10",
+      "baseline_rank": 12,
+      "treatment_rank": 6,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.6000000000000001
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Reem Kufi Fun",
+      "flip_type": "entered_top10",
+      "baseline_rank": 11,
+      "treatment_rank": 3,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.6499999999999999
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Macondo",
+      "flip_type": "exited_top10",
+      "baseline_rank": 6,
+      "treatment_rank": 13,
+      "penalty_applied": 0.32000000000000006,
+      "adjusted_score": 0.6799999999999999
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Goblin One",
+      "flip_type": "exited_top10",
+      "baseline_rank": 5,
+      "treatment_rank": 14,
+      "penalty_applied": 0.35000000000000003,
+      "adjusted_score": 0.6499999999999999
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Anonymous Pro",
+      "flip_type": "exited_top10",
+      "baseline_rank": 2,
+      "treatment_rank": 18,
+      "penalty_applied": 0.44000000000000006,
+      "adjusted_score": 0.5599999999999999
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Courier Prime",
+      "flip_type": "exited_top10",
+      "baseline_rank": 3,
+      "treatment_rank": 17,
+      "penalty_applied": 0.41,
+      "adjusted_score": 0.5900000000000001
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Amaranth",
+      "flip_type": "exited_top10",
+      "baseline_rank": 1,
+      "treatment_rank": 19,
+      "penalty_applied": 0.47,
+      "adjusted_score": 0.53
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Edu NSW ACT Hand Pre",
+      "flip_type": "exited_top10",
+      "baseline_rank": 4,
+      "treatment_rank": 16,
+      "penalty_applied": 0.38,
+      "adjusted_score": 0.62
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Kurale",
+      "flip_type": "entered_top10",
+      "baseline_rank": 15,
+      "treatment_rank": 6,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.78
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Sixtyfour",
+      "flip_type": "entered_top10",
+      "baseline_rank": 11,
+      "treatment_rank": 2,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.8
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Tienne",
+      "flip_type": "entered_top10",
+      "baseline_rank": 12,
+      "treatment_rank": 3,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.8
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Yuji Syuku",
+      "flip_type": "entered_top10",
+      "baseline_rank": 14,
+      "treatment_rank": 5,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.8
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Antic Slab",
+      "flip_type": "entered_top10",
+      "baseline_rank": 16,
+      "treatment_rank": 8,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.75
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Xanh Mono",
+      "flip_type": "entered_top10",
+      "baseline_rank": 13,
+      "treatment_rank": 4,
+      "penalty_applied": 0.2,
+      "adjusted_score": 0.8
+    }
+  ]
+}

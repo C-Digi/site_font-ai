@@ -283,6 +283,9 @@ def main() -> None:
                         help="Disable rank-boundary-aware penalty scaling")
     parser.add_argument("--flip-feasibility-check", action="store_true", default=True,
                         help="Enable pre-run flip-feasibility check (default: True)")
+    # P5-07A: Full-set validation mode
+    parser.add_argument("--full-set", action="store_true", default=False,
+                        help="Run full-set validation (247 pairs) instead of curated slice (default: False)")
     args = parser.parse_args()
 
     random.seed(args.seed)
@@ -373,47 +376,77 @@ def main() -> None:
             }
         )
 
-    def sel_key(x: Dict[str, Any]) -> Tuple[float, str, str]:
-        return (-float(x.get("baseline_confidence", 0.0)), x.get("query_id", ""), x.get("font_name", ""))
-
-    pool_by_motif: Dict[str, List[Dict[str, Any]]] = {
-        "vintage_era": sorted([p for p in hardneg_pool if p["motif"] == "vintage_era"], key=sel_key),
-        "over_strict_semantic": sorted([p for p in hardneg_pool if p["motif"] == "over_strict_semantic"], key=sel_key),
-    }
-
-    selected_vintage = pool_by_motif["vintage_era"][: args.target_per_motif]
-    selected_strict = pool_by_motif["over_strict_semantic"][: args.target_per_motif]
-    selected = list(selected_vintage) + list(selected_strict)
-
-    fill_notes: List[str] = []
-
-    # Deterministic quota fill from the other motif when one motif is short.
-    if len(selected) < args.target_total:
-        need = args.target_total - len(selected)
-        if len(selected_vintage) < args.target_per_motif and len(selected_strict) >= args.target_per_motif:
-            fill_from = pool_by_motif["over_strict_semantic"][args.target_per_motif : args.target_per_motif + need]
-            selected.extend(fill_from)
-            fill_notes.append(
-                f"Filled {len(fill_from)} shortfall pair(s) from over_strict_semantic due to vintage_era quota shortfall."
+    # P5-07A: Full-set mode - use all pairs from SSoT, not just curated hard-negative slice
+    full_set_mode = getattr(args, "full_set", False)
+    
+    if full_set_mode:
+        # Build full-set evaluation rows from all SSoT pairs
+        full_set_pool: List[Dict[str, Any]] = []
+        for (qid, fname), human in ssot_map.items():
+            qtext = query_text_map.get(qid, "")
+            motif = assign_motif(qtext) or "none"
+            rank = baseline_rank_by_key.get((qid, fname), 999)
+            d = detail_by_key.get((qid, fname), {})
+            
+            full_set_pool.append(
+                {
+                    "query_id": qid,
+                    "query_text": qtext,
+                    "query_class": query_class_map.get(qid, "unknown"),
+                    "font_name": fname,
+                    "human": human,
+                    "baseline_rank": rank,
+                    "baseline_confidence": float(d.get("confidence", 0.0)),
+                    "motif": motif,
+                }
             )
-        elif len(selected_strict) < args.target_per_motif and len(selected_vintage) >= args.target_per_motif:
-            fill_from = pool_by_motif["vintage_era"][args.target_per_motif : args.target_per_motif + need]
-            selected.extend(fill_from)
-            fill_notes.append(
-                f"Filled {len(fill_from)} shortfall pair(s) from vintage_era due to over_strict_semantic quota shortfall."
-            )
-        else:
-            # fallback deterministic fill from all remaining, sorted with same key
-            used = {(x["query_id"], x["font_name"]) for x in selected}
-            remaining = [x for x in hardneg_pool if (x["query_id"], x["font_name"]) not in used]
-            remaining_sorted = sorted(remaining, key=sel_key)
-            fill_from = remaining_sorted[:need]
-            selected.extend(fill_from)
-            fill_notes.append(
-                f"Filled {len(fill_from)} pair(s) from combined remaining pool due to dual-motif shortfall."
-            )
+        
+        # In full-set mode, "selected" is the entire SSoT
+        selected = full_set_pool
+        fill_notes = ["Full-set mode: using all 247 pairs from SSoT (no hard-negative curation)"]
+    else:
+        # Original hard-negative curation logic
+        def sel_key(x: Dict[str, Any]) -> Tuple[float, str, str]:
+            return (-float(x.get("baseline_confidence", 0.0)), x.get("query_id", ""), x.get("font_name", ""))
 
-    selected = sorted(selected, key=sel_key)[: args.target_total]
+        pool_by_motif: Dict[str, List[Dict[str, Any]]] = {
+            "vintage_era": sorted([p for p in hardneg_pool if p["motif"] == "vintage_era"], key=sel_key),
+            "over_strict_semantic": sorted([p for p in hardneg_pool if p["motif"] == "over_strict_semantic"], key=sel_key),
+        }
+
+        selected_vintage = pool_by_motif["vintage_era"][: args.target_per_motif]
+        selected_strict = pool_by_motif["over_strict_semantic"][: args.target_per_motif]
+        selected = list(selected_vintage) + list(selected_strict)
+
+        fill_notes: List[str] = []
+
+        # Deterministic quota fill from the other motif when one motif is short.
+        if len(selected) < args.target_total:
+            need = args.target_total - len(selected)
+            if len(selected_vintage) < args.target_per_motif and len(selected_strict) >= args.target_per_motif:
+                fill_from = pool_by_motif["over_strict_semantic"][args.target_per_motif : args.target_per_motif + need]
+                selected.extend(fill_from)
+                fill_notes.append(
+                    f"Filled {len(fill_from)} shortfall pair(s) from over_strict_semantic due to vintage_era quota shortfall."
+                )
+            elif len(selected_strict) < args.target_per_motif and len(selected_vintage) >= args.target_per_motif:
+                fill_from = pool_by_motif["vintage_era"][args.target_per_motif : args.target_per_motif + need]
+                selected.extend(fill_from)
+                fill_notes.append(
+                    f"Filled {len(fill_from)} shortfall pair(s) from vintage_era due to over_strict_semantic quota shortfall."
+                )
+            else:
+                # fallback deterministic fill from all remaining, sorted with same key
+                used = {(x["query_id"], x["font_name"]) for x in selected}
+                remaining = [x for x in hardneg_pool if (x["query_id"], x["font_name"]) not in used]
+                remaining_sorted = sorted(remaining, key=sel_key)
+                fill_from = remaining_sorted[:need]
+                selected.extend(fill_from)
+                fill_notes.append(
+                    f"Filled {len(fill_from)} pair(s) from combined remaining pool due to dual-motif shortfall."
+                )
+
+        selected = sorted(selected, key=sel_key)[: args.target_total]
 
     if not selected:
         print("RETURN_RETRY")
@@ -423,9 +456,9 @@ def main() -> None:
         print("- Verify baseline ranking artifact and adjudicated labels coverage for motif-mapped queries.")
         sys.exit(2)
 
-    # P5-06B: Pre-run flip-feasibility check
+    # P5-06B: Pre-run flip-feasibility check (skip in full-set mode)
     enable_rank_scaling = not getattr(args, "no_rank_scaling", False)
-    enable_flip_check = getattr(args, "flip_feasibility_check", True)
+    enable_flip_check = getattr(args, "flip_feasibility_check", True) and not full_set_mode
     
     flip_feasible = True
     boundary_candidates: List[Dict[str, Any]] = []
@@ -665,8 +698,9 @@ def main() -> None:
             "continue_mode": "CONTINUE_SAFE",
             "status": "READY",
             "confidence": 0.85,
-            "risk_level": "low",
+            "risk_level": "medium" if full_set_mode else "low",
             "governance_semantics_changed": False,
+            "full_set_mode": full_set_mode,
         },
         "preflight": {
             "inputs_checked": [
@@ -681,6 +715,7 @@ def main() -> None:
                 "Used confidence in g3_v3_gated_results.json as ranking proxy (higher confidence => higher rank).",
                 "Joined font metadata from corpus.200.json by font name for penalty checks.",
                 "Used standard English stopword list for over_strict_semantic token-miss checks.",
+                "Full-set validation (247 pairs) from authoritative SSoT." if full_set_mode else "Hard-negative curation (target n=12).",
             ],
             "rootcause_context": {
                 "decision": hurts_rootcause.get("decision"),
@@ -688,19 +723,19 @@ def main() -> None:
             },
         },
         "selection": {
-            "hard_negative_definition": "human==0 (after remap) AND baseline v3 rank<=10",
+            "hard_negative_definition": "human==0 (after remap) AND baseline v3 rank<=10" if not full_set_mode else "None (Full-set mode)",
             "motifs": list(MOTIFS),
-            "target_total": args.target_total,
-            "target_per_motif": args.target_per_motif,
+            "target_total": args.target_total if not full_set_mode else 247,
+            "target_per_motif": args.target_per_motif if not full_set_mode else "None",
             "pool_counts": {
-                "vintage_era": len(pool_by_motif["vintage_era"]),
-                "over_strict_semantic": len(pool_by_motif["over_strict_semantic"]),
-                "total": len(hardneg_pool),
+                "vintage_era": len(pool_by_motif["vintage_era"]) if not full_set_mode else "N/A",
+                "over_strict_semantic": len(pool_by_motif["over_strict_semantic"]) if not full_set_mode else "N/A",
+                "total": len(hardneg_pool) if not full_set_mode else 247,
             },
             "selected_counts": motif_counts,
             "selected_total": len(selected_eval_rows),
             "quota_fill_notes": fill_notes,
-            "sort_policy": "confidence desc, tie query_id asc, then font_name asc",
+            "sort_policy": "confidence desc, tie query_id asc, then font_name asc" if not full_set_mode else "N/A",
         },
         "selected_pairs": selected_eval_rows,
         "intervention": {
@@ -733,9 +768,9 @@ def main() -> None:
             "repeats": args.repeats,
             "label_policy": "2->0",
             "pair_count": len(selected_eval_rows),
-            "gating_scope": "directional_slice_only",
+            "gating_scope": "full_set" if full_set_mode else "directional_slice_only",
             "governance_semantics_changed": False,
-            "directional_not_global_promotion": True,
+            "directional_not_global_promotion": not full_set_mode,
             "p5_06b_rank_scaling": enable_rank_scaling,
         },
         "variants": {
@@ -769,7 +804,7 @@ def main() -> None:
     with open(comparison_out_path, "w", encoding="utf-8") as f:
         json.dump(comparison, f, indent=2)
 
-    print("P5-04A run complete")
+    print(f"P5-04A {'Full-set' if full_set_mode else 'Hard-negative'} run complete")
     print(f"Saved variant artifact: {variant_out_path.as_posix()}")
     print(f"Saved comparison artifact: {comparison_out_path.as_posix()}")
     print(f"Selected pairs: {len(selected_eval_rows)}")

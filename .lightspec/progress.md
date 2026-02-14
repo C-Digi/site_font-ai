@@ -110,6 +110,13 @@
   - [x] Finding: Rank-scaling effective for `over_strict_semantic` motif; `vintage_era` remained neutral
   - [x] Artifacts: `REPORT_P5_06B_DIRECTIONAL.md`, variant/comparison/gates JSON
   - [x] Governance semantics unchanged (directional evidence only; not global promotion proof)
+- [x] P5-07A: Full-Set Representativeness Validation (P5-06B-R2 Strategy)
+  - [x] Extended `run_p5_04a_hardneg_trial.py` with `--full-set` mode
+  - [x] Executed full-set trial (247 pairs) with deterministic rank-scaling penalties
+  - [x] Result: NO-GO (G1/G2/G3 pass, G4 pending)
+  - [x] Metrics: Agreement +3.24%, Precision +2.09%, Net Helps +8
+  - [x] Boundary flips: 34 total (21 helps, 13 hurts)
+  - [x] Artifacts: `REPORT_P5_07A_FULLSET_VALIDATION.md`, variant/comparison/gates JSON
 - [ ] P5-03: Domain-Specific Reranker Training (pending)
 
 ### Next-Phase: Productization & Scale (Feb 20+)
