@@ -65,7 +65,11 @@
   - [x] Result: NO-GO (G2 Precision Delta: -14.28%, G3 Helps/Hurts Net: 0)
   - [x] Finding: MS-MARCO trained on web search, not font relevance; neutral helps/hurts
   - [x] Artifacts: `REPORT_P5_02A_LEARNED_RERANK.md`, comparison/gates JSON
-- [ ] P5-02B: Hard-Negative Curation (pending)
+- [x] P5-03A: VL Embedding-Path Re-evaluation (B2 vs VL-enriched text-only baseline)
+  - [x] Implemented bounded offline evaluator: `run_p5_03a_vl_reeval.py`
+  - [x] Deterministic controls: seed=42, repeats=1, label remap `2 -> 0`
+  - [x] Result: NO-GO (G1 -2.83%, G2 -14.55%, G3 net -7)
+  - [x] Artifacts: `REPORT_P5_03A_VL_REEVAL.md`, comparison/gates JSON
 - [x] P5-04A: Bounded Hard-Negative Curation + Directional Intervention Trial
   - [x] Implemented deterministic offline runner: `run_p5_04a_hardneg_trial.py`
   - [x] Preflight input readability check + explicit assumptions logging
@@ -80,11 +84,16 @@
   - [x] Added explicit `coverage_decision` (`SUFFICIENT|INSUFFICIENT`) and delegate guidance (`CONTINUE_SAFE|RETURN_RETRY`)
   - [x] Result: `coverage_decision=INSUFFICIENT` (motif imbalance: `over_strict_semantic` below minimum)
   - [x] Artifacts: `REPORT_P5_05A_COVERAGE_AUDIT.md`, `out/p5_05a_coverage_audit.json`
-- [x] P5-03A: VL Embedding-Path Re-evaluation (B2 vs VL-enriched text-only baseline)
-  - [x] Implemented bounded offline evaluator: `run_p5_03a_vl_reeval.py`
-  - [x] Deterministic controls: seed=42, repeats=1, label remap `2 -> 0`
-  - [x] Result: NO-GO (G1 -2.83%, G2 -14.55%, G3 net -7)
-  - [x] Artifacts: `REPORT_P5_03A_VL_REEVAL.md`, comparison/gates JSON
+- [x] P5-05B-EXPANDED: Motif-Detection Expansion + Coverage Re-Audit
+  - [x] Expanded deterministic `over_strict_semantic` motif detection heuristics in `run_p5_05a_coverage_audit.py`
+  - [x] Re-ran coverage audit and regenerated report/artifacts
+  - [x] Result: `coverage_decision=INSUFFICIENT` (strict motif coverage still below minimum)
+  - [x] Artifacts: updated `REPORT_P5_05A_COVERAGE_AUDIT.md` and `out/p5_05a_coverage_audit.json`
+- [x] P5-05C: Coverage Remediation (Bounded Offline Logic Sync + Re-Audit)
+  - [x] Synchronized deterministic strict-cue motif assignment between curation and coverage-audit paths
+  - [x] Re-ran curation and coverage audit artifacts deterministically
+  - [x] Result: `coverage_decision=SUFFICIENT` (`over_strict_semantic=6`, `vintage_era=6`)
+  - [x] Governance semantics unchanged (pre-trial gate only; G1/G2/G3/G4 unchanged)
 - [ ] P5-03: Domain-Specific Reranker Training (pending)
 
 ### Next-Phase: Productization & Scale (Feb 20+)
@@ -92,11 +101,15 @@
 - **Champion State:** `v3` remains production champion; `v5.x` iterations paused.
 - [ ] **Retrieval Quality Hardening**
   - [x] P5-01: Deterministic reranking trial (NO-GO)
-  - [ ] Learned reranker / cross-encoder evaluation
-  - [ ] Perform hard-negative curation (Geometric Trap, Era/Vintage)
+  - [x] P5-02A: Learned reranker / cross-encoder evaluation (NO-GO)
+  - [x] P5-04A: Hard-negative directional curation trial (NO-GO, neutral signal)
+  - [x] P5-05A: Coverage sufficiency pre-trial gate (INSUFFICIENT)
+  - [x] P5-05B-EXPANDED: Motif-detection expansion + coverage re-audit (INSUFFICIENT)
+  - [x] P5-05C: Coverage remediation executed; pre-trial coverage now `SUFFICIENT`
   - [ ] Scale eval dataset to Complex v2 (Human SSoT)
 - [ ] **VL Embedding Re-evaluation**
-  - [ ] Benchmarking image+text (B2) vs text-only baseline (using VL-enriched descriptions)
+  - [x] P5-03A: Benchmarking image+text (B2) vs text-only baseline (using VL-enriched descriptions) completed (NO-GO for default replacement)
+  - [ ] Define follow-on embedding-path hypotheses before another benchmark cycle
   - [ ] **Promotion Gate:** Must pass canonical `EVALUATION_CONTRACT.md` gates before switching production default
 - [ ] **User-Facing AI Improvements**
   - [ ] Multi-turn chat context refinement
