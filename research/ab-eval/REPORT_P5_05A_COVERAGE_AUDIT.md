@@ -1,7 +1,7 @@
 # P5-05A Coverage Sufficiency Audit Report
 
 - **Run ID:** `p5_05a_coverage_audit`
-- **Date (UTC):** 2026-02-14T05:59:49.490896+00:00
+- **Date (UTC):** 2026-02-14T06:28:24.164754+00:00
 - **Coverage Decision:** **INSUFFICIENT**
 
 ## Scope and Policy Note
