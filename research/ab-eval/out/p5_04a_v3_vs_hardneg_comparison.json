@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "run_id": "p5_04a_v3_vs_hardneg",
+    "variant_id": "p5_04a_hardneg_candidate",
+    "baseline": "v3",
+    "seed": 42,
+    "repeats": 1,
+    "label_policy": "2->0",
+    "pair_count": 12,
+    "gating_scope": "directional_slice_only",
+    "governance_semantics_changed": false,
+    "directional_not_global_promotion": true
+  },
+  "variants": {
+    "v3": {
+      "agreement": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.0,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 12,
+        "fn": 0,
+        "tn": 0,
+        "total": 12
+      }
+    },
+    "p5_04a_hardneg_candidate": {
+      "agreement": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.0,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 12,
+        "fn": 0,
+        "tn": 0,
+        "total": 12
+      }
+    },
+    "A": {
+      "agreement": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.0,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 12,
+        "fn": 0,
+        "tn": 0,
+        "total": 12
+      }
+    },
+    "B2": {
+      "agreement": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "Agreement": 0.0,
+      "Precision@10": 0.0,
+      "counts": {
+        "tp": 0,
+        "fp": 12,
+        "fn": 0,
+        "tn": 0,
+        "total": 12
+      }
+    }
+  },
+  "delta_treatment_minus_baseline": {
+    "agreement": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  "helps_hurts": {
+    "helps_count": 0,
+    "hurts_count": 0,
+    "net": 0
+  },
+  "per_query_class_breakdown": {
+    "historical_context": {
+      "pairs": 12,
+      "helps": 0,
+      "hurts": 0
+    }
+  },
+  "selected_motif_counts": {
+    "over_strict_semantic": 0,
+    "vintage_era": 12
+  },
+  "helps": [],
+  "hurts": []
+}

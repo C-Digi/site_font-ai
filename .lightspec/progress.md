@@ -66,6 +66,13 @@
   - [x] Finding: MS-MARCO trained on web search, not font relevance; neutral helps/hurts
   - [x] Artifacts: `REPORT_P5_02A_LEARNED_RERANK.md`, comparison/gates JSON
 - [ ] P5-02B: Hard-Negative Curation (pending)
+- [x] P5-04A: Bounded Hard-Negative Curation + Directional Intervention Trial
+  - [x] Implemented deterministic offline runner: `run_p5_04a_hardneg_trial.py`
+  - [x] Preflight input readability check + explicit assumptions logging
+  - [x] Curated hard-negative directional slice (`n=12`) with deterministic selection and quota-fill policy
+  - [x] Applied directional penalties (`vintage_era` / `over_strict_semantic`) with stable re-ranking
+  - [x] Result: NO-GO (directional slice; neutral deltas, G1 fail, G3 fail, G2 pass)
+  - [x] Artifacts: `REPORT_P5_04A_HARDNEG.md`, variant/comparison/gates JSON
 - [x] P5-03A: VL Embedding-Path Re-evaluation (B2 vs VL-enriched text-only baseline)
   - [x] Implemented bounded offline evaluator: `run_p5_03a_vl_reeval.py`
   - [x] Deterministic controls: seed=42, repeats=1, label remap `2 -> 0`

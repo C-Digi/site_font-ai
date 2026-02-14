@@ -435,6 +435,34 @@ This produces:
 
 **Note:** P5-02A resulted in NO-GO due to G2 (Precision Delta) and G3 (Helps/Hurts Net) failures. The MS-MARCO cross-encoder is trained on web search relevance, not typographic/visual font matching.
 
+### 4.6 Running P5-04A Hard-Negative Directional Trial
+
+To run the bounded hard-negative curation + directional intervention trial (Phase 5, Ticket P5-04A):
+
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_p5_04a_hardneg_trial.py
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/validate_gates.py research/ab-eval/out/p5_04a_v3_vs_hardneg_comparison.json --out research/ab-eval/out/p5_04a_v3_vs_hardneg_gates.json
+```
+
+This produces:
+
+- `research/ab-eval/out/p5_04a_hardneg_candidate.json`
+- `research/ab-eval/out/p5_04a_v3_vs_hardneg_comparison.json`
+- `research/ab-eval/out/p5_04a_v3_vs_hardneg_gates.json`
+- `research/ab-eval/REPORT_P5_04A_HARDNEG.md`
+
+Method invariants (locked for this run):
+
+- Hard-negative definition: human label `0` (after `2 -> 0` remap) AND baseline `v3` top-10 by confidence proxy rank.
+- Motifs: `over_strict_semantic`, `vintage_era`.
+- Quotas: target total `12` (`6 + 6` by motif), deterministic shortfall fill from the other motif if needed.
+- Directional penalties:
+  - `vintage_era`: `-0.12` when candidate metadata text has no vintage-era term.
+  - `over_strict_semantic`: `-0.10` when candidate text misses all non-stopword query tokens.
+- Determinism: seed `42`, repeats `1`, stable tie-break sorting.
+
+**Note:** P5-04A is an offline directional slice only. Governance semantics remain unchanged and directional outcomes are not sufficient for global promotion.
+
 - `artifacts/<run_id>/report.md`
 
 ---
