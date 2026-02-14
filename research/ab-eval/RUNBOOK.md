@@ -406,6 +406,20 @@ To run the full evaluation on the toy dataset:
 python research/ab-eval/py/run_all.py --dataset toy --variant all
 ```
 
+### 4.4 Running P5-01 Rerank + Calibration Trial
+
+To run the deterministic rerank + calibration evaluation (Phase 5, Ticket P5-01):
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_p5_01_rerank_calib.py
+```
+
+This produces:
+- `research/ab-eval/out/p5_01_v3_vs_p5_01_comparison.json`
+- `research/ab-eval/out/p5_01_v3_vs_p5_01_gates.json`
+- `research/ab-eval/REPORT_P5_01_RERANK_CALIB.md`
+
+**Note:** P5-01 resulted in NO-GO due to G2 (Precision Delta) failure. The token-overlap reranker is not discriminative enough for font relevance.
+
 - `artifacts/<run_id>/report.md`
 
 ---

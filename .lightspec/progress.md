@@ -54,11 +54,21 @@
   - [x] Pause prompt-only `v5_x` iteration pending stronger motif concentration
 - [ ] Roll out Prompt V3 to JIT Seeding path
 
+### Phase 5: Non-Prompt Structural Improvements (Feb 14+)
+- [x] P5-01: Deterministic Rerank + Calibration Trial
+  - [x] Implemented token-overlap reranker with fusion calibration
+  - [x] Result: NO-GO (G2 Precision Delta failure: -13.35%)
+  - [x] Finding: Token-overlap reranker not discriminative enough for font relevance
+  - [x] Artifacts: `REPORT_P5_01_RERANK_CALIB.md`, comparison/gates JSON
+- [ ] P5-02: Hard-Negative Curation (pending)
+- [ ] P5-03: Learned Reranker Evaluation (pending)
+
 ### Next-Phase: Productization & Scale (Feb 20+)
 - **Strategic Direction:** Non-prompt pivot (structural quality) and foundational product build-out.
 - **Champion State:** `v3` remains production champion; `v5.x` iterations paused.
 - [ ] **Retrieval Quality Hardening**
-  - [ ] Implement post-retrieval reranking / calibration logic
+  - [x] P5-01: Deterministic reranking trial (NO-GO)
+  - [ ] Learned reranker / cross-encoder evaluation
   - [ ] Perform hard-negative curation (Geometric Trap, Era/Vintage)
   - [ ] Scale eval dataset to Complex v2 (Human SSoT)
 - [ ] **VL Embedding Re-evaluation**

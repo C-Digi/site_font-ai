@@ -1,0 +1,34 @@
+{
+  "success": false,
+  "gates": {
+    "G1 (Agreement Delta)": {
+      "status": "PASS",
+      "value": 0.1984,
+      "threshold": ">= 0.01"
+    },
+    "G2 (Precision Delta)": {
+      "status": "FAIL",
+      "value": -0.1335,
+      "threshold": ">= -0.02"
+    },
+    "G3 (Helps/Hurts Net)": {
+      "status": "PASS",
+      "value": 2,
+      "threshold": "> 0"
+    },
+    "G4 (Visual QA)": {
+      "status": "PENDING",
+      "value": "Manual",
+      "threshold": "Zero clipping/overlap"
+    }
+  },
+  "metadata": {
+    "run_id": "p5_01_rerank_calib",
+    "variant_id": "p5_01_rerank_calib",
+    "baseline": "v3",
+    "top_k": 20,
+    "alpha": 0.5,
+    "calibration_policy": "fusion_threshold",
+    "fusion_threshold": 0.45
+  }
+}
