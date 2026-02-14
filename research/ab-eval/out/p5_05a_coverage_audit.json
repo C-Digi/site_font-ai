@@ -1,9 +1,9 @@
 {
   "metadata": {
     "run_id": "p5_05a_coverage_audit",
-    "timestamp_utc": "2026-02-14T06:28:24.164754+00:00",
-    "status": "RETURN_RETRY",
-    "continue_mode": "RETURN_RETRY",
+    "timestamp_utc": "2026-02-14T07:03:35.754329+00:00",
+    "status": "READY",
+    "continue_mode": "CONTINUE_SAFE",
     "deterministic": true,
     "seed": 42,
     "scope": "offline_research_only",
@@ -36,23 +36,17 @@
   },
   "checks": {
     "motif_coverage": {
-      "status": "FAIL",
+      "status": "PASS",
       "required_min_pairs_per_targeted_motif": 3,
       "targeted_motifs": [
         "over_strict_semantic",
         "vintage_era"
       ],
       "counts": {
-        "over_strict_semantic": 0,
-        "vintage_era": 12
+        "over_strict_semantic": 6,
+        "vintage_era": 6
       },
-      "deficits": [
-        {
-          "motif": "over_strict_semantic",
-          "required_min": 3,
-          "actual": 0
-        }
-      ]
+      "deficits": []
     },
     "sample_floor": {
       "status": "PASS",
@@ -67,10 +61,58 @@
       "total_pairs": 12,
       "share": 1.0,
       "applicable_by_motif": {
-        "over_strict_semantic": 0,
-        "vintage_era": 12
+        "over_strict_semantic": 6,
+        "vintage_era": 6
       },
       "pair_level": [
+        {
+          "query_id": "cq_003",
+          "font_name": "Goblin One",
+          "motif": "over_strict_semantic",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.1,
+          "penalty_reason": "strict_query_token_miss"
+        },
+        {
+          "query_id": "cq_003",
+          "font_name": "Major Mono Display",
+          "motif": "over_strict_semantic",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.1,
+          "penalty_reason": "strict_query_token_miss"
+        },
+        {
+          "query_id": "cq_003",
+          "font_name": "Marcellus SC",
+          "motif": "over_strict_semantic",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.1,
+          "penalty_reason": "strict_query_token_miss"
+        },
+        {
+          "query_id": "cq_003",
+          "font_name": "Playwrite CL Guides",
+          "motif": "over_strict_semantic",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.1,
+          "penalty_reason": "strict_query_token_miss"
+        },
+        {
+          "query_id": "cq_003",
+          "font_name": "Tai Heritage Pro",
+          "motif": "over_strict_semantic",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.1,
+          "penalty_reason": "strict_query_token_miss"
+        },
+        {
+          "query_id": "cq_003",
+          "font_name": "Tienne",
+          "motif": "over_strict_semantic",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.1,
+          "penalty_reason": "strict_query_token_miss"
+        },
         {
           "query_id": "cq_024",
           "font_name": "Holtwood One SC",
@@ -118,54 +160,6 @@
           "penalty_can_trigger": true,
           "penalty_amount": 0.12,
           "penalty_reason": "vintage_term_absent"
-        },
-        {
-          "query_id": "cq_025",
-          "font_name": "TASA Orbiter",
-          "motif": "vintage_era",
-          "penalty_can_trigger": true,
-          "penalty_amount": 0.12,
-          "penalty_reason": "vintage_term_absent"
-        },
-        {
-          "query_id": "cq_029",
-          "font_name": "Amaranth",
-          "motif": "vintage_era",
-          "penalty_can_trigger": true,
-          "penalty_amount": 0.12,
-          "penalty_reason": "vintage_term_absent"
-        },
-        {
-          "query_id": "cq_029",
-          "font_name": "Anonymous Pro",
-          "motif": "vintage_era",
-          "penalty_can_trigger": true,
-          "penalty_amount": 0.12,
-          "penalty_reason": "vintage_term_absent"
-        },
-        {
-          "query_id": "cq_029",
-          "font_name": "Edu NSW ACT Hand Pre",
-          "motif": "vintage_era",
-          "penalty_can_trigger": true,
-          "penalty_amount": 0.12,
-          "penalty_reason": "vintage_term_absent"
-        },
-        {
-          "query_id": "cq_029",
-          "font_name": "Goblin One",
-          "motif": "vintage_era",
-          "penalty_can_trigger": true,
-          "penalty_amount": 0.12,
-          "penalty_reason": "vintage_term_absent"
-        },
-        {
-          "query_id": "cq_029",
-          "font_name": "Macondo",
-          "motif": "vintage_era",
-          "penalty_can_trigger": true,
-          "penalty_amount": 0.12,
-          "penalty_reason": "vintage_term_absent"
         }
       ]
     },
@@ -182,6 +176,70 @@
         "avg": 0.0
       },
       "per_query": [
+        {
+          "query_id": "cq_003",
+          "window_available": true,
+          "reason": "ok",
+          "window_ranks_8_12": [
+            {
+              "rank": 8,
+              "font_name": "Tienne",
+              "baseline_score": 1.0,
+              "motif": "over_strict_semantic",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.1,
+              "penalty_reason": "strict_query_token_miss",
+              "margin_to_rank11": 0.05,
+              "potential_boundary_flip": true
+            },
+            {
+              "rank": 9,
+              "font_name": "Londrina Sketch",
+              "baseline_score": 0.95,
+              "motif": "over_strict_semantic",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.1,
+              "penalty_reason": "strict_query_token_miss",
+              "margin_to_rank11": 0.0,
+              "potential_boundary_flip": true
+            },
+            {
+              "rank": 10,
+              "font_name": "Nova Mono",
+              "baseline_score": 0.95,
+              "motif": "over_strict_semantic",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.1,
+              "penalty_reason": "strict_query_token_miss",
+              "margin_to_rank11": 0.0,
+              "potential_boundary_flip": true
+            },
+            {
+              "rank": 11,
+              "font_name": "Rancho",
+              "baseline_score": 0.95,
+              "motif": "over_strict_semantic",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.1,
+              "penalty_reason": "strict_query_token_miss",
+              "margin_to_rank11": null,
+              "potential_boundary_flip": false
+            },
+            {
+              "rank": 12,
+              "font_name": "Tektur",
+              "baseline_score": 0.95,
+              "motif": "over_strict_semantic",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.1,
+              "penalty_reason": "strict_query_token_miss",
+              "margin_to_rank11": null,
+              "potential_boundary_flip": false
+            }
+          ],
+          "boundary_margin_rank10_minus_rank11": 0.0,
+          "estimated_boundary_flip_count": 3
+        },
         {
           "query_id": "cq_024",
           "window_available": false,
@@ -231,79 +289,13 @@
           ],
           "boundary_margin_rank10_minus_rank11": null,
           "estimated_boundary_flip_count": 0
-        },
-        {
-          "query_id": "cq_029",
-          "window_available": true,
-          "reason": "ok",
-          "window_ranks_8_12": [
-            {
-              "rank": 8,
-              "font_name": "Noto Sans Adlam",
-              "baseline_score": 1.0,
-              "motif": "vintage_era",
-              "penalty_can_trigger": true,
-              "penalty_amount": 0.12,
-              "penalty_reason": "vintage_term_absent",
-              "margin_to_rank11": 0.0,
-              "potential_boundary_flip": true
-            },
-            {
-              "rank": 9,
-              "font_name": "Noto Sans Balinese",
-              "baseline_score": 1.0,
-              "motif": "vintage_era",
-              "penalty_can_trigger": true,
-              "penalty_amount": 0.12,
-              "penalty_reason": "vintage_term_absent",
-              "margin_to_rank11": 0.0,
-              "potential_boundary_flip": true
-            },
-            {
-              "rank": 10,
-              "font_name": "Passion One",
-              "baseline_score": 1.0,
-              "motif": "vintage_era",
-              "penalty_can_trigger": true,
-              "penalty_amount": 0.12,
-              "penalty_reason": "vintage_term_absent",
-              "margin_to_rank11": 0.0,
-              "potential_boundary_flip": true
-            },
-            {
-              "rank": 11,
-              "font_name": "Sixtyfour",
-              "baseline_score": 1.0,
-              "motif": "vintage_era",
-              "penalty_can_trigger": true,
-              "penalty_amount": 0.12,
-              "penalty_reason": "vintage_term_absent",
-              "margin_to_rank11": null,
-              "potential_boundary_flip": false
-            },
-            {
-              "rank": 12,
-              "font_name": "Tienne",
-              "baseline_score": 1.0,
-              "motif": "vintage_era",
-              "penalty_can_trigger": true,
-              "penalty_amount": 0.12,
-              "penalty_reason": "vintage_term_absent",
-              "margin_to_rank11": null,
-              "potential_boundary_flip": false
-            }
-          ],
-          "boundary_margin_rank10_minus_rank11": 0.0,
-          "estimated_boundary_flip_count": 3
         }
       ]
     }
   },
-  "coverage_decision": "INSUFFICIENT",
+  "coverage_decision": "SUFFICIENT",
   "delegate_guidance": {
-    "future_intervention_delegate_action": "RETURN_RETRY",
-    "remediation_guidance": [
-      "Increase curated pairs for under-covered targeted motifs until each motif reaches the configured minimum."
-    ]
+    "future_intervention_delegate_action": "CONTINUE_SAFE",
+    "remediation_guidance": []
   }
 }

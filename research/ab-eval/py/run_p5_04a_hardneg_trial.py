@@ -27,6 +27,13 @@ VINTAGE_TERMS = ["vintage", "retro", "classic", "old-school", "art deco", "70s",
 STRICT_TERMS = ["exact", "literally", "strictly", "must", "only", "precise"]
 MOTIFS = ("over_strict_semantic", "vintage_era")
 
+# Keep deterministic strict-cue assignment in sync with P5-05A coverage audit.
+STRICT_USE_CASE_PATTERN = re.compile(
+    r"\bfor\s+(?:a|an|the\s+)?(?:[a-z0-9-]+\s+){0,4}(?:firm|brand|company|startup)\b"
+)
+STRICT_CONSTRAINT_PATTERN = re.compile(r"\b(?:tight|specific|particular|certain)\b")
+STRICT_DOMAIN_PATTERN = re.compile(r"\b(?:industrial|professional|authoritative|stern)\b")
+
 # Standard English stopword list (deterministic embedded set)
 STOPWORDS = {
     "a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "as", "at",
@@ -77,10 +84,23 @@ def non_stopword_query_tokens(query_text: str) -> List[str]:
 
 
 def assign_motif(query_text: str) -> Optional[str]:
+    """
+    Deterministic motif assignment for hard-negative curation.
+
+    Vintage mapping is intentionally unchanged. Strictness detection retains
+    legacy strict keywords and adds deterministic phrase/regex cues (no model
+    calls) to align with P5-05A coverage auditing.
+    """
     q = (query_text or "").lower()
     if contains_any_term(q, VINTAGE_TERMS):
         return "vintage_era"
     if contains_any_term(q, STRICT_TERMS):
+        return "over_strict_semantic"
+    if STRICT_USE_CASE_PATTERN.search(q):
+        return "over_strict_semantic"
+    if STRICT_CONSTRAINT_PATTERN.search(q):
+        return "over_strict_semantic"
+    if STRICT_DOMAIN_PATTERN.search(q):
         return "over_strict_semantic"
     return None
 

@@ -85,15 +85,20 @@
     "net": 0
   },
   "per_query_class_breakdown": {
+    "visual_shape": {
+      "pairs": 6,
+      "helps": 0,
+      "hurts": 0
+    },
     "historical_context": {
-      "pairs": 12,
+      "pairs": 6,
       "helps": 0,
       "hurts": 0
     }
   },
   "selected_motif_counts": {
-    "over_strict_semantic": 0,
-    "vintage_era": 12
+    "over_strict_semantic": 6,
+    "vintage_era": 6
   },
   "helps": [],
   "hurts": []

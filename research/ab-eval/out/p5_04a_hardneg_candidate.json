@@ -4,7 +4,7 @@
     "variant_id": "p5_04a_hardneg_candidate",
     "seed": 42,
     "repeats": 1,
-    "timestamp_utc": "2026-02-14T05:48:25.589077+00:00",
+    "timestamp_utc": "2026-02-14T07:03:28.164959+00:00",
     "continue_mode": "CONTINUE_SAFE",
     "status": "READY",
     "confidence": 0.85,
@@ -40,20 +40,114 @@
     "target_per_motif": 6,
     "pool_counts": {
       "vintage_era": 32,
-      "over_strict_semantic": 0,
-      "total": 32
+      "over_strict_semantic": 17,
+      "total": 49
     },
     "selected_counts": {
-      "over_strict_semantic": 0,
-      "vintage_era": 12
+      "over_strict_semantic": 6,
+      "vintage_era": 6
     },
     "selected_total": 12,
-    "quota_fill_notes": [
-      "Filled 6 shortfall pair(s) from vintage_era due to over_strict_semantic quota shortfall."
-    ],
+    "quota_fill_notes": [],
     "sort_policy": "confidence desc, tie query_id asc, then font_name asc"
   },
   "selected_pairs": [
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Goblin One",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 2,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 3,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Major Mono Display",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 4,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 4,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Marcellus SC",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 5,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 5,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Playwrite CL Guides",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 6,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 6,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Tai Heritage Pro",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 7,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 7,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Tienne",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 8,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 8,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
     {
       "query_id": "cq_024",
       "query_text": "retro 8-bit computer font from the 80s",
@@ -149,102 +243,6 @@
       "treatment_score": 0.88,
       "penalty_applied": 0.12,
       "penalty_reason": "vintage_term_absent"
-    },
-    {
-      "query_id": "cq_025",
-      "query_text": "art deco inspired display font",
-      "query_class": "historical_context",
-      "font_name": "TASA Orbiter",
-      "motif": "vintage_era",
-      "human": 0,
-      "baseline_rank": 4,
-      "baseline_confidence": 1.0,
-      "v3_pred": 1,
-      "p5_04a_pred": 1,
-      "treatment_rank": 4,
-      "treatment_score": 0.88,
-      "penalty_applied": 0.12,
-      "penalty_reason": "vintage_term_absent"
-    },
-    {
-      "query_id": "cq_029",
-      "query_text": "classic typewriter font",
-      "query_class": "historical_context",
-      "font_name": "Amaranth",
-      "motif": "vintage_era",
-      "human": 0,
-      "baseline_rank": 1,
-      "baseline_confidence": 1.0,
-      "v3_pred": 1,
-      "p5_04a_pred": 1,
-      "treatment_rank": 1,
-      "treatment_score": 0.88,
-      "penalty_applied": 0.12,
-      "penalty_reason": "vintage_term_absent"
-    },
-    {
-      "query_id": "cq_029",
-      "query_text": "classic typewriter font",
-      "query_class": "historical_context",
-      "font_name": "Anonymous Pro",
-      "motif": "vintage_era",
-      "human": 0,
-      "baseline_rank": 2,
-      "baseline_confidence": 1.0,
-      "v3_pred": 1,
-      "p5_04a_pred": 1,
-      "treatment_rank": 2,
-      "treatment_score": 0.88,
-      "penalty_applied": 0.12,
-      "penalty_reason": "vintage_term_absent"
-    },
-    {
-      "query_id": "cq_029",
-      "query_text": "classic typewriter font",
-      "query_class": "historical_context",
-      "font_name": "Edu NSW ACT Hand Pre",
-      "motif": "vintage_era",
-      "human": 0,
-      "baseline_rank": 4,
-      "baseline_confidence": 1.0,
-      "v3_pred": 1,
-      "p5_04a_pred": 1,
-      "treatment_rank": 4,
-      "treatment_score": 0.88,
-      "penalty_applied": 0.12,
-      "penalty_reason": "vintage_term_absent"
-    },
-    {
-      "query_id": "cq_029",
-      "query_text": "classic typewriter font",
-      "query_class": "historical_context",
-      "font_name": "Goblin One",
-      "motif": "vintage_era",
-      "human": 0,
-      "baseline_rank": 5,
-      "baseline_confidence": 1.0,
-      "v3_pred": 1,
-      "p5_04a_pred": 1,
-      "treatment_rank": 5,
-      "treatment_score": 0.88,
-      "penalty_applied": 0.12,
-      "penalty_reason": "vintage_term_absent"
-    },
-    {
-      "query_id": "cq_029",
-      "query_text": "classic typewriter font",
-      "query_class": "historical_context",
-      "font_name": "Macondo",
-      "motif": "vintage_era",
-      "human": 0,
-      "baseline_rank": 6,
-      "baseline_confidence": 1.0,
-      "v3_pred": 1,
-      "p5_04a_pred": 1,
-      "treatment_rank": 6,
-      "treatment_score": 0.88,
-      "penalty_applied": 0.12,
-      "penalty_reason": "vintage_term_absent"
     }
   ],
   "intervention": {
@@ -254,6 +252,35 @@
     "score_floor": 0.0,
     "rerank_tie_break": "adjusted_score desc, then baseline_confidence desc, then font_name asc",
     "query_rankings": {
+      "cq_003": {
+        "query_text": "condensed industrial sans for tight headlines",
+        "motif": "over_strict_semantic",
+        "baseline_top10": [
+          "Encode Sans Condensed",
+          "Goblin One",
+          "Kumbh Sans",
+          "Major Mono Display",
+          "Marcellus SC",
+          "Playwrite CL Guides",
+          "Tai Heritage Pro",
+          "Tienne",
+          "Londrina Sketch",
+          "Nova Mono"
+        ],
+        "treatment_top10": [
+          "Encode Sans Condensed",
+          "Kumbh Sans",
+          "Goblin One",
+          "Major Mono Display",
+          "Marcellus SC",
+          "Playwrite CL Guides",
+          "Tai Heritage Pro",
+          "Tienne",
+          "Londrina Sketch",
+          "Nova Mono"
+        ],
+        "penalized_count": 11
+      },
       "cq_024": {
         "query_text": "retro 8-bit computer font from the 80s",
         "motif": "vintage_era",
@@ -305,35 +332,6 @@
           "Kumar One"
         ],
         "penalized_count": 10
-      },
-      "cq_029": {
-        "query_text": "classic typewriter font",
-        "motif": "vintage_era",
-        "baseline_top10": [
-          "Amaranth",
-          "Anonymous Pro",
-          "Courier Prime",
-          "Edu NSW ACT Hand Pre",
-          "Goblin One",
-          "Macondo",
-          "Noto Rashi Hebrew",
-          "Noto Sans Adlam",
-          "Noto Sans Balinese",
-          "Passion One"
-        ],
-        "treatment_top10": [
-          "Amaranth",
-          "Anonymous Pro",
-          "Courier Prime",
-          "Edu NSW ACT Hand Pre",
-          "Goblin One",
-          "Macondo",
-          "Noto Rashi Hebrew",
-          "Noto Sans Adlam",
-          "Noto Sans Balinese",
-          "Passion One"
-        ],
-        "penalized_count": 19
       }
     }
   }
