@@ -4,6 +4,8 @@ import { ChatMessage } from "@/lib/types";
 import { supabase } from "@/lib/supabase";
 import { generateEmbedding } from "@/lib/ai/embeddings";
 import { enqueueSeedJob } from "@/lib/jobs";
+import { getRetrievalStrategy } from "@/lib/config/retrieval";
+import { applyIntervention } from "@/lib/retrieval/intervention";
 import * as dotenv from "dotenv";
 
 dotenv.config({ path: ".env.local", override: true });
@@ -70,10 +72,24 @@ export async function POST(req: Request) {
       match_count: 20,
     });
 
+    // 3.5. Apply retrieval strategy intervention
+    const strategy = getRetrievalStrategy();
+    console.log(`[retrieval] strategy=${strategy}`);
+
+    let processedFontsData = fontsData;
+    if (strategy === 'p5_07a' && fontsData && fontsData.length > 0) {
+      const interventionResults = applyIntervention(fontsData, message);
+      // Map back to original shape with adjusted confidence for downstream use
+      processedFontsData = interventionResults.map(r => ({
+        ...r,
+        confidence: r.adjustedConfidence,
+      }));
+    }
+
     let context = "";
-    if (fontsData && fontsData.length > 0) {
+    if (processedFontsData && processedFontsData.length > 0) {
       context = "Relevant fonts from our database:\n" + 
-        fontsData.map((f: any) => `- ${f.name} (${f.category}) [Source: ${f.source}]: ${f.description} [Tags: ${f.tags?.join(", ")}]`).join("\n");
+        processedFontsData.map((f: any) => `- ${f.name} (${f.category}) [Source: ${f.source}]: ${f.description} [Tags: ${f.tags?.join(", ")}]`).join("\n");
     }
 
     const chatSession = model.startChat({
@@ -95,9 +111,9 @@ export async function POST(req: Request) {
       const data = JSON.parse(responseText);
 
       // Enrich AI results with database metadata (files, tags, actual source)
-      if (data.fonts && fontsData) {
+      if (data.fonts && processedFontsData) {
         data.fonts = data.fonts.map((aiFont: any) => {
-          const dbFont = fontsData.find((df: any) => df.name.toLowerCase() === aiFont.name.toLowerCase());
+          const dbFont = processedFontsData.find((df: any) => df.name.toLowerCase() === aiFont.name.toLowerCase());
           if (dbFont) {
             return {
               ...aiFont,
