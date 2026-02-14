@@ -1,0 +1,393 @@
+{
+  "metadata": {
+    "run_id": "p5_03a_b2_vs_text",
+    "variant_id": "p5_03a_vl_reeval",
+    "baseline": "text_vl_enriched",
+    "treatment": "b2_production",
+    "seed": 42,
+    "repeats": 1,
+    "top_k": 10,
+    "label_policy": "2->0",
+    "timestamp_utc": "2026-02-14T05:00:30.142273+00:00",
+    "description_artifact": "research/ab-eval/out/descriptions_bakeoff_qwen32_235_full200.jsonl",
+    "preferred_description_model": "qwen/qwen3-vl-235b-a22b-instruct",
+    "text_embedding_model": "qwen/qwen3-embedding-8b",
+    "text_doc_embedding_cache": {
+      "cache_path": "research/ab-eval/out/embeddings_text_docs_vl_enriched_p5_03a.jsonl",
+      "cache_hit_count": 199,
+      "cache_miss_count": 0
+    },
+    "pair_set": "full_set_review_export_1770612809775.json decisions",
+    "pair_count": 247,
+    "skipped_pairs": 0,
+    "governance_semantics_changed": false
+  },
+  "variants": {
+    "text_vl_enriched": {
+      "agreement": 0.834,
+      "precision": 0.6,
+      "recall": 0.2667,
+      "f1": 0.3692,
+      "counts": {
+        "tp": 12,
+        "fp": 8,
+        "fn": 33,
+        "tn": 194,
+        "total": 247
+      }
+    },
+    "b2_production": {
+      "agreement": 0.8057,
+      "precision": 0.4545,
+      "recall": 0.3333,
+      "f1": 0.3846,
+      "counts": {
+        "tp": 15,
+        "fp": 18,
+        "fn": 30,
+        "tn": 184,
+        "total": 247
+      }
+    },
+    "A": {
+      "agreement": 0.834,
+      "precision": 0.6,
+      "recall": 0.2667,
+      "f1": 0.3692,
+      "counts": {
+        "tp": 12,
+        "fp": 8,
+        "fn": 33,
+        "tn": 194,
+        "total": 247
+      }
+    },
+    "B2": {
+      "agreement": 0.8057,
+      "precision": 0.4545,
+      "recall": 0.3333,
+      "f1": 0.3846,
+      "counts": {
+        "tp": 15,
+        "fp": 18,
+        "fn": 30,
+        "tn": 184,
+        "total": 247
+      }
+    }
+  },
+  "delta_treatment_minus_baseline": {
+    "agreement": -0.0283,
+    "precision": -0.1455,
+    "recall": 0.0666,
+    "f1": 0.0154
+  },
+  "retrieval_metrics": {
+    "text_vl_enriched": {
+      "Recall@10": 0.202962,
+      "Recall@20": 0.321237,
+      "MRR@10": 0.35256
+    },
+    "b2_production": {
+      "Recall@10": 0.352307,
+      "Recall@20": 0.506494,
+      "MRR@10": 0.646508
+    }
+  },
+  "helps_hurts": {
+    "helps_count": 17,
+    "hurts_count": 24,
+    "net": -7
+  },
+  "helps": [
+    {
+      "query_id": "cq_002",
+      "font_name": "Kumbh Sans",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_003",
+      "font_name": "Kumbh Sans",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Goblin One",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_008",
+      "font_name": "Playwrite CL Guides",
+      "human": 0,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_009",
+      "font_name": "Sometype Mono",
+      "human": 0,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Send Flowers",
+      "human": 0,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_011",
+      "font_name": "Madimi One",
+      "human": 0,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_012",
+      "font_name": "Esteban",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Google Sans Code",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Source Code Pro",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Elsie Swash Caps",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Playwrite BR Guides",
+      "human": 0,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Pangolin",
+      "human": 0,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Bungee Inline",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Courier Prime",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Playwrite NG Modern Guides",
+      "human": 0,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_039",
+      "font_name": "Goblin One",
+      "human": 1,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    }
+  ],
+  "hurts": [
+    {
+      "query_id": "cq_010",
+      "font_name": "Ms Madi",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Patrick Hand",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_010",
+      "font_name": "Playwrite US Trad Guides",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "IBM Plex Mono",
+      "human": 1,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_015",
+      "font_name": "Space Mono",
+      "human": 1,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Artifika",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Esteban",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_016",
+      "font_name": "Marcellus SC",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Calistoga",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_019",
+      "font_name": "Sarina",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Artifika",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_021",
+      "font_name": "Bentham",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_024",
+      "font_name": "Material Symbols",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_025",
+      "font_name": "Iceberg",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Macondo",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Tienne",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_029",
+      "font_name": "Xanh Mono",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Antic Slab",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_030",
+      "font_name": "Port Lligat Slab",
+      "human": 0,
+      "baseline_pred": 0,
+      "treatment_pred": 1
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Playwrite CZ Guides",
+      "human": 1,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_038",
+      "font_name": "Playwrite RO Guides",
+      "human": 1,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "IBM Plex Mono",
+      "human": 1,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Roboto Mono",
+      "human": 1,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    },
+    {
+      "query_id": "cq_040",
+      "font_name": "Space Mono",
+      "human": 1,
+      "baseline_pred": 1,
+      "treatment_pred": 0
+    }
+  ]
+}

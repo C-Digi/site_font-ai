@@ -1,0 +1,35 @@
+{
+  "success": false,
+  "summary": "NO-GO",
+  "gates": {
+    "G1 (Agreement Delta)": {
+      "status": "FAIL",
+      "value": -0.0283,
+      "threshold": ">= 0.01"
+    },
+    "G2 (Precision Delta)": {
+      "status": "FAIL",
+      "value": -0.1455,
+      "threshold": ">= -0.02"
+    },
+    "G3 (Helps/Hurts Net)": {
+      "status": "FAIL",
+      "value": -7,
+      "threshold": "> 0"
+    },
+    "G4 (Visual QA)": {
+      "status": "PENDING",
+      "value": "Manual",
+      "threshold": "Zero clipping/overlap"
+    }
+  },
+  "metadata": {
+    "run_id": "p5_03a_b2_vs_text",
+    "variant_id": "p5_03a_vl_reeval",
+    "baseline": "text_vl_enriched",
+    "treatment": "b2_production",
+    "seed": 42,
+    "repeats": 1,
+    "governance_semantics_changed": false
+  }
+}
