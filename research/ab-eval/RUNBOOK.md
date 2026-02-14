@@ -465,6 +465,39 @@ Method invariants (locked for this run):
 
 - `artifacts/<run_id>/report.md`
 
+### 4.7 Running P5-05A Coverage Sufficiency Audit (Pre-Trial Gate)
+
+To run the bounded pre-trial signal-quality audit (Phase 5, Ticket P5-05A):
+
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_p5_05a_coverage_audit.py
+```
+
+Optional threshold overrides:
+
+```powershell
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_p5_05a_coverage_audit.py --motif-min 3 --sample-floor 10 --min-penalty-applicability-share 0.10 --min-rank-shift-opportunities 1
+```
+
+This produces:
+
+- `research/ab-eval/out/p5_05a_coverage_audit.json`
+- `research/ab-eval/REPORT_P5_05A_COVERAGE_AUDIT.md`
+
+Audit checks (deterministic):
+
+- `motif_coverage`: each targeted motif has at least `N` qualifying curated pairs (`--motif-min`, default `3`)
+- `sample_floor`: total curated pairs is at least `M` (`--sample-floor`, default `10`)
+- `penalty_applicability`: sufficient share of curated pairs where intervention penalties can actually trigger
+- `rank_shift_opportunity`: estimated boundary flip opportunity based on baseline margins near rank-10 boundary (ranks 8-12 when available)
+
+Decision semantics:
+
+- `coverage_decision=SUFFICIENT` -> directional intervention delegates may proceed under `CONTINUE_SAFE`.
+- `coverage_decision=INSUFFICIENT` -> directional intervention delegates should `RETURN_RETRY` and follow remediation guidance from the audit report.
+
+**Policy Note:** P5-05A is a pre-trial signal-quality gate only. It does not alter canonical promotion gate semantics (G1/G2/G3/G4).
+
 ---
 
 ## 4) Definition of DONE (offline evaluation)

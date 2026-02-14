@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "run_id": "p5_05a_coverage_audit",
+    "timestamp_utc": "2026-02-14T05:59:49.490896+00:00",
+    "status": "RETURN_RETRY",
+    "continue_mode": "RETURN_RETRY",
+    "deterministic": true,
+    "seed": 42,
+    "scope": "offline_research_only",
+    "pretrial_gate_only": true,
+    "promotion_gate_changed": false,
+    "governance_semantics_note": "This audit is a pre-trial signal-quality gate only. G1/G2/G3/G4 promotion gate semantics remain unchanged.",
+    "label_policy_alignment": "2->0 applied where labels are consumed in promotion-metric-adjacent paths."
+  },
+  "preflight": {
+    "inputs_checked": [
+      "research/ab-eval/out/p5_04a_hardneg_candidate.json",
+      "research/ab-eval/out/g3_v3_gated_results.json",
+      "research/ab-eval/out/full_set_review_export_1770612809775.json",
+      "research/ab-eval/data/queries.medium.human.v1.json",
+      "research/ab-eval/data/corpus.200.json"
+    ],
+    "blockers": [],
+    "assumptions_applied": [
+      "Motif minimum default is 3 pairs per targeted motif (configurable).",
+      "Sample floor default is 10 total pairs (configurable).",
+      "Rank-shift opportunity uses baseline score margins around the top-10 boundary (ranks 8-12 when available).",
+      "Audit is executed after curation and before intervention execution."
+    ]
+  },
+  "parameters": {
+    "motif_min": 3,
+    "sample_floor": 10,
+    "min_penalty_applicability_share": 0.1,
+    "min_rank_shift_opportunities": 1
+  },
+  "checks": {
+    "motif_coverage": {
+      "status": "FAIL",
+      "required_min_pairs_per_targeted_motif": 3,
+      "targeted_motifs": [
+        "over_strict_semantic",
+        "vintage_era"
+      ],
+      "counts": {
+        "over_strict_semantic": 0,
+        "vintage_era": 12
+      },
+      "deficits": [
+        {
+          "motif": "over_strict_semantic",
+          "required_min": 3,
+          "actual": 0
+        }
+      ]
+    },
+    "sample_floor": {
+      "status": "PASS",
+      "required_min_total_pairs": 10,
+      "total_pairs": 12,
+      "shortfall": 0
+    },
+    "penalty_applicability": {
+      "status": "PASS",
+      "min_share": 0.1,
+      "applicable_pairs": 12,
+      "total_pairs": 12,
+      "share": 1.0,
+      "applicable_by_motif": {
+        "over_strict_semantic": 0,
+        "vintage_era": 12
+      },
+      "pair_level": [
+        {
+          "query_id": "cq_024",
+          "font_name": "Holtwood One SC",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_024",
+          "font_name": "Pangolin",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_024",
+          "font_name": "Passion One",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_025",
+          "font_name": "Noto Sans Nag Mundari",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_025",
+          "font_name": "Reddit Mono",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_025",
+          "font_name": "Roboto Flex",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_025",
+          "font_name": "TASA Orbiter",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_029",
+          "font_name": "Amaranth",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_029",
+          "font_name": "Anonymous Pro",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_029",
+          "font_name": "Edu NSW ACT Hand Pre",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_029",
+          "font_name": "Goblin One",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        },
+        {
+          "query_id": "cq_029",
+          "font_name": "Macondo",
+          "motif": "vintage_era",
+          "penalty_can_trigger": true,
+          "penalty_amount": 0.12,
+          "penalty_reason": "vintage_term_absent"
+        }
+      ]
+    },
+    "rank_shift_opportunity": {
+      "status": "PASS",
+      "min_estimated_boundary_flip_count": 1,
+      "estimated_boundary_flip_count": 3,
+      "selected_queries_analyzed": 3,
+      "boundary_windows_analyzed": 2,
+      "boundary_margin_stats": {
+        "count": 1,
+        "min": 0.0,
+        "max": 0.0,
+        "avg": 0.0
+      },
+      "per_query": [
+        {
+          "query_id": "cq_024",
+          "window_available": false,
+          "reason": "fewer_than_10_baseline_rows",
+          "window_ranks_8_12": [],
+          "boundary_margin_rank10_minus_rank11": null,
+          "estimated_boundary_flip_count": 0
+        },
+        {
+          "query_id": "cq_025",
+          "window_available": true,
+          "reason": "ok",
+          "window_ranks_8_12": [
+            {
+              "rank": 8,
+              "font_name": "Bungee Inline",
+              "baseline_score": 0.9,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": null,
+              "potential_boundary_flip": false
+            },
+            {
+              "rank": 9,
+              "font_name": "Kumbh Sans",
+              "baseline_score": 0.9,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": null,
+              "potential_boundary_flip": false
+            },
+            {
+              "rank": 10,
+              "font_name": "Kumar One",
+              "baseline_score": 0.85,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": null,
+              "potential_boundary_flip": false
+            }
+          ],
+          "boundary_margin_rank10_minus_rank11": null,
+          "estimated_boundary_flip_count": 0
+        },
+        {
+          "query_id": "cq_029",
+          "window_available": true,
+          "reason": "ok",
+          "window_ranks_8_12": [
+            {
+              "rank": 8,
+              "font_name": "Noto Sans Adlam",
+              "baseline_score": 1.0,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": 0.0,
+              "potential_boundary_flip": true
+            },
+            {
+              "rank": 9,
+              "font_name": "Noto Sans Balinese",
+              "baseline_score": 1.0,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": 0.0,
+              "potential_boundary_flip": true
+            },
+            {
+              "rank": 10,
+              "font_name": "Passion One",
+              "baseline_score": 1.0,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": 0.0,
+              "potential_boundary_flip": true
+            },
+            {
+              "rank": 11,
+              "font_name": "Sixtyfour",
+              "baseline_score": 1.0,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": null,
+              "potential_boundary_flip": false
+            },
+            {
+              "rank": 12,
+              "font_name": "Tienne",
+              "baseline_score": 1.0,
+              "motif": "vintage_era",
+              "penalty_can_trigger": true,
+              "penalty_amount": 0.12,
+              "penalty_reason": "vintage_term_absent",
+              "margin_to_rank11": null,
+              "potential_boundary_flip": false
+            }
+          ],
+          "boundary_margin_rank10_minus_rank11": 0.0,
+          "estimated_boundary_flip_count": 3
+        }
+      ]
+    }
+  },
+  "coverage_decision": "INSUFFICIENT",
+  "delegate_guidance": {
+    "future_intervention_delegate_action": "RETURN_RETRY",
+    "remediation_guidance": [
+      "Increase curated pairs for under-covered targeted motifs until each motif reaches the configured minimum."
+    ]
+  }
+}

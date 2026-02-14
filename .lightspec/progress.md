@@ -73,6 +73,13 @@
   - [x] Applied directional penalties (`vintage_era` / `over_strict_semantic`) with stable re-ranking
   - [x] Result: NO-GO (directional slice; neutral deltas, G1 fail, G3 fail, G2 pass)
   - [x] Artifacts: `REPORT_P5_04A_HARDNEG.md`, variant/comparison/gates JSON
+- [x] P5-05A: Coverage Sufficiency Audit (Pre-Trial Hardening)
+  - [x] Implemented deterministic pre-trial audit runner: `run_p5_05a_coverage_audit.py`
+  - [x] Added readiness preflight for required inputs with explicit `RETURN_RETRY` blocker/remediation path
+  - [x] Implemented required checks: motif coverage, sample floor, penalty applicability, rank-shift opportunity (ranks 8-12 boundary analysis)
+  - [x] Added explicit `coverage_decision` (`SUFFICIENT|INSUFFICIENT`) and delegate guidance (`CONTINUE_SAFE|RETURN_RETRY`)
+  - [x] Result: `coverage_decision=INSUFFICIENT` (motif imbalance: `over_strict_semantic` below minimum)
+  - [x] Artifacts: `REPORT_P5_05A_COVERAGE_AUDIT.md`, `out/p5_05a_coverage_audit.json`
 - [x] P5-03A: VL Embedding-Path Re-evaluation (B2 vs VL-enriched text-only baseline)
   - [x] Implemented bounded offline evaluator: `run_p5_03a_vl_reeval.py`
   - [x] Deterministic controls: seed=42, repeats=1, label remap `2 -> 0`
