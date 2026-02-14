@@ -66,62 +66,6 @@ do HITL check of latest test data
 
 
 
-
-## Possible Color Schemes
-
---text: #050708;
---background: #f5f9fb;
---primary: #33a2d2;
---secondary: #80d0f2;
---accent: #48c7fe;
-
-
---text: #09130e;
---background: #f1faf6;
---primary: #47cd92;
---secondary: #8be8bf;
---accent: #62eaae;
-
-
---text: #071313;
---background: #effbfb;
---primary: #30dfdc;
---secondary: #7bf4f2;
---accent: #4ffcf7;
-
-
---text: #eaf6f2;
---background: #020303;
---primary: #33c1a0;
---secondary: #187c63;
---accent: #14a380;
-
-
---text: #0c1518;
---background: #f0f8fa;
---primary: #49adc5;
---secondary: #98d7e6;
---accent: #64cbe3;
-
---text: #0c151d;
---background: #f4f8fb;
---primary: #568ac2;
---secondary: #9abcdf;
---accent: #72a2d5;
-
---text: #0d0f16;
---background: #f3f4f9;
---primary: #5468b3;
---secondary: #a0acdb;
---accent: #7185d2;
-
---text: #050505;
---background: #f6f9f7;
---primary: #54ab64;
---secondary: #98dda4;
---accent: #6be180;
-
-
 ## Address Options 
 
 type-hype.com

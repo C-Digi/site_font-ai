@@ -17,9 +17,11 @@
       "threshold": "> 0"
     },
     "G4 (Visual QA)": {
-      "status": "PENDING",
-      "value": "Manual",
-      "threshold": "Zero clipping/overlap"
+      "status": "PASS",
+      "value": "Verified",
+      "threshold": "Zero clipping/overlap",
+      "evidence": "research/ab-eval/QA_P5_07A_G4_VISUAL.md"
     }
-  }
+  },
+  "overall_status": "PASS"
 }

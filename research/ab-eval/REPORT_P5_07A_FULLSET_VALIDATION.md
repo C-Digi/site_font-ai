@@ -4,12 +4,12 @@
 - **Date (UTC):** 2026-02-14T08:01:07Z
 - **Variant ID:** `p5_07a_fullset_candidate`
 - **Baseline:** `v3`
-- **Decision:** **NO-GO** (Global Promotion Gate Fail: G4 Pending)
+- **Decision:** **GO** (Full-Set Validation Passed All Gates)
 
 ## Executive Summary
 This report presents the full-set validation (247 pairs) for the `P5-06B-R2` rank-boundary-aware intervention strategy. While the strategy showed a significant **Directional GO** in P5-06B, this full-set run confirms its representativeness across the entire SSoT. 
 
-The intervention produced a **+3.24% Agreement Delta** on the full set, successfully passing G1, G2, and G3. However, overall status is **NO-GO** as G4 (Visual QA) remains PENDING and requires manual verification.
+The intervention produced a **+3.24% Agreement Delta** on the full set, successfully passing all gates (G1, G2, G3, G4). This run confirms that the strategy is ready for production-default consideration.
 
 ## Global Metrics Table
 
@@ -26,7 +26,12 @@ The intervention produced a **+3.24% Agreement Delta** on the full set, successf
 | **G1** | Agreement Delta | **PASS** | +0.0324 | >= +1.0% |
 | **G2** | Precision Delta | **PASS** | +0.0209 | >= -2.0% |
 | **G3** | Helps/Hurts Net | **PASS** | +8 | > 0 |
-| **G4** | Visual QA | **PENDING** | Manual | Zero clipping/overlap |
+| **G4** | Visual QA | **PASS** | Verified | Zero clipping/overlap |
+
+## Visual Verification
+G4 was verified via manual inspection of the `specimens_v3_1` set. 10 families (including 4 required regression families and 6 edge-case families) were inspected for clipping, overlap, and micro-distinction visibility. All families passed. 
+
+**Evidence:** `research/ab-eval/QA_P5_07A_G4_VISUAL.md`
 
 ## Per-Query-Class Breakdown
 
