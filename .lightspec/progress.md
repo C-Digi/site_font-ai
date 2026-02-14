@@ -66,6 +66,11 @@
   - [x] Finding: MS-MARCO trained on web search, not font relevance; neutral helps/hurts
   - [x] Artifacts: `REPORT_P5_02A_LEARNED_RERANK.md`, comparison/gates JSON
 - [ ] P5-02B: Hard-Negative Curation (pending)
+- [x] P5-03A: VL Embedding-Path Re-evaluation (B2 vs VL-enriched text-only baseline)
+  - [x] Implemented bounded offline evaluator: `run_p5_03a_vl_reeval.py`
+  - [x] Deterministic controls: seed=42, repeats=1, label remap `2 -> 0`
+  - [x] Result: NO-GO (G1 -2.83%, G2 -14.55%, G3 net -7)
+  - [x] Artifacts: `REPORT_P5_03A_VL_REEVAL.md`, comparison/gates JSON
 - [ ] P5-03: Domain-Specific Reranker Training (pending)
 
 ### Next-Phase: Productization & Scale (Feb 20+)
