@@ -9,6 +9,11 @@ Scope:
 Outputs:
 - research/ab-eval/out/p5_04a_hardneg_candidate.json
 - research/ab-eval/out/p5_04a_v3_vs_hardneg_comparison.json
+
+P5-06B Extension:
+- Rank-boundary-aware penalty scaling
+- Flip-feasibility pre-run check
+- Boundary-flip diagnostics in output
 """
 
 from __future__ import annotations
@@ -26,6 +31,12 @@ from typing import Any, Dict, List, Optional, Tuple
 VINTAGE_TERMS = ["vintage", "retro", "classic", "old-school", "art deco", "70s", "80s"]
 STRICT_TERMS = ["exact", "literally", "strictly", "must", "only", "precise"]
 MOTIFS = ("over_strict_semantic", "vintage_era")
+
+# P5-06B: Rank-boundary-aware scaling parameters
+DEFAULT_VINTAGE_PENALTY = 0.20
+DEFAULT_STRICT_PENALTY = 0.18
+RANK_SCALING_FACTOR = 0.15  # scaled_penalty = base_penalty * (1 + (10 - baseline_rank) * 0.15)
+FLIP_FEASIBILITY_THRESHOLD = 0.08  # margin_to_boundary <= 0.08 required
 
 # Keep deterministic strict-cue assignment in sync with P5-05A coverage audit.
 STRICT_USE_CASE_PATTERN = re.compile(
@@ -178,6 +189,75 @@ def build_font_text(font: Dict[str, Any]) -> str:
     ).strip()
 
 
+def compute_scaled_penalty(base_penalty: float, baseline_rank: int) -> float:
+    """
+    P5-06B: Rank-boundary-aware penalty scaling.
+    
+    Formula: scaled_penalty = base_penalty * (1 + (10 - baseline_rank) * RANK_SCALING_FACTOR)
+    
+    Higher-ranked items (closer to rank 1) get larger penalties because:
+    - They have more influence on top-10 membership
+    - Demoting them has more impact on precision metrics
+    """
+    if baseline_rank < 1 or baseline_rank > 10:
+        return base_penalty  # No scaling for out-of-range ranks
+    scaling_multiplier = 1 + (10 - baseline_rank) * RANK_SCALING_FACTOR
+    return base_penalty * scaling_multiplier
+
+
+def check_flip_feasibility(
+    details_by_query: Dict[str, List[Dict[str, Any]]],
+    baseline_rank_by_key: Dict[Tuple[str, str], int],
+    selected: List[Dict[str, Any]],
+    threshold: float = FLIP_FEASIBILITY_THRESHOLD,
+) -> Tuple[bool, List[Dict[str, Any]]]:
+    """
+    P5-06B: Pre-run flip-feasibility check.
+    
+    Returns (is_feasible, boundary_candidates) where boundary_candidates
+    contains pairs with margin_to_boundary <= threshold.
+    """
+    boundary_candidates = []
+    
+    for s in selected:
+        qid = s["query_id"]
+        baseline_rank = s["baseline_rank"]
+        
+        # Get all rows for this query sorted by confidence
+        rows = sorted(
+            details_by_query.get(qid, []),
+            key=lambda x: (-float(x.get("confidence", 0.0)), x.get("font_name", ""))
+        )
+        
+        # Find rank 10 and rank 11 scores to compute margin
+        if len(rows) >= 11:
+            rank_10_score = float(rows[9].get("confidence", 0.0)) if len(rows) > 9 else 0.0
+            rank_11_score = float(rows[10].get("confidence", 0.0)) if len(rows) > 10 else 0.0
+            margin = rank_10_score - rank_11_score
+            
+            if margin <= threshold:
+                boundary_candidates.append({
+                    "query_id": qid,
+                    "font_name": s["font_name"],
+                    "baseline_rank": baseline_rank,
+                    "margin_to_boundary": margin,
+                    "rank_10_score": rank_10_score,
+                    "rank_11_score": rank_11_score,
+                })
+        elif baseline_rank >= 8:
+            # Fewer than 11 rows, but candidate is near boundary
+            boundary_candidates.append({
+                "query_id": qid,
+                "font_name": s["font_name"],
+                "baseline_rank": baseline_rank,
+                "margin_to_boundary": 0.0,  # Assume tight boundary
+                "rank_10_score": float(rows[-1].get("confidence", 0.0)) if rows else 0.0,
+                "rank_11_score": None,
+            })
+    
+    return len(boundary_candidates) > 0, boundary_candidates
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run P5-04A hard-negative curation + directional intervention trial")
     parser.add_argument("--ssot", default="research/ab-eval/out/full_set_review_export_1770612809775.json")
@@ -192,6 +272,17 @@ def main() -> None:
     parser.add_argument("--variant-id", default="p5_04a_hardneg_candidate")
     parser.add_argument("--variant-out", default="research/ab-eval/out/p5_04a_hardneg_candidate.json")
     parser.add_argument("--comparison-out", default="research/ab-eval/out/p5_04a_v3_vs_hardneg_comparison.json")
+    # P5-06B: Rank-boundary-aware penalty scaling arguments
+    parser.add_argument("--vintage-penalty", type=float, default=DEFAULT_VINTAGE_PENALTY,
+                        help="Base penalty for vintage_era motif (default: 0.20)")
+    parser.add_argument("--strict-penalty", type=float, default=DEFAULT_STRICT_PENALTY,
+                        help="Base penalty for over_strict_semantic motif (default: 0.18)")
+    parser.add_argument("--rank-scaling", action="store_true", default=True,
+                        help="Enable rank-boundary-aware penalty scaling (default: True)")
+    parser.add_argument("--no-rank-scaling", action="store_true", default=False,
+                        help="Disable rank-boundary-aware penalty scaling")
+    parser.add_argument("--flip-feasibility-check", action="store_true", default=True,
+                        help="Enable pre-run flip-feasibility check (default: True)")
     args = parser.parse_args()
 
     random.seed(args.seed)
@@ -332,14 +423,36 @@ def main() -> None:
         print("- Verify baseline ranking artifact and adjudicated labels coverage for motif-mapped queries.")
         sys.exit(2)
 
+    # P5-06B: Pre-run flip-feasibility check
+    enable_rank_scaling = not getattr(args, "no_rank_scaling", False)
+    enable_flip_check = getattr(args, "flip_feasibility_check", True)
+    
+    flip_feasible = True
+    boundary_candidates: List[Dict[str, Any]] = []
+    
+    if enable_flip_check:
+        flip_feasible, boundary_candidates = check_flip_feasibility(
+            details_by_query, baseline_rank_by_key, selected, FLIP_FEASIBILITY_THRESHOLD
+        )
+        if not flip_feasible:
+            print("RETURN_RETRY")
+            print("Flip-feasibility check failed:")
+            print(f"- No eligible candidate has margin_to_boundary <= {FLIP_FEASIBILITY_THRESHOLD}")
+            print("- Cannot proceed with directional intervention trial.")
+            print("Remediation:")
+            print("- Adjust penalty magnitudes or select different hard-negative pairs with tighter boundary margins.")
+            sys.exit(2)
+
     selected_queries = sorted({s["query_id"] for s in selected})
 
     # Directional intervention: start from baseline confidence score and apply motif penalties.
+    # P5-06B: Apply rank-boundary-aware penalty scaling when enabled.
     treatment_top10_by_query: Dict[str, set] = {}
     treatment_rank_by_key: Dict[Tuple[str, str], int] = {}
     treatment_score_by_key: Dict[Tuple[str, str], float] = {}
     penalty_by_key: Dict[Tuple[str, str], float] = {}
     penalty_reason_by_key: Dict[Tuple[str, str], str] = {}
+    boundary_flip_diagnostics: List[Dict[str, Any]] = []
 
     query_rankings: Dict[str, Dict[str, Any]] = {}
 
@@ -358,19 +471,29 @@ def main() -> None:
                 continue
             base_score = float(row.get("confidence", 0.0))
             font_text = build_font_text(corpus_map.get(fname, {"name": fname}))
+            
+            # Get baseline rank for this font
+            baseline_rank = baseline_rank_by_key.get((qid, fname), 999)
 
             penalty = 0.0
+            base_penalty = 0.0
             reason = "none"
 
             if motif == "vintage_era":
                 if not contains_any_term(font_text, VINTAGE_TERMS):
-                    penalty = 0.12
+                    base_penalty = args.vintage_penalty
                     reason = "vintage_term_absent"
             elif motif == "over_strict_semantic":
                 cand_tokens = set(tokenize(font_text))
                 if q_tokens and len(cand_tokens & q_tokens) == 0:
-                    penalty = 0.10
+                    base_penalty = args.strict_penalty
                     reason = "strict_query_token_miss"
+
+            # P5-06B: Apply rank-boundary-aware scaling
+            if enable_rank_scaling and base_penalty > 0 and baseline_rank <= 10:
+                penalty = compute_scaled_penalty(base_penalty, baseline_rank)
+            else:
+                penalty = base_penalty
 
             adjusted_score = max(0.0, base_score - penalty)
 
@@ -386,7 +509,9 @@ def main() -> None:
                     "baseline_confidence": base_score,
                     "adjusted_score": adjusted_score,
                     "penalty": penalty,
+                    "base_penalty": base_penalty,
                     "penalty_reason": reason,
+                    "baseline_rank": baseline_rank,
                 }
             )
 
@@ -399,11 +524,51 @@ def main() -> None:
         for i, r in enumerate(reranked, start=1):
             treatment_rank_by_key[(qid, r["font_name"])] = i
 
+        # P5-06B: Collect boundary-flip diagnostics
+        baseline_top10_names = [r.get("font_name", "") for r in baseline_rows[:10]]
+        treatment_top10_names = [r.get("font_name", "") for r in reranked[:10]]
+        
+        # Check for boundary flips (items that moved across the top-10 boundary)
+        baseline_top10_set = set(baseline_top10_names)
+        treatment_top10_set = set(treatment_top10_names)
+        
+        exited_top10 = baseline_top10_set - treatment_top10_set
+        entered_top10 = treatment_top10_set - baseline_top10_set
+        
+        for exited in exited_top10:
+            # Find the row for this font
+            for r in adjusted_rows:
+                if r["font_name"] == exited:
+                    boundary_flip_diagnostics.append({
+                        "query_id": qid,
+                        "font_name": exited,
+                        "flip_type": "exited_top10",
+                        "baseline_rank": r["baseline_rank"],
+                        "treatment_rank": treatment_rank_by_key.get((qid, exited)),
+                        "penalty_applied": r["penalty"],
+                        "adjusted_score": r["adjusted_score"],
+                    })
+                    break
+        
+        for entered in entered_top10:
+            for r in adjusted_rows:
+                if r["font_name"] == entered:
+                    boundary_flip_diagnostics.append({
+                        "query_id": qid,
+                        "font_name": entered,
+                        "flip_type": "entered_top10",
+                        "baseline_rank": r["baseline_rank"],
+                        "treatment_rank": treatment_rank_by_key.get((qid, entered)),
+                        "penalty_applied": r["penalty"],
+                        "adjusted_score": r["adjusted_score"],
+                    })
+                    break
+
         query_rankings[qid] = {
             "query_text": qtext,
             "motif": motif,
-            "baseline_top10": [r.get("font_name", "") for r in baseline_rows[:10]],
-            "treatment_top10": [r.get("font_name", "") for r in reranked[:10]],
+            "baseline_top10": baseline_top10_names,
+            "treatment_top10": treatment_top10_names,
             "penalized_count": sum(1 for r in reranked if r["penalty"] > 0),
         }
 
@@ -540,11 +705,22 @@ def main() -> None:
         "selected_pairs": selected_eval_rows,
         "intervention": {
             "variant_id": args.variant_id,
-            "vintage_penalty": 0.12,
-            "strict_penalty": 0.10,
+            "vintage_penalty": args.vintage_penalty,
+            "strict_penalty": args.strict_penalty,
+            "rank_scaling_enabled": enable_rank_scaling,
+            "rank_scaling_factor": RANK_SCALING_FACTOR if enable_rank_scaling else None,
             "score_floor": 0.0,
             "rerank_tie_break": "adjusted_score desc, then baseline_confidence desc, then font_name asc",
             "query_rankings": query_rankings,
+        },
+        "p5_06b_diagnostics": {
+            "flip_feasibility_check": enable_flip_check,
+            "flip_feasibility_threshold": FLIP_FEASIBILITY_THRESHOLD,
+            "flip_feasibility_passed": flip_feasible,
+            "boundary_candidates_count": len(boundary_candidates),
+            "boundary_candidates": boundary_candidates,
+            "boundary_flip_diagnostics": boundary_flip_diagnostics,
+            "boundary_flips_occurred": len(boundary_flip_diagnostics),
         },
     }
 
@@ -560,6 +736,7 @@ def main() -> None:
             "gating_scope": "directional_slice_only",
             "governance_semantics_changed": False,
             "directional_not_global_promotion": True,
+            "p5_06b_rank_scaling": enable_rank_scaling,
         },
         "variants": {
             "v3": baseline_metrics,
@@ -578,6 +755,7 @@ def main() -> None:
         "selected_motif_counts": motif_counts,
         "helps": helps,
         "hurts": hurts,
+        "p5_06b_boundary_flips": boundary_flip_diagnostics,
     }
 
     variant_out_path = Path(args.variant_out)
@@ -598,6 +776,8 @@ def main() -> None:
     print(f"Motif counts: {motif_counts}")
     print(f"Helps/Hurts/Net: {len(helps)}/{len(hurts)}/{len(helps)-len(hurts)}")
     print(f"Delta agreement: {delta['agreement']:+.4f}")
+    print(f"Rank scaling enabled: {enable_rank_scaling}")
+    print(f"Boundary flips occurred: {len(boundary_flip_diagnostics)}")
     print("Governance semantics unchanged: True")
 
 
