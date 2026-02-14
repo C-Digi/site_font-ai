@@ -1,0 +1,41 @@
+{
+  "success": false,
+  "gates": {
+    "G1 (Agreement Delta)": {
+      "status": "PASS",
+      "value": 0.1903,
+      "threshold": ">= 0.01"
+    },
+    "G2 (Precision Delta)": {
+      "status": "FAIL",
+      "value": -0.1428,
+      "threshold": ">= -0.02"
+    },
+    "G3 (Helps/Hurts Net)": {
+      "status": "FAIL",
+      "value": 0,
+      "threshold": "> 0"
+    },
+    "G4 (Visual QA)": {
+      "status": "PENDING",
+      "value": "Manual",
+      "threshold": "Zero clipping/overlap"
+    }
+  },
+  "metadata": {
+    "run_id": "p5_02a_learned_rerank",
+    "variant_id": "p5_02a_learned_rerank",
+    "baseline": "v3",
+    "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "top_k": 20,
+    "alpha": 0.6,
+    "best_threshold": 0.45,
+    "threshold_sweep": [
+      0.4,
+      0.45,
+      0.5
+    ],
+    "seed": 42,
+    "timestamp": "2026-02-14T03:46:52.533292Z"
+  }
+}

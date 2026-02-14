@@ -420,6 +420,21 @@ This produces:
 
 **Note:** P5-01 resulted in NO-GO due to G2 (Precision Delta) failure. The token-overlap reranker is not discriminative enough for font relevance.
 
+### 4.5 Running P5-02A Learned Reranker Trial
+
+To run the learned cross-encoder reranker evaluation (Phase 5, Ticket P5-02A):
+```powershell
+.\.venv-ab-eval\Scripts\pip install sentence-transformers
+.\.venv-ab-eval\Scripts\python research/ab-eval/py/run_p5_02a_learned_rerank.py
+```
+
+This produces:
+- `research/ab-eval/out/p5_02a_v3_vs_p5_02a_comparison.json`
+- `research/ab-eval/out/p5_02a_v3_vs_p5_02a_gates.json`
+- `research/ab-eval/REPORT_P5_02A_LEARNED_RERANK.md`
+
+**Note:** P5-02A resulted in NO-GO due to G2 (Precision Delta) and G3 (Helps/Hurts Net) failures. The MS-MARCO cross-encoder is trained on web search relevance, not typographic/visual font matching.
+
 - `artifacts/<run_id>/report.md`
 
 ---

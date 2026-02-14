@@ -60,8 +60,13 @@
   - [x] Result: NO-GO (G2 Precision Delta failure: -13.35%)
   - [x] Finding: Token-overlap reranker not discriminative enough for font relevance
   - [x] Artifacts: `REPORT_P5_01_RERANK_CALIB.md`, comparison/gates JSON
-- [ ] P5-02: Hard-Negative Curation (pending)
-- [ ] P5-03: Learned Reranker Evaluation (pending)
+- [x] P5-02A: Learned Reranker Trial (cross-encoder)
+  - [x] Implemented cross-encoder reranker (`ms-marco-MiniLM-L-6-v2`)
+  - [x] Result: NO-GO (G2 Precision Delta: -14.28%, G3 Helps/Hurts Net: 0)
+  - [x] Finding: MS-MARCO trained on web search, not font relevance; neutral helps/hurts
+  - [x] Artifacts: `REPORT_P5_02A_LEARNED_RERANK.md`, comparison/gates JSON
+- [ ] P5-02B: Hard-Negative Curation (pending)
+- [ ] P5-03: Domain-Specific Reranker Training (pending)
 
 ### Next-Phase: Productization & Scale (Feb 20+)
 - **Strategic Direction:** Non-prompt pivot (structural quality) and foundational product build-out.
