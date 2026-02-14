@@ -542,3 +542,57 @@ Treat these as defaults; adjust only if you write down the rationale in the run 
 - **NO-GO:** No meaningful improvement, or large regressions / operational infeasibility.
   - Next: keep baseline; consider alternative improvements (better text proxy, structured metrics, reranker).
 
+---
+
+## 6) Rollout Governance Checklist
+
+After a strategy passes all canonical gates (G1-G4), staged rollout is required before production-default activation. This checklist ensures safe deployment with monitoring and rollback readiness.
+
+### 6.1 Pre-Deployment Verification
+
+- [ ] **Environment parity confirmed:** Staging/production environment matches validation environment (dependencies, config, runtime versions).
+- [ ] **Feature flag implemented:** Strategy is behind a feature flag or config toggle enabling gradual exposure.
+- [ ] **Baseline metrics captured:** Current production metrics (Agreement, Precision, latency, error rate) recorded for comparison.
+- [ ] **Rollback procedure documented:** Step-by-step rollback instructions verified and accessible.
+
+### 6.2 Staged Exposure Tiers
+
+Recommended exposure progression:
+
+| Tier | Exposure | Duration | Gate |
+| :--- | :--- | :--- | :--- |
+| Canary | 1-5% | 24-48h | No critical errors; metrics stable |
+| Early | 10% | 48-72h | No Agreement drop > 1%; no Precision drop > 2% |
+| Mid | 50% | 72-96h | No Agreement drop > 2%; no Precision drop > 3% |
+| Full | 100% | Ongoing | All metrics within thresholds |
+
+### 6.3 Monitoring Thresholds
+
+During staged rollout, monitor the following:
+
+| Metric | Warning Threshold | Critical Threshold |
+| :--- | :--- | :--- |
+| Agreement | Drop > 1% | Drop > 2% |
+| Precision | Drop > 2% | Drop > 5% |
+| Latency (p95) | Increase > 20% | Increase > 50% |
+| Error Rate | > 0.1% | > 0.5% |
+
+### 6.4 Rollback Criteria
+
+Initiate immediate rollback if any of the following occur:
+
+- Agreement drop exceeds 2% relative to baseline.
+- Precision drop exceeds 5% relative to baseline.
+- Latency p95 increases by more than 50%.
+- Error rate exceeds 0.5% of requests.
+- Any critical user-facing issue reported.
+
+### 6.5 Post-Rollout Validation
+
+After reaching 100% exposure:
+
+- [ ] Confirm metrics stabilize at expected levels.
+- [ ] Verify no regression in edge-case query classes.
+- [ ] Update production-default documentation.
+- [ ] Archive feature flag (optional, after stabilization period).
+

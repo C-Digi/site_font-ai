@@ -23,6 +23,9 @@ The system supports experimental segmented routing for LLM auditing:
 ### Promotion Representativeness Gate
 Targeted slice wins (for example OEM-only slices) are directional signals, not sufficient promotion evidence for global production-default changes. Any prompt/policy promotion must pass canonical full-set governance gates before rollout. See [DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go](./decisions/DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md).
 
+### P5-07A Full-Set Promotion Decision
+The rank-boundary-aware intervention strategy (P5-06B-R2) passed all canonical gates on full-set validation (247 pairs) and is approved for staged rollout to production. Staged rollout is required before production-default activation. See [DEC-20260214-01-p5-07a-fullset-promotion](./decisions/DEC-20260214-01-p5-07a-fullset-promotion.md).
+
 ## Completed
 
 ### Production Retrieval Default Uses B2
@@ -45,6 +48,7 @@ Request-time search does not block on embedding generation; missing/unseeded rec
 - [DEC-20260211-01-evaluation-governance-lock](./decisions/DEC-20260211-01-evaluation-governance-lock.md)
 - [DEC-20260212-01-v4-1-segmented-gating-experiment](./decisions/DEC-20260212-01-v4-1-segmented-gating-experiment.md)
 - [DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go](./decisions/DEC-20260213-02-v5-1-oem-slice-go-fullset-no-go.md)
+- [DEC-20260214-01-p5-07a-fullset-promotion](./decisions/DEC-20260214-01-p5-07a-fullset-promotion.md)
 
 ## Scenarios
 - A user submits a complex visual-shape query and receives B2-ranked results without waiting for any new embeddings to be generated inline.

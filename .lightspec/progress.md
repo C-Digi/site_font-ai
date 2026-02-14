@@ -113,10 +113,24 @@
 - [x] P5-07A: Full-Set Representativeness Validation (P5-06B-R2 Strategy)
   - [x] Extended `run_p5_04a_hardneg_trial.py` with `--full-set` mode
   - [x] Executed full-set trial (247 pairs) with deterministic rank-scaling penalties
-  - [x] Result: NO-GO (G1/G2/G3 pass, G4 pending)
   - [x] Metrics: Agreement +3.24%, Precision +2.09%, Net Helps +8
   - [x] Boundary flips: 34 total (21 helps, 13 hurts)
   - [x] Artifacts: `REPORT_P5_07A_FULLSET_VALIDATION.md`, variant/comparison/gates JSON
+- [x] P5-07B: G4 Manual-Contextual Visual QA Completion
+  - [x] Verified 4 required regression specimens (Red Hat Mono, Playwrite).
+  - [x] Inspected 6 additional edge-case families (Sixtyfour, Faster One, Birthstone, etc.).
+  - [x] Result: G4 PASS (Zero clipping/overlap; micro-distinction visibility confirmed).
+  - [x] Artifacts: `QA_P5_07A_G4_VISUAL.md`, updated gates JSON.
+- [x] P5-07C: Promotion-Decision Package (Documentation/Governance)
+  - [x] Created ADR: `DEC-20260214-01-p5-07a-fullset-promotion.md`
+  - [x] Gate results: G1 +3.24%, G2 +2.09%, G3 net +8, G4 PASS
+  - [x] Gate semantics unchanged (per EVALUATION_CONTRACT.md)
+  - [x] Decision: GO for staged rollout
+- [ ] P5-07D: Staged Rollout Execution
+  - [ ] Pre-deployment verification (environment, config, dependencies)
+  - [ ] Staged exposure tiers (canary → 10% → 50% → 100%)
+  - [ ] Monitoring thresholds (Agreement, Precision, latency, error rate)
+  - [ ] Rollback criteria (Agreement drop > 2%, Precision drop > 5%, critical errors)
 - [ ] P5-03: Domain-Specific Reranker Training (pending)
 
 ### Next-Phase: Productization & Scale (Feb 20+)
