@@ -1,0 +1,338 @@
+{
+  "metadata": {
+    "run_id": "p5_06a_directional_candidate",
+    "variant_id": "p5_06a_directional_candidate",
+    "seed": 42,
+    "repeats": 1,
+    "timestamp_utc": "2026-02-14T07:15:22.645872+00:00",
+    "continue_mode": "CONTINUE_SAFE",
+    "status": "READY",
+    "confidence": 0.85,
+    "risk_level": "low",
+    "governance_semantics_changed": false
+  },
+  "preflight": {
+    "inputs_checked": [
+      "research/ab-eval/out/full_set_review_export_1770612809775.json",
+      "research/ab-eval/out/g3_v3_gated_results.json",
+      "research/ab-eval/data/queries.medium.human.v1.json",
+      "research/ab-eval/data/corpus.200.json",
+      "research/ab-eval/out/week4_p3_hurts_rootcause.json"
+    ],
+    "blockers": [],
+    "assumptions_applied": [
+      "Used confidence in g3_v3_gated_results.json as ranking proxy (higher confidence => higher rank).",
+      "Joined font metadata from corpus.200.json by font name for penalty checks.",
+      "Used standard English stopword list for over_strict_semantic token-miss checks."
+    ],
+    "rootcause_context": {
+      "decision": "NO_ACTIONABLE_SINGLE_VARIABLE",
+      "top_motif_share": 0.29
+    }
+  },
+  "selection": {
+    "hard_negative_definition": "human==0 (after remap) AND baseline v3 rank<=10",
+    "motifs": [
+      "over_strict_semantic",
+      "vintage_era"
+    ],
+    "target_total": 12,
+    "target_per_motif": 6,
+    "pool_counts": {
+      "vintage_era": 32,
+      "over_strict_semantic": 17,
+      "total": 49
+    },
+    "selected_counts": {
+      "over_strict_semantic": 6,
+      "vintage_era": 6
+    },
+    "selected_total": 12,
+    "quota_fill_notes": [],
+    "sort_policy": "confidence desc, tie query_id asc, then font_name asc"
+  },
+  "selected_pairs": [
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Goblin One",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 2,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 3,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Major Mono Display",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 4,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 4,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Marcellus SC",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 5,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 5,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Playwrite CL Guides",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 6,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 6,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Tai Heritage Pro",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 7,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 7,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_003",
+      "query_text": "condensed industrial sans for tight headlines",
+      "query_class": "visual_shape",
+      "font_name": "Tienne",
+      "motif": "over_strict_semantic",
+      "human": 0,
+      "baseline_rank": 8,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 8,
+      "treatment_score": 0.9,
+      "penalty_applied": 0.1,
+      "penalty_reason": "strict_query_token_miss"
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "query_class": "historical_context",
+      "font_name": "Holtwood One SC",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 1,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 1,
+      "treatment_score": 0.88,
+      "penalty_applied": 0.12,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "query_class": "historical_context",
+      "font_name": "Pangolin",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 3,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 3,
+      "treatment_score": 0.88,
+      "penalty_applied": 0.12,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_024",
+      "query_text": "retro 8-bit computer font from the 80s",
+      "query_class": "historical_context",
+      "font_name": "Passion One",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 4,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 4,
+      "treatment_score": 0.88,
+      "penalty_applied": 0.12,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "query_class": "historical_context",
+      "font_name": "Noto Sans Nag Mundari",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 1,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 1,
+      "treatment_score": 0.88,
+      "penalty_applied": 0.12,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "query_class": "historical_context",
+      "font_name": "Reddit Mono",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 2,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 2,
+      "treatment_score": 0.88,
+      "penalty_applied": 0.12,
+      "penalty_reason": "vintage_term_absent"
+    },
+    {
+      "query_id": "cq_025",
+      "query_text": "art deco inspired display font",
+      "query_class": "historical_context",
+      "font_name": "Roboto Flex",
+      "motif": "vintage_era",
+      "human": 0,
+      "baseline_rank": 3,
+      "baseline_confidence": 1.0,
+      "v3_pred": 1,
+      "p5_04a_pred": 1,
+      "treatment_rank": 3,
+      "treatment_score": 0.88,
+      "penalty_applied": 0.12,
+      "penalty_reason": "vintage_term_absent"
+    }
+  ],
+  "intervention": {
+    "variant_id": "p5_06a_directional_candidate",
+    "vintage_penalty": 0.12,
+    "strict_penalty": 0.1,
+    "score_floor": 0.0,
+    "rerank_tie_break": "adjusted_score desc, then baseline_confidence desc, then font_name asc",
+    "query_rankings": {
+      "cq_003": {
+        "query_text": "condensed industrial sans for tight headlines",
+        "motif": "over_strict_semantic",
+        "baseline_top10": [
+          "Encode Sans Condensed",
+          "Goblin One",
+          "Kumbh Sans",
+          "Major Mono Display",
+          "Marcellus SC",
+          "Playwrite CL Guides",
+          "Tai Heritage Pro",
+          "Tienne",
+          "Londrina Sketch",
+          "Nova Mono"
+        ],
+        "treatment_top10": [
+          "Encode Sans Condensed",
+          "Kumbh Sans",
+          "Goblin One",
+          "Major Mono Display",
+          "Marcellus SC",
+          "Playwrite CL Guides",
+          "Tai Heritage Pro",
+          "Tienne",
+          "Londrina Sketch",
+          "Nova Mono"
+        ],
+        "penalized_count": 11
+      },
+      "cq_024": {
+        "query_text": "retro 8-bit computer font from the 80s",
+        "motif": "vintage_era",
+        "baseline_top10": [
+          "Holtwood One SC",
+          "Jersey 20",
+          "Pangolin",
+          "Passion One",
+          "Material Symbols",
+          "Syne Mono",
+          "Rubik Storm"
+        ],
+        "treatment_top10": [
+          "Holtwood One SC",
+          "Jersey 20",
+          "Pangolin",
+          "Passion One",
+          "Material Symbols",
+          "Syne Mono",
+          "Rubik Storm"
+        ],
+        "penalized_count": 7
+      },
+      "cq_025": {
+        "query_text": "art deco inspired display font",
+        "motif": "vintage_era",
+        "baseline_top10": [
+          "Noto Sans Nag Mundari",
+          "Reddit Mono",
+          "Roboto Flex",
+          "TASA Orbiter",
+          "Federant",
+          "Iceberg",
+          "Alata",
+          "Bungee Inline",
+          "Kumbh Sans",
+          "Kumar One"
+        ],
+        "treatment_top10": [
+          "Noto Sans Nag Mundari",
+          "Reddit Mono",
+          "Roboto Flex",
+          "TASA Orbiter",
+          "Federant",
+          "Iceberg",
+          "Alata",
+          "Bungee Inline",
+          "Kumbh Sans",
+          "Kumar One"
+        ],
+        "penalized_count": 10
+      }
+    }
+  }
+}

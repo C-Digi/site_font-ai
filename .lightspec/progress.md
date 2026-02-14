@@ -94,6 +94,13 @@
   - [x] Re-ran curation and coverage audit artifacts deterministically
   - [x] Result: `coverage_decision=SUFFICIENT` (`over_strict_semantic=6`, `vintage_era=6`)
   - [x] Governance semantics unchanged (pre-trial gate only; G1/G2/G3/G4 unchanged)
+- [x] P5-06A: Directional Intervention Trial (Coverage-Remediated Balanced Slice)
+  - [x] Executed bounded offline trial using P5-05C balanced slice (12 pairs; 6 per motif)
+  - [x] Deterministic controls: seed=42, repeats=1, penalties unchanged (vintage=-0.12, strict=-0.10)
+  - [x] Result: NO-GO (neutral deltas; G1 fail, G3 fail, G2 pass)
+  - [x] Finding: Penalty magnitudes insufficient to produce boundary flips on saturated baseline confidence
+  - [x] Artifacts: `REPORT_P5_06A_DIRECTIONAL.md`, variant/comparison/gates JSON
+  - [x] Governance semantics unchanged (directional evidence only; not global promotion proof)
 - [ ] P5-03: Domain-Specific Reranker Training (pending)
 
 ### Next-Phase: Productization & Scale (Feb 20+)
@@ -106,6 +113,7 @@
   - [x] P5-05A: Coverage sufficiency pre-trial gate (INSUFFICIENT)
   - [x] P5-05B-EXPANDED: Motif-detection expansion + coverage re-audit (INSUFFICIENT)
   - [x] P5-05C: Coverage remediation executed; pre-trial coverage now `SUFFICIENT`
+  - [x] P5-06A: Directional intervention trial on balanced slice (NO-GO, neutral deltas)
   - [ ] Scale eval dataset to Complex v2 (Human SSoT)
 - [ ] **VL Embedding Re-evaluation**
   - [x] P5-03A: Benchmarking image+text (B2) vs text-only baseline (using VL-enriched descriptions) completed (NO-GO for default replacement)

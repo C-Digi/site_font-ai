@@ -189,6 +189,7 @@ def main() -> None:
     parser.add_argument("--repeats", type=int, default=1)
     parser.add_argument("--target-total", type=int, default=12)
     parser.add_argument("--target-per-motif", type=int, default=6)
+    parser.add_argument("--variant-id", default="p5_04a_hardneg_candidate")
     parser.add_argument("--variant-out", default="research/ab-eval/out/p5_04a_hardneg_candidate.json")
     parser.add_argument("--comparison-out", default="research/ab-eval/out/p5_04a_v3_vs_hardneg_comparison.json")
     args = parser.parse_args()
@@ -491,8 +492,8 @@ def main() -> None:
 
     candidate_artifact = {
         "metadata": {
-            "run_id": "p5_04a_hardneg_trial",
-            "variant_id": "p5_04a_hardneg_candidate",
+            "run_id": args.variant_id,
+            "variant_id": args.variant_id,
             "seed": args.seed,
             "repeats": args.repeats,
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
@@ -538,7 +539,7 @@ def main() -> None:
         },
         "selected_pairs": selected_eval_rows,
         "intervention": {
-            "variant_id": "p5_04a_hardneg_candidate",
+            "variant_id": args.variant_id,
             "vintage_penalty": 0.12,
             "strict_penalty": 0.10,
             "score_floor": 0.0,
@@ -549,8 +550,8 @@ def main() -> None:
 
     comparison = {
         "metadata": {
-            "run_id": "p5_04a_v3_vs_hardneg",
-            "variant_id": "p5_04a_hardneg_candidate",
+            "run_id": f"v3_vs_{args.variant_id}",
+            "variant_id": args.variant_id,
             "baseline": "v3",
             "seed": args.seed,
             "repeats": args.repeats,
@@ -562,7 +563,7 @@ def main() -> None:
         },
         "variants": {
             "v3": baseline_metrics,
-            "p5_04a_hardneg_candidate": treatment_metrics,
+            args.variant_id: treatment_metrics,
             # Compatibility aliases for existing validator flow.
             "A": baseline_metrics,
             "B2": treatment_metrics,
