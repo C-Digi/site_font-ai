@@ -555,6 +555,34 @@ After a strategy passes all canonical gates (G1-G4), staged rollout is required 
 - [ ] **Baseline metrics captured:** Current production metrics (Agreement, Precision, latency, error rate) recorded for comparison.
 - [ ] **Rollback procedure documented:** Step-by-step rollback instructions verified and accessible.
 
+### 6.1.5 Internal-Only Canary (Pre-Production)
+
+Before production traffic exposure, an internal-only canary validates code wiring, log observability, and basic functionality in a staging/internal environment.
+
+**Scope:**
+- Internal/staging environment only (no production traffic)
+- Code wiring and log marker verification
+- Smoke query validation (3-5 queries covering key motifs)
+- Rollback procedure verification
+
+**Decision Criteria:**
+
+| Outcome | Criteria | Next Step |
+| :--- | :--- | :--- |
+| **ADVANCE** | All smoke queries pass; log markers verified; no errors | Proceed to production traffic canary (6.2) |
+| **HOLD** | Blocker identified (API key, dependency, etc.) | Remediate and re-run internal canary |
+
+**Checklist:**
+- [ ] Baseline strategy (`v3`) log marker verified
+- [ ] Treatment strategy (`p5_07a`) log marker verified
+- [ ] Smoke queries completed (3-5 queries)
+- [ ] Rollback to baseline verified
+- [ ] No critical errors in logs
+
+**Artifact:** `research/ab-eval/CANARY_<STRATEGY>_INTERNAL.md`
+
+**Note:** Internal-only canary does not modify gate semantics (G1/G2/G3/G4). It validates operational readiness only.
+
 ### 6.2 Staged Exposure Tiers
 
 Recommended exposure progression:

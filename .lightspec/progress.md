@@ -127,6 +127,15 @@
   - [x] Gate semantics unchanged (per EVALUATION_CONTRACT.md)
   - [x] Decision: GO for staged rollout
 - [ ] P5-07D: Staged Rollout Execution
+  - [x] P5-07D-B-R2: Internal-only canary validation
+    - [x] Code wiring verified (`getRetrievalStrategy()` defaults to `v3`)
+    - [x] Log marker verified (`[retrieval] strategy=...`)
+    - [x] Baseline check (`v3`) passed
+    - [x] Rollback procedure verified (default is `v3`)
+    - [x] Decision: HOLD (Gemini API key expired, cannot complete smoke queries)
+    - [x] Artifact: `CANARY_P5_07A_INTERNAL.md`
+    - [x] Gate semantics unchanged
+  - [ ] P5-07D-C: Production traffic canary (blocked pending API key renewal)
   - [ ] Pre-deployment verification (environment, config, dependencies)
   - [ ] Staged exposure tiers (canary → 10% → 50% → 100%)
   - [ ] Monitoring thresholds (Agreement, Precision, latency, error rate)
